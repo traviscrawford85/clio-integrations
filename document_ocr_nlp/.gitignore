@@ -1,9 +1,0 @@
-__pycache__/
-*.pyc
-output/
-extracted/
-*.pdf
-*.png
-*.jpg
-.env
-.venv

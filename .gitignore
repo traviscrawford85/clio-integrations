@@ -1,3 +1,4 @@
+# -----------------------------------
 # Python
 __pycache__/
 *.py[cod]
@@ -6,6 +7,7 @@ __pycache__/
 *.so
 *.egg
 *.egg-info/
+.eggs/
 dist/
 build/
 
@@ -15,27 +17,26 @@ env/
 venv/
 docs-env/
 
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# VSCode
-.vscode/
-
-# System
-.DS_Store
-Thumbs.db
-
 # Environment Variables
 .env
 .env.*
 
-# Output / Generated Docs
-output/
-*.docx
-*.json
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
 
 # Logs
 *.log
+
+# Output / Generated Docs
+output/
+extracted/
+branding/
+signatures/
+*.docx
+*.json
 
 # PDF OCR Intermediates
 *.ppm
@@ -43,5 +44,20 @@ output/
 *.jpg
 *.jpeg
 
+# Testing / Coverage
+.tox/
+.pytest_cache/
+.coverage
+.cache
+*.cover
+
 # Node (in case of JS utils or hybrid apps)
 node_modules/
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+
+# Clio Python client-specific (optional)
+clio_python_client/env/
+clio_python_client/target/
