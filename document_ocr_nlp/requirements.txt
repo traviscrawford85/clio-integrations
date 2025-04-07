@@ -1,0 +1,7 @@
+pdfplumber
+pytesseract
+pdf2image
+Pillow
+spacy
+dateparser
+pyyaml

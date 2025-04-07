@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual Environments
+.venv/
+env/
+venv/
+docs-env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VSCode
+.vscode/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+.env
+.env.*
+
+# Output / Generated Docs
+output/
+*.docx
+*.json
+
+# Logs
+*.log
+
+# PDF OCR Intermediates
+*.ppm
+*.png
+*.jpg
+*.jpeg
+
+# Node (in case of JS utils or hybrid apps)
+node_modules/
