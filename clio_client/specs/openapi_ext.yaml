@@ -1,0 +1,44 @@
+/matters/{id}/compute-statute-of-limitations.json:
+  post:
+    tags:
+      - Matters
+    summary: Compute statute of limitations
+    operationId: computeStatuteOfLimitations
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      required: false
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ComputeStatuteRequest'
+    responses:
+      '200':
+        description: Statute computed successfully
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComputeStatuteResponse'
+
+components:
+  schemas:
+    ComputeStatuteRequest:
+      type: object
+      properties:
+        override_date:
+          type: string
+          format: date
+    ComputeStatuteResponse:
+      type: object
+      properties:
+        matter_id:
+          type: integer
+        statute_due_date:
+          type: string
+          format: date
+        status:
+          type: string
