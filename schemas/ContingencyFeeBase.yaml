@@ -1,0 +1,41 @@
+description: ContingencyFeeBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ContingencyFee*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ContingencyFee*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ContingencyFee* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ContingencyFee* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  show_contingency_award:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *ContingencyFee* is posted or on a bill
+    title: Show Contingency Award
+title: ContingencyFeeBase
+type: object

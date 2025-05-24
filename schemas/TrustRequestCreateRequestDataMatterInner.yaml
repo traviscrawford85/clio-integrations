@@ -1,0 +1,25 @@
+description: TrustRequestCreateRequestDataMatterInner
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The matter id associated to the TrustRequest
+    title: Id
+  trust_amount:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The matter level TrustRequest's amount
+    title: Trust Amount
+  note:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The client level TrustRequest note
+    title: Note
+title: TrustRequestCreateRequestDataMatterInner
+type: object

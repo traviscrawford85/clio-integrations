@@ -1,0 +1,64 @@
+$defs:
+  MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod:
+    description: MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+    properties:
+      id:
+        description: The unique identifier for a single NotificationMethod associated
+          with the Reminder. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+    type: object
+  ReminderCreateRequestData:
+    description: ReminderCreateRequestData
+    properties:
+      duration_unit:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Unit to measure the duration value in.
+        title: Duration Unit
+      duration_value:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Time measured in `duration_unit` to remind user before the subject.
+        title: Duration Value
+      notification_method:
+        $ref: '#/$defs/MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod'
+      subject:
+        $ref: '#/$defs/ReminderCreateRequestDataSubject'
+    required:
+    - notification_method
+    - subject
+    title: ReminderCreateRequestData
+    type: object
+  ReminderCreateRequestDataSubject:
+    description: ReminderCreateRequestDataSubject
+    properties:
+      id:
+        description: The unique identifier for a single CalendarEntry and Task associated
+          with the Reminder. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+      type:
+        description: Model type of the Subject.
+        title: Type
+        type: string
+    required:
+    - id
+    - type
+    title: ReminderCreateRequestDataSubject
+    type: object
+description: ReminderCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/ReminderCreateRequestData'
+required:
+- data
+title: ReminderCreateRequest
+type: object

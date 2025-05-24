@@ -1,0 +1,26 @@
+description: MedicalBillUpdateRequestDataPayersInner
+properties:
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Lien amount.
+    title: Amount
+  holder_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Lien holder ID
+    title: Holder Id
+  mark_as_lien:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Mark record as Lien.
+    title: Mark As Lien
+title: MedicalBillUpdateRequestDataPayersInner
+type: object

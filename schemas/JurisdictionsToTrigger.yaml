@@ -1,0 +1,71 @@
+description: JurisdictionsToTrigger
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *JurisdictionsToTrigger*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *JurisdictionsToTrigger*
+    title: Etag
+  system_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Server id
+    title: System Id
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A detailed description of the *JurisdictionsToTrigger*
+    title: Description
+  do_not_recalculate:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the associated dates should not be recalculated
+    title: Do Not Recalculate
+  is_served:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the user must select a Date Offset (Service Type)
+    title: Is Served
+  is_requirements_required:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the trigger has requirements
+    title: Is Requirements Required
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *JurisdictionsToTrigger* was created (as a ISO-8601
+      timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *JurisdictionsToTrigger* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: JurisdictionsToTrigger
+type: object

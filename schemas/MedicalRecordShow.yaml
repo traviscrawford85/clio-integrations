@@ -1,0 +1,250 @@
+$defs:
+  MatterBase:
+    description: MatterBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Matter*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Matter*
+        title: Etag
+      number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number given to the *Matter* within an account
+        title: Number
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The reference and label of the *Matter*. Depending on the account's
+          manual_matter_numbering setting, this is either read only (generated) or
+          customizable.
+        title: Display Number
+      custom_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: User defined custom number of the *Matter*
+        title: Custom Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the matter
+        title: Currency
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The detailed description of the *Matter*
+        title: Description
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current status of the *Matter*
+        title: Status
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The location of the *Matter*
+        title: Location
+      client_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Client Reference string for external uses
+        title: Client Reference
+      client_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Client ID
+        title: Client Id
+      billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether this matter is billable
+        title: Billable
+      maildrop_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A unique Maildrop email address for the matter
+        title: Maildrop Address
+      billing_method:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Billing method of this matter
+        title: Billing Method
+      open_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to open (as a ISO-8601 date)
+        title: Open Date
+      close_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to closed (as a ISO-8601 date)
+        title: Close Date
+      pending_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to pending (as a ISO-8601 date)
+        title: Pending Date
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      shared:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the matter is currently shared with Clio Connect
+        title: Shared
+      has_tasks:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the matter has any tasks.
+        title: Has Tasks
+      last_activity_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The greatest date out of all of the activities on the matter
+          (as a ISO-8601 date)
+        title: Last Activity Date
+      matter_stage_updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter stage was last updated (as a ISO-8601 date)
+        title: Matter Stage Updated At
+    title: MatterBase
+    type: object
+  MedicalRecord:
+    description: MedicalRecord
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *MedicalRecord*
+        title: Id
+      document_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The id of the document associated with the Medical Record
+        title: Document Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *MedicalRecord*
+        title: Etag
+      end_date:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: End date for *MedicalRecord* (as a ISO-8601 date)
+        title: End Date
+      start_date:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: Start date for *MedicalRecord* (as a ISO-8601 date)
+        title: Start Date
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MedicalRecord* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MedicalRecord* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      matter:
+        anyOf:
+        - $ref: '#/$defs/MatterBase'
+        - type: 'null'
+        default: null
+    title: MedicalRecord
+    type: object
+description: MedicalRecordShow
+properties:
+  data:
+    $ref: '#/$defs/MedicalRecord'
+required:
+- data
+title: MedicalRecordShow
+type: object

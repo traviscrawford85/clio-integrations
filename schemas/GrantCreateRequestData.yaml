@@ -1,0 +1,11 @@
+description: GrantCreateRequestData
+properties:
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Name of the Grant.
+    title: Name
+title: GrantCreateRequestData
+type: object

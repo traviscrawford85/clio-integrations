@@ -1,0 +1,49 @@
+description: PicklistOption
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *PicklistOption*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *PicklistOption*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *PicklistOption* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *PicklistOption* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  option:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The value of the *PicklistOption*
+    title: Option
+  deleted_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *PicklistOption* was deleted (as a ISO-8601 timestamp)
+    title: Deleted At
+title: PicklistOption
+type: object

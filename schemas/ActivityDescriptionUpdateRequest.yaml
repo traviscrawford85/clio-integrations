@@ -1,0 +1,107 @@
+$defs:
+  ActivityDescriptionCreateRequestDataRate:
+    description: ActivityDescriptionCreateRequestDataRate
+    properties:
+      amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: 0
+        description: The rate of the ActivityDescription. This is ignored for 'User'
+          rates.
+        title: Amount
+      non_billable_amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: 0
+        description: The non billable rate of the ActivityDescription. This is ignored
+          for 'User' rates.
+        title: Non Billable Amount
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: What kind of rate it will be.
+        title: Type
+    title: ActivityDescriptionCreateRequestDataRate
+    type: object
+  ActivityDescriptionUpdateRequestData:
+    description: ActivityDescriptionUpdateRequestData
+    properties:
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the ActivityDescription.
+        title: Currency
+      default:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not this should be the API User's default ActivityDescription.
+        title: Default
+      groups:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ActivityDescriptionUpdateRequestDataGroupsInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Groups
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the ActivityDescription.
+        title: Name
+      rate:
+        anyOf:
+        - $ref: '#/$defs/ActivityDescriptionCreateRequestDataRate'
+        - type: 'null'
+        default: null
+      visible_to_co_counsel:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not co counsels on the account can see this ActivityDescription.
+        title: Visible To Co Counsel
+    title: ActivityDescriptionUpdateRequestData
+    type: object
+  ActivityDescriptionUpdateRequestDataGroupsInner:
+    description: ActivityDescriptionUpdateRequestDataGroupsInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Group associated with the
+          ActivityDescription. The keyword `null` is not valid for this field.
+        title: Id
+      _deleted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: A flag to determine if this Group should lose access to this
+          ActivityDescription.
+        title: Deleted
+    title: ActivityDescriptionUpdateRequestDataGroupsInner
+    type: object
+description: ActivityDescriptionUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/ActivityDescriptionUpdateRequestData'
+required:
+- data
+title: ActivityDescriptionUpdateRequest
+type: object

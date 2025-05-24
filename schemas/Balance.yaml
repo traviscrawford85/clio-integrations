@@ -1,0 +1,42 @@
+description: Balance
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Balance*
+    title: Id
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount for this Balance.
+    title: Amount
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of Balance this data is for.
+    title: Type
+  interest_amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The interest amount for this Balance.
+    title: Interest Amount
+  due:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount due for this Balance, factoring in applicable discounts.
+    title: Due
+title: Balance
+type: object

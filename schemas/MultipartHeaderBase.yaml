@@ -1,0 +1,18 @@
+description: MultipartHeaderBase
+properties:
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Required HTTP header field name for uploading.
+    title: Name
+  value:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Required HTTP header field value for uploading.
+    title: Value
+title: MultipartHeaderBase
+type: object

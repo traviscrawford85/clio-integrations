@@ -1,0 +1,210 @@
+$defs:
+  CommunicationCreateRequestDataMatter:
+    description: CommunicationCreateRequestDataMatter
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Matter associated with the
+          Communication. The keyword `null` is not valid for this field.
+        title: Id
+    title: CommunicationCreateRequestDataMatter
+    type: object
+  CommunicationCreateRequestDataReceiversInner:
+    description: CommunicationCreateRequestDataReceiversInner
+    properties:
+      _deleted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the receivers should be deleted.
+        title: Deleted
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique ids for the receivers of this Communication.
+        title: Id
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Types of the receivers of this Communication.
+        title: Type
+    title: CommunicationCreateRequestDataReceiversInner
+    type: object
+  CommunicationCreateRequestDataSendersInner:
+    description: CommunicationCreateRequestDataSendersInner
+    properties:
+      _deleted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the senders should be deleted.
+        title: Deleted
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique ids for the senders of this Communication.
+        title: Id
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Types of the senders of this Communication.
+        title: Type
+    title: CommunicationCreateRequestDataSendersInner
+    type: object
+  CommunicationUpdateRequestDataExternalPropertiesInner:
+    description: CommunicationUpdateRequestDataExternalPropertiesInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single ExternalProperty associated
+          with the Communication. The keyword `null` is not valid for this field.
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: 'The ExternalProperty name. Note: **there is a limit of 5 external_properties
+          per Communication**'
+        title: Name
+      value:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The ExternalProperty value.
+        title: Value
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated ExternalProperty is present, the ExternalProperty
+          is deleted from the Communication.
+        title: Destroy
+    title: CommunicationUpdateRequestDataExternalPropertiesInner
+    type: object
+  CommunicationUpdateRequestDataNotificationEventSubscribersInner:
+    description: CommunicationUpdateRequestDataNotificationEventSubscribersInner
+    properties:
+      user_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: 'The unique identifier for a User to be added as a notification
+          event subscriber to the Phone Log Communication. Note: Only applicable to
+          Phone Log Communications, invalid for other communication types.'
+        title: User Id
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'Unique id of this Communication. Note: Only applicable to Phone
+          Log Communications, invalid for other communication types.'
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: 'Whether or not the notification event subscriber should be deleted.
+          Note: Only applicable to Phone Log Communications, invalid for other communication
+          types.'
+        title: Destroy
+    title: CommunicationUpdateRequestDataNotificationEventSubscribersInner
+    type: object
+description: CommunicationUpdateRequestData
+properties:
+  body:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The body value.
+    title: Body
+  date:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The date for the Communication. (Expects an ISO-8601 date.)
+    title: Date
+  external_properties:
+    anyOf:
+    - items:
+        $ref: '#/$defs/CommunicationUpdateRequestDataExternalPropertiesInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: External Properties
+  matter:
+    anyOf:
+    - $ref: '#/$defs/CommunicationCreateRequestDataMatter'
+    - type: 'null'
+    default: null
+  notification_event_subscribers:
+    anyOf:
+    - items:
+        $ref: '#/$defs/CommunicationUpdateRequestDataNotificationEventSubscribersInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Notification Event Subscribers
+  received_at:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The date-time for the Communication. (Expects an ISO-8601 date-time.)
+    title: Received At
+  receivers:
+    anyOf:
+    - items:
+        $ref: '#/$defs/CommunicationCreateRequestDataReceiversInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Receivers
+  senders:
+    anyOf:
+    - items:
+        $ref: '#/$defs/CommunicationCreateRequestDataSendersInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Senders
+  subject:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The subject value.
+    title: Subject
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Type of the Communication.
+    title: Type
+title: CommunicationUpdateRequestData
+type: object

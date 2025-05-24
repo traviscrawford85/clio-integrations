@@ -1,0 +1,114 @@
+description: TaskBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Task*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Task*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *Task*
+    title: Name
+  status:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Status of the *Task*. (Note that users without advanced tasks can
+      only have either complete or pending)
+    title: Status
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A detailed description of the *Task*
+    title: Description
+  priority:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The priority of the *Task*
+    title: Priority
+  due_at:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date the *Task* is due (as a ISO-8601 date)
+    title: Due At
+  permission:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The permission of the *Task*
+    title: Permission
+  completed_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Task* was completed (as a ISO-8601 timestamp)
+    title: Completed At
+  notify_completion:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether to notify the assigner of the task's completion
+    title: Notify Completion
+  statute_of_limitations:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the task is a statute of limitations
+    title: Statute Of Limitations
+  time_estimated:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Time the *Task* should take to complete
+    title: Time Estimated
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Task* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Task* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  time_entries_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of time entries associated with this task
+    title: Time Entries Count
+title: TaskBase
+type: object

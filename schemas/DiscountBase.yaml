@@ -1,0 +1,42 @@
+description: DiscountBase
+properties:
+  rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The rate of the *Discount%*
+    title: Rate
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of *Discount* being applied in your *Discount* rate.
+    title: Type
+  note:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A note for your *Discount*
+    title: Note
+  early_payment_rate:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The % discount that will be applied if your *Discount* is paid within
+      the early payment period.
+    title: Early Payment Rate
+  early_payment_period:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of days for your *Discount* period. If your bill is paid
+      within this time, apply your *Discount* rate to the bill.
+    title: Early Payment Period
+title: DiscountBase
+type: object

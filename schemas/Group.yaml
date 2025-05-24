@@ -1,0 +1,200 @@
+$defs:
+  UserBase:
+    description: UserBase
+    properties:
+      account_owner:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is the owner of the account
+        title: Account Owner
+      clio_connect:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a Clio Connect user
+        title: Clio Connect
+      court_rules_default_attendee:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a default attendee for court rules events
+        title: Court Rules Default Attendee
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was created (as a ISO-8601 timestamp)
+        title: Created At
+      default_calendar_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default calendar id for *User*.
+        title: Default Calendar Id
+      email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The email of the *User*
+        title: Email
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is allowed to log in
+        title: Enabled
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *User*
+        title: Etag
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The first name of the *User*
+        title: First Name
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *User*
+        title: Id
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *User*
+        title: Initials
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The last name of the *User*
+        title: Last Name
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *User*
+        title: Name
+      phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number for the *User*.
+        title: Phone Number
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default user activity rate for *User*.
+        title: Rate
+      roles:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: An array of roles assigned to this *User*
+        title: Roles
+      subscription_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subscription type of the *User*
+        title: Subscription Type
+      time_zone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The selected time zone of the *User*
+        title: Time Zone
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: UserBase
+    type: object
+description: Group
+properties:
+  client_connect_user:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the Group is a UserGroup for a Clio Connect User
+    title: Client Connect User
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Group*
+    title: Etag
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Group*
+    title: Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *Group*
+    title: Name
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *Group*
+    title: Type
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Group* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  users:
+    anyOf:
+    - items:
+        $ref: '#/$defs/UserBase'
+      type: array
+    - type: 'null'
+    default: null
+    description: User
+    title: Users
+title: Group
+type: object

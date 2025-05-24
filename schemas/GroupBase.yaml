@@ -1,0 +1,47 @@
+description: GroupBase
+properties:
+  client_connect_user:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the Group is a UserGroup for a Clio Connect User
+    title: Client Connect User
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Group*
+    title: Etag
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Group*
+    title: Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *Group*
+    title: Name
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *Group*
+    title: Type
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Group* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: GroupBase
+type: object

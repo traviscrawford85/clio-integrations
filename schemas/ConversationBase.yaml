@@ -1,0 +1,83 @@
+description: ConversationBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Conversation*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Conversation*
+    title: Etag
+  archived:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the conversation has been archived
+    title: Archived
+  read_only:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the conversation is read only
+    title: Read Only
+  current_user_is_member:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the current user is a member of this conversation
+    title: Current User Is Member
+  subject:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The subject of the *Conversation*
+    title: Subject
+  message_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of messages in this conversation
+    title: Message Count
+  time_entries_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of time entries applied to this conversation
+    title: Time Entries Count
+  read:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether any messages in this conversation have been viewed
+    title: Read
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Conversation* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Conversation* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: ConversationBase
+type: object

@@ -1,0 +1,71 @@
+description: BankTransferBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *BankTransfer*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *BankTransfer*
+    title: Etag
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount of the transfer.
+    title: Amount
+  date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The date of the transfer.
+    title: Date
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The description of the transfer.
+    title: Description
+  primary_authorizer:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The primary authorizer of the transfer.
+    title: Primary Authorizer
+  secondary_authorizer:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The secondary authorizer of the transfer.
+    title: Secondary Authorizer
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BankTransfer* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BankTransfer* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: BankTransferBase
+type: object

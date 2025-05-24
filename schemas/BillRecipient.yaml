@@ -1,0 +1,101 @@
+$defs:
+  BillRecipientContactBase:
+    description: BillRecipientContactBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Contact*
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *Contact*
+        title: Name
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: First name of the Person
+        title: First Name
+      middle_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Middle name of the Person
+        title: Middle Name
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Last name of the Person
+        title: Last Name
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Contact*
+        title: Type
+      primary_email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary email address associated with this *Contact*.
+        title: Primary Email Address
+    title: BillRecipientContactBase
+    type: object
+description: BillRecipient
+properties:
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BillRecipient* was created (as a ISO-8601 timestamp)
+    title: Created At
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *BillRecipient*
+    title: Etag
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *BillRecipient*
+    title: Id
+  on_all_matters:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: If the associated contact is a recipient for all of the bill's matters
+    title: On All Matters
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BillRecipient* was updated (as a ISO-8601 timestamp)
+    title: Updated At
+  recipient:
+    anyOf:
+    - $ref: '#/$defs/BillRecipientContactBase'
+    - type: 'null'
+    default: null
+title: BillRecipient
+type: object

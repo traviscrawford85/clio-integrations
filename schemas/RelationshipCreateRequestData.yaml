@@ -1,0 +1,48 @@
+$defs:
+  MatterUpdateRequestDataRelationshipsInnerContact:
+    description: MatterUpdateRequestDataRelationshipsInnerContact
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Contact associated with the
+          Relationship. The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterUpdateRequestDataRelationshipsInnerContact
+    type: object
+  RelationshipCreateRequestDataMatter:
+    description: RelationshipCreateRequestDataMatter
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Matter associated with the
+          Relationship. The keyword `null` is not valid for this field.
+        title: Id
+    title: RelationshipCreateRequestDataMatter
+    type: object
+description: RelationshipCreateRequestData
+properties:
+  contact:
+    anyOf:
+    - $ref: '#/$defs/MatterUpdateRequestDataRelationshipsInnerContact'
+    - type: 'null'
+    default: null
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Describe the relationship between a Contact and a Matter.
+    title: Description
+  matter:
+    anyOf:
+    - $ref: '#/$defs/RelationshipCreateRequestDataMatter'
+    - type: 'null'
+    default: null
+title: RelationshipCreateRequestData
+type: object

@@ -1,0 +1,518 @@
+$defs:
+  Conversation:
+    description: Conversation
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Conversation*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Conversation*
+        title: Etag
+      archived:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the conversation has been archived
+        title: Archived
+      read_only:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the conversation is read only
+        title: Read Only
+      current_user_is_member:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the current user is a member of this conversation
+        title: Current User Is Member
+      subject:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subject of the *Conversation*
+        title: Subject
+      message_count:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of messages in this conversation
+        title: Message Count
+      time_entries_count:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of time entries applied to this conversation
+        title: Time Entries Count
+      read:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether any messages in this conversation have been viewed
+        title: Read
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Conversation* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Conversation* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      last_message:
+        anyOf:
+        - $ref: '#/$defs/ConversationMessageBase'
+        - type: 'null'
+        default: null
+      first_message:
+        anyOf:
+        - $ref: '#/$defs/ConversationMessageBase'
+        - type: 'null'
+        default: null
+      matter:
+        anyOf:
+        - $ref: '#/$defs/MatterBase'
+        - type: 'null'
+        default: null
+      messages:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ConversationMessageBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: ConversationMessage
+        title: Messages
+      documents:
+        anyOf:
+        - items:
+            $ref: '#/$defs/DocumentBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: Document
+        title: Documents
+      memberships:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ConversationMembership'
+          type: array
+        - type: 'null'
+        default: null
+        description: ConversationMembership
+        title: Memberships
+    title: Conversation
+    type: object
+  ConversationMembership:
+    description: ConversationMembership
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ConversationMembership*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ConversationMembership*
+        title: Etag
+      read:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the ConversationMembership has been read by the
+          member
+        title: Read
+      archived:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the ConversationMembership has been archived by
+          the member
+        title: Archived
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ConversationMembership* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ConversationMembership* was last updated (as a
+          ISO-8601 timestamp)
+        title: Updated At
+      member:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        title: Member
+    title: ConversationMembership
+    type: object
+  ConversationMessageBase:
+    description: ConversationMessageBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ConversationMessage*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ConversationMessage*
+        title: Etag
+      date:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The creation date of the message in the current user's time zone
+        title: Date
+      body:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The main content of the *ConversationMessage*
+        title: Body
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ConversationMessage* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ConversationMessage* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+    title: ConversationMessageBase
+    type: object
+  DocumentBase:
+    description: DocumentBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Document*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Document*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Document* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Document* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      deleted_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Document* was deleted (as a ISO-8601 timestamp)
+        title: Deleted At
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Document*
+        title: Type
+      locked:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Document is locked. Locked Document cannot
+          be modified
+        title: Locked
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the Document
+        title: Name
+      received_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the last document version was received (as an ISO-8601
+          timestamp)
+        title: Received At
+      filename:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The uploaded file name of the latest document version.
+        title: Filename
+      size:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The file size
+        title: Size
+      content_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The uploaded file content type
+        title: Content Type
+    title: DocumentBase
+    type: object
+  MatterBase:
+    description: MatterBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Matter*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Matter*
+        title: Etag
+      number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number given to the *Matter* within an account
+        title: Number
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The reference and label of the *Matter*. Depending on the account's
+          manual_matter_numbering setting, this is either read only (generated) or
+          customizable.
+        title: Display Number
+      custom_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: User defined custom number of the *Matter*
+        title: Custom Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the matter
+        title: Currency
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The detailed description of the *Matter*
+        title: Description
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current status of the *Matter*
+        title: Status
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The location of the *Matter*
+        title: Location
+      client_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Client Reference string for external uses
+        title: Client Reference
+      client_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Client ID
+        title: Client Id
+      billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether this matter is billable
+        title: Billable
+      maildrop_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A unique Maildrop email address for the matter
+        title: Maildrop Address
+      billing_method:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Billing method of this matter
+        title: Billing Method
+      open_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to open (as a ISO-8601 date)
+        title: Open Date
+      close_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to closed (as a ISO-8601 date)
+        title: Close Date
+      pending_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to pending (as a ISO-8601 date)
+        title: Pending Date
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      shared:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the matter is currently shared with Clio Connect
+        title: Shared
+      has_tasks:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the matter has any tasks.
+        title: Has Tasks
+      last_activity_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The greatest date out of all of the activities on the matter
+          (as a ISO-8601 date)
+        title: Last Activity Date
+      matter_stage_updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter stage was last updated (as a ISO-8601 date)
+        title: Matter Stage Updated At
+    title: MatterBase
+    type: object
+description: ConversationShow
+properties:
+  data:
+    $ref: '#/$defs/Conversation'
+required:
+- data
+title: ConversationShow
+type: object

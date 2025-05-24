@@ -1,0 +1,101 @@
+description: DocumentVersionBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *DocumentVersion*
+    title: Id
+  document_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The ID of the parent document.
+    title: Document Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *DocumentVersion*
+    title: Etag
+  uuid:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: UUID associated with the DocumentVersion. UUID is required to mark
+      a document fully uploaded.
+    title: Uuid
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *DocumentVersion* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *DocumentVersion* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  filename:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The uploaded file name of the DocumentVersion.
+    title: Filename
+  size:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The size of the DocumentVersion in bytes.
+    title: Size
+  version_number:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The ordered number of when this DocumentVersion was uploaded.
+    title: Version Number
+  content_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A standard MIME type describing the format of the object data.
+    title: Content Type
+  received_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the DocumentVersion was received (as an ISO-8601 timestamp)
+    title: Received At
+  put_url:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A signed URL for uploading the file in a single operation. It expires
+      in 10 minutes. If the document is fully uploaded, the field is empty.
+    title: Put Url
+  fully_uploaded:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: True if the DocumentVersion is uploaded. False if the DocumentVersion
+      is being uploaded.
+    title: Fully Uploaded
+title: DocumentVersionBase
+type: object

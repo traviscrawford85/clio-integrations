@@ -1,0 +1,12 @@
+description: CommunicationCreateRequestDataNotificationEventSubscribersInner
+properties:
+  user_id:
+    description: 'The unique identifier for a User to be added as a notification event
+      subscriber to the Phone Log Communication. Note: Only applicable to Phone Log
+      Communications, invalid for other communication types.'
+    title: User Id
+    type: string
+required:
+- user_id
+title: CommunicationCreateRequestDataNotificationEventSubscribersInner
+type: object

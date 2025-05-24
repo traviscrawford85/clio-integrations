@@ -1,0 +1,93 @@
+$defs:
+  MatterCreateRequestDataCustomRateRatesInnerActivityDescription:
+    description: MatterCreateRequestDataCustomRateRatesInnerActivityDescription
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single ActivityDescription associated
+          with the Rate. The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterCreateRequestDataCustomRateRatesInnerActivityDescription
+    type: object
+  MatterCreateRequestDataCustomRateRatesInnerGroup:
+    description: MatterCreateRequestDataCustomRateRatesInnerGroup
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Group associated with the
+          Rate. The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterCreateRequestDataCustomRateRatesInnerGroup
+    type: object
+  MatterCreateRequestDataCustomRateRatesInnerUser:
+    description: MatterCreateRequestDataCustomRateRatesInnerUser
+    properties:
+      id:
+        description: The unique identifier for a single User associated with the Rate.
+          The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: MatterCreateRequestDataCustomRateRatesInnerUser
+    type: object
+description: MatterCreateRequestDataCustomRateRatesInner
+properties:
+  user:
+    $ref: '#/$defs/MatterCreateRequestDataCustomRateRatesInnerUser'
+  award:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The full amount of the award given. Only valid for ContingencyFee.
+      If given as an empty string, it will reset the ContingencyFee into the unawarded
+      state.
+    title: Award
+  note:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Detailed description of the rate. Only valid for ContingencyFee.
+    title: Note
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date the rate is for. Only valid for ContingencyFee. (Expects
+      an ISO-8601 date).
+    title: Date
+  rate:
+    anyOf:
+    - type: number
+    - type: integer
+    description: 'If `type` is `HourlyRate`, it is the dollar amount of the custom
+      rate of the User or Group for the Matter.  If `type` is `FlatRate`, it is the
+      dollar amount of the custom flat rate for the Matter.  If `type` is `ContingencyFee`,
+      it is the percentage of the contingency fee awarded to the user for the Matter. '
+    title: Rate
+  activity_description:
+    anyOf:
+    - $ref: '#/$defs/MatterCreateRequestDataCustomRateRatesInnerActivityDescription'
+    - type: 'null'
+    default: null
+  group:
+    anyOf:
+    - $ref: '#/$defs/MatterCreateRequestDataCustomRateRatesInnerGroup'
+    - type: 'null'
+    default: null
+required:
+- user
+- rate
+title: MatterCreateRequestDataCustomRateRatesInner
+type: object

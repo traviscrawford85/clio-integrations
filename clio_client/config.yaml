@@ -1,0 +1,42 @@
+packageName: clio_api
+projectName: clio-api-server
+generatorName: python-fastapi
+outputDir: ./generated
+
+# Enable generation of server stubs, models, and api classes
+generateSourceCodeOnly: true
+
+# Custom template directory if you want to extend code generation later
+# templateDir: ./templates
+
+# Enable Pydantic models
+modelPackage: models
+
+# Enable API (router) classes
+apiPackage: api
+
+# Enable service (endpoint) classes
+servicePackage: services
+
+# Support strict type checking
+strictSpecBehavior: true
+
+# Allow customizing headers in the generated API client
+additionalProperties:
+  packageVersion: 1.0.0
+  projectName: clio-api-server
+  packageName: clio_api
+  serverPort: 8000
+  usePydanticV2: true
+  useNose: true
+
+# Optional: add custom HTTP headers like Authorization or API keys
+# so they’re built into the client and router handlers
+httpHeaders:
+  - name: Authorization
+    value: Bearer <your_api_token>
+  - name: X-API-VERSION
+    value: "4.0.10"
+
+# Optional: if you want to skip some models/endpoints during generation
+# ignoreFileOverride: .openapi-generator-ignore

@@ -1,0 +1,93 @@
+$defs:
+  LaukExpenseCategory:
+    description: LaukExpenseCategory
+    properties:
+      certificated:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Certificated boolean identifier for expense
+        title: Certificated
+      civil:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Civil boolean identifier for expense
+        title: Civil
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *LaukExpenseCategory* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      criminal:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Criminal boolean identifier for expense
+        title: Criminal
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *LaukExpenseCategory*
+        title: Etag
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *LaukExpenseCategory*
+        title: Id
+      key:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Unique key
+        title: Key
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Expense name
+        title: Name
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Determines rate based on region param
+        title: Rate
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *LaukExpenseCategory* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+    title: LaukExpenseCategory
+    type: object
+description: LaukExpenseCategoryList
+properties:
+  data:
+    description: LaukExpenseCategory List Response
+    items:
+      $ref: '#/$defs/LaukExpenseCategory'
+    title: Data
+    type: array
+required:
+- data
+title: LaukExpenseCategoryList
+type: object

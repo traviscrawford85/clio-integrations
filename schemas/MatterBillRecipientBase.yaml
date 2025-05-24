@@ -1,0 +1,35 @@
+description: MatterBillRecipientBase
+properties:
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MatterBillRecipient* was created (as a ISO-8601 timestamp)
+    title: Created At
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *MatterBillRecipient*
+    title: Etag
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *MatterBillRecipient*
+    title: Id
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MatterBillRecipient* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: MatterBillRecipientBase
+type: object

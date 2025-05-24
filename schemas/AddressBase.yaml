@@ -1,0 +1,83 @@
+description: AddressBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Address*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Address*
+    title: Etag
+  street:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Street of the *Address*
+    title: Street
+  city:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: City of the *Address*
+    title: City
+  province:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Province or state of the *Address*
+    title: Province
+  postal_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Postal code of the *Address*
+    title: Postal Code
+  country:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Country of the *Address*
+    title: Country
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *Address*
+    title: Name
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Address* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Address* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  primary:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether it is the default for this contact
+    title: Primary
+title: AddressBase
+type: object

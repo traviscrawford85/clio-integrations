@@ -1,0 +1,62 @@
+description: BillThemeBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *BillTheme*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *BillTheme*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BillTheme* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BillTheme* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  account_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The account number the *BillTheme* belongs to
+    title: Account Id
+  default:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *BillTheme* is the default for its account
+    title: Default
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *BillTheme*
+    title: Name
+  config:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The configuration of the *BillTheme*
+    title: Config
+title: BillThemeBase
+type: object

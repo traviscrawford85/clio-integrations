@@ -1,0 +1,11 @@
+description: BillUpdateRequestDataBillTheme
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier of the bill theme applied to the Bill.
+    title: Id
+title: BillUpdateRequestDataBillTheme
+type: object

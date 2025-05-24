@@ -1,0 +1,101 @@
+description: LaukCivilControlledRate
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *LaukCivilControlledRate*
+    title: Id
+  activity:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Activity of the *LaukCivilControlledRate*
+    title: Activity
+  activity_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Activity type
+    title: Activity Type
+  category_of_law:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Category of law
+    title: Category Of Law
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *LaukCivilControlledRate* was created (as a ISO-8601
+      timestamp)
+    title: Created At
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *LaukCivilControlledRate*
+    title: Etag
+  exceptional:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Fee applied for high activity count
+    title: Exceptional
+  fee:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Fee amount
+    title: Fee
+  fee_scheme:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Fee scheme
+    title: Fee Scheme
+  key:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Unique key
+    title: Key
+  rate_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Rate type
+    title: Rate Type
+  region:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Region
+    title: Region
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *LaukCivilControlledRate* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: LaukCivilControlledRate
+type: object

@@ -1,0 +1,55 @@
+description: PracticeAreaBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *PracticeArea*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *PracticeArea*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *PracticeArea* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *PracticeArea* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *PracticeArea*
+    title: Name
+  category:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: 'The practice area category associated with the *PracticeArea* '
+    title: Category
+  code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The code of the *PracticeArea*
+    title: Code
+title: PracticeAreaBase
+type: object

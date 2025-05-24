@@ -1,0 +1,71 @@
+$defs:
+  NoteUpdateRequestData:
+    description: NoteUpdateRequestData
+    properties:
+      date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date for the Note. (Expects an ISO-8601 date).
+        title: Date
+      detail:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Note body.
+        title: Detail
+      notification_event_subscribers:
+        anyOf:
+        - items:
+            $ref: '#/$defs/NoteUpdateRequestDataNotificationEventSubscribersInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Notification Event Subscribers
+      subject:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Note subject.
+        title: Subject
+    title: NoteUpdateRequestData
+    type: object
+  NoteUpdateRequestDataNotificationEventSubscribersInner:
+    description: NoteUpdateRequestDataNotificationEventSubscribersInner
+    properties:
+      user_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The unique identifier for a User to be added as a notification
+          event subscriber to the Note.
+        title: User Id
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique id of this Note.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the notification event subscriber should be deleted.
+        title: Destroy
+    title: NoteUpdateRequestDataNotificationEventSubscribersInner
+    type: object
+description: NoteUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/NoteUpdateRequestData'
+required:
+- data
+title: NoteUpdateRequest
+type: object

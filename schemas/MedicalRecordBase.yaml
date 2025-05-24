@@ -1,0 +1,57 @@
+description: MedicalRecordBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *MedicalRecord*
+    title: Id
+  document_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The id of the document associated with the Medical Record
+    title: Document Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *MedicalRecord*
+    title: Etag
+  end_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: End date for *MedicalRecord* (as a ISO-8601 date)
+    title: End Date
+  start_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Start date for *MedicalRecord* (as a ISO-8601 date)
+    title: Start Date
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MedicalRecord* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MedicalRecord* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: MedicalRecordBase
+type: object

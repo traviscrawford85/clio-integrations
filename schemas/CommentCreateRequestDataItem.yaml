@@ -1,0 +1,11 @@
+description: CommentCreateRequestDataItem
+properties:
+  id:
+    description: The unique identifier of the Document or Folder to which the Comment
+      is associated.
+    title: Id
+    type: integer
+required:
+- id
+title: CommentCreateRequestDataItem
+type: object

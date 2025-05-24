@@ -1,0 +1,179 @@
+$defs:
+  NotificationMethodBase:
+    description: NotificationMethodBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *NotificationMethod*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *NotificationMethod*
+        title: Etag
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Human readable description of the type of notification
+        title: Type
+      email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Email address to send the notification to (only for email type)
+        title: Email Address
+      is_default_email_address:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: A boolean that is returned only on notification method objects
+          that are relevant e.g. Email notification or Alternative Email
+        title: Is Default Email Address
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *NotificationMethod* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *NotificationMethod* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+    title: NotificationMethodBase
+    type: object
+  PolymorphicObjectBase:
+    description: PolymorphicObjectBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *PolymorphicObject*
+        title: Id
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *PolymorphicObject*
+        title: Type
+      identifier:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A string to identify the *PolymorphicObject*
+        title: Identifier
+      secondary_identifier:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A secondary string to identify the *PolymorphicObject*
+        title: Secondary Identifier
+      tertiary_identifier:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A tertiary string to identify the *PolymorphicObject*
+        title: Tertiary Identifier
+    title: PolymorphicObjectBase
+    type: object
+  Reminder:
+    description: Reminder
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Reminder*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Reminder*
+        title: Etag
+      duration:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Time in minutes to remind user before the subject
+        title: Duration
+      next_delivery_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Reminder* will be delivered (as a ISO-8601 timestamp)
+        title: Next Delivery At
+      state:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current state of the *Reminder*
+        title: State
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Reminder* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Reminder* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      notification_method:
+        anyOf:
+        - $ref: '#/$defs/NotificationMethodBase'
+        - type: 'null'
+        default: null
+      subject:
+        anyOf:
+        - $ref: '#/$defs/PolymorphicObjectBase'
+        - type: 'null'
+        default: null
+    title: Reminder
+    type: object
+description: ReminderList
+properties:
+  data:
+    description: Reminder List Response
+    items:
+      $ref: '#/$defs/Reminder'
+    title: Data
+    type: array
+required:
+- data
+title: ReminderList
+type: object

@@ -1,0 +1,57 @@
+description: TrustLineItemBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *TrustLineItem*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *TrustLineItem*
+    title: Etag
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date of the *TrustLineItem* (as a ISO-8601 date)
+    title: Date
+  total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total amount for the *TrustLineItem*
+    title: Total
+  note:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Note for the *TrustLineItem*
+    title: Note
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *TrustLineItem* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *TrustLineItem* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: TrustLineItemBase
+type: object

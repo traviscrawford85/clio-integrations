@@ -1,0 +1,12 @@
+description: IdsResponse
+properties:
+  data:
+    description: A list of ids
+    items:
+      type: integer
+    title: Data
+    type: array
+required:
+- data
+title: IdsResponse
+type: object

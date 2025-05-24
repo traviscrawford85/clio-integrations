@@ -1,0 +1,51 @@
+description: ConversationMembershipBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ConversationMembership*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ConversationMembership*
+    title: Etag
+  read:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the ConversationMembership has been read by the member
+    title: Read
+  archived:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the ConversationMembership has been archived by the
+      member
+    title: Archived
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ConversationMembership* was created (as a ISO-8601
+      timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ConversationMembership* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: ConversationMembershipBase
+type: object

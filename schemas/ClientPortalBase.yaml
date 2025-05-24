@@ -1,0 +1,49 @@
+description: ClientPortalBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ClientPortal*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ClientPortal*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ClientPortal* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ClientPortal* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  unread_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of unread count messages for the current user.
+    title: Unread Count
+  unread_notifiable_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of unread messages for the current user once their notification
+      settings have been applied.
+    title: Unread Notifiable Count
+title: ClientPortalBase
+type: object

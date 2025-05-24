@@ -1,0 +1,93 @@
+description: AllocationBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Allocation*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Allocation*
+    title: Etag
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date the allocation was applied (as a ISO-8601 date)
+    title: Date
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total amount of money that the user has allocated
+    title: Amount
+  interest:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the allocation is applied to interest amount
+    title: Interest
+  voided_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Time the *Allocation* was voided (as a ISO-8601 timestamp)
+    title: Voided At
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Allocation* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Allocation* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The description from the associated Credit Memo (if applicable)
+    title: Description
+  has_online_payment:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether this allocation is associated with an online payment or not
+    title: Has Online Payment
+  destroyable:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the record can be deleted or not
+    title: Destroyable
+  payment_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A string indicating whether the payment is a card or an eCheck payment.
+    title: Payment Type
+title: AllocationBase
+type: object

@@ -1,0 +1,49 @@
+description: BillableClientBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *BillableClient*
+    title: Id
+  unbilled_hours:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unbilled hours of  the client
+    title: Unbilled Hours
+  unbilled_amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unbilled amount of the client
+    title: Unbilled Amount
+  amount_in_trust:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The trust amount available for the client
+    title: Amount In Trust
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the Client
+    title: Name
+  billable_matters_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total number of billable matters the client has
+    title: Billable Matters Count
+title: BillableClientBase
+type: object

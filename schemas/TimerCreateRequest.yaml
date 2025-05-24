@@ -1,0 +1,30 @@
+$defs:
+  TimerCreateRequestData:
+    description: TimerCreateRequestData
+    properties:
+      activity:
+        $ref: '#/$defs/TimerCreateRequestDataActivity'
+    required:
+    - activity
+    title: TimerCreateRequestData
+    type: object
+  TimerCreateRequestDataActivity:
+    description: TimerCreateRequestDataActivity
+    properties:
+      id:
+        description: The unique identifier for a single Activity associated with the
+          Timer. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: TimerCreateRequestDataActivity
+    type: object
+description: TimerCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/TimerCreateRequestData'
+required:
+- data
+title: TimerCreateRequest
+type: object

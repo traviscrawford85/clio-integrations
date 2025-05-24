@@ -1,0 +1,119 @@
+description: ClientBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Client*
+    title: Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The full name of the *Client*
+    title: Name
+  first_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: First name of the Person
+    title: First Name
+  middle_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Middle name of the Person
+    title: Middle Name
+  last_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Last name of the Person
+    title: Last Name
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *Client*
+    title: Type
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Client* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Client* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  prefix:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The prefix of the *Client* (Mr, Mrs, etc)
+    title: Prefix
+  title:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The designated title of the *Client*
+    title: Title
+  initials:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The initials of the *Client*
+    title: Initials
+  is_matter_client:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the Client is also the client of the matter
+    title: Is Matter Client
+  primary_email_address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The primary email address of client
+    title: Primary Email Address
+  primary_phone_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The primary phone number of client
+    title: Primary Phone Number
+  client_connect_user_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The client connect ID of the contacts associated user
+    title: Client Connect User Id
+  date_of_birth:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Date of Birth
+    title: Date Of Birth
+title: ClientBase
+type: object

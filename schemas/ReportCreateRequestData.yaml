@@ -1,0 +1,122 @@
+$defs:
+  ReportCreateRequestDataClient:
+    description: ReportCreateRequestDataClient
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Contact associated with the
+          Report. The keyword `null` is not valid for this field.
+        title: Id
+    title: ReportCreateRequestDataClient
+    type: object
+  ReportCreateRequestDataMatter:
+    description: ReportCreateRequestDataMatter
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Matter associated with the
+          Report. The keyword `null` is not valid for this field.
+        title: Id
+    title: ReportCreateRequestDataMatter
+    type: object
+  ReportCreateRequestDataOriginatingAttorney:
+    description: ReportCreateRequestDataOriginatingAttorney
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single User associated with the Report.
+          The keyword `null` is not valid for this field.
+        title: Id
+    title: ReportCreateRequestDataOriginatingAttorney
+    type: object
+  ReportCreateRequestDataPracticeArea:
+    description: ReportCreateRequestDataPracticeArea
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single PracticeArea associated with
+          the Report. The keyword `null` is not valid for this field.
+        title: Id
+    title: ReportCreateRequestDataPracticeArea
+    type: object
+description: ReportCreateRequestData
+properties:
+  client:
+    anyOf:
+    - $ref: '#/$defs/ReportCreateRequestDataClient'
+    - type: 'null'
+    default: null
+  end_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Filters Report data by date. (Expects an ISO-8601 date).
+    title: End Date
+  format:
+    description: What format the Report will be generated in.
+    title: Format
+    type: string
+  kind:
+    description: What kind of Report will be generated.
+    title: Kind
+    type: string
+  matter:
+    anyOf:
+    - $ref: '#/$defs/ReportCreateRequestDataMatter'
+    - type: 'null'
+    default: null
+  originating_attorney:
+    anyOf:
+    - $ref: '#/$defs/ReportCreateRequestDataOriginatingAttorney'
+    - type: 'null'
+    default: null
+  practice_area:
+    anyOf:
+    - $ref: '#/$defs/ReportCreateRequestDataPracticeArea'
+    - type: 'null'
+    default: null
+  responsible_attorney:
+    anyOf:
+    - $ref: '#/$defs/ReportCreateRequestDataOriginatingAttorney'
+    - type: 'null'
+    default: null
+  start_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Filters Report data by date. (Expects an ISO-8601 date).
+    title: Start Date
+  user:
+    anyOf:
+    - $ref: '#/$defs/ReportCreateRequestDataOriginatingAttorney'
+    - type: 'null'
+    default: null
+  year:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Filters Report data by year. Sets start_date and end_date. (Expects
+      a year).
+    title: Year
+required:
+- format
+- kind
+title: ReportCreateRequestData
+type: object

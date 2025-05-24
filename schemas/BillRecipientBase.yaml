@@ -1,0 +1,41 @@
+description: BillRecipientBase
+properties:
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BillRecipient* was created (as a ISO-8601 timestamp)
+    title: Created At
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *BillRecipient*
+    title: Etag
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *BillRecipient*
+    title: Id
+  on_all_matters:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: If the associated contact is a recipient for all of the bill's matters
+    title: On All Matters
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BillRecipient* was updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: BillRecipientBase
+type: object

@@ -1,0 +1,2275 @@
+$defs:
+  AddressBase:
+    description: AddressBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Address*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Address*
+        title: Etag
+      street:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Street of the *Address*
+        title: Street
+      city:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: City of the *Address*
+        title: City
+      province:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Province or state of the *Address*
+        title: Province
+      postal_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Postal code of the *Address*
+        title: Postal Code
+      country:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Country of the *Address*
+        title: Country
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Address*
+        title: Name
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Address* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Address* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      primary:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether it is the default for this contact
+        title: Primary
+    title: AddressBase
+    type: object
+  BalanceBase:
+    description: BalanceBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Balance*
+        title: Id
+      amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The amount for this Balance.
+        title: Amount
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of Balance this data is for.
+        title: Type
+      interest_amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The interest amount for this Balance.
+        title: Interest Amount
+      due:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The amount due for this Balance, factoring in applicable discounts.
+        title: Due
+    title: BalanceBase
+    type: object
+  BankAccountBase:
+    description: BankAccountBase
+    properties:
+      account_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The account number for *BankAccount*
+        title: Account Number
+      balance:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The current balance of the *BankAccount*
+        title: Balance
+      bank_transactions_count:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of bank transactions associated with the account.
+        title: Bank Transactions Count
+      clio_payment_page_link:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Link to Single Payment Page which allows to transfer funds without
+          logging in.
+        title: Clio Payment Page Link
+      clio_payment_page_qr_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A QR code that links to a Single Payment Page which allows to
+          transfer funds without logging in.
+        title: Clio Payment Page Qr Code
+      clio_payments_enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the bank account is connected to Clio Payments
+        title: Clio Payments Enabled
+      controlled_account:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether is a controlled account
+        title: Controlled Account
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *BankAccount* was created (as a ISO-8601 timestamp)
+        title: Created At
+      currency:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The currency type of the *BankAccount*
+        title: Currency
+      currency_id:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The currency ID of the *BankAccount*
+        title: Currency Id
+      default_account:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether it is the default account
+        title: Default Account
+      domicile_branch:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the branch where the account was opened
+        title: Domicile Branch
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *BankAccount*
+        title: Etag
+      general_ledger_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: General ledger number
+        title: General Ledger Number
+      holder:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the person or business that owns the *BankAccount*
+        title: Holder
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *BankAccount*
+        title: Id
+      institution:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The financial institution where the *BankAccount* is registered
+        title: Institution
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *BankAccount*
+        title: Name
+      swift:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A unique identification code for the financial institution
+        title: Swift
+      transit_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Transit number for the bank account branch
+        title: Transit Number
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *BankAccount*
+        title: Type
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *BankAccount* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: BankAccountBase
+    type: object
+  Bill:
+    description: Bill
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Bill*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Bill*
+        title: Etag
+      number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The *Bill* identifier (not necessarily numeric)'
+        title: Number
+      issued_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Bill* was issued (as a ISO-8601 date)
+        title: Issued At
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Bill* was created (as a ISO-8601 timestamp)
+        title: Created At
+      due_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the *Bill* is due (as a ISO-8601 date)
+        title: Due At
+      tax_rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The tax rate to the *Bill*
+        title: Tax Rate
+      secondary_tax_rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: A secondary tax rate applied to the *Bill*
+        title: Secondary Tax Rate
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Bill* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      subject:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subject of the *Bill*
+        title: Subject
+      purchase_order:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The purchase order of the *Bill*
+        title: Purchase Order
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Bill*
+        title: Type
+      memo:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A memo for the *Bill*
+        title: Memo
+      start_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the billing period starts (as a ISO-8601 date)
+        title: Start At
+      end_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the billing period ends (as a ISO-8601 date)
+        title: End At
+      balance:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The outstanding balance of the *Bill*
+        title: Balance
+      state:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The billing state the *Bill* is in
+        title: State
+      kind:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The kind of the *Bill*
+        title: Kind
+      total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total with interest of the *Bill*
+        title: Total
+      paid:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total amount paid for the *Bill*
+        title: Paid
+      paid_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date of the last payment on the *Bill*
+        title: Paid At
+      pending:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The amount of pending credit card payments on the *Bill*
+        title: Pending
+      due:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total amount of the *Bill* with interest and less discounts
+        title: Due
+      discount_services_only:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The selected discount is applied to services only.
+        title: Discount Services Only
+      can_update:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: This value indicates if your *Bill*'s line items and information
+          can be updated.
+        title: Can Update
+      credits_issued:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total credits issued for the *Bill*
+        title: Credits Issued
+      shared:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Bill* is a shared
+        title: Shared
+      last_sent_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The last time the *Bill* was sent (as a ISO-8601 date)
+        title: Last Sent At
+      services_secondary_tax:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total secondary tax of the bill's line items of a service
+          kind
+        title: Services Secondary Tax
+      services_sub_total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The sub total of all the bill's line items of a service kind
+        title: Services Sub Total
+      services_tax:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total tax of the bill's line items of a service kind
+        title: Services Tax
+      services_taxable_sub_total:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The services portion of the bill's primary tax
+        title: Services Taxable Sub Total
+      services_secondary_taxable_sub_total:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The services portion of the bill's secondary tax
+        title: Services Secondary Taxable Sub Total
+      taxable_sub_total:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total taxable bill amount
+        title: Taxable Sub Total
+      secondary_taxable_sub_total:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The subtotal of the bill's secondary tax
+        title: Secondary Taxable Sub Total
+      sub_total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Sub total for the *Bill*
+        title: Sub Total
+      tax_sum:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Sum of primary tax for the model
+        title: Tax Sum
+      secondary_tax_sum:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Sum of secondary tax for the model
+        title: Secondary Tax Sum
+      total_tax:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total amount of tax for the bill.
+        title: Total Tax
+      available_state_transitions:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: The available *Bill* state transitions.
+        title: Available State Transitions
+      user:
+        anyOf:
+        - $ref: '#/$defs/UserBase'
+        - type: 'null'
+        default: null
+      client:
+        anyOf:
+        - $ref: '#/$defs/ContactBase'
+        - type: 'null'
+        default: null
+      discount:
+        anyOf:
+        - $ref: '#/$defs/DiscountBase'
+        - type: 'null'
+        default: null
+      interest:
+        anyOf:
+        - $ref: '#/$defs/InterestBase'
+        - type: 'null'
+        default: null
+      matters:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: Matter
+        title: Matters
+      group:
+        anyOf:
+        - $ref: '#/$defs/GroupBase'
+        - type: 'null'
+        default: null
+      bill_theme:
+        anyOf:
+        - $ref: '#/$defs/BillThemeBase'
+        - type: 'null'
+        default: null
+      original_bill:
+        anyOf:
+        - $ref: '#/$defs/BillBase'
+        - type: 'null'
+        default: null
+      destination_account:
+        anyOf:
+        - $ref: '#/$defs/BankAccountBase'
+        - type: 'null'
+        default: null
+      balances:
+        anyOf:
+        - items:
+            $ref: '#/$defs/BalanceBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: Balance
+        title: Balances
+      matter_totals:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterBalanceBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: MatterBalance
+        title: Matter Totals
+      currency:
+        anyOf:
+        - $ref: '#/$defs/CurrencyBase'
+        - type: 'null'
+        default: null
+      billing_setting:
+        anyOf:
+        - $ref: '#/$defs/BillingSettingBase'
+        - type: 'null'
+        default: null
+      client_addresses:
+        anyOf:
+        - items:
+            $ref: '#/$defs/AddressBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: Address
+        title: Client Addresses
+      legal_aid_uk_bill:
+        anyOf:
+        - $ref: '#/$defs/LegalAidUkBillBase'
+        - type: 'null'
+        default: null
+    title: Bill
+    type: object
+  BillBase:
+    description: BillBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Bill*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Bill*
+        title: Etag
+      number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The *Bill* identifier (not necessarily numeric)'
+        title: Number
+      issued_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Bill* was issued (as a ISO-8601 date)
+        title: Issued At
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Bill* was created (as a ISO-8601 timestamp)
+        title: Created At
+      due_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the *Bill* is due (as a ISO-8601 date)
+        title: Due At
+      tax_rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The tax rate to the *Bill*
+        title: Tax Rate
+      secondary_tax_rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: A secondary tax rate applied to the *Bill*
+        title: Secondary Tax Rate
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Bill* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      subject:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subject of the *Bill*
+        title: Subject
+      purchase_order:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The purchase order of the *Bill*
+        title: Purchase Order
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Bill*
+        title: Type
+      memo:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A memo for the *Bill*
+        title: Memo
+      start_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the billing period starts (as a ISO-8601 date)
+        title: Start At
+      end_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the billing period ends (as a ISO-8601 date)
+        title: End At
+      balance:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The outstanding balance of the *Bill*
+        title: Balance
+      state:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The billing state the *Bill* is in
+        title: State
+      kind:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The kind of the *Bill*
+        title: Kind
+      total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total with interest of the *Bill*
+        title: Total
+      paid:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total amount paid for the *Bill*
+        title: Paid
+      paid_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date of the last payment on the *Bill*
+        title: Paid At
+      pending:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The amount of pending credit card payments on the *Bill*
+        title: Pending
+      due:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total amount of the *Bill* with interest and less discounts
+        title: Due
+      discount_services_only:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The selected discount is applied to services only.
+        title: Discount Services Only
+      can_update:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: This value indicates if your *Bill*'s line items and information
+          can be updated.
+        title: Can Update
+      credits_issued:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total credits issued for the *Bill*
+        title: Credits Issued
+      shared:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Bill* is a shared
+        title: Shared
+      last_sent_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The last time the *Bill* was sent (as a ISO-8601 date)
+        title: Last Sent At
+      services_secondary_tax:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total secondary tax of the bill's line items of a service
+          kind
+        title: Services Secondary Tax
+      services_sub_total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The sub total of all the bill's line items of a service kind
+        title: Services Sub Total
+      services_tax:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total tax of the bill's line items of a service kind
+        title: Services Tax
+      services_taxable_sub_total:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The services portion of the bill's primary tax
+        title: Services Taxable Sub Total
+      services_secondary_taxable_sub_total:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The services portion of the bill's secondary tax
+        title: Services Secondary Taxable Sub Total
+      taxable_sub_total:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total taxable bill amount
+        title: Taxable Sub Total
+      secondary_taxable_sub_total:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The subtotal of the bill's secondary tax
+        title: Secondary Taxable Sub Total
+      sub_total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Sub total for the *Bill*
+        title: Sub Total
+      tax_sum:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Sum of primary tax for the model
+        title: Tax Sum
+      secondary_tax_sum:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Sum of secondary tax for the model
+        title: Secondary Tax Sum
+      total_tax:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total amount of tax for the bill.
+        title: Total Tax
+      available_state_transitions:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: The available *Bill* state transitions.
+        title: Available State Transitions
+    title: BillBase
+    type: object
+  BillThemeBase:
+    description: BillThemeBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *BillTheme*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *BillTheme*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *BillTheme* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *BillTheme* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      account_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The account number the *BillTheme* belongs to
+        title: Account Id
+      default:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *BillTheme* is the default for its account
+        title: Default
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *BillTheme*
+        title: Name
+      config:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The configuration of the *BillTheme*
+        title: Config
+    title: BillThemeBase
+    type: object
+  BillingSettingBase:
+    description: BillingSettingBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *BillingSetting*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *BillingSetting*
+        title: Etag
+      rounded_duration:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Rounded equivalent of duration submitted
+        title: Rounded Duration
+      rounding:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Minute increment for time rounding
+        title: Rounding
+      use_decimal_rounding:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Round time to two decimal places
+        title: Use Decimal Rounding
+      currency:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Current user setting of currency
+        title: Currency
+      currency_sign:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The sign of the current currency
+        title: Currency Sign
+      tax_rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Rate applied for primary tax on invoices using this BillingSetting
+        title: Tax Rate
+      tax_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Name shown for primary tax on invoices using this BillingSetting
+        title: Tax Name
+      apply_tax_by_default:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Used to determine if primary tax should be applied to invoices
+          by default
+        title: Apply Tax By Default
+      time_on_flat_rate_contingency_matters_is_non_billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Used to determine if hourly time entries on flat rate or contingency
+          fee matters should be non-billable by default
+        title: Time On Flat Rate Contingency Matters Is Non Billable
+      use_secondary_tax:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Used to determine if secondary tax applies to invoices using
+          this BillingSetting
+        title: Use Secondary Tax
+      secondary_tax_rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Rate applied for secondary tax on invoices using this BillingSetting
+        title: Secondary Tax Rate
+      secondary_tax_rule:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Used to determine if secondary tax should be applied separately
+          or additionally to primary tax
+        title: Secondary Tax Rule
+      secondary_tax_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Name shown for secondary tax on invoices using this BillingSetting
+        title: Secondary Tax Name
+      notify_after_bill_created:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Flag to indicate if users should have the option to notify other
+          users when generating a bill
+        title: Notify After Bill Created
+      use_utbms_codes:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Controls usage of UTBMS codes, allowing creation of coded time
+          entries and expenses
+        title: Use Utbms Codes
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *BillingSetting* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *BillingSetting* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+    title: BillingSettingBase
+    type: object
+  ContactBase:
+    description: ContactBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Contact*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Contact*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *Contact*
+        title: Name
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: First name of the Person
+        title: First Name
+      middle_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Middle name of the Person
+        title: Middle Name
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Last name of the Person
+        title: Last Name
+      date_of_birth:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date of birth
+        title: Date Of Birth
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Contact*
+        title: Type
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Contact* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Contact* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      prefix:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The prefix of the *Contact* (Mr, Mrs, etc)
+        title: Prefix
+      title:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The designated title of the *Contact*
+        title: Title
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *Contact*
+        title: Initials
+      clio_connect_email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Clio Connect email if the *Contact* is a ClioConnect User
+        title: Clio Connect Email
+      locked_clio_connect_email:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: A boolean indicating if the ability to modify this *Contacts
+          Clio connect email is locked.
+        title: Locked Clio Connect Email
+      client_connect_user_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The ID for the Clio Connect user associated with this *Contact*
+        title: Client Connect User Id
+      primary_email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary email address associated with this *Contact*.
+        title: Primary Email Address
+      secondary_email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The secondary email address associated with this *Contact*.
+        title: Secondary Email Address
+      primary_phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number associated with this *Contact*.
+        title: Primary Phone Number
+      secondary_phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The secondary phone number of the *Contact*.
+        title: Secondary Phone Number
+      ledes_client_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: LEDES client id of the Contact
+        title: Ledes Client Id
+      has_clio_for_clients_permission:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: True if at least one resource has been shared with the contact
+          using Clio for Clients.
+        title: Has Clio For Clients Permission
+      is_client:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact is a client
+        title: Is Client
+      is_clio_for_client_user:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not this contact has client_login and client_user
+          (can be created due to addition to client portal or client_share_permissions)
+        title: Is Clio For Client User
+      is_co_counsel:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact has matters shared as co-counsel
+        title: Is Co Counsel
+      is_bill_recipient:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the Contact is a bill recipient on at least one matter.
+        title: Is Bill Recipient
+      sales_tax_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The sales tax number of the *Contact*
+        title: Sales Tax Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the *Contact*
+        title: Currency
+    title: ContactBase
+    type: object
+  CurrencyBase:
+    description: CurrencyBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Currency*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Currency*
+        title: Etag
+      code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ISO 4217 code for the *Currency*
+        title: Code
+      sign:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Symbol used to denote monetary values using this *Currency*
+        title: Sign
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Currency* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Currency* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: CurrencyBase
+    type: object
+  DiscountBase:
+    description: DiscountBase
+    properties:
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The rate of the *Discount%*
+        title: Rate
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of *Discount* being applied in your *Discount* rate.
+        title: Type
+      note:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A note for your *Discount*
+        title: Note
+      early_payment_rate:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The % discount that will be applied if your *Discount* is paid
+          within the early payment period.
+        title: Early Payment Rate
+      early_payment_period:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of days for your *Discount* period. If your bill is
+          paid within this time, apply your *Discount* rate to the bill.
+        title: Early Payment Period
+    title: DiscountBase
+    type: object
+  GroupBase:
+    description: GroupBase
+    properties:
+      client_connect_user:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Group is a UserGroup for a Clio Connect User
+        title: Client Connect User
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Group*
+        title: Etag
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Group*
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Group*
+        title: Name
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Group*
+        title: Type
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Group* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: GroupBase
+    type: object
+  InterestBase:
+    description: InterestBase
+    properties:
+      balance:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Interest balance for the object
+        title: Balance
+      period:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Number of days that represent the frequency which your *Interest%*
+          will be applied
+        title: Period
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Rate for the *Interest%*
+        title: Rate
+      total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Interest total for the object
+        title: Total
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Type of *Interest%* being applied
+        title: Type
+    title: InterestBase
+    type: object
+  LegalAidUkBillBase:
+    description: LegalAidUkBillBase
+    properties:
+      additional_travel_payment:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Additional travel payment, for Legal Aid England and Wales
+        title: Additional Travel Payment
+      adjourned_hearing_fee:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Adjourned hearing fee
+        title: Adjourned Hearing Fee
+      advocacy_costs:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Advocacy costs
+        title: Advocacy Costs
+      advice_time:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Advice time
+        title: Advice Time
+      bill_type:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Bill type
+        title: Bill Type
+      case_concluded:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Case concluded
+        title: Case Concluded
+      case_stage_level:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Case stage level
+        title: Case Stage Level
+      cla_exemption_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: CLA exemption code
+        title: Cla Exemption Code
+      cla_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: CLA reference
+        title: Cla Reference
+      cmrh_oral:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: CMRH oral
+        title: Cmrh Oral
+      cmrh_telephone:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: CMRH telephone
+        title: Cmrh Telephone
+      cost_of_counsel:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Cost of counsel
+        title: Cost Of Counsel
+      costs_are_those_of:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Costs are those of
+        title: Costs Are Those Of
+      court_location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Court location (HPCDS matters)
+        title: Court Location
+      date_of_claim:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date of claim
+        title: Date Of Claim
+      designated_accredited_representative:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Designated accredited representative
+        title: Designated Accredited Representative
+      detention_travel_and_waiting_costs:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Detention travel & waiting costs ex VAT
+        title: Detention Travel And Waiting Costs
+      disbursements_vat:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Disbursements VAT
+        title: Disbursements Vat
+      exceptional_case_funding_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Exceptional case funding reference
+        title: Exceptional Case Funding Reference
+      exemption_criteria_satisfied:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Exemption criteria satisfied
+        title: Exemption Criteria Satisfied
+      follow_on_work:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Follow on work
+        title: Follow On Work
+      ho_interview:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: HO interview
+        title: Ho Interview
+      ho_ucn:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: HO UCN
+        title: Ho Ucn
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *LegalAidUkBill*
+        title: Id
+      independent_medical_reports_claimed:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Independent medical reports claimed
+        title: Independent Medical Reports Claimed
+      jr_form_filling:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: JR/Form filling ex VAT, for Legal Aid England and Wales
+        title: Jr Form Filling
+      maat_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: MAAT ID
+        title: Maat Id
+      meetings_attended:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Meetings attended
+        title: Meetings Attended
+      mht_ref_no:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: MHT reference number
+        title: Mht Ref No
+      net_disbursements:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Net disbursements
+        title: Net Disbursements
+      net_profit_costs:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Net profit cost
+        title: Net Profit Costs
+      niat_disbursement_prior_authority_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: NIAT disbursement prior authority number
+        title: Niat Disbursement Prior Authority Number
+      number_of_attendances:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Number of attendances
+        title: Number Of Attendances
+      outcome_for_the_client:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Outcome for the client
+        title: Outcome For The Client
+      profit_costs_ex_vat:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Profit costs ex VAT
+        title: Profit Costs Ex Vat
+      prior_authority_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Prior authority reference number
+        title: Prior Authority Reference
+      representation_order_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Representation order date
+        title: Representation Order Date
+      stage_reached:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Stage reached
+        title: Stage Reached
+      substantive_hearing:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Substantive hearing
+        title: Substantive Hearing
+      travel_and_waiting_costs:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Travel & waiting costs
+        title: Travel And Waiting Costs
+      travel_time:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Travel time
+        title: Travel Time
+      value_of_costs:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Value of costs
+        title: Value Of Costs
+      waiting_time:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Waiting time
+        title: Waiting Time
+    title: LegalAidUkBillBase
+    type: object
+  MatterBalanceBase:
+    description: MatterBalanceBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *MatterBalance*
+        title: Id
+      amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The amount of balance of a matter.
+        title: Amount
+    title: MatterBalanceBase
+    type: object
+  MatterBase:
+    description: MatterBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Matter*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Matter*
+        title: Etag
+      number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number given to the *Matter* within an account
+        title: Number
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The reference and label of the *Matter*. Depending on the account's
+          manual_matter_numbering setting, this is either read only (generated) or
+          customizable.
+        title: Display Number
+      custom_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: User defined custom number of the *Matter*
+        title: Custom Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the matter
+        title: Currency
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The detailed description of the *Matter*
+        title: Description
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current status of the *Matter*
+        title: Status
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The location of the *Matter*
+        title: Location
+      client_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Client Reference string for external uses
+        title: Client Reference
+      client_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Client ID
+        title: Client Id
+      billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether this matter is billable
+        title: Billable
+      maildrop_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A unique Maildrop email address for the matter
+        title: Maildrop Address
+      billing_method:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Billing method of this matter
+        title: Billing Method
+      open_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to open (as a ISO-8601 date)
+        title: Open Date
+      close_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to closed (as a ISO-8601 date)
+        title: Close Date
+      pending_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to pending (as a ISO-8601 date)
+        title: Pending Date
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      shared:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the matter is currently shared with Clio Connect
+        title: Shared
+      has_tasks:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the matter has any tasks.
+        title: Has Tasks
+      last_activity_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The greatest date out of all of the activities on the matter
+          (as a ISO-8601 date)
+        title: Last Activity Date
+      matter_stage_updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter stage was last updated (as a ISO-8601 date)
+        title: Matter Stage Updated At
+    title: MatterBase
+    type: object
+  UserBase:
+    description: UserBase
+    properties:
+      account_owner:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is the owner of the account
+        title: Account Owner
+      clio_connect:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a Clio Connect user
+        title: Clio Connect
+      court_rules_default_attendee:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a default attendee for court rules events
+        title: Court Rules Default Attendee
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was created (as a ISO-8601 timestamp)
+        title: Created At
+      default_calendar_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default calendar id for *User*.
+        title: Default Calendar Id
+      email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The email of the *User*
+        title: Email
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is allowed to log in
+        title: Enabled
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *User*
+        title: Etag
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The first name of the *User*
+        title: First Name
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *User*
+        title: Id
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *User*
+        title: Initials
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The last name of the *User*
+        title: Last Name
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *User*
+        title: Name
+      phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number for the *User*.
+        title: Phone Number
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default user activity rate for *User*.
+        title: Rate
+      roles:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: An array of roles assigned to this *User*
+        title: Roles
+      subscription_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subscription type of the *User*
+        title: Subscription Type
+      time_zone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The selected time zone of the *User*
+        title: Time Zone
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: UserBase
+    type: object
+description: BillShow
+properties:
+  data:
+    $ref: '#/$defs/Bill'
+required:
+- data
+title: BillShow
+type: object

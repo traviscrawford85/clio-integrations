@@ -1,0 +1,26 @@
+description: NoteUpdateRequestDataNotificationEventSubscribersInner
+properties:
+  user_id:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The unique identifier for a User to be added as a notification event
+      subscriber to the Note.
+    title: User Id
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique id of this Note.
+    title: Id
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the notification event subscriber should be deleted.
+    title: Destroy
+title: NoteUpdateRequestDataNotificationEventSubscribersInner
+type: object

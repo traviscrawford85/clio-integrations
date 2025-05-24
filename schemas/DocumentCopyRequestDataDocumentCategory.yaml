@@ -1,0 +1,12 @@
+description: DocumentCopyRequestDataDocumentCategory
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single DocumentCategory associated with
+      the Document. Use the keyword `null` to specify no association.
+    title: Id
+title: DocumentCopyRequestDataDocumentCategory
+type: object

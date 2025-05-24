@@ -1,0 +1,51 @@
+description: NotificationEventSubscriberBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *NotificationEventSubscriber*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *NotificationEventSubscriber*
+    title: Etag
+  user_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a User added as a notification event subscriber
+      to the NotificationEventSubscriber
+    title: User Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The User name added as a notification event subscriber to the NotificationEventSubscriber
+    title: Name
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *NotificationEventSubscriber* was created (as a ISO-8601
+      timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *NotificationEventSubscriber* was last updated (as a
+      ISO-8601 timestamp)
+    title: Updated At
+title: NotificationEventSubscriberBase
+type: object

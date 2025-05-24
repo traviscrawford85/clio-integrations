@@ -1,0 +1,26 @@
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+skip-string-normalization = false
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]  # Let black handle line-length
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+check_untyped_defs = true
+strict_optional = true
+warn_unused_ignores = true
+warn_return_any = true

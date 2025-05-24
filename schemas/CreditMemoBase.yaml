@@ -1,0 +1,72 @@
+description: CreditMemoBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *CreditMemo*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *CreditMemo*
+    title: Etag
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Date the *CreditMemo* was recorded (as a ISO-8601 date)
+    title: Date
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Total amount credited
+    title: Amount
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A detailed description for the *CreditMemo*
+    title: Description
+  discount:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *CreditMemo* is applied as discount
+    title: Discount
+  voided_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Time the *CreditMemo* was voided (as a ISO-8601 timestamp)
+    title: Voided At
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CreditMemo* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CreditMemo* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: CreditMemoBase
+type: object

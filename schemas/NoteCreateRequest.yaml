@@ -1,0 +1,94 @@
+$defs:
+  NoteCreateRequestData:
+    description: NoteCreateRequestData
+    properties:
+      contact:
+        $ref: '#/$defs/NoteCreateRequestDataContact'
+      date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date for the Note. (Expects an ISO-8601 date).
+        title: Date
+      detail:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Note body.
+        title: Detail
+      matter:
+        $ref: '#/$defs/NoteCreateRequestDataMatter'
+      notification_event_subscribers:
+        anyOf:
+        - items:
+            $ref: '#/$defs/NoteCreateRequestDataNotificationEventSubscribersInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Notification Event Subscribers
+      subject:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Note subject.
+        title: Subject
+      type:
+        description: Note type.
+        title: Type
+        type: string
+    required:
+    - contact
+    - matter
+    - type
+    title: NoteCreateRequestData
+    type: object
+  NoteCreateRequestDataContact:
+    description: NoteCreateRequestDataContact
+    properties:
+      id:
+        description: The unique identifier for a single Contact associated with the
+          Note. The keyword null is not valid for this field. Required only if the
+          Note type is `"Contact"`.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: NoteCreateRequestDataContact
+    type: object
+  NoteCreateRequestDataMatter:
+    description: NoteCreateRequestDataMatter
+    properties:
+      id:
+        description: The unique identifier for a single Matter associated with the
+          Note. The keyword null is not valid for this field. Required only if the
+          Note type is `"Matter"`.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: NoteCreateRequestDataMatter
+    type: object
+  NoteCreateRequestDataNotificationEventSubscribersInner:
+    description: NoteCreateRequestDataNotificationEventSubscribersInner
+    properties:
+      user_id:
+        description: The unique identifier for a User to be added as a notification
+          event subscriber to the Note.
+        title: User Id
+        type: string
+    required:
+    - user_id
+    title: NoteCreateRequestDataNotificationEventSubscribersInner
+    type: object
+description: NoteCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/NoteCreateRequestData'
+required:
+- data
+title: NoteCreateRequest
+type: object

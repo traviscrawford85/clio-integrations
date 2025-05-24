@@ -1,0 +1,120 @@
+$defs:
+  ClioPaymentsLinkCreateRequestData:
+    description: ClioPaymentsLinkCreateRequestData
+    properties:
+      amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The amount to be paid. If not provided, the client will be able
+          to specify an amount.
+        title: Amount
+      currency:
+        description: The currency the payment will be processed in. The supported
+          currency depends on the account's location ('USD' for a US account). The
+          currency must be a valid ISO 4217 currency code.
+        title: Currency
+        type: string
+      description:
+        description: Only applicable for a direct payment. A short description of
+          the purpose of the payment. Max 255 characters.
+        title: Description
+        type: string
+      destination_account:
+        $ref: '#/$defs/ClioPaymentsLinkCreateRequestDataDestinationAccount'
+      destination_contact:
+        anyOf:
+        - $ref: '#/$defs/ClioPaymentsLinkCreateRequestDataDestinationContact'
+        - type: 'null'
+        default: null
+      duration:
+        description: The amount of time, in seconds, that the payment link will be
+          active for. The maximum allowed value is '7776000' (90 days in seconds).
+        title: Duration
+        type: integer
+      email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Pre-fills the relevant field for the client when filling out
+          their details in the payment link.
+        title: Email Address
+      is_allocated_as_revenue:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Only applicable for a direct payment. If true, the payment will
+          be allocated as revenue. If false, the payment will be collected as an unallocated
+          balance. Payments into trust can not be allocated as revenue. Defaults to
+          false.
+        title: Is Allocated As Revenue
+      subject:
+        $ref: '#/$defs/ClioPaymentsLinkCreateRequestDataSubject'
+    required:
+    - currency
+    - description
+    - destination_account
+    - duration
+    - subject
+    title: ClioPaymentsLinkCreateRequestData
+    type: object
+  ClioPaymentsLinkCreateRequestDataDestinationAccount:
+    description: ClioPaymentsLinkCreateRequestDataDestinationAccount
+    properties:
+      id:
+        description: The ID of the bank account that the payment will be deposited
+          into.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: ClioPaymentsLinkCreateRequestDataDestinationAccount
+    type: object
+  ClioPaymentsLinkCreateRequestDataDestinationContact:
+    description: ClioPaymentsLinkCreateRequestDataDestinationContact
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Only applicable for a direct payment. The contact that the payment
+          will be associated with. If not defined, and the payment is collecting an
+          unallocated balance, then the payment can be associated with a contact manually
+          within Manage after it has been made.
+        title: Id
+    title: ClioPaymentsLinkCreateRequestDataDestinationContact
+    type: object
+  ClioPaymentsLinkCreateRequestDataSubject:
+    description: ClioPaymentsLinkCreateRequestDataSubject
+    properties:
+      id:
+        description: The ID of the record associated with the payment link.
+        title: Id
+        type: integer
+      type:
+        description: 'The type of the record associated with the payment link. The
+          type of record determines the behavior of the payment link.  Type of subject
+          object: * ''BankAccount'' results in a payment link for a direct payment.
+          * ''Bill'' results in a payment link for paying an existing invoice or trust
+          request. * ''Contact'' results in a payment link for paying the outstanding
+          invoices of a contact. '
+        title: Type
+        type: string
+    required:
+    - id
+    - type
+    title: ClioPaymentsLinkCreateRequestDataSubject
+    type: object
+description: ClioPaymentsLinkCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/ClioPaymentsLinkCreateRequestData'
+required:
+- data
+title: ClioPaymentsLinkCreateRequest
+type: object

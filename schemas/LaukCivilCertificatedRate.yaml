@@ -1,0 +1,185 @@
+description: LaukCivilCertificatedRate
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *LaukCivilCertificatedRate*
+    title: Id
+  activity:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Activity of the *LaukCivilCertificatedRate*
+    title: Activity
+  activity_sub_category:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Activity sub-category
+    title: Activity Sub Category
+  activity_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Activity type
+    title: Activity Type
+  attended_several_hearings_for_multiple_clients:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Multiple hearings for multiple clients indicator
+    title: Attended Several Hearings For Multiple Clients
+  category_of_law:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Category of law
+    title: Category Of Law
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *LaukCivilCertificatedRate* was created (as a ISO-8601
+      timestamp)
+    title: Created At
+  change_of_solicitor:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Change of solicitor indicator
+    title: Change Of Solicitor
+  court:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Court associated
+    title: Court
+  eligible_for_sqm:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: SQM eligibility (Legal Aid England and Wales)
+    title: Eligible For Sqm
+  exceptional:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Fee applied for high activity count
+    title: Exceptional
+  exceptional_warning:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Warning for exceptional status
+    title: Exceptional Warning
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *LaukCivilCertificatedRate*
+    title: Etag
+  fee:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Fee amount
+    title: Fee
+  fee_scheme:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Fee scheme
+    title: Fee Scheme
+  first_conducting_solicitor:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: First conducting solicitor indicator
+    title: First Conducting Solicitor
+  key:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Unique key
+    title: Key
+  number_of_clients:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Number of clients
+    title: Number Of Clients
+  party:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Associated party
+    title: Party
+  post_transfer_clients_represented:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Post-transfer clients represented
+    title: Post Transfer Clients Represented
+  rate_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Rate type
+    title: Rate Type
+  region:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Region
+    title: Region
+  session_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Session type
+    title: Session Type
+  user_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: User type
+    title: User Type
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *LaukCivilCertificatedRate* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: LaukCivilCertificatedRate
+type: object

@@ -1,0 +1,20 @@
+$defs:
+  DocumentCategoryCreateRequestData:
+    description: DocumentCategoryCreateRequestData
+    properties:
+      name:
+        description: What the DocumentCategory should be called.
+        title: Name
+        type: string
+    required:
+    - name
+    title: DocumentCategoryCreateRequestData
+    type: object
+description: DocumentCategoryCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/DocumentCategoryCreateRequestData'
+required:
+- data
+title: DocumentCategoryCreateRequest
+type: object

@@ -1,0 +1,98 @@
+$defs:
+  FolderCreateRequestData:
+    description: FolderCreateRequestData
+    properties:
+      document_category:
+        anyOf:
+        - $ref: '#/$defs/FolderCreateRequestDataDocumentCategory'
+        - type: 'null'
+        default: null
+      external_properties:
+        anyOf:
+        - items:
+            $ref: '#/$defs/FolderCreateRequestDataExternalPropertiesInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: External Properties
+      name:
+        description: Name of the Folder
+        title: Name
+        type: string
+      parent:
+        $ref: '#/$defs/FolderCreateRequestDataParent'
+      restore:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not a trashed Folder should be restored.
+        title: Restore
+    required:
+    - name
+    - parent
+    title: FolderCreateRequestData
+    type: object
+  FolderCreateRequestDataDocumentCategory:
+    description: FolderCreateRequestDataDocumentCategory
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single DocumentCategory associated
+          with the Folder. Use the keyword `null` to specify no association.
+        title: Id
+    title: FolderCreateRequestDataDocumentCategory
+    type: object
+  FolderCreateRequestDataExternalPropertiesInner:
+    description: FolderCreateRequestDataExternalPropertiesInner
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: 'The ExternalProperty name. Note: **there is a limit of 5 external_properties
+          per Folder**'
+        title: Name
+      value:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The ExternalProperty value.
+        title: Value
+    title: FolderCreateRequestDataExternalPropertiesInner
+    type: object
+  FolderCreateRequestDataParent:
+    description: FolderCreateRequestDataParent
+    properties:
+      id:
+        description: The unique identifier of the parent object.
+        title: Id
+        type: integer
+      type:
+        description: 'Type of parent object: * "Folder" represents a specified folder
+          on Clio by folder id. It if specified when you add / move an item to a folder.
+          * "Contact" represents a contact folder on Clio identified by contact id.
+          It is specified when you add / move an item to a contact folder. A contact
+          folder will be created for the specified contact if none exists already.
+          * "Matter" represents a matter folder on Clio identified by matter id. It
+          is specified when you add / move an item to a matter folder. '
+        title: Type
+        type: string
+    required:
+    - id
+    - type
+    title: FolderCreateRequestDataParent
+    type: object
+description: FolderCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/FolderCreateRequestData'
+required:
+- data
+title: FolderCreateRequest
+type: object

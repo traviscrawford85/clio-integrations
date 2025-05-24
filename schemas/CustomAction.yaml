@@ -1,0 +1,56 @@
+description: CustomAction
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *CustomAction*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *CustomAction*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CustomAction* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CustomAction* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  label:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Text label to be displayed on the custom link.
+    title: Label
+  target_url:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Target URL which will be opened in a new tab when the user clicks
+      the custom link.
+    title: Target Url
+  ui_reference:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: UI reference location within Clio where the link will be displayed.
+    title: Ui Reference
+title: CustomAction
+type: object

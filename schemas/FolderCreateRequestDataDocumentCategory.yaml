@@ -1,0 +1,12 @@
+description: FolderCreateRequestDataDocumentCategory
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single DocumentCategory associated with
+      the Folder. Use the keyword `null` to specify no association.
+    title: Id
+title: FolderCreateRequestDataDocumentCategory
+type: object

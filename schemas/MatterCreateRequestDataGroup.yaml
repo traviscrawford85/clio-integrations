@@ -1,0 +1,12 @@
+description: MatterCreateRequestDataGroup
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single Group associated with the Matter.
+      Use the keyword `null` to specify no association.
+    title: Id
+title: MatterCreateRequestDataGroup
+type: object

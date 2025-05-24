@@ -1,0 +1,36 @@
+description: TaskTemplateListInstaceBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *TaskTemplateListInstace*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *TaskTemplateListInstace*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *TaskTemplateListInstace* was created (as a ISO-8601
+      timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *TaskTemplateListInstace* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: TaskTemplateListInstaceBase
+type: object

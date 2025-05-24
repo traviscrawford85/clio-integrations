@@ -1,0 +1,43 @@
+description: InterestBase
+properties:
+  balance:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Interest balance for the object
+    title: Balance
+  period:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Number of days that represent the frequency which your *Interest%*
+      will be applied
+    title: Period
+  rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Rate for the *Interest%*
+    title: Rate
+  total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Interest total for the object
+    title: Total
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Type of *Interest%* being applied
+    title: Type
+title: InterestBase
+type: object

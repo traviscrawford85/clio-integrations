@@ -1,0 +1,78 @@
+description: CommunicationBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Communication*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Communication*
+    title: Etag
+  subject:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The subject line of the *Communication*
+    title: Subject
+  body:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The main content of the *Communication*
+    title: Body
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *Communication*
+    title: Type
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date of the *Communication* (as a ISO-8601 datestamp)
+    title: Date
+  time_entries_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of time_entries associated with the *Communication*
+    title: Time Entries Count
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Communication* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Communication* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  received_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The date-time of the *Communication* (in ISO-8601 format)
+    title: Received At
+title: CommunicationBase
+type: object

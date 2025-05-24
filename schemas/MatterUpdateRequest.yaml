@@ -1,0 +1,797 @@
+$defs:
+  ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet:
+    description: ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CustomFieldSet associated
+          with the CustomFieldSetAssociation. The keyword `null` is not valid for
+          this field.
+        title: Id
+    title: ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+    type: object
+  ContactUpdateRequestDataCustomFieldValuesInnerCustomField:
+    description: ContactUpdateRequestDataCustomFieldValuesInnerCustomField
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CustomField associated with
+          the CustomFieldValue. The keyword `null` is not valid for this field.
+        title: Id
+    title: ContactUpdateRequestDataCustomFieldValuesInnerCustomField
+    type: object
+  MatterCreateRequestDataCustomRateRatesInnerActivityDescription:
+    description: MatterCreateRequestDataCustomRateRatesInnerActivityDescription
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single ActivityDescription associated
+          with the Rate. The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterCreateRequestDataCustomRateRatesInnerActivityDescription
+    type: object
+  MatterCreateRequestDataCustomRateRatesInnerGroup:
+    description: MatterCreateRequestDataCustomRateRatesInnerGroup
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Group associated with the
+          Rate. The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterCreateRequestDataCustomRateRatesInnerGroup
+    type: object
+  MatterCreateRequestDataEvergreenRetainerRecipientsInner:
+    description: MatterCreateRequestDataEvergreenRetainerRecipientsInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: the `id` of a User who will receive the trust balance notification.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Used to remove an existing User as a recipient of the trust balance
+          notification.
+        title: Destroy
+    title: MatterCreateRequestDataEvergreenRetainerRecipientsInner
+    type: object
+  MatterCreateRequestDataGroup:
+    description: MatterCreateRequestDataGroup
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Group associated with the
+          Matter. Use the keyword `null` to specify no association.
+        title: Id
+    title: MatterCreateRequestDataGroup
+    type: object
+  MatterCreateRequestDataMatterBudget:
+    description: MatterCreateRequestDataMatterBudget
+    properties:
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Determines whether the matter budget associated with the matter
+          should be destroyed. Only users with matter budget destroy capabilities
+          can destroy matter budgets.
+        title: Destroy
+      budget:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The amount allocated for the matter.
+        title: Budget
+      include_expenses:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Determines whether the budget includes expenses in the calculation.
+        title: Include Expenses
+      notification_threshold:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Percentage of the budget when it starts notifying users.
+        title: Notification Threshold
+      notify_users:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: false
+        description: Determine whether to notify users when the matter reaches the
+          notification threshold.
+        title: Notify Users
+    title: MatterCreateRequestDataMatterBudget
+    type: object
+  MatterCreateRequestDataMatterStage:
+    description: MatterCreateRequestDataMatterStage
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single MatterStage associated with
+          the Matter. Use the keyword `null` to specify no association.
+        title: Id
+    title: MatterCreateRequestDataMatterStage
+    type: object
+  MatterCreateRequestDataOriginatingAttorney:
+    description: MatterCreateRequestDataOriginatingAttorney
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single User associated with the Matter.
+          The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterCreateRequestDataOriginatingAttorney
+    type: object
+  MatterCreateRequestDataPracticeArea:
+    description: MatterCreateRequestDataPracticeArea
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single PracticeArea associated with
+          the Matter. Use the keyword `null` to specify no association.
+        title: Id
+    title: MatterCreateRequestDataPracticeArea
+    type: object
+  MatterUpdateRequestData:
+    description: MatterUpdateRequestData
+    properties:
+      billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: true
+        description: Whether or not the matter is billable.
+        title: Billable
+      client:
+        anyOf:
+        - $ref: '#/$defs/MatterUpdateRequestDataClient'
+        - type: 'null'
+        default: null
+      client_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Client Reference string for external uses.
+        title: Client Reference
+      close_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date the Matter was set to closed. (Expects an ISO-8601 date).
+        title: Close Date
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the matter
+        title: Currency
+      custom_field_set_associations:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterUpdateRequestDataCustomFieldSetAssociationsInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Custom Field Set Associations
+      custom_field_values:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterUpdateRequestDataCustomFieldValuesInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Custom Field Values
+      custom_rate:
+        anyOf:
+        - $ref: '#/$defs/MatterUpdateRequestDataCustomRate'
+        - type: 'null'
+        default: null
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Detailed description of the Matter.
+        title: Description
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Matter reference and label. Depending on the account's manual_matter_numbering
+          setting, this is either read only (generated), or customizable.
+        title: Display Number
+      evergreen_retainer:
+        anyOf:
+        - $ref: '#/$defs/MatterUpdateRequestDataEvergreenRetainer'
+        - type: 'null'
+        default: null
+      group:
+        anyOf:
+        - $ref: '#/$defs/MatterCreateRequestDataGroup'
+        - type: 'null'
+        default: null
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Location of the Matter.
+        title: Location
+      matter_budget:
+        anyOf:
+        - $ref: '#/$defs/MatterCreateRequestDataMatterBudget'
+        - type: 'null'
+        default: null
+      matter_stage:
+        anyOf:
+        - $ref: '#/$defs/MatterCreateRequestDataMatterStage'
+        - type: 'null'
+        default: null
+      open_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date the Matter was set to open. (Expects an ISO-8601 date).
+        title: Open Date
+      originating_attorney:
+        anyOf:
+        - $ref: '#/$defs/MatterCreateRequestDataOriginatingAttorney'
+        - type: 'null'
+        default: null
+      pending_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date the Matter was set to pending. (Expects an ISO-8601 date).
+        title: Pending Date
+      practice_area:
+        anyOf:
+        - $ref: '#/$defs/MatterCreateRequestDataPracticeArea'
+        - type: 'null'
+        default: null
+      relationships:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterUpdateRequestDataRelationshipsInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Relationships
+      reset_matter_number:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: false
+        description: Defaults to false. Resets the matter's number based on the account's
+          matter numbering scheme.
+        title: Reset Matter Number
+      responsible_attorney:
+        anyOf:
+        - $ref: '#/$defs/MatterCreateRequestDataOriginatingAttorney'
+        - type: 'null'
+        default: null
+      split_invoice_payers:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterUpdateRequestDataSplitInvoicePayersInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Split Invoice Payers
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Matter status.
+        title: Status
+      statute_of_limitations:
+        anyOf:
+        - $ref: '#/$defs/MatterUpdateRequestDataStatuteOfLimitations'
+        - type: 'null'
+        default: null
+      task_template_list_instances:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterUpdateRequestDataTaskTemplateListInstancesInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Task Template List Instances
+    title: MatterUpdateRequestData
+    type: object
+  MatterUpdateRequestDataClient:
+    description: MatterUpdateRequestDataClient
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Contact associated with the
+          Matter. The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterUpdateRequestDataClient
+    type: object
+  MatterUpdateRequestDataCustomFieldSetAssociationsInner:
+    description: MatterUpdateRequestDataCustomFieldSetAssociationsInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CustomFieldSetAssociation
+          associated with the Matter. The keyword `null` is not valid for this field.
+        title: Id
+      display_order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The order to display the CustomFieldSet in a Matter. If not specified,
+          it is added as the last CustomFieldSet of the Matter.
+        title: Display Order
+      custom_field_set:
+        anyOf:
+        - $ref: '#/$defs/ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet'
+        - type: 'null'
+        default: null
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated CustomFieldSetAssociation is present, the CustomFieldSetAssociation
+          is deleted from the Matter.
+        title: Destroy
+    title: MatterUpdateRequestDataCustomFieldSetAssociationsInner
+    type: object
+  MatterUpdateRequestDataCustomFieldValuesInner:
+    description: MatterUpdateRequestDataCustomFieldValuesInner
+    properties:
+      value:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The value of the CustomFieldValue.
+        title: Value
+      custom_field:
+        anyOf:
+        - $ref: '#/$defs/ContactUpdateRequestDataCustomFieldValuesInnerCustomField'
+        - type: 'null'
+        default: null
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CustomFieldValue associated
+          with the Matter. The keyword `null` is not valid for this field.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated CustomFieldValue is present, the CustomFieldValue
+          is deleted from the Matter.
+        title: Destroy
+    title: MatterUpdateRequestDataCustomFieldValuesInner
+    type: object
+  MatterUpdateRequestDataCustomRate:
+    description: MatterUpdateRequestDataCustomRate
+    properties:
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of custom rate for the Matter.
+        title: Type
+      rates:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterUpdateRequestDataCustomRateRatesInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Rates
+    title: MatterUpdateRequestDataCustomRate
+    type: object
+  MatterUpdateRequestDataCustomRateRatesInner:
+    description: MatterUpdateRequestDataCustomRateRatesInner
+    properties:
+      user:
+        anyOf:
+        - $ref: '#/$defs/MatterUpdateRequestDataCustomRateRatesInnerUser'
+        - type: 'null'
+        default: null
+      award:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The full amount of the award given. Only valid for ContingencyFee.
+          If given as an empty string, it will reset the ContingencyFee into the unawarded
+          state.
+        title: Award
+      note:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Detailed description of the rate. Only valid for ContingencyFee.
+        title: Note
+      date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the rate is for. Only valid for ContingencyFee. (Expects
+          an ISO-8601 date).
+        title: Date
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'If `type` is `HourlyRate`, it is the dollar amount of the custom
+          rate of the User or Group for the Matter.  If `type` is `FlatRate`, it is
+          the dollar amount of the custom flat rate for the Matter.  If `type` is
+          `ContingencyFee`, it is the percentage of the contingency fee awarded to
+          the user for the Matter. '
+        title: Rate
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Rate associated with the Matter.
+          The keyword `null` is not valid for this field.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated Rate is present, the Rate is deleted from the
+          Matter.
+        title: Destroy
+      activity_description:
+        anyOf:
+        - $ref: '#/$defs/MatterCreateRequestDataCustomRateRatesInnerActivityDescription'
+        - type: 'null'
+        default: null
+      group:
+        anyOf:
+        - $ref: '#/$defs/MatterCreateRequestDataCustomRateRatesInnerGroup'
+        - type: 'null'
+        default: null
+    title: MatterUpdateRequestDataCustomRateRatesInner
+    type: object
+  MatterUpdateRequestDataCustomRateRatesInnerUser:
+    description: MatterUpdateRequestDataCustomRateRatesInnerUser
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single User associated with the Rate.
+          The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterUpdateRequestDataCustomRateRatesInnerUser
+    type: object
+  MatterUpdateRequestDataEvergreenRetainer:
+    description: MatterUpdateRequestDataEvergreenRetainer
+    properties:
+      minimum_threshold:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The trust balance threshold for the Matter. When the balance
+          falls below the threshold, the retainer's associated recipients (firm users)
+          will receive a notification.
+        title: Minimum Threshold
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: If this flag is set to `true`, the trust balance notification
+          will be deleted from the Matter.
+        title: Destroy
+      recipients:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterCreateRequestDataEvergreenRetainerRecipientsInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Recipients
+    title: MatterUpdateRequestDataEvergreenRetainer
+    type: object
+  MatterUpdateRequestDataRelationshipsInner:
+    description: MatterUpdateRequestDataRelationshipsInner
+    properties:
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Describe the relationship between a Contact and a Matter.
+        title: Description
+      contact:
+        anyOf:
+        - $ref: '#/$defs/MatterUpdateRequestDataRelationshipsInnerContact'
+        - type: 'null'
+        default: null
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Relationship associated with
+          the Matter. The keyword `null` is not valid for this field.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated Relationship is present, the Relationship is
+          deleted from the Matter.
+        title: Destroy
+    title: MatterUpdateRequestDataRelationshipsInner
+    type: object
+  MatterUpdateRequestDataRelationshipsInnerContact:
+    description: MatterUpdateRequestDataRelationshipsInnerContact
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Contact associated with the
+          Relationship. The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterUpdateRequestDataRelationshipsInnerContact
+    type: object
+  MatterUpdateRequestDataSplitInvoicePayersInner:
+    description: MatterUpdateRequestDataSplitInvoicePayersInner
+    properties:
+      contact_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Contact id for the matter payer.
+        title: Contact Id
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The id for the payer.
+        title: Id
+      send_to_bill_recipients:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Boolean indication to send a split invoice to all bill recipients.
+        title: Send To Bill Recipients
+      split_portion:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The split portion for the payer.
+        title: Split Portion
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: If this flag is set to `true`, the split invoice payer will be
+          deleted from the Matter.
+        title: Destroy
+    title: MatterUpdateRequestDataSplitInvoicePayersInner
+    type: object
+  MatterUpdateRequestDataStatuteOfLimitations:
+    description: MatterUpdateRequestDataStatuteOfLimitations
+    properties:
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The task status of Statue of Limitations. Users without advanced
+          tasks are allowed to select `Complete' or `Pending` only.
+        title: Status
+      due_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The due date of Statute of Limitations. (Expects an ISO-8601
+          date).
+        title: Due At
+      reminders:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterUpdateRequestDataStatuteOfLimitationsRemindersInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Reminders
+    title: MatterUpdateRequestDataStatuteOfLimitations
+    type: object
+  MatterUpdateRequestDataStatuteOfLimitationsRemindersInner:
+    description: MatterUpdateRequestDataStatuteOfLimitationsRemindersInner
+    properties:
+      duration_value:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Time measured in `duration_unit` to remind user before the subject.
+        title: Duration Value
+      duration_unit:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Unit to measure the duration value in.
+        title: Duration Unit
+      notification_method:
+        anyOf:
+        - $ref: '#/$defs/MatterUpdateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod'
+        - type: 'null'
+        default: null
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Reminder associated with the
+          Matter. The keyword `null` is not valid for this field.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated Reminder is present, the Reminder is deleted
+          from the Matter.
+        title: Destroy
+    title: MatterUpdateRequestDataStatuteOfLimitationsRemindersInner
+    type: object
+  MatterUpdateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod:
+    description: MatterUpdateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single NotificationMethod associated
+          with the Reminder. The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterUpdateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+    type: object
+  MatterUpdateRequestDataTaskTemplateListInstancesInner:
+    description: MatterUpdateRequestDataTaskTemplateListInstancesInner
+    properties:
+      task_template_list:
+        anyOf:
+        - $ref: '#/$defs/MatterUpdateRequestDataTaskTemplateListInstancesInnerTaskTemplateList'
+        - type: 'null'
+        default: null
+      assignee_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The id of the user to assign the task template list to.
+        title: Assignee Id
+      notify_assignees:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not task list assignees should be notified when the
+          task list is assigned to a matter.
+        title: Notify Assignees
+      due_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Due date of the tasks. (Expects an ISO-8601 date).
+        title: Due At
+    title: MatterUpdateRequestDataTaskTemplateListInstancesInner
+    type: object
+  MatterUpdateRequestDataTaskTemplateListInstancesInnerTaskTemplateList:
+    description: MatterUpdateRequestDataTaskTemplateListInstancesInnerTaskTemplateList
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single TaskTemplateList associated
+          with the TaskTemplateListInstance. The keyword `null` is not valid for this
+          field.
+        title: Id
+    title: MatterUpdateRequestDataTaskTemplateListInstancesInnerTaskTemplateList
+    type: object
+description: MatterUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/MatterUpdateRequestData'
+required:
+- data
+title: MatterUpdateRequest
+type: object

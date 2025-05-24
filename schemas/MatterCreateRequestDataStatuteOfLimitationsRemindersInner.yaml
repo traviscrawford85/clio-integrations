@@ -1,0 +1,31 @@
+$defs:
+  MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod:
+    description: MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+    properties:
+      id:
+        description: The unique identifier for a single NotificationMethod associated
+          with the Reminder. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+    type: object
+description: MatterCreateRequestDataStatuteOfLimitationsRemindersInner
+properties:
+  duration_value:
+    description: Time measured in `duration_unit` to remind user before the subject.
+    title: Duration Value
+    type: integer
+  duration_unit:
+    description: Unit to measure the duration value in.
+    title: Duration Unit
+    type: string
+  notification_method:
+    $ref: '#/$defs/MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod'
+required:
+- duration_value
+- duration_unit
+- notification_method
+title: MatterCreateRequestDataStatuteOfLimitationsRemindersInner
+type: object

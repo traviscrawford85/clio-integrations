@@ -1,0 +1,442 @@
+$defs:
+  CascadingTaskTemplateBase:
+    description: CascadingTaskTemplateBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *TaskTemplate*
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *TaskTemplate*
+        title: Name
+    title: CascadingTaskTemplateBase
+    type: object
+  ReminderTemplateBase:
+    description: ReminderTemplateBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ReminderTemplate*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ReminderTemplate*
+        title: Etag
+      duration:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The time in minutes to remind user before the subject.
+        title: Duration
+      notification_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of method to be notified by
+        title: Notification Type
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ReminderTemplate* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ReminderTemplate* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+    title: ReminderTemplateBase
+    type: object
+  TaskTemplate:
+    description: TaskTemplate
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *TaskTemplate*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *TaskTemplate*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *TaskTemplate*
+        title: Name
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the *TaskTemplate*
+        title: Description
+      priority:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: '*TaskTemplate* priority'
+        title: Priority
+      private:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *TaskTemplate* is private.
+        title: Private
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskTemplate* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskTemplate* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      cascading_source:
+        anyOf:
+        - $ref: '#/$defs/CascadingTaskTemplateBase'
+        - type: 'null'
+        default: null
+      assignee:
+        anyOf:
+        - $ref: '#/$defs/UserBase'
+        - type: 'null'
+        default: null
+      task_template_list:
+        anyOf:
+        - $ref: '#/$defs/TaskTemplateListBase'
+        - type: 'null'
+        default: null
+      task_type:
+        anyOf:
+        - $ref: '#/$defs/TaskTypeBase'
+        - type: 'null'
+        default: null
+      template_creator:
+        anyOf:
+        - $ref: '#/$defs/UserBase'
+        - type: 'null'
+        default: null
+      reminder_templates:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ReminderTemplateBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: ReminderTemplate
+        title: Reminder Templates
+    title: TaskTemplate
+    type: object
+  TaskTemplateList:
+    description: TaskTemplateList
+    properties:
+      data:
+        description: TaskTemplate List Response
+        items:
+          $ref: '#/$defs/TaskTemplate'
+        title: Data
+        type: array
+    required:
+    - data
+    title: TaskTemplateList
+    type: object
+  TaskTemplateListBase:
+    description: TaskTemplateListBase
+    properties:
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskTemplateList* was created (as a ISO-8601 timestamp)
+        title: Created At
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the *TaskTemplateList*
+        title: Description
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *TaskTemplateList*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *TaskTemplateList*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *TaskTemplateList*
+        title: Name
+      templates_count:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: How many task templates exist as an association to the *TaskTemplateList*
+        title: Templates Count
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskTemplateList* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+    title: TaskTemplateListBase
+    type: object
+  TaskTypeBase:
+    description: TaskTypeBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *TaskType*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *TaskType*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *TaskType*
+        title: Name
+      deleted_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskType* was deleted (as a ISO-8601 timestamp)
+        title: Deleted At
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskType* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskType* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: TaskTypeBase
+    type: object
+  UserBase:
+    description: UserBase
+    properties:
+      account_owner:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is the owner of the account
+        title: Account Owner
+      clio_connect:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a Clio Connect user
+        title: Clio Connect
+      court_rules_default_attendee:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a default attendee for court rules events
+        title: Court Rules Default Attendee
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was created (as a ISO-8601 timestamp)
+        title: Created At
+      default_calendar_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default calendar id for *User*.
+        title: Default Calendar Id
+      email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The email of the *User*
+        title: Email
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is allowed to log in
+        title: Enabled
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *User*
+        title: Etag
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The first name of the *User*
+        title: First Name
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *User*
+        title: Id
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *User*
+        title: Initials
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The last name of the *User*
+        title: Last Name
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *User*
+        title: Name
+      phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number for the *User*.
+        title: Phone Number
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default user activity rate for *User*.
+        title: Rate
+      roles:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: An array of roles assigned to this *User*
+        title: Roles
+      subscription_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subscription type of the *User*
+        title: Subscription Type
+      time_zone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The selected time zone of the *User*
+        title: Time Zone
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: UserBase
+    type: object
+description: TaskTemplateListList
+properties:
+  data:
+    description: TaskTemplateList List Response
+    items:
+      $ref: '#/$defs/TaskTemplateList'
+    title: Data
+    type: array
+required:
+- data
+title: TaskTemplateListList
+type: object

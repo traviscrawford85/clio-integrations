@@ -1,0 +1,129 @@
+$defs:
+  BillableClient:
+    description: BillableClient
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *BillableClient*
+        title: Id
+      unbilled_hours:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unbilled hours of  the client
+        title: Unbilled Hours
+      unbilled_amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unbilled amount of the client
+        title: Unbilled Amount
+      amount_in_trust:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The trust amount available for the client
+        title: Amount In Trust
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the Client
+        title: Name
+      billable_matters_count:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total number of billable matters the client has
+        title: Billable Matters Count
+      billable_matters:
+        anyOf:
+        - items:
+            $ref: '#/$defs/BillableMatterBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: BillableMatter
+        title: Billable Matters
+    title: BillableClient
+    type: object
+  BillableMatterBase:
+    description: BillableMatterBase
+    properties:
+      currency_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The currency code
+        title: Currency Code
+      currency_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The currency ID
+        title: Currency Id
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *BillableMatter*
+        title: Id
+      unbilled_hours:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unbilled number of hours for the matter
+        title: Unbilled Hours
+      unbilled_amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unbilled amount for the matter
+        title: Unbilled Amount
+      amount_in_trust:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The trust amount available for the matter
+        title: Amount In Trust
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The reference to the matter
+        title: Display Number
+    title: BillableMatterBase
+    type: object
+description: BillableClientList
+properties:
+  data:
+    description: BillableClient List Response
+    items:
+      $ref: '#/$defs/BillableClient'
+    title: Data
+    type: array
+required:
+- data
+title: BillableClientList
+type: object

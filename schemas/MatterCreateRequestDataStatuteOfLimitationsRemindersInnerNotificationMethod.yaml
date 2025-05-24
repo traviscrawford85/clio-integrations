@@ -1,0 +1,11 @@
+description: MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+properties:
+  id:
+    description: The unique identifier for a single NotificationMethod associated
+      with the Reminder. The keyword `null` is not valid for this field.
+    title: Id
+    type: integer
+required:
+- id
+title: MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+type: object

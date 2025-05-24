@@ -1,0 +1,111 @@
+description: MedicalRecordsRequestBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *MedicalRecordsRequest*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *MedicalRecordsRequest*
+    title: Etag
+  bills_follow_up_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Follow up date for Medical Bills (as a ISO-8601 date)
+    title: Bills Follow Up Date
+  bills_request_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Date for when the Medical Bills were requested (as a ISO-8601 date)
+    title: Bills Request Date
+  bills_status:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Medical Bills status
+    title: Bills Status
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Description of the Medical Records Detail
+    title: Description
+  in_treatment:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Treatment status for Medical Records Detail
+    title: In Treatment
+  records_follow_up_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Follow up date for Medical Records (as a ISO-8601 date)
+    title: Records Follow Up Date
+  records_request_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Date for when the Medical Records were requested (as a ISO-8601 date)
+    title: Records Request Date
+  records_status:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Medical Records status
+    title: Records Status
+  treatment_end_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Treatment end date for Medical Records Detail (as a ISO-8601 date)
+    title: Treatment End Date
+  treatment_start_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Treatment start date for Medical Records Detail (as a ISO-8601 date)
+    title: Treatment Start Date
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MedicalRecordsRequest* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MedicalRecordsRequest* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: MedicalRecordsRequestBase
+type: object

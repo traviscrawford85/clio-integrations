@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: clio-client-sdk
+Version: 0.1.0
+Summary: Reusable Clio API client with automatic session and token management.
+Author: Travis Crawford
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: python-dotenv
+Requires-Dist: requests
+Requires-Dist: openapi-client
+Dynamic: author
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

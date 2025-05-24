@@ -1,0 +1,25 @@
+description: PolymorphicCustomRateActivityDescriptionBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ActivityDescription*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ActivityDescription*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *ActivityDescription*
+    title: Name
+title: PolymorphicCustomRateActivityDescriptionBase
+type: object

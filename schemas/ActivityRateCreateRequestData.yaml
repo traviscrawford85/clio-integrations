@@ -1,0 +1,35 @@
+description: ActivityRateCreateRequestData
+properties:
+  co_counsel_contact_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single Contact associated with the ActivityRate.
+      The keyword `null` is not valid for this field.
+    title: Co Counsel Contact Id
+  contact_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single Contact associated with the ActivityRate.
+      The keyword `null` is not valid for this field.
+    title: Contact Id
+  flat_rate:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether this is a flat rate
+    title: Flat Rate
+  rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Monetary value of this rate. Either hourly value or flat rate value
+    title: Rate
+title: ActivityRateCreateRequestData
+type: object

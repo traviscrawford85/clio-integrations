@@ -1,0 +1,40 @@
+$defs:
+  DocumentTemplateCreateRequestDataDocumentCategory:
+    description: DocumentTemplateCreateRequestDataDocumentCategory
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single DocumentCategory associated
+          with the DocumentTemplate. The keyword `null` is not valid for this field.
+        title: Id
+    title: DocumentTemplateCreateRequestDataDocumentCategory
+    type: object
+description: DocumentTemplateCreateRequestData
+properties:
+  document_category:
+    anyOf:
+    - $ref: '#/$defs/DocumentTemplateCreateRequestDataDocumentCategory'
+    - type: 'null'
+    default: null
+  file:
+    description: 'A file that contains the DocumentTemplate. The file can be uploaded
+      through a form as application/x-www-form-urlencoded or multipart/form-data request.
+      Alternatively, the file can be converted to a BASE64-encoded string and serialized
+      to JSON. '
+    title: File
+    type: string
+  filename:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the file. The field is required when the file is BASE64-encoded
+      string.
+    title: Filename
+required:
+- file
+title: DocumentTemplateCreateRequestData
+type: object

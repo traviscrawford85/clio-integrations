@@ -1,0 +1,47 @@
+$defs:
+  ContactUpdateRequestDataCustomFieldValuesInnerCustomField:
+    description: ContactUpdateRequestDataCustomFieldValuesInnerCustomField
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CustomField associated with
+          the CustomFieldValue. The keyword `null` is not valid for this field.
+        title: Id
+    title: ContactUpdateRequestDataCustomFieldValuesInnerCustomField
+    type: object
+description: MatterUpdateRequestDataCustomFieldValuesInner
+properties:
+  value:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The value of the CustomFieldValue.
+    title: Value
+  custom_field:
+    anyOf:
+    - $ref: '#/$defs/ContactUpdateRequestDataCustomFieldValuesInnerCustomField'
+    - type: 'null'
+    default: null
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single CustomFieldValue associated with
+      the Matter. The keyword `null` is not valid for this field.
+    title: Id
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The destroy flag. If the flag is set to `true` and the unique identifier
+      of the associated CustomFieldValue is present, the CustomFieldValue is deleted
+      from the Matter.
+    title: Destroy
+title: MatterUpdateRequestDataCustomFieldValuesInner
+type: object

@@ -1,0 +1,413 @@
+$defs:
+  ContactCreateRequestDataAddressesInner:
+    description: ContactCreateRequestDataAddressesInner
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Other
+        description: Name of the Address.
+        title: Name
+      street:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Street.
+        title: Street
+      city:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: City.
+        title: City
+      province:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Province or state.
+        title: Province
+      postal_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Postal code or zip code.
+        title: Postal Code
+      country:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Country
+        title: Country
+    title: ContactCreateRequestDataAddressesInner
+    type: object
+  ContactCreateRequestDataAvatar:
+    description: ContactCreateRequestDataAvatar
+    properties:
+      image:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The avatar image for the *Contact*, base64-encoded. Must be a
+          valid GIF, JPG, or PNG image of less than 2 megabytes in size.
+        title: Image
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated Avatar is present, the Avatar is deleted from
+          the Contact.
+        title: Destroy
+    title: ContactCreateRequestDataAvatar
+    type: object
+  ContactCreateRequestDataCoCounselRate:
+    description: ContactCreateRequestDataCoCounselRate
+    properties:
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'Billing rate if the Contact is a co-counsel.  Note: this value
+          can only be provided during PATCH requests. It cannot be provided at the
+          time a Contact is created (i.e. POST requests). '
+        title: Rate
+    title: ContactCreateRequestDataCoCounselRate
+    type: object
+  ContactCreateRequestDataCompany:
+    description: ContactCreateRequestDataCompany
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Company associated with the
+          Contact. The keyword `null` is not valid for this field.
+        title: Id
+    title: ContactCreateRequestDataCompany
+    type: object
+  ContactCreateRequestDataCustomFieldSetAssociationsInner:
+    description: ContactCreateRequestDataCustomFieldSetAssociationsInner
+    properties:
+      display_order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The order to display the CustomFieldSet in a Contact. If not
+          specified, it is added as the last CustomFieldSet of the Contact.
+        title: Display Order
+      custom_field_set:
+        $ref: '#/$defs/ContactCreateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet'
+    required:
+    - custom_field_set
+    title: ContactCreateRequestDataCustomFieldSetAssociationsInner
+    type: object
+  ContactCreateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet:
+    description: ContactCreateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+    properties:
+      id:
+        description: The unique identifier for a single CustomFieldSet associated
+          with the CustomFieldSetAssociation. The keyword `null` is not valid for
+          this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: ContactCreateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+    type: object
+  ContactCreateRequestDataCustomFieldValuesInner:
+    description: ContactCreateRequestDataCustomFieldValuesInner
+    properties:
+      value:
+        description: The value of the CustomFieldValue.
+        title: Value
+        type: string
+      custom_field:
+        $ref: '#/$defs/ContactCreateRequestDataCustomFieldValuesInnerCustomField'
+    required:
+    - value
+    - custom_field
+    title: ContactCreateRequestDataCustomFieldValuesInner
+    type: object
+  ContactCreateRequestDataCustomFieldValuesInnerCustomField:
+    description: ContactCreateRequestDataCustomFieldValuesInnerCustomField
+    properties:
+      id:
+        description: The unique identifier for a single CustomField associated with
+          the CustomFieldValue. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: ContactCreateRequestDataCustomFieldValuesInnerCustomField
+    type: object
+  ContactCreateRequestDataEmailAddressesInner:
+    description: ContactCreateRequestDataEmailAddressesInner
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Other
+        description: Name of the EmailAddress.
+        title: Name
+      address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Email address.
+        title: Address
+      default_email:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact should be the default email for the
+          Contact.
+        title: Default Email
+    title: ContactCreateRequestDataEmailAddressesInner
+    type: object
+  ContactCreateRequestDataInstantMessengersInner:
+    description: ContactCreateRequestDataInstantMessengersInner
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Other
+        description: Name of the InstantMessenger.
+        title: Name
+      address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Address of the InstantMessenger.
+        title: Address
+    title: ContactCreateRequestDataInstantMessengersInner
+    type: object
+  ContactCreateRequestDataPhoneNumbersInner:
+    description: ContactCreateRequestDataPhoneNumbersInner
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Other
+        description: Name of the PhoneNumber.
+        title: Name
+      number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Phone number.
+        title: Number
+      default_number:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the PhoneNumber should be the default number for
+          the Contact.
+        title: Default Number
+    title: ContactCreateRequestDataPhoneNumbersInner
+    type: object
+  ContactCreateRequestDataWebSitesInner:
+    description: ContactCreateRequestDataWebSitesInner
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Other
+        description: Name of the WebSite.
+        title: Name
+      address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: URL of the WebSite.
+        title: Address
+      default_web_site:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact should be the default website for
+          the Contact.
+        title: Default Web Site
+    title: ContactCreateRequestDataWebSitesInner
+    type: object
+description: ContactCreateRequestData
+properties:
+  addresses:
+    anyOf:
+    - items:
+        $ref: '#/$defs/ContactCreateRequestDataAddressesInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Addresses
+  avatar:
+    anyOf:
+    - $ref: '#/$defs/ContactCreateRequestDataAvatar'
+    - type: 'null'
+    default: null
+  clio_connect_email:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Notifications will be sent to this email when a resource is shared.
+    title: Clio Connect Email
+  co_counsel_rate:
+    anyOf:
+    - $ref: '#/$defs/ContactCreateRequestDataCoCounselRate'
+    - type: 'null'
+    default: null
+  company:
+    anyOf:
+    - $ref: '#/$defs/ContactCreateRequestDataCompany'
+    - type: 'null'
+    default: null
+  currency:
+    anyOf:
+    - additionalProperties: true
+      type: object
+    - type: 'null'
+    default: null
+    description: The Currency the contact is associated with.
+    title: Currency
+  custom_field_set_associations:
+    anyOf:
+    - items:
+        $ref: '#/$defs/ContactCreateRequestDataCustomFieldSetAssociationsInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Custom Field Set Associations
+  custom_field_values:
+    anyOf:
+    - items:
+        $ref: '#/$defs/ContactCreateRequestDataCustomFieldValuesInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Custom Field Values
+  date_of_birth:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Date of birth of the Contact.
+    title: Date Of Birth
+  email_addresses:
+    anyOf:
+    - items:
+        $ref: '#/$defs/ContactCreateRequestDataEmailAddressesInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Email Addresses
+  first_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: First name of the Contact.
+    title: First Name
+  instant_messengers:
+    anyOf:
+    - items:
+        $ref: '#/$defs/ContactCreateRequestDataInstantMessengersInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Instant Messengers
+  last_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Last name of the Contact.
+    title: Last Name
+  ledes_client_id:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: LEDES client id of the Contact.
+    title: Ledes Client Id
+  middle_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Middle name of the Contact.
+    title: Middle Name
+  name:
+    description: Full name of the Contact. For requirements, see [Contact Name](https://docs.developers.clio.com/api-reference/#section/Contact-Name).
+    title: Name
+    type: string
+  phone_numbers:
+    anyOf:
+    - items:
+        $ref: '#/$defs/ContactCreateRequestDataPhoneNumbersInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Phone Numbers
+  prefix:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Personal title of the Contact.
+    title: Prefix
+  sales_tax_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A contact's sales tax number will appear on invoices generated for
+      the Contact.
+    title: Sales Tax Number
+  title:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Professional title of the Contact.
+    title: Title
+  type:
+    description: Type of the Contact.
+    title: Type
+    type: string
+  web_sites:
+    anyOf:
+    - items:
+        $ref: '#/$defs/ContactCreateRequestDataWebSitesInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Web Sites
+required:
+- name
+- type
+title: ContactCreateRequestData
+type: object

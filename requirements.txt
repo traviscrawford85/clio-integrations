@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 annotated-types==0.7.0
 blinker==1.9.0
 blis==0.7.11
@@ -74,3 +75,11 @@ weasel==0.3.4
 Werkzeug==3.0.6
 wrapt==1.17.2
 zipp==3.21.0
+=======
+fastapi
+uvicorn
+python-dotenv
+pydantic
+httpx
+sqlalchemy
+>>>>>>> 3e85d5d40c261624283b78ae5d30eddf06a7faae

@@ -1,0 +1,164 @@
+description: BankAccountBase
+properties:
+  account_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The account number for *BankAccount*
+    title: Account Number
+  balance:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The current balance of the *BankAccount*
+    title: Balance
+  bank_transactions_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of bank transactions associated with the account.
+    title: Bank Transactions Count
+  clio_payment_page_link:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Link to Single Payment Page which allows to transfer funds without
+      logging in.
+    title: Clio Payment Page Link
+  clio_payment_page_qr_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A QR code that links to a Single Payment Page which allows to transfer
+      funds without logging in.
+    title: Clio Payment Page Qr Code
+  clio_payments_enabled:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the bank account is connected to Clio Payments
+    title: Clio Payments Enabled
+  controlled_account:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether is a controlled account
+    title: Controlled Account
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BankAccount* was created (as a ISO-8601 timestamp)
+    title: Created At
+  currency:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The currency type of the *BankAccount*
+    title: Currency
+  currency_id:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The currency ID of the *BankAccount*
+    title: Currency Id
+  default_account:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether it is the default account
+    title: Default Account
+  domicile_branch:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the branch where the account was opened
+    title: Domicile Branch
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *BankAccount*
+    title: Etag
+  general_ledger_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: General ledger number
+    title: General Ledger Number
+  holder:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the person or business that owns the *BankAccount*
+    title: Holder
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *BankAccount*
+    title: Id
+  institution:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The financial institution where the *BankAccount* is registered
+    title: Institution
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *BankAccount*
+    title: Name
+  swift:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A unique identification code for the financial institution
+    title: Swift
+  transit_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Transit number for the bank account branch
+    title: Transit Number
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *BankAccount*
+    title: Type
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BankAccount* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: BankAccountBase
+type: object

@@ -1,0 +1,140 @@
+$defs:
+  AvatarBase:
+    description: AvatarBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Avatar*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Avatar*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Avatar* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Avatar* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The URL for the *Avatar*
+        title: Url
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether to destroy the *Avatar*
+        title: Destroy
+    title: AvatarBase
+    type: object
+description: Participant
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Participant*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Participant*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Participant* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Participant* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the Participant. Person and Company are subtypes of Contact
+    title: Type
+  identifier:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A string to identify the *Participant*
+    title: Identifier
+  secondary_identifier:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A secondary string to identify the *Participant*
+    title: Secondary Identifier
+  enabled:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The enabled state of the *Participant* record. Always 'null' if *Participant*
+      type is Contact
+    title: Enabled
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *Participant* record
+    title: Name
+  initials:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A  string with the participant initials
+    title: Initials
+  job_title_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: the job title name of the participant if they are a firm user and
+      have one
+    title: Job Title Name
+  avatar:
+    anyOf:
+    - $ref: '#/$defs/AvatarBase'
+    - type: 'null'
+    default: null
+title: Participant
+type: object

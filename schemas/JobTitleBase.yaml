@@ -1,0 +1,32 @@
+description: JobTitleBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *JobTitle*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *JobTitle*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Name of the job title
+    title: Name
+  initials:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Initials of the job title
+    title: Initials
+title: JobTitleBase
+type: object

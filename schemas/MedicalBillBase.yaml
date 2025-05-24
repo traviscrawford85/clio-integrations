@@ -1,0 +1,87 @@
+description: MedicalBillBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *MedicalBill*
+    title: Id
+  adjustment:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Adjustment for Medical Bill
+    title: Adjustment
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Amount for Medical Bill
+    title: Amount
+  bill_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Bill date for Medical Bill (as a ISO-8601 date)
+    title: Bill Date
+  bill_received_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Bill received date for Medical Bill (as a ISO-8601 date)
+    title: Bill Received Date
+  damage_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Damage Type
+    title: Damage Type
+  document_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The id of the document associated with the Medical Bill
+    title: Document Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *MedicalBill*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Name of the Medical Bill
+    title: Name
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MedicalBill* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MedicalBill* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: MedicalBillBase
+type: object

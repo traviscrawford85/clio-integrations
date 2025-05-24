@@ -1,0 +1,35 @@
+$defs:
+  CustomFieldSetUpdateRequestData:
+    description: CustomFieldSetUpdateRequestData
+    properties:
+      displayed:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the CustomFieldSet should be displayed by default.
+        title: Displayed
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: CustomFieldSet name.
+        title: Name
+      parent_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Type of object the CustomFieldSet is for.
+        title: Parent Type
+    title: CustomFieldSetUpdateRequestData
+    type: object
+description: CustomFieldSetUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/CustomFieldSetUpdateRequestData'
+required:
+- data
+title: CustomFieldSetUpdateRequest
+type: object

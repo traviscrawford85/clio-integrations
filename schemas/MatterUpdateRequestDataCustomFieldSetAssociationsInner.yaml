@@ -1,0 +1,49 @@
+$defs:
+  ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet:
+    description: ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CustomFieldSet associated
+          with the CustomFieldSetAssociation. The keyword `null` is not valid for
+          this field.
+        title: Id
+    title: ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+    type: object
+description: MatterUpdateRequestDataCustomFieldSetAssociationsInner
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single CustomFieldSetAssociation associated
+      with the Matter. The keyword `null` is not valid for this field.
+    title: Id
+  display_order:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The order to display the CustomFieldSet in a Matter. If not specified,
+      it is added as the last CustomFieldSet of the Matter.
+    title: Display Order
+  custom_field_set:
+    anyOf:
+    - $ref: '#/$defs/ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet'
+    - type: 'null'
+    default: null
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The destroy flag. If the flag is set to `true` and the unique identifier
+      of the associated CustomFieldSetAssociation is present, the CustomFieldSetAssociation
+      is deleted from the Matter.
+    title: Destroy
+title: MatterUpdateRequestDataCustomFieldSetAssociationsInner
+type: object

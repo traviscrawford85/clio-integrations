@@ -1,0 +1,35 @@
+description: ActivityDescriptionRateBase
+properties:
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Monetary value of this rate. Either hourly value or flat rate value
+    title: Amount
+  non_billable_amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Monetary value of this rate for non billable activities. Either hourly
+      value or flat rate value
+    title: Non Billable Amount
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: What kind of rate it is.
+    title: Type
+  hierarchy:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: What rate hierarchy the rate belongs to.
+    title: Hierarchy
+title: ActivityDescriptionRateBase
+type: object

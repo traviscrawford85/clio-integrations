@@ -1,0 +1,11 @@
+description: MatterCreateRequestDataRelationshipsInnerContact
+properties:
+  id:
+    description: The unique identifier for a single Contact associated with the Relationship.
+      The keyword `null` is not valid for this field.
+    title: Id
+    type: integer
+required:
+- id
+title: MatterCreateRequestDataRelationshipsInnerContact
+type: object

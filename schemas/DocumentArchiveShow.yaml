@@ -1,0 +1,74 @@
+$defs:
+  DocumentArchive:
+    description: DocumentArchive
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *DocumentArchive*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *DocumentArchive*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *DocumentArchive* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *DocumentArchive* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      size:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The size of the DocumentArchive in bytes.
+        title: Size
+      progress:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The percent completion of the DocumentArchive.
+        title: Progress
+      state:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current state of the DocumentArchive.
+        title: State
+      message:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A message to indicate why the DocumentArchive didn't complete.
+        title: Message
+    title: DocumentArchive
+    type: object
+description: DocumentArchiveShow
+properties:
+  data:
+    $ref: '#/$defs/DocumentArchive'
+required:
+- data
+title: DocumentArchiveShow
+type: object

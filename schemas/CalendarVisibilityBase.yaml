@@ -1,0 +1,64 @@
+description: CalendarVisibilityBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *CalendarVisibility*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *CalendarVisibility*
+    title: Etag
+  color:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Calendar color
+    title: Color
+  light_color:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Accent color to complement the main calendar color.
+    title: Light Color
+  visible:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *CalendarVisibility* will be shown by default in the
+      Clio Web UI.
+    title: Visible
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Calendar name
+    title: Name
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CalendarVisibility* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CalendarVisibility* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: CalendarVisibilityBase
+type: object

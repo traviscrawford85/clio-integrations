@@ -1,0 +1,118 @@
+description: LegalAidUkActivityBase
+properties:
+  activity_sub_category:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Activity sub-category
+    title: Activity Sub Category
+  advocacy:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Advocacy
+    title: Advocacy
+  base_rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Base rate
+    title: Base Rate
+  bolt_ons:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Bolt ons
+    title: Bolt Ons
+  bolt_ons_summary:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Bolt ons summary
+    title: Bolt Ons Summary
+  court:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Court
+    title: Court
+  eligible_for_sqm:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Eligible for SQM
+    title: Eligible For Sqm
+  expert:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Expert
+    title: Expert
+  form_of_civil_legal_service:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Form of civil legal service
+    title: Form Of Civil Legal Service
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *LegalAidUkActivity*
+    title: Id
+  is_custom_rate:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Flag to indicate if rate was manually entered by user
+    title: Is Custom Rate
+  json_key:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Lookup key that references JSON data
+    title: Json Key
+  region:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Region
+    title: Region
+  tax_exclusive:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Flag to indicate if tax is exclusive
+    title: Tax Exclusive
+  uplift:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Uplift percentage applied to activity rate
+    title: Uplift
+  user_type:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: User type
+    title: User Type
+title: LegalAidUkActivityBase
+type: object

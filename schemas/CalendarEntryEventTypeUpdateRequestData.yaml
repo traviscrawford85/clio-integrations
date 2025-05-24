@@ -1,0 +1,18 @@
+description: CalendarEntryEventTypeUpdateRequestData
+properties:
+  color:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The color assigned to the CalendarEntryEventType
+    title: Color
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the CalendarEntryEventType
+    title: Name
+title: CalendarEntryEventTypeUpdateRequestData
+type: object

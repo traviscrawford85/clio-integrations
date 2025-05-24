@@ -1,0 +1,310 @@
+$defs:
+  ActivityDescription:
+    description: ActivityDescription
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ActivityDescription*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ActivityDescription*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *ActivityDescription*
+        title: Name
+      visible_to_co_counsel:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: A toggle that determines if a co-counsel user of the firm can
+          have access to this activity description
+        title: Visible To Co Counsel
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ActivityDescription* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ActivityDescription* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      default:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether it is the user's default activity description
+        title: Default
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *ActivityDescription*
+        title: Type
+      utbms_activity_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The UTBMS activity id if the *ActivityDescription* is a UTBMS
+          activity description
+        title: Utbms Activity Id
+      utbms_task_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The UTBMS activity task name if attached to a UTBMS activity
+          description
+        title: Utbms Task Name
+      utbms_task_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The UTBMS activity task id if attached to a UTBMS activity description
+        title: Utbms Task Id
+      xero_service_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Custom Xero service code for this activity description
+        title: Xero Service Code
+      accessible_to_user:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Determines if activity description is accessible to user
+        title: Accessible To User
+      category_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Activity category rate type. Either hourly or flat fee
+        title: Category Type
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: The currency of the activity description
+        title: Currency
+      groups:
+        anyOf:
+        - items:
+            $ref: '#/$defs/GroupBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: Group
+        title: Groups
+      rate:
+        anyOf:
+        - $ref: '#/$defs/ActivityDescriptionRateBase'
+        - type: 'null'
+        default: null
+      utbms_task:
+        anyOf:
+        - $ref: '#/$defs/UtbmsCodeBase'
+        - type: 'null'
+        default: null
+      utbms_activity:
+        anyOf:
+        - $ref: '#/$defs/UtbmsCodeBase'
+        - type: 'null'
+        default: null
+    title: ActivityDescription
+    type: object
+  ActivityDescriptionRateBase:
+    description: ActivityDescriptionRateBase
+    properties:
+      amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Monetary value of this rate. Either hourly value or flat rate
+          value
+        title: Amount
+      non_billable_amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Monetary value of this rate for non billable activities. Either
+          hourly value or flat rate value
+        title: Non Billable Amount
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: What kind of rate it is.
+        title: Type
+      hierarchy:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: What rate hierarchy the rate belongs to.
+        title: Hierarchy
+    title: ActivityDescriptionRateBase
+    type: object
+  GroupBase:
+    description: GroupBase
+    properties:
+      client_connect_user:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Group is a UserGroup for a Clio Connect User
+        title: Client Connect User
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Group*
+        title: Etag
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Group*
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Group*
+        title: Name
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Group*
+        title: Type
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Group* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: GroupBase
+    type: object
+  UtbmsCodeBase:
+    description: UtbmsCodeBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *UtbmsCode*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *UtbmsCode*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *UtbmsCode*
+        title: Name
+      code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The UTBMS code for the *UtbmsCode*
+        title: Code
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The UTBMS description for the *UtbmsCode*
+        title: Description
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *UtbmsCode*
+        title: Type
+      utbms_set_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Set id for the *UtbmsCode*
+        title: Utbms Set Id
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *UtbmsCode* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *UtbmsCode* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: UtbmsCodeBase
+    type: object
+description: ActivityDescriptionList
+properties:
+  data:
+    description: ActivityDescription List Response
+    items:
+      $ref: '#/$defs/ActivityDescription'
+    title: Data
+    type: array
+required:
+- data
+title: ActivityDescriptionList
+type: object

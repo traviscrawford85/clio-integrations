@@ -1,0 +1,340 @@
+$defs:
+  ActivityCreateRequestDataActivityDescription:
+    description: ActivityCreateRequestDataActivityDescription
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single ActivityDescription associated
+          with the Activity. The keyword `null` is not valid for this field.
+        title: Id
+      utbms_task_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single UtbmsTask associated with
+          the Activity. The keyword `null` is not valid for this field.
+        title: Utbms Task Id
+      utbms_activity_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single UtbmsActivity associated with
+          the Activity. The keyword `null` is not valid for this field.
+        title: Utbms Activity Id
+    title: ActivityCreateRequestDataActivityDescription
+    type: object
+  ActivityCreateRequestDataCalendarEntry:
+    description: ActivityCreateRequestDataCalendarEntry
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CalendarEntry associated with
+          the Activity. The keyword `null` is not valid for this field.
+        title: Id
+    title: ActivityCreateRequestDataCalendarEntry
+    type: object
+  ActivityCreateRequestDataClientPortal:
+    description: ActivityCreateRequestDataClientPortal
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single ClientPortal associated with
+          the Activity. The keyword `null` is not valid for this field.
+        title: Id
+    title: ActivityCreateRequestDataClientPortal
+    type: object
+  ActivityCreateRequestDataCommunication:
+    description: ActivityCreateRequestDataCommunication
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Communication associated with
+          the Activity. The keyword `null` is not valid for this field.
+        title: Id
+    title: ActivityCreateRequestDataCommunication
+    type: object
+  ActivityCreateRequestDataContactNote:
+    description: ActivityCreateRequestDataContactNote
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Note associated with the Activity.
+          The keyword `null` is not valid for this field.
+        title: Id
+    title: ActivityCreateRequestDataContactNote
+    type: object
+  ActivityCreateRequestDataExpenseCategory:
+    description: ActivityCreateRequestDataExpenseCategory
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The unique identifier for a single ExpenseCategory associated
+          with an Activity. Use the keyword `null` to specify no association. '
+        title: Id
+    title: ActivityCreateRequestDataExpenseCategory
+    type: object
+  ActivityCreateRequestDataMatter:
+    description: ActivityCreateRequestDataMatter
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Matter associated with the
+          Activity. The keyword `null` is not valid for this field.
+        title: Id
+    title: ActivityCreateRequestDataMatter
+    type: object
+  ActivityCreateRequestDataTask:
+    description: ActivityCreateRequestDataTask
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Task associated with the Activity.
+          The keyword `null` is not valid for this field.
+        title: Id
+    title: ActivityCreateRequestDataTask
+    type: object
+  ActivityCreateRequestDataTextMessageConversation:
+    description: ActivityCreateRequestDataTextMessageConversation
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single TextMessageConversation associated
+          with the Activity. The keyword `null` is not valid for this field.
+        title: Id
+    title: ActivityCreateRequestDataTextMessageConversation
+    type: object
+  ActivityCreateRequestDataUser:
+    description: ActivityCreateRequestDataUser
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The unique identifier for a single User associated with the
+          Activity. Use the keyword `null` to specify no association. On creation,
+          if no user is specified, it will default to the current user.  If a TimeEntry
+          is created by a Clio Connect user, the field is not editable. '
+        title: Id
+    title: ActivityCreateRequestDataUser
+    type: object
+  ActivityCreateRequestDataUtbmsExpense:
+    description: ActivityCreateRequestDataUtbmsExpense
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single UtbmsExpense associated with
+          the Activity. The keyword `null` is not valid for this field.
+        title: Id
+    title: ActivityCreateRequestDataUtbmsExpense
+    type: object
+  ActivityCreateRequestDataVendor:
+    description: ActivityCreateRequestDataVendor
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The unique identifier for a single Contact associated with a
+          HardCostEntry. Use the keyword `null` to specify no association. '
+        title: Id
+    title: ActivityCreateRequestDataVendor
+    type: object
+  ActivityUpdateRequestData:
+    description: ActivityUpdateRequestData
+    properties:
+      activity_description:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataActivityDescription'
+        - type: 'null'
+        default: null
+      calendar_entry:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataCalendarEntry'
+        - type: 'null'
+        default: null
+      client_portal:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataClientPortal'
+        - type: 'null'
+        default: null
+      communication:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataCommunication'
+        - type: 'null'
+        default: null
+      contact_note:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataContactNote'
+        - type: 'null'
+        default: null
+      date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the Activity was performed. (Expects an ISO-8601 date).
+        title: Date
+      expense_category:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataExpenseCategory'
+        - type: 'null'
+        default: null
+      matter:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataMatter'
+        - type: 'null'
+        default: null
+      matter_note:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataContactNote'
+        - type: 'null'
+        default: null
+      no_charge:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the non-billable *Activity* will be shown on the bill.
+        title: No Charge
+      non_billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: 'Whether or not this Activity is prevented from appearing as
+          a line item in a bill. Only valid for non-billed TimeEntries, and with the
+          exception of the Activity having no_charge set to true. '
+        title: Non Billable
+      note:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A custom note to describe what the Activity is for.
+        title: Note
+      price:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'For an ExpenseEntry, HardCostEntry, and SoftCostEntry, it is
+          the expense amount.  [Support Link for ExpenseEntry](https://help.clio.com/hc/en-us/articles/9289745356571-Expenses)  [Support
+          Link for HardCostEntry and SoftCostEntry](https://help.clio.com/hc/en-us/articles/9289745356571-Expenses#enable-hard-and-soft-cost-expenses-0-0)  For
+          a TimeEntry, it is the hourly or flat amount. When updating a TimeEntry,
+          if the price is not given or the user does not have the permission to view
+          the rate, and its activity description, matter and/or user is changed, the
+          price is reset according to the rate defined for the activity description,
+          matter, client or user.  [Support Link for Rates Hierarchy](https://help.clio.com/hc/en-us/articles/9289801180187-Rates-and-Rate-Hierarchies-)  [Support
+          Link for Billing Rate Visibility](https://help.clio.com/hc/en-us/articles/9285360193819-Permissions-and-Billing-Rates#billing-rate-visibility-0-3) '
+        title: Price
+      quantity:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The field is applicable to TimeEntry, ExpenseEntry, and SoftCostEntry.  **Version
+          <= 4.0.3:** The number of hours the TimeEntry took.  **Latest version:**
+          The number of seconds the TimeEntry took. '
+        title: Quantity
+      reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A check reference for a HardCostEntry.
+        title: Reference
+      start_timer:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not a timer should be started for this Activity. Only
+          valid for non-FlatRate, non-billed TimeEntries.
+        title: Start Timer
+      task:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataTask'
+        - type: 'null'
+        default: null
+      tax_setting:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The option denoting whether primary tax, secondary tax, or both
+          is applied to an expense entry.
+        title: Tax Setting
+      text_message_conversation:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataTextMessageConversation'
+        - type: 'null'
+        default: null
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the Activity.
+        title: Type
+      user:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataUser'
+        - type: 'null'
+        default: null
+      utbms_expense:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataUtbmsExpense'
+        - type: 'null'
+        default: null
+      vendor:
+        anyOf:
+        - $ref: '#/$defs/ActivityCreateRequestDataVendor'
+        - type: 'null'
+        default: null
+    title: ActivityUpdateRequestData
+    type: object
+description: ActivityUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/ActivityUpdateRequestData'
+required:
+- data
+title: ActivityUpdateRequest
+type: object

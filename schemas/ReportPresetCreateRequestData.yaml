@@ -1,0 +1,26 @@
+description: ReportPresetCreateRequestData
+properties:
+  format:
+    description: What format the report will be generated in.
+    title: Format
+    type: string
+  kind:
+    description: What kind of report will be generated.
+    title: Kind
+    type: string
+  name:
+    description: Name of the ReportPreset.
+    title: Name
+    type: string
+  options:
+    description: What the report generation parameters are. See [Creating a Report
+      Preset](#section/Creating-a-Report-Preset) for a sample request.
+    title: Options
+    type: string
+required:
+- format
+- kind
+- name
+- options
+title: ReportPresetCreateRequestData
+type: object

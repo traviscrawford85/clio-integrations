@@ -1,0 +1,4169 @@
+{
+  "paths": {
+    "/generated/logentry_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LogEntry_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LogEntry_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/creditmemo_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CreditMemo_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditMemo_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customaction_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomAction_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomAction_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billtheme_base.json": {
+      "get": {
+        "summary": "Generated endpoint for BillTheme_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillTheme_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/banktransfer.json": {
+      "get": {
+        "summary": "Generated endpoint for BankTransfer",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankTransfer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/activityrate.json": {
+      "get": {
+        "summary": "Generated endpoint for ActivityRate",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityRate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/communication_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Communication_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Communication_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/medicalbill_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MedicalBill_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MedicalBill_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/utbmscode_base.json": {
+      "get": {
+        "summary": "Generated endpoint for UtbmsCode_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UtbmsCode_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/calendarentryeventtype_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CalendarEntryEventType_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarEntryEventType_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/activitydescription.json": {
+      "get": {
+        "summary": "Generated endpoint for ActivityDescription",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityDescription"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/relationship_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Relationship_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Relationship_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/notificationmethod_base.json": {
+      "get": {
+        "summary": "Generated endpoint for NotificationMethod_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationMethod_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/splitinvoice_base.json": {
+      "get": {
+        "summary": "Generated endpoint for SplitInvoice_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SplitInvoice_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/matterbillrecipient.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterBillRecipient",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterBillRecipient"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customfieldset.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomFieldSet",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomFieldSet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/avatar_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Avatar_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Avatar_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/myevent.json": {
+      "get": {
+        "summary": "Generated endpoint for MyEvent",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyEvent"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/reminder.json": {
+      "get": {
+        "summary": "Generated endpoint for Reminder",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reminder"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/participant.json": {
+      "get": {
+        "summary": "Generated endpoint for Participant",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Participant"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/communicationemlfile_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CommunicationEmlFile_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommunicationEmlFile_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/webhook.json": {
+      "get": {
+        "summary": "Generated endpoint for Webhook",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Webhook"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/documentversion_base.json": {
+      "get": {
+        "summary": "Generated endpoint for DocumentVersion_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentVersion_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/contingencyfee_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ContingencyFee_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContingencyFee_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/trustlineitem_base.json": {
+      "get": {
+        "summary": "Generated endpoint for TrustLineItem_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrustLineItem_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/calendarentry_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CalendarEntry_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarEntry_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/phonenumber_base.json": {
+      "get": {
+        "summary": "Generated endpoint for PhoneNumber_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhoneNumber_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/bankaccount.json": {
+      "get": {
+        "summary": "Generated endpoint for BankAccount",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankAccount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/reportpreset_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ReportPreset_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportPreset_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/matterstage.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterStage",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterStage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/laukexpensecategory_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LaukExpenseCategory_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LaukExpenseCategory_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/matterbillrecipient_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterBillRecipient_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterBillRecipient_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/lien_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Lien_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lien_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/group.json": {
+      "get": {
+        "summary": "Generated endpoint for Group",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/payment.json": {
+      "get": {
+        "summary": "Generated endpoint for Payment",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/client.json": {
+      "get": {
+        "summary": "Generated endpoint for Client",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customfieldsetassociation_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomFieldSetAssociation_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomFieldSetAssociation_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/textsnippet_base.json": {
+      "get": {
+        "summary": "Generated endpoint for TextSnippet_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextSnippet_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/matterstage_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterStage_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterStage_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/laukcivilcertificatedrate.json": {
+      "get": {
+        "summary": "Generated endpoint for LaukCivilCertificatedRate",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LaukCivilCertificatedRate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/mattercontacts.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterContacts",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterContacts"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/picklistoption.json": {
+      "get": {
+        "summary": "Generated endpoint for PicklistOption",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PicklistOption"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/matterbudget_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterBudget_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterBudget_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/timer_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Timer_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Timer_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/activityrate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ActivityRate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityRate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/eventmetrics.json": {
+      "get": {
+        "summary": "Generated endpoint for EventMetrics",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventMetrics"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/splitinvoicepayer_base.json": {
+      "get": {
+        "summary": "Generated endpoint for SplitInvoicePayer_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SplitInvoicePayer_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/address_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Address_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Address_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/report_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Report_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/group_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Group_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Group_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customaction.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomAction",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomAction"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/activity_textmessageconversation_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Activity_TextMessageConversation_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity_TextMessageConversation_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billableclient_base.json": {
+      "get": {
+        "summary": "Generated endpoint for BillableClient_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillableClient_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/task_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Task_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Task_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/polymorphiccustomrate_activitydescription_base.json": {
+      "get": {
+        "summary": "Generated endpoint for PolymorphicCustomRate_ActivityDescription_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PolymorphicCustomRate_ActivityDescription_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customfield.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomField",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomField"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/practicearea.json": {
+      "get": {
+        "summary": "Generated endpoint for PracticeArea",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PracticeArea"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/user.json": {
+      "get": {
+        "summary": "Generated endpoint for User",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/documentautomation_base.json": {
+      "get": {
+        "summary": "Generated endpoint for DocumentAutomation_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentAutomation_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/banktransaction.json": {
+      "get": {
+        "summary": "Generated endpoint for BankTransaction",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankTransaction"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/polymorphiccustomrate_user_base.json": {
+      "get": {
+        "summary": "Generated endpoint for PolymorphicCustomRate_User_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PolymorphicCustomRate_User_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/trustlineitem.json": {
+      "get": {
+        "summary": "Generated endpoint for TrustLineItem",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrustLineItem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/participant_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Participant_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Participant_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/legalaidukmatter_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LegalAidUkMatter_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegalAidUkMatter_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/discount_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Discount_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Discount_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/polymorphicobject_base.json": {
+      "get": {
+        "summary": "Generated endpoint for PolymorphicObject_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PolymorphicObject_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/document_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Document_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/servicetype.json": {
+      "get": {
+        "summary": "Generated endpoint for ServiceType",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceType"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/lineitem.json": {
+      "get": {
+        "summary": "Generated endpoint for LineItem",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LineItem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/reportpreset.json": {
+      "get": {
+        "summary": "Generated endpoint for ReportPreset",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportPreset"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billrecipient_base.json": {
+      "get": {
+        "summary": "Generated endpoint for BillRecipient_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillRecipient_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/medicalrecordsrequest_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MedicalRecordsRequest_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MedicalRecordsRequest_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/matterdocket_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterDocket_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterDocket_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/medicalbill.json": {
+      "get": {
+        "summary": "Generated endpoint for MedicalBill",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MedicalBill"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/relatedcontacts_base.json": {
+      "get": {
+        "summary": "Generated endpoint for RelatedContacts_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RelatedContacts_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/account_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Account_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/utbmscode.json": {
+      "get": {
+        "summary": "Generated endpoint for UtbmsCode",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UtbmsCode"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/grant.json": {
+      "get": {
+        "summary": "Generated endpoint for Grant",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Grant"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/activity_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Activity_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/multipart.json": {
+      "get": {
+        "summary": "Generated endpoint for Multipart",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Multipart"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/instantmessenger_base.json": {
+      "get": {
+        "summary": "Generated endpoint for InstantMessenger_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstantMessenger_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/attendee_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Attendee_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Attendee_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/documenttemplate.json": {
+      "get": {
+        "summary": "Generated endpoint for DocumentTemplate",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentTemplate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/report.json": {
+      "get": {
+        "summary": "Generated endpoint for Report",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customfieldvalue_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomFieldValue_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomFieldValue_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/creditmemo.json": {
+      "get": {
+        "summary": "Generated endpoint for CreditMemo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditMemo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/documentautomation.json": {
+      "get": {
+        "summary": "Generated endpoint for DocumentAutomation",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentAutomation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/expensecategory.json": {
+      "get": {
+        "summary": "Generated endpoint for ExpenseCategory",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCategory"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/comment_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Comment_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/calendarvisibility_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CalendarVisibility_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarVisibility_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/mattercustomrate.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterCustomRate",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterCustomRate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/unredactedparticipant_base.json": {
+      "get": {
+        "summary": "Generated endpoint for UnredactedParticipant_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnredactedParticipant_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/medicalrecord_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MedicalRecord_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MedicalRecord_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/laukcriminalcontrolledrate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LaukCriminalControlledRate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LaukCriminalControlledRate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/folder_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Folder_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/lineitem_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LineItem_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LineItem_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/item.json": {
+      "get": {
+        "summary": "Generated endpoint for Item",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/conversationmembership_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ConversationMembership_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationMembership_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/practicearea_base.json": {
+      "get": {
+        "summary": "Generated endpoint for PracticeArea_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PracticeArea_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/contact_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Contact_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contact_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/tasktemplatelistinstace_base.json": {
+      "get": {
+        "summary": "Generated endpoint for TaskTemplateListInstace_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskTemplateListInstace_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/cliopaymentspayment_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ClioPaymentsPayment_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClioPaymentsPayment_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/medicalrecord.json": {
+      "get": {
+        "summary": "Generated endpoint for MedicalRecord",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MedicalRecord"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/notificationeventsubscriber_base.json": {
+      "get": {
+        "summary": "Generated endpoint for NotificationEventSubscriber_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationEventSubscriber_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/textsnippet.json": {
+      "get": {
+        "summary": "Generated endpoint for TextSnippet",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextSnippet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/damage.json": {
+      "get": {
+        "summary": "Generated endpoint for Damage",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Damage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/expensecategory_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ExpenseCategory_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCategory_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/communication.json": {
+      "get": {
+        "summary": "Generated endpoint for Communication",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Communication"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/event_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Event_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/calendarentry.json": {
+      "get": {
+        "summary": "Generated endpoint for CalendarEntry",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarEntry"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/legalaidukcontact_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LegalAidUkContact_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegalAidUkContact_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/matter_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Matter_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Matter_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/conferencemeeting_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ConferenceMeeting_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConferenceMeeting_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/bill.json": {
+      "get": {
+        "summary": "Generated endpoint for Bill",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bill"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/payment_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Payment_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/contact.json": {
+      "get": {
+        "summary": "Generated endpoint for Contact",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contact"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/relatedcontacts.json": {
+      "get": {
+        "summary": "Generated endpoint for RelatedContacts",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RelatedContacts"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/outstandingclientbalance.json": {
+      "get": {
+        "summary": "Generated endpoint for OutstandingClientBalance",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OutstandingClientBalance"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/jurisdictionstotrigger_base.json": {
+      "get": {
+        "summary": "Generated endpoint for JurisdictionsToTrigger_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JurisdictionsToTrigger_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/conversation_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Conversation_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Conversation_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/calendar.json": {
+      "get": {
+        "summary": "Generated endpoint for Calendar",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Calendar"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/document.json": {
+      "get": {
+        "summary": "Generated endpoint for Document",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/reportschedule.json": {
+      "get": {
+        "summary": "Generated endpoint for ReportSchedule",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportSchedule"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/documentarchive.json": {
+      "get": {
+        "summary": "Generated endpoint for DocumentArchive",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentArchive"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billablematter_base.json": {
+      "get": {
+        "summary": "Generated endpoint for BillableMatter_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillableMatter_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/website_base.json": {
+      "get": {
+        "summary": "Generated endpoint for WebSite_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebSite_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/interestcharge.json": {
+      "get": {
+        "summary": "Generated endpoint for InterestCharge",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InterestCharge"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/activity_calendarentry_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Activity_CalendarEntry_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity_CalendarEntry_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/webhook_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Webhook_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Webhook_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/jurisdiction.json": {
+      "get": {
+        "summary": "Generated endpoint for Jurisdiction",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Jurisdiction"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/activity.json": {
+      "get": {
+        "summary": "Generated endpoint for Activity",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/currency.json": {
+      "get": {
+        "summary": "Generated endpoint for Currency",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Currency"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billableclient.json": {
+      "get": {
+        "summary": "Generated endpoint for BillableClient",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillableClient"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/interestcharge_base.json": {
+      "get": {
+        "summary": "Generated endpoint for InterestCharge_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InterestCharge_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/polymorphiccustomrate.json": {
+      "get": {
+        "summary": "Generated endpoint for PolymorphicCustomRate",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PolymorphicCustomRate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/emailaddress.json": {
+      "get": {
+        "summary": "Generated endpoint for EmailAddress",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailAddress"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/linkedfolder_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LinkedFolder_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedFolder_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/eventmetrics_base.json": {
+      "get": {
+        "summary": "Generated endpoint for EventMetrics_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventMetrics_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/reportschedule_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ReportSchedule_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportSchedule_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/conversationmessage_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ConversationMessage_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationMessage_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/matter.json": {
+      "get": {
+        "summary": "Generated endpoint for Matter",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Matter"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/documentcategory_base.json": {
+      "get": {
+        "summary": "Generated endpoint for DocumentCategory_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentCategory_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/matterbalance_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterBalance_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterBalance_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/trustrequest_base.json": {
+      "get": {
+        "summary": "Generated endpoint for TrustRequest_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrustRequest_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/idsresponse.json": {
+      "get": {
+        "summary": "Generated endpoint for IdsResponse",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/myevent_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MyEvent_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyEvent_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/cliopaymentslink.json": {
+      "get": {
+        "summary": "Generated endpoint for ClioPaymentsLink",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClioPaymentsLink"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/cliopaymentspayment.json": {
+      "get": {
+        "summary": "Generated endpoint for ClioPaymentsPayment",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClioPaymentsPayment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/polymorphiccustomrate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for PolymorphicCustomRate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PolymorphicCustomRate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/cliopaymentslink_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ClioPaymentsLink_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClioPaymentsLink_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/timer.json": {
+      "get": {
+        "summary": "Generated endpoint for Timer",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Timer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/jurisdictionstotrigger.json": {
+      "get": {
+        "summary": "Generated endpoint for JurisdictionsToTrigger",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JurisdictionsToTrigger"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/account.json": {
+      "get": {
+        "summary": "Generated endpoint for Account",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/utbmsset_base.json": {
+      "get": {
+        "summary": "Generated endpoint for UtbmsSet_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UtbmsSet_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/accountbalance_base.json": {
+      "get": {
+        "summary": "Generated endpoint for AccountBalance_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountBalance_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/medicalrecordsrequest.json": {
+      "get": {
+        "summary": "Generated endpoint for MedicalRecordsRequest",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MedicalRecordsRequest"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customfield_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomField_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomField_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/emailaddress_base.json": {
+      "get": {
+        "summary": "Generated endpoint for EmailAddress_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailAddress_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/trustrequest.json": {
+      "get": {
+        "summary": "Generated endpoint for TrustRequest",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrustRequest"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/laukcriminalcontrolledrate.json": {
+      "get": {
+        "summary": "Generated endpoint for LaukCriminalControlledRate",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LaukCriminalControlledRate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/user_base.json": {
+      "get": {
+        "summary": "Generated endpoint for User_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/activitydescription_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ActivityDescription_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityDescription_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/tasktype.json": {
+      "get": {
+        "summary": "Generated endpoint for TaskType",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskType"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/mattercustomrate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterCustomRate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterCustomRate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/conversation.json": {
+      "get": {
+        "summary": "Generated endpoint for Conversation",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Conversation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/bankaccount_base.json": {
+      "get": {
+        "summary": "Generated endpoint for BankAccount_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankAccount_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/banktransaction_base.json": {
+      "get": {
+        "summary": "Generated endpoint for BankTransaction_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankTransaction_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/item_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Item_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Item_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/relationship.json": {
+      "get": {
+        "summary": "Generated endpoint for Relationship",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Relationship"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/matterdocket.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterDocket",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterDocket"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/externalproperty_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ExternalProperty_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalProperty_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/reminder_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Reminder_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reminder_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/tasktemplatelist.json": {
+      "get": {
+        "summary": "Generated endpoint for TaskTemplateList",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskTemplateList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billrecipient_contact_base.json": {
+      "get": {
+        "summary": "Generated endpoint for BillRecipient_Contact_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillRecipient_Contact_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/calendar_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Calendar_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Calendar_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/tasktemplatelist_base.json": {
+      "get": {
+        "summary": "Generated endpoint for TaskTemplateList_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskTemplateList_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/activity_task_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Activity_Task_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity_Task_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/tasktemplate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for TaskTemplate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskTemplate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/legalaidukbill_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LegalAidUkBill_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegalAidUkBill_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/bill_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Bill_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Bill_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/legalaidukactivity_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LegalAidUkActivity_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegalAidUkActivity_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/currency_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Currency_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Currency_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/grantfundingsource.json": {
+      "get": {
+        "summary": "Generated endpoint for GrantFundingSource",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantFundingSource"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/picklistoption_base.json": {
+      "get": {
+        "summary": "Generated endpoint for PicklistOption_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PicklistOption_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/conversationmessage.json": {
+      "get": {
+        "summary": "Generated endpoint for ConversationMessage",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billingsetting_base.json": {
+      "get": {
+        "summary": "Generated endpoint for BillingSetting_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillingSetting_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/servicetype_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ServiceType_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceType_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/laukcivilcontrolledrate.json": {
+      "get": {
+        "summary": "Generated endpoint for LaukCivilControlledRate",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LaukCivilControlledRate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/tasktemplate.json": {
+      "get": {
+        "summary": "Generated endpoint for TaskTemplate",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskTemplate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/laukcivilcertificatedrate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LaukCivilCertificatedRate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LaukCivilCertificatedRate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/banktransfer_base.json": {
+      "get": {
+        "summary": "Generated endpoint for BankTransfer_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankTransfer_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/balance_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Balance_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Balance_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customfieldvalue.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomFieldValue",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomFieldValue"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/errordetail.json": {
+      "get": {
+        "summary": "Generated endpoint for ErrorDetail",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/utbmsset.json": {
+      "get": {
+        "summary": "Generated endpoint for UtbmsSet",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UtbmsSet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/outstandingclientbalance_base.json": {
+      "get": {
+        "summary": "Generated endpoint for OutstandingClientBalance_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OutstandingClientBalance_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billingsetting.json": {
+      "get": {
+        "summary": "Generated endpoint for BillingSetting",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillingSetting"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/folder.json": {
+      "get": {
+        "summary": "Generated endpoint for Folder",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Folder"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customfieldmatterselection_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomFieldMatterSelection_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomFieldMatterSelection_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/task.json": {
+      "get": {
+        "summary": "Generated endpoint for Task",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/client_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Client_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/documentcategory.json": {
+      "get": {
+        "summary": "Generated endpoint for DocumentCategory",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentCategory"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customfieldmatterselection.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomFieldMatterSelection",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomFieldMatterSelection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/jobtitle_base.json": {
+      "get": {
+        "summary": "Generated endpoint for JobTitle_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobTitle_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/interest.json": {
+      "get": {
+        "summary": "Generated endpoint for Interest",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Interest"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/clientportal_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ClientPortal_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientPortal_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/allocation.json": {
+      "get": {
+        "summary": "Generated endpoint for Allocation",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Allocation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/logentry.json": {
+      "get": {
+        "summary": "Generated endpoint for LogEntry",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LogEntry"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/grantfundingsource_base.json": {
+      "get": {
+        "summary": "Generated endpoint for GrantFundingSource_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantFundingSource_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/documentversion.json": {
+      "get": {
+        "summary": "Generated endpoint for DocumentVersion",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentVersion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/laukexpensecategory.json": {
+      "get": {
+        "summary": "Generated endpoint for LaukExpenseCategory",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LaukExpenseCategory"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/tasktype_base.json": {
+      "get": {
+        "summary": "Generated endpoint for TaskType_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskType_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billablematter.json": {
+      "get": {
+        "summary": "Generated endpoint for BillableMatter",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillableMatter"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/balance.json": {
+      "get": {
+        "summary": "Generated endpoint for Balance",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Balance"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/paymentprofile_base.json": {
+      "get": {
+        "summary": "Generated endpoint for PaymentProfile_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentProfile_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/note_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Note_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Note_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/damage_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Damage_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Damage_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/lineitemtotals_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LineItemTotals_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LineItemTotals_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/activitydescriptionrate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ActivityDescriptionRate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivityDescriptionRate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/jurisdiction_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Jurisdiction_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Jurisdiction_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/laukcivilcontrolledrate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for LaukCivilControlledRate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LaukCivilControlledRate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/evergreenretainer_base.json": {
+      "get": {
+        "summary": "Generated endpoint for EvergreenRetainer_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvergreenRetainer_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/comment.json": {
+      "get": {
+        "summary": "Generated endpoint for Comment",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/address.json": {
+      "get": {
+        "summary": "Generated endpoint for Address",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Address"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/cascadingtasktemplate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CascadingTaskTemplate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CascadingTaskTemplate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/phonenumber.json": {
+      "get": {
+        "summary": "Generated endpoint for PhoneNumber",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhoneNumber"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/interest_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Interest_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Interest_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/cliocreator_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ClioCreator_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClioCreator_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/documentarchive_base.json": {
+      "get": {
+        "summary": "Generated endpoint for DocumentArchive_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentArchive_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/documenttemplate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for DocumentTemplate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentTemplate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/multipart_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Multipart_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Multipart_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/customfieldset_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CustomFieldSet_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomFieldSet_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billtheme.json": {
+      "get": {
+        "summary": "Generated endpoint for BillTheme",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillTheme"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/remindertemplate_base.json": {
+      "get": {
+        "summary": "Generated endpoint for ReminderTemplate_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReminderTemplate_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/calendarvisibility.json": {
+      "get": {
+        "summary": "Generated endpoint for CalendarVisibility",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalendarVisibility"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/grant_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Grant_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Grant_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/event.json": {
+      "get": {
+        "summary": "Generated endpoint for Event",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/multipartheader_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MultipartHeader_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MultipartHeader_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/note.json": {
+      "get": {
+        "summary": "Generated endpoint for Note",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Note"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/allocation_base.json": {
+      "get": {
+        "summary": "Generated endpoint for Allocation_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Allocation_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/polymorphiccustomrate_group_base.json": {
+      "get": {
+        "summary": "Generated endpoint for PolymorphicCustomRate_Group_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PolymorphicCustomRate_Group_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/conversationmembership.json": {
+      "get": {
+        "summary": "Generated endpoint for ConversationMembership",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationMembership"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/mattercontacts_base.json": {
+      "get": {
+        "summary": "Generated endpoint for MatterContacts_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatterContacts_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/cascadingtask_base.json": {
+      "get": {
+        "summary": "Generated endpoint for CascadingTask_base",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CascadingTask_base"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generated/billrecipient.json": {
+      "get": {
+        "summary": "Generated endpoint for BillRecipient",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillRecipient"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+description: CustomFieldCreateRequestDataPicklistOptionsInner
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single PicklistOption associated with
+      the CustomField. The keyword `null` is not valid for this field. Not required
+      for creating new PicklistOptions, but required for updating or deleting existing
+      ones.
+    title: Id
+  option:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The option value.
+    title: Option
+  _deleted:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the PicklistOption should be deleted.
+    title: Deleted
+title: CustomFieldCreateRequestDataPicklistOptionsInner
+type: object

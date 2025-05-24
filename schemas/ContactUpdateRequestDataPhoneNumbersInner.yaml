@@ -1,0 +1,43 @@
+description: ContactUpdateRequestDataPhoneNumbersInner
+properties:
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: Other
+    description: Name of the PhoneNumber.
+    title: Name
+  number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Phone number.
+    title: Number
+  default_number:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the PhoneNumber should be the default number for the
+      Contact.
+    title: Default Number
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single PhoneNumber associated with the
+      Contact. The keyword `null` is not valid for this field.
+    title: Id
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The destroy flag. If the flag is set to `true` and the unique identifier
+      of the associated PhoneNumber is present, the PhoneNumber is deleted from the
+      Contact.
+    title: Destroy
+title: ContactUpdateRequestDataPhoneNumbersInner
+type: object

@@ -1,0 +1,2502 @@
+$defs:
+  AccountBalanceBase:
+    description: AccountBalanceBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *AccountBalance*
+        title: Id
+      balance:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The current balance of the bank account available to the matter
+          or contact
+        title: Balance
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The bank account type. Either Operating or Trust
+        title: Type
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the bank account
+        title: Name
+    title: AccountBalanceBase
+    type: object
+  ContactBase:
+    description: ContactBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Contact*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Contact*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *Contact*
+        title: Name
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: First name of the Person
+        title: First Name
+      middle_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Middle name of the Person
+        title: Middle Name
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Last name of the Person
+        title: Last Name
+      date_of_birth:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date of birth
+        title: Date Of Birth
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Contact*
+        title: Type
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Contact* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Contact* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      prefix:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The prefix of the *Contact* (Mr, Mrs, etc)
+        title: Prefix
+      title:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The designated title of the *Contact*
+        title: Title
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *Contact*
+        title: Initials
+      clio_connect_email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Clio Connect email if the *Contact* is a ClioConnect User
+        title: Clio Connect Email
+      locked_clio_connect_email:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: A boolean indicating if the ability to modify this *Contacts
+          Clio connect email is locked.
+        title: Locked Clio Connect Email
+      client_connect_user_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The ID for the Clio Connect user associated with this *Contact*
+        title: Client Connect User Id
+      primary_email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary email address associated with this *Contact*.
+        title: Primary Email Address
+      secondary_email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The secondary email address associated with this *Contact*.
+        title: Secondary Email Address
+      primary_phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number associated with this *Contact*.
+        title: Primary Phone Number
+      secondary_phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The secondary phone number of the *Contact*.
+        title: Secondary Phone Number
+      ledes_client_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: LEDES client id of the Contact
+        title: Ledes Client Id
+      has_clio_for_clients_permission:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: True if at least one resource has been shared with the contact
+          using Clio for Clients.
+        title: Has Clio For Clients Permission
+      is_client:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact is a client
+        title: Is Client
+      is_clio_for_client_user:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not this contact has client_login and client_user
+          (can be created due to addition to client portal or client_share_permissions)
+        title: Is Clio For Client User
+      is_co_counsel:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact has matters shared as co-counsel
+        title: Is Co Counsel
+      is_bill_recipient:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the Contact is a bill recipient on at least one matter.
+        title: Is Bill Recipient
+      sales_tax_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The sales tax number of the *Contact*
+        title: Sales Tax Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the *Contact*
+        title: Currency
+    title: ContactBase
+    type: object
+  ContingencyFeeBase:
+    description: ContingencyFeeBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ContingencyFee*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ContingencyFee*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ContingencyFee* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ContingencyFee* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      show_contingency_award:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *ContingencyFee* is posted or on a bill
+        title: Show Contingency Award
+    title: ContingencyFeeBase
+    type: object
+  CustomField:
+    description: CustomField
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *CustomField*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *CustomField*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CustomField* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CustomField* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *CustomField*
+        title: Name
+      parent_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Type of object the *CustomField* is for
+        title: Parent Type
+      field_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Field type of the *CustomField*
+        title: Field Type
+      displayed:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomField* is displayed by default
+        title: Displayed
+      deleted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomField* is deleted for future use
+        title: Deleted
+      required:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomField* requires a value
+        title: Required
+      display_order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The display position of the *CustomField*
+        title: Display Order
+      picklist_options:
+        anyOf:
+        - items:
+            $ref: '#/$defs/PicklistOptionBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: PicklistOption
+        title: Picklist Options
+    title: CustomField
+    type: object
+  CustomFieldMatterSelectionBase:
+    description: CustomFieldMatterSelectionBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *CustomFieldMatterSelection*
+        title: Id
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The reference and label of the *CustomFieldMatterSelection*.
+          Depending on the account's manual_matter_numbering setting, this is either
+          read only (generated) or customizable.
+        title: Display Number
+    title: CustomFieldMatterSelectionBase
+    type: object
+  CustomFieldSetAssociationBase:
+    description: CustomFieldSetAssociationBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *CustomFieldSetAssociation*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *CustomFieldSetAssociation*
+        title: Etag
+      display_order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The display position of the *CustomFieldSetAssociation*
+        title: Display Order
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CustomFieldSetAssociation* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CustomFieldSetAssociation* was last updated (as
+          a ISO-8601 timestamp)
+        title: Updated At
+    title: CustomFieldSetAssociationBase
+    type: object
+  CustomFieldValue:
+    description: CustomFieldValue
+    properties:
+      id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *CustomFieldValue*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *CustomFieldValue*
+        title: Etag
+      field_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the custom field
+        title: Field Name
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CustomFieldValue* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CustomFieldValue* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      field_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *CustomFieldValue*
+        title: Field Type
+      field_required:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomFieldValue* requires a value
+        title: Field Required
+      field_displayed:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomFieldValue* is displayed by default
+        title: Field Displayed
+      field_display_order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The display position of the *CustomFieldValue*
+        title: Field Display Order
+      value:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The value of the *CustomFieldValue*
+        title: Value
+      soft_deleted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the value is associated with a deleted custom field
+        title: Soft Deleted
+      custom_field:
+        anyOf:
+        - $ref: '#/$defs/CustomField'
+        - type: 'null'
+        default: null
+      picklist_option:
+        anyOf:
+        - $ref: '#/$defs/PicklistOption'
+        - type: 'null'
+        default: null
+      matter:
+        anyOf:
+        - $ref: '#/$defs/CustomFieldMatterSelectionBase'
+        - type: 'null'
+        default: null
+      contact:
+        anyOf:
+        - $ref: '#/$defs/ContactBase'
+        - type: 'null'
+        default: null
+    title: CustomFieldValue
+    type: object
+  EvergreenRetainerBase:
+    description: EvergreenRetainerBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *EvergreenRetainer*
+        title: Id
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *EvergreenRetainer* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *EvergreenRetainer* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *EvergreenRetainer*
+        title: Etag
+      minimum_threshold:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The trust balance threshold for the associated Matter. When the
+          balance falls below the threshold, the retainer's associated recipients
+          (firm users) will receive a notification.
+        title: Minimum Threshold
+    title: EvergreenRetainerBase
+    type: object
+  FolderBase:
+    description: FolderBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Folder*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Folder*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Folder* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Folder* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      deleted_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Folder* was deleted (as a ISO-8601 timestamp)
+        title: Deleted At
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Folder*
+        title: Type
+      locked:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Folder is locked. Locked Folder cannot be
+          modified
+        title: Locked
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the Folder
+        title: Name
+      root:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Folder is the root folder. There is only one
+          root folder per account
+        title: Root
+    title: FolderBase
+    type: object
+  GroupBase:
+    description: GroupBase
+    properties:
+      client_connect_user:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Group is a UserGroup for a Clio Connect User
+        title: Client Connect User
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Group*
+        title: Etag
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Group*
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Group*
+        title: Name
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Group*
+        title: Type
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Group* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: GroupBase
+    type: object
+  LegalAidUkMatterBase:
+    description: LegalAidUkMatterBase
+    properties:
+      access_point:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Access point
+        title: Access Point
+      laa_office_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: LAA office number
+        title: Laa Office Number
+      ait_hearing_centre:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: AIT hearing centre
+        title: Ait Hearing Centre
+      attended_several_hearings_acting_for_multiple_clients:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Attended several hearings acting for multiple clients
+        title: Attended Several Hearings Acting For Multiple Clients
+      bill_ho_ucn:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Bill HO UCN
+        title: Bill Ho Ucn
+      bill_number_of_attendances:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Bill number of attendances
+        title: Bill Number Of Attendances
+      bill_outcome_for_the_client_code:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Bill outcome for the client code
+        title: Bill Outcome For The Client Code
+      bill_stage_reached_code:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Bill stage reached code
+        title: Bill Stage Reached Code
+      case_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Case reference
+        title: Case Reference
+      case_start_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Case start date
+        title: Case Start Date
+      category:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Category
+        title: Category
+      category_as_string:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Category as string
+        title: Category As String
+      certificate_effective_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Certificate effective date
+        title: Certificate Effective Date
+      certificate_expiration_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Certificate expiration date
+        title: Certificate Expiration Date
+      certificate_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Certificate number
+        title: Certificate Number
+      certificate_scope:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Certificate scope
+        title: Certificate Scope
+      certification_type:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Certification type
+        title: Certification Type
+      change_of_solicitor:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Change of solicitor
+        title: Change Of Solicitor
+      client_equal_opportunity_monitoring:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Client equal opportunity monitoring
+        title: Client Equal Opportunity Monitoring
+      client_type:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Client type
+        title: Client Type
+      clr_start_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: CLR start date
+        title: Clr Start Date
+      clr_total_profit_costs:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: CLR total profit costs
+        title: Clr Total Profit Costs
+      cost_limit:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Cost limit
+        title: Cost Limit
+      counsel:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Counsel
+        title: Counsel
+      court:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Court
+        title: Court
+      court_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Court ID
+        title: Court Id
+      court_id_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Court ID code
+        title: Court Id Code
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *LegalAidUkMatter* was created (as a ISO-8601 timestamp)
+        title: Created At
+      delivery_location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Delivery location
+        title: Delivery Location
+      dscc_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: DSCC number
+        title: Dscc Number
+      duty_solicitor:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Duty solicitor
+        title: Duty Solicitor
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *LegalAidUkMatter*
+        title: Etag
+      exceptional_case_funding_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Exceptional case funding reference
+        title: Exceptional Case Funding Reference
+      expense_limit:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Expense limit
+        title: Expense Limit
+      fee_scheme:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Fee scheme
+        title: Fee Scheme
+      first_conducting_solicitor:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: First conducting solicitor
+        title: First Conducting Solicitor
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *LegalAidUkMatter*
+        title: Id
+      irc_surgery:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Irc surgery
+        title: Irc Surgery
+      legacy_case:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Legacy case
+        title: Legacy Case
+      legal_representation_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Legal representation number
+        title: Legal Representation Number
+      lh_total_disbursements:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: LH total disbursements
+        title: Lh Total Disbursements
+      lh_start_date:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: LH start date
+        title: Lh Start Date
+      lh_total_profit_costs:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: LH total profit costs
+        title: Lh Total Profit Costs
+      linked_matter_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Linked matter ID
+        title: Linked Matter Id
+      local_authority_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Local authority number
+        title: Local Authority Number
+      maat_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: MAAT ID
+        title: Maat Id
+      matter_type:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Matter type
+        title: Matter Type
+      matter_type_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Matter type code
+        title: Matter Type Code
+      matter_type_1:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Matter type 1
+        title: Matter Type 1
+      matter_type_1_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Matter type 1 code
+        title: Matter Type 1 Code
+      matter_type_1_title:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Matter type 1 title
+        title: Matter Type 1 Title
+      matter_type_2:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Matter type 2
+        title: Matter Type 2
+      matter_type_2_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Matter type 2 code
+        title: Matter Type 2 Code
+      matter_type_2_title:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Matter type 2 title
+        title: Matter Type 2 Title
+      matter_types_combined:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Matter types combined
+        title: Matter Types Combined
+      number_of_clients_seen_at_surgery:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Number of clients seen at surgery
+        title: Number Of Clients Seen At Surgery
+      number_of_clients:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Number of clients
+        title: Number Of Clients
+      party:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Party
+        title: Party
+      police_station:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Police station
+        title: Police Station
+      post_transfer_clients_represented:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Post transfer clients represented
+        title: Post Transfer Clients Represented
+      postal_application_accepted:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Postal application accepted
+        title: Postal Application Accepted
+      prior_authority_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Priory authority reference
+        title: Prior Authority Reference
+      prison_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Prison ID
+        title: Prison Id
+      prison_law_prior_approval_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Prison law prior approval number
+        title: Prison Law Prior Approval Number
+      procurement_area:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Procurement area
+        title: Procurement Area
+      region:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Region
+        title: Region
+      related_claims_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Related claims number
+        title: Related Claims Number
+      representation_order_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Representation order date
+        title: Representation Order Date
+      schedule_reference_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Schedule reference number
+        title: Schedule Reference Number
+      scheme_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Scheme ID
+        title: Scheme Id
+      session_type:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Session type
+        title: Session Type
+      solicitor_type:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Solicitor type
+        title: Solicitor Type
+      standard_fee_category:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Standard fee category
+        title: Standard Fee Category
+      surgery_clients_resulting_in_a_legal_help_matter_opened:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Surgery clients resulting in a legal help matter opened
+        title: Surgery Clients Resulting In A Legal Help Matter Opened
+      surgery_clients:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Surgery clients
+        title: Surgery Clients
+      surgery_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Surgery date
+        title: Surgery Date
+      transfer_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Transfer date
+        title: Transfer Date
+      type_of_advice:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Type of advice
+        title: Type Of Advice
+      type_of_service:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Type of service
+        title: Type Of Service
+      ucn:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: UCN
+        title: Ucn
+      ufn:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: UFN
+        title: Ufn
+      undesignated_area_court:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Undesignated area court
+        title: Undesignated Area Court
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *LegalAidUkMatter* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      user_type:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: User type
+        title: User Type
+      youth_court:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Youth court
+        title: Youth Court
+    title: LegalAidUkMatterBase
+    type: object
+  Matter:
+    description: Matter
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Matter*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Matter*
+        title: Etag
+      number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number given to the *Matter* within an account
+        title: Number
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The reference and label of the *Matter*. Depending on the account's
+          manual_matter_numbering setting, this is either read only (generated) or
+          customizable.
+        title: Display Number
+      custom_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: User defined custom number of the *Matter*
+        title: Custom Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the matter
+        title: Currency
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The detailed description of the *Matter*
+        title: Description
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current status of the *Matter*
+        title: Status
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The location of the *Matter*
+        title: Location
+      client_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Client Reference string for external uses
+        title: Client Reference
+      client_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Client ID
+        title: Client Id
+      billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether this matter is billable
+        title: Billable
+      maildrop_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A unique Maildrop email address for the matter
+        title: Maildrop Address
+      billing_method:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Billing method of this matter
+        title: Billing Method
+      open_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to open (as a ISO-8601 date)
+        title: Open Date
+      close_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to closed (as a ISO-8601 date)
+        title: Close Date
+      pending_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to pending (as a ISO-8601 date)
+        title: Pending Date
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      shared:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the matter is currently shared with Clio Connect
+        title: Shared
+      has_tasks:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the matter has any tasks.
+        title: Has Tasks
+      last_activity_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The greatest date out of all of the activities on the matter
+          (as a ISO-8601 date)
+        title: Last Activity Date
+      matter_stage_updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter stage was last updated (as a ISO-8601 date)
+        title: Matter Stage Updated At
+      client:
+        anyOf:
+        - $ref: '#/$defs/ContactBase'
+        - type: 'null'
+        default: null
+      contingency_fee:
+        anyOf:
+        - $ref: '#/$defs/ContingencyFeeBase'
+        - type: 'null'
+        default: null
+      custom_rate:
+        anyOf:
+        - $ref: '#/$defs/MatterCustomRate'
+        - type: 'null'
+        default: null
+      evergreen_retainer:
+        anyOf:
+        - $ref: '#/$defs/EvergreenRetainerBase'
+        - type: 'null'
+        default: null
+      folder:
+        anyOf:
+        - $ref: '#/$defs/FolderBase'
+        - type: 'null'
+        default: null
+      group:
+        anyOf:
+        - $ref: '#/$defs/GroupBase'
+        - type: 'null'
+        default: null
+      matter_budget:
+        anyOf:
+        - $ref: '#/$defs/MatterBudgetBase'
+        - type: 'null'
+        default: null
+      matter_stage:
+        anyOf:
+        - $ref: '#/$defs/MatterStageBase'
+        - type: 'null'
+        default: null
+      originating_attorney:
+        anyOf:
+        - $ref: '#/$defs/UserBase'
+        - type: 'null'
+        default: null
+      practice_area:
+        anyOf:
+        - $ref: '#/$defs/PracticeAreaBase'
+        - type: 'null'
+        default: null
+      responsible_attorney:
+        anyOf:
+        - $ref: '#/$defs/UserBase'
+        - type: 'null'
+        default: null
+      statute_of_limitations:
+        anyOf:
+        - $ref: '#/$defs/TaskBase'
+        - type: 'null'
+        default: null
+      user:
+        anyOf:
+        - $ref: '#/$defs/UserBase'
+        - type: 'null'
+        default: null
+      legal_aid_uk_matter:
+        anyOf:
+        - $ref: '#/$defs/LegalAidUkMatterBase'
+        - type: 'null'
+        default: null
+      account_balances:
+        anyOf:
+        - items:
+            $ref: '#/$defs/AccountBalanceBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: AccountBalance
+        title: Account Balances
+      custom_field_values:
+        anyOf:
+        - items:
+            $ref: '#/$defs/CustomFieldValue'
+          type: array
+        - type: 'null'
+        default: null
+        description: CustomFieldValue
+        title: Custom Field Values
+      custom_field_set_associations:
+        anyOf:
+        - items:
+            $ref: '#/$defs/CustomFieldSetAssociationBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: CustomFieldSetAssociation
+        title: Custom Field Set Associations
+      matter_bill_recipients:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MatterBillRecipient'
+          type: array
+        - type: 'null'
+        default: null
+        description: MatterBillRecipient
+        title: Matter Bill Recipients
+      relationships:
+        anyOf:
+        - items:
+            $ref: '#/$defs/RelationshipBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: Relationship
+        title: Relationships
+      task_template_list_instances:
+        anyOf:
+        - items:
+            $ref: '#/$defs/TaskTemplateListInstaceBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: TaskTemplateListInstace
+        title: Task Template List Instances
+    title: Matter
+    type: object
+  MatterBillRecipient:
+    description: MatterBillRecipient
+    properties:
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterBillRecipient* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *MatterBillRecipient*
+        title: Etag
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *MatterBillRecipient*
+        title: Id
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterBillRecipient* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      recipient:
+        anyOf:
+        - $ref: '#/$defs/ContactBase'
+        - type: 'null'
+        default: null
+    title: MatterBillRecipient
+    type: object
+  MatterBudgetBase:
+    description: MatterBudgetBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *MatterBudget*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *MatterBudget*
+        title: Etag
+      budget:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The amount allocated for the matter.
+        title: Budget
+      include_expenses:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the budget includes expenses.
+        title: Include Expenses
+      notification_threshold:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Percentage of the budget when it starts notifying users. The
+          number must be between 0 and 100.
+        title: Notification Threshold
+      notify_users:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether to notify users when the matter reaches the notification
+          threshold.
+        title: Notify Users
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterBudget* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterBudget* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: MatterBudgetBase
+    type: object
+  MatterCustomRate:
+    description: MatterCustomRate
+    properties:
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *MatterCustomRate*
+        title: Type
+      on_invoice:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Specifies if the matter's associated activity is posted or on
+          a bill.
+        title: On Invoice
+      rates:
+        anyOf:
+        - items:
+            $ref: '#/$defs/PolymorphicCustomRate'
+          type: array
+        - type: 'null'
+        default: null
+        description: PolymorphicCustomRate
+        title: Rates
+    title: MatterCustomRate
+    type: object
+  MatterStageBase:
+    description: MatterStageBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *MatterStage*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *MatterStage*
+        title: Etag
+      practice_area_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Practice Area ID
+        title: Practice Area Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *MatterStage*
+        title: Name
+      order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The order of the matter stage within a practice area
+        title: Order
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterStage* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterStage* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: MatterStageBase
+    type: object
+  PicklistOption:
+    description: PicklistOption
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *PicklistOption*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *PicklistOption*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PicklistOption* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PicklistOption* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      option:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The value of the *PicklistOption*
+        title: Option
+      deleted_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PicklistOption* was deleted (as a ISO-8601 timestamp)
+        title: Deleted At
+    title: PicklistOption
+    type: object
+  PicklistOptionBase:
+    description: PicklistOptionBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *PicklistOption*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *PicklistOption*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PicklistOption* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PicklistOption* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      option:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The value of the *PicklistOption*
+        title: Option
+      deleted_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PicklistOption* was deleted (as a ISO-8601 timestamp)
+        title: Deleted At
+    title: PicklistOptionBase
+    type: object
+  PolymorphicCustomRate:
+    description: PolymorphicCustomRate
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for the custom rate
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *PolymorphicCustomRate*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PolymorphicCustomRate* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PolymorphicCustomRate* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'If `custom_rate.type` is `HourlyRate`, it is the dollar amount
+          of the custom rate of the User or Group for the Matter.  If `custom_rate.type`
+          is `FlatRate`, it is the dollar amount of the custom flat rate for the Matter.  If
+          `custom_rate.type` is `ContingencyFee`, it is the percentage of the contingency
+          fee awarded to the user for the Matter. The value may also be expressed
+          as string that represents a rational number such as `1/3`.  If the user
+          does not have sufficient rate visibility, the rates are hidden. '
+        title: Rate
+      award:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The value of the ContingencyFee award.
+        title: Award
+      note:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Details about the ContingencyFee award.
+        title: Note
+      date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date of the ContingencyFee award.
+        title: Date
+      user:
+        anyOf:
+        - $ref: '#/$defs/PolymorphicCustomRateUserBase'
+        - type: 'null'
+        default: null
+      group:
+        anyOf:
+        - $ref: '#/$defs/PolymorphicCustomRateGroupBase'
+        - type: 'null'
+        default: null
+      activity_description:
+        anyOf:
+        - $ref: '#/$defs/PolymorphicCustomRateActivityDescriptionBase'
+        - type: 'null'
+        default: null
+    title: PolymorphicCustomRate
+    type: object
+  PolymorphicCustomRateActivityDescriptionBase:
+    description: PolymorphicCustomRateActivityDescriptionBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ActivityDescription*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ActivityDescription*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *ActivityDescription*
+        title: Name
+    title: PolymorphicCustomRateActivityDescriptionBase
+    type: object
+  PolymorphicCustomRateGroupBase:
+    description: PolymorphicCustomRateGroupBase
+    properties:
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Group*
+        title: Etag
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Group*
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Group*
+        title: Name
+    title: PolymorphicCustomRateGroupBase
+    type: object
+  PolymorphicCustomRateUserBase:
+    description: PolymorphicCustomRateUserBase
+    properties:
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is allowed to log in
+        title: Enabled
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *User*
+        title: Etag
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *User*
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *User*
+        title: Name
+    title: PolymorphicCustomRateUserBase
+    type: object
+  PracticeAreaBase:
+    description: PracticeAreaBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *PracticeArea*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *PracticeArea*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PracticeArea* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PracticeArea* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *PracticeArea*
+        title: Name
+      category:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: 'The practice area category associated with the *PracticeArea* '
+        title: Category
+      code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The code of the *PracticeArea*
+        title: Code
+    title: PracticeAreaBase
+    type: object
+  RelationshipBase:
+    description: RelationshipBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Relationship*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Relationship*
+        title: Etag
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the *Relationship*
+        title: Description
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Relationship* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Relationship* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: RelationshipBase
+    type: object
+  TaskBase:
+    description: TaskBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Task*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Task*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Task*
+        title: Name
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Status of the *Task*. (Note that users without advanced tasks
+          can only have either complete or pending)
+        title: Status
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the *Task*
+        title: Description
+      priority:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The priority of the *Task*
+        title: Priority
+      due_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the *Task* is due (as a ISO-8601 date)
+        title: Due At
+      permission:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The permission of the *Task*
+        title: Permission
+      completed_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Task* was completed (as a ISO-8601 timestamp)
+        title: Completed At
+      notify_completion:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether to notify the assigner of the task's completion
+        title: Notify Completion
+      statute_of_limitations:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the task is a statute of limitations
+        title: Statute Of Limitations
+      time_estimated:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Time the *Task* should take to complete
+        title: Time Estimated
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Task* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Task* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      time_entries_count:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of time entries associated with this task
+        title: Time Entries Count
+    title: TaskBase
+    type: object
+  TaskTemplateListInstaceBase:
+    description: TaskTemplateListInstaceBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *TaskTemplateListInstace*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *TaskTemplateListInstace*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskTemplateListInstace* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskTemplateListInstace* was last updated (as a
+          ISO-8601 timestamp)
+        title: Updated At
+    title: TaskTemplateListInstaceBase
+    type: object
+  UserBase:
+    description: UserBase
+    properties:
+      account_owner:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is the owner of the account
+        title: Account Owner
+      clio_connect:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a Clio Connect user
+        title: Clio Connect
+      court_rules_default_attendee:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a default attendee for court rules events
+        title: Court Rules Default Attendee
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was created (as a ISO-8601 timestamp)
+        title: Created At
+      default_calendar_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default calendar id for *User*.
+        title: Default Calendar Id
+      email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The email of the *User*
+        title: Email
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is allowed to log in
+        title: Enabled
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *User*
+        title: Etag
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The first name of the *User*
+        title: First Name
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *User*
+        title: Id
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *User*
+        title: Initials
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The last name of the *User*
+        title: Last Name
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *User*
+        title: Name
+      phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number for the *User*.
+        title: Phone Number
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default user activity rate for *User*.
+        title: Rate
+      roles:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: An array of roles assigned to this *User*
+        title: Roles
+      subscription_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subscription type of the *User*
+        title: Subscription Type
+      time_zone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The selected time zone of the *User*
+        title: Time Zone
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: UserBase
+    type: object
+description: MatterList
+properties:
+  data:
+    description: Matter List Response
+    items:
+      $ref: '#/$defs/Matter'
+    title: Data
+    type: array
+required:
+- data
+title: MatterList
+type: object

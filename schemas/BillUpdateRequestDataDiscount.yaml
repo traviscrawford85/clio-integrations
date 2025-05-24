@@ -1,0 +1,27 @@
+description: BillUpdateRequestDataDiscount
+properties:
+  rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Discount amount for the Bill. This can either be a percentage or
+      monetary value, this is determined by the `discount[type]`.
+    title: Rate
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of discount you are applying to your Bill with the `discount[rate]`.
+    title: Type
+  note:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A note for your Bill's discount.
+    title: Note
+title: BillUpdateRequestDataDiscount
+type: object

@@ -1,0 +1,93 @@
+$defs:
+  MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner:
+    description: MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner
+    properties:
+      amount:
+        anyOf:
+        - type: number
+        - type: integer
+        description: Lien amount.
+        title: Amount
+      holder_id:
+        description: The unique identifier for a single Damage associated with the
+          MedicalRecordsRequest. The keyword `null` is not valid for this field.
+        title: Holder Id
+        type: integer
+      mark_as_lien:
+        description: Mark record as Lien.
+        title: Mark As Lien
+        type: boolean
+    required:
+    - amount
+    - holder_id
+    - mark_as_lien
+    title: MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner
+    type: object
+description: MedicalRecordsRequestCreateRequestDataMedicalBillsInner
+properties:
+  adjustment:
+    anyOf:
+    - type: number
+    - type: integer
+    description: Adjustment for Medical Bill.
+    title: Adjustment
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    description: Amount for Medical Bill.
+    title: Amount
+  balance:
+    anyOf:
+    - type: number
+    - type: integer
+    description: Balance for Medical Bill.
+    title: Balance
+  bill_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Bill date for Medical Bill. (Expects an ISO-8601 date).
+    title: Bill Date
+  bill_received_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Bill received date for Medical Bill. (Expects an ISO-8601 date).
+    title: Bill Received Date
+  document_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single Damage associated with the MedicalRecordsRequest.
+      The keyword `null` is not valid for this field.
+    title: Document Id
+  name:
+    description: Name for Medical Bill.
+    title: Name
+    type: string
+  mark_balance_as_lien:
+    description: Setting the balance of the Medical Bill as a lien.
+    title: Mark Balance As Lien
+    type: boolean
+  payers:
+    anyOf:
+    - items:
+        $ref: '#/$defs/MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Payers
+required:
+- adjustment
+- amount
+- balance
+- name
+- mark_balance_as_lien
+title: MedicalRecordsRequestCreateRequestDataMedicalBillsInner
+type: object

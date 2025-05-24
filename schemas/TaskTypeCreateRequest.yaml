@@ -1,0 +1,28 @@
+$defs:
+  TaskTypeCreateRequestData:
+    description: TaskTypeCreateRequestData
+    properties:
+      deleted_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date the TaskType was disabled. (Expects an ISO-8601 timestamp).
+        title: Deleted At
+      name:
+        description: Name of the TaskType.
+        title: Name
+        type: string
+    required:
+    - name
+    title: TaskTypeCreateRequestData
+    type: object
+description: TaskTypeCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/TaskTypeCreateRequestData'
+required:
+- data
+title: TaskTypeCreateRequest
+type: object

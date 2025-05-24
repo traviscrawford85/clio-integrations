@@ -1,0 +1,45 @@
+description: EvergreenRetainerBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *EvergreenRetainer*
+    title: Id
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *EvergreenRetainer* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *EvergreenRetainer* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *EvergreenRetainer*
+    title: Etag
+  minimum_threshold:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The trust balance threshold for the associated Matter. When the balance
+      falls below the threshold, the retainer's associated recipients (firm users)
+      will receive a notification.
+    title: Minimum Threshold
+title: EvergreenRetainerBase
+type: object

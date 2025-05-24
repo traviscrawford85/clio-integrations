@@ -1,0 +1,25 @@
+description: ContactCreateRequestDataEmailAddressesInner
+properties:
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: Other
+    description: Name of the EmailAddress.
+    title: Name
+  address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Email address.
+    title: Address
+  default_email:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the Contact should be the default email for the Contact.
+    title: Default Email
+title: ContactCreateRequestDataEmailAddressesInner
+type: object

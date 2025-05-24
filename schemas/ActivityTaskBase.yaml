@@ -1,0 +1,18 @@
+description: ActivityTaskBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Task*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Task*
+    title: Etag
+title: ActivityTaskBase
+type: object

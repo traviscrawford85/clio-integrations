@@ -1,0 +1,39 @@
+$defs:
+  CommentUpdateRequestData:
+    description: CommentUpdateRequestData
+    properties:
+      item:
+        anyOf:
+        - $ref: '#/$defs/CommentUpdateRequestDataItem'
+        - type: 'null'
+        default: null
+      message:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The content of the Comment.
+        title: Message
+    title: CommentUpdateRequestData
+    type: object
+  CommentUpdateRequestDataItem:
+    description: CommentUpdateRequestDataItem
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier of the Document or Folder to which the
+          Comment is associated.
+        title: Id
+    title: CommentUpdateRequestDataItem
+    type: object
+description: CommentUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/CommentUpdateRequestData'
+required:
+- data
+title: CommentUpdateRequest
+type: object

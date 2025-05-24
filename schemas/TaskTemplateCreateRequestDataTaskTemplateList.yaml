@@ -1,0 +1,12 @@
+description: TaskTemplateCreateRequestDataTaskTemplateList
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single TaskTemplateList associated with
+      the TaskTemplate. The keyword `null` is not valid for this field.
+    title: Id
+title: TaskTemplateCreateRequestDataTaskTemplateList
+type: object

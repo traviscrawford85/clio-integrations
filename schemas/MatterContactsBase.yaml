@@ -1,0 +1,177 @@
+description: MatterContactsBase
+properties:
+  contact_created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Timestamp of the time the contact was created
+    title: Contact Created At
+  contact_updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Timestamp of the time the contact was created
+    title: Contact Updated At
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MatterContacts* was created (as a ISO-8601 timestamp)
+    title: Created At
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Description of the matter
+    title: Description
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *MatterContacts*
+    title: Etag
+  first_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: First name of the Person
+    title: First Name
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *MatterContacts*
+    title: Id
+  initials:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The initials of the *MatterContacts*
+    title: Initials
+  is_client:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the MatterContacts is a client
+    title: Is Client
+  last_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Last name of the Person
+    title: Last Name
+  matter_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: ID of the matter
+    title: Matter Id
+  matter_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Number of the matter
+    title: Matter Number
+  middle_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Middle name of the Person
+    title: Middle Name
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The full name of the *MatterContacts*
+    title: Name
+  prefix:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The prefix of the *MatterContacts* (Mr, Mrs, etc)
+    title: Prefix
+  primary_email_address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The primary email address associated with this *MatterContacts*.
+    title: Primary Email Address
+  primary_phone_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The primary phone number associated with this *MatterContacts*.
+    title: Primary Phone Number
+  relationship_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The description of the relation between the contact and the matter,
+      or "Client" if the user is the client.
+    title: Relationship Name
+  secondary_email_address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The secondary email address of the contact
+    title: Secondary Email Address
+  secondary_phone_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The secondary phone number of the contact
+    title: Secondary Phone Number
+  title:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The designated title of the *MatterContacts*
+    title: Title
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *MatterContacts*
+    title: Type
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MatterContacts* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  client_connect_user_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The client connect ID of the contacts associated user
+    title: Client Connect User Id
+title: MatterContactsBase
+type: object

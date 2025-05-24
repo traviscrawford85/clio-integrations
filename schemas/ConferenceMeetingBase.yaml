@@ -1,0 +1,70 @@
+description: ConferenceMeetingBase
+properties:
+  conference_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Third-party provider unique meeting ID
+    title: Conference Id
+  conference_password:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Third-party provider meeting password
+    title: Conference Password
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ConferenceMeeting* was created (as a ISO-8601 timestamp)
+    title: Created At
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ConferenceMeeting*
+    title: Etag
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ConferenceMeeting*
+    title: Id
+  join_url:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: URL for participants to join the video conference
+    title: Join Url
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of video conference
+    title: Type
+  source_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The external ID of the video conference meeting
+    title: Source Id
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ConferenceMeeting* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: ConferenceMeetingBase
+type: object

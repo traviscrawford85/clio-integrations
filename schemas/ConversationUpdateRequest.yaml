@@ -1,0 +1,46 @@
+$defs:
+  ConversationUpdateRequestData:
+    description: ConversationUpdateRequestData
+    properties:
+      archived:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Conversation has been archived.
+        title: Archived
+      matter:
+        anyOf:
+        - $ref: '#/$defs/ConversationUpdateRequestDataMatter'
+        - type: 'null'
+        default: null
+      read:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Conversation has been read.
+        title: Read
+    title: ConversationUpdateRequestData
+    type: object
+  ConversationUpdateRequestDataMatter:
+    description: ConversationUpdateRequestDataMatter
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Matter associated with the
+          Conversation. The keyword `null` is not valid for this field.
+        title: Id
+    title: ConversationUpdateRequestDataMatter
+    type: object
+description: ConversationUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/ConversationUpdateRequestData'
+required:
+- data
+title: ConversationUpdateRequest
+type: object

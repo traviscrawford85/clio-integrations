@@ -1,0 +1,159 @@
+$defs:
+  BillingSetting:
+    description: BillingSetting
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *BillingSetting*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *BillingSetting*
+        title: Etag
+      rounded_duration:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Rounded equivalent of duration submitted
+        title: Rounded Duration
+      rounding:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Minute increment for time rounding
+        title: Rounding
+      use_decimal_rounding:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Round time to two decimal places
+        title: Use Decimal Rounding
+      currency:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Current user setting of currency
+        title: Currency
+      currency_sign:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The sign of the current currency
+        title: Currency Sign
+      tax_rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Rate applied for primary tax on invoices using this BillingSetting
+        title: Tax Rate
+      tax_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Name shown for primary tax on invoices using this BillingSetting
+        title: Tax Name
+      apply_tax_by_default:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Used to determine if primary tax should be applied to invoices
+          by default
+        title: Apply Tax By Default
+      time_on_flat_rate_contingency_matters_is_non_billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Used to determine if hourly time entries on flat rate or contingency
+          fee matters should be non-billable by default
+        title: Time On Flat Rate Contingency Matters Is Non Billable
+      use_secondary_tax:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Used to determine if secondary tax applies to invoices using
+          this BillingSetting
+        title: Use Secondary Tax
+      secondary_tax_rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Rate applied for secondary tax on invoices using this BillingSetting
+        title: Secondary Tax Rate
+      secondary_tax_rule:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Used to determine if secondary tax should be applied separately
+          or additionally to primary tax
+        title: Secondary Tax Rule
+      secondary_tax_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Name shown for secondary tax on invoices using this BillingSetting
+        title: Secondary Tax Name
+      notify_after_bill_created:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Flag to indicate if users should have the option to notify other
+          users when generating a bill
+        title: Notify After Bill Created
+      use_utbms_codes:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Controls usage of UTBMS codes, allowing creation of coded time
+          entries and expenses
+        title: Use Utbms Codes
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *BillingSetting* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *BillingSetting* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+    title: BillingSetting
+    type: object
+description: BillingSettingShow
+properties:
+  data:
+    $ref: '#/$defs/BillingSetting'
+required:
+- data
+title: BillingSettingShow
+type: object

@@ -1,0 +1,41 @@
+description: MatterUpdateRequestDataSplitInvoicePayersInner
+properties:
+  contact_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Contact id for the matter payer.
+    title: Contact Id
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The id for the payer.
+    title: Id
+  send_to_bill_recipients:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Boolean indication to send a split invoice to all bill recipients.
+    title: Send To Bill Recipients
+  split_portion:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The split portion for the payer.
+    title: Split Portion
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: If this flag is set to `true`, the split invoice payer will be deleted
+      from the Matter.
+    title: Destroy
+title: MatterUpdateRequestDataSplitInvoicePayersInner
+type: object

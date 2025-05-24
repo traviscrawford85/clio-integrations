@@ -1,0 +1,90 @@
+$defs:
+  ExpenseCategoryCreateRequestData:
+    description: ExpenseCategoryCreateRequestData
+    properties:
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the Expense Category.
+        title: Currency
+      entry_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Defaults to unassociated.
+        title: Entry Type
+      groups:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ExpenseCategoryCreateRequestDataGroupsInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Groups
+      name:
+        description: Name of the Expense Category.
+        title: Name
+        type: string
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Rate of the Expense Category, default is null.
+        title: Rate
+      utbms_code:
+        anyOf:
+        - $ref: '#/$defs/ExpenseCategoryCreateRequestDataUtbmsCode'
+        - type: 'null'
+        default: null
+    required:
+    - name
+    title: ExpenseCategoryCreateRequestData
+    type: object
+  ExpenseCategoryCreateRequestDataGroupsInner:
+    description: ExpenseCategoryCreateRequestDataGroupsInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Group associated with the
+          ExpenseCategory. The keyword `null` is not valid for this field.
+        title: Id
+      _deleted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: A flag to determine if this Group should lose access to this
+          ExpenseCategory.
+        title: Deleted
+    title: ExpenseCategoryCreateRequestDataGroupsInner
+    type: object
+  ExpenseCategoryCreateRequestDataUtbmsCode:
+    description: ExpenseCategoryCreateRequestDataUtbmsCode
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single UtbmsCode associated with
+          the ExpenseCategory. The keyword `null` is not valid for this field.
+        title: Id
+    title: ExpenseCategoryCreateRequestDataUtbmsCode
+    type: object
+description: ExpenseCategoryCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/ExpenseCategoryCreateRequestData'
+required:
+- data
+title: ExpenseCategoryCreateRequest
+type: object

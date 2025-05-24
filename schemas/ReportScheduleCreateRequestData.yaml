@@ -1,0 +1,63 @@
+description: ReportScheduleCreateRequestData
+properties:
+  day_of_month:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: If the frequency is monthly, which day of the month the Report Schedule
+      should run. 32 is used to represent the last day of the month.
+    title: Day Of Month
+  days_of_week:
+    anyOf:
+    - items:
+        type: integer
+      type: array
+    - type: 'null'
+    default: null
+    description: If the frequency is weekly, which days of the week the Report Schedule
+      should run. Values are 0 to 6, representing Sunday to Saturday.
+    title: Days Of Week
+  effective_from:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Date the Report Schedule should be enabled. (Expects an ISO-8601
+      date).
+    title: Effective From
+  every_no_of_months:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: If the frequency is monthly, how many months between each run of
+      the Report Schedule.
+    title: Every No Of Months
+  frequency:
+    description: How often to run the Report Schedule.
+    title: Frequency
+    type: string
+  report_preset_id:
+    description: What Report Preset the Report Schedule should use to generate a report.
+    title: Report Preset Id
+    type: integer
+  time_of_day:
+    description: What time the Report Schedule should run. Although the entire datetime
+      is sent, only the time information is used.
+    format: date-time
+    title: Time Of Day
+    type: string
+  time_zone:
+    description: Used in conjunction with `time_of_day` to determine when the Report
+      Schedule should be run.
+    title: Time Zone
+    type: string
+required:
+- frequency
+- report_preset_id
+- time_of_day
+- time_zone
+title: ReportScheduleCreateRequestData
+type: object

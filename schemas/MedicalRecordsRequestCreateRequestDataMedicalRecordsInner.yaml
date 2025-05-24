@@ -1,0 +1,27 @@
+description: MedicalRecordsRequestCreateRequestDataMedicalRecordsInner
+properties:
+  document_id:
+    description: The unique identifier for a single MedicalRecord associated with
+      the MedicalRecordsRequest. The keyword `null` is not valid for this field.
+    title: Document Id
+    type: integer
+  end_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: End date for Medical Record.
+    title: End Date
+  start_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Start date for Medical Record.
+    title: Start Date
+required:
+- document_id
+title: MedicalRecordsRequestCreateRequestDataMedicalRecordsInner
+type: object

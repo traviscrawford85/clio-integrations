@@ -1,0 +1,12 @@
+description: ActivityCreateRequestDataExpenseCategory
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: 'The unique identifier for a single ExpenseCategory associated with
+      an Activity. Use the keyword `null` to specify no association. '
+    title: Id
+title: ActivityCreateRequestDataExpenseCategory
+type: object

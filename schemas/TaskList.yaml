@@ -1,0 +1,930 @@
+$defs:
+  ActivityBase:
+    description: ActivityBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Activity*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Activity*
+        title: Etag
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Activity*
+        title: Type
+      date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the *Activity* was performed (as a ISO-8601 date)
+        title: Date
+      quantity_in_hours:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of hours the TimeEntry took.
+        title: Quantity In Hours
+      rounded_quantity_in_hours:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The number of hours rounded accordingly to the billing settings.
+          The rounded value is used to calculate the total. '
+        title: Rounded Quantity In Hours
+      quantity:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The field is applicable to TimeEntry, ExpenseEntry, and SoftCostEntry.  **Version
+          <= 4.0.3:** The number of hours the TimeEntry took.  **Latest version:**
+          The number of seconds the TimeEntry took. '
+        title: Quantity
+      rounded_quantity:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The field is applicable to time entries only.  **Version <=
+          4.0.3:** The number of hours rounded accordingly to the billing settings.
+          The rounded value is used to calculate the total.  **Latest version:** The
+          number of seconds rounded accordingly to the billing settings. The rounded
+          value is used to calculate the total. '
+        title: Rounded Quantity
+      quantity_redacted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: 'Is `true` if any of the following fields are redacted: `quantity`,
+          `rounded_quantity`, `rounded_quantity_in_hours`, `quantity_in_hours`, `total`,
+          `non_billable_total` '
+        title: Quantity Redacted
+      price:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The hourly or flat rate of the *Activity*
+        title: Price
+      note:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The details about the *Activity*
+        title: Note
+      flat_rate:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Activity* is a flat rate
+        title: Flat Rate
+      billed:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Activity* has been added to an active bill that
+          is in the state of `awaiting_payment` or `paid`
+        title: Billed
+      on_bill:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Activity* has been added to an active bill that
+          is in the state of `draft`, `awaiting_approval`, `awaiting_payment` or `paid`
+        title: On Bill
+      total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total cost of draft, billable and billed items in the *Activity*
+        title: Total
+      contingency_fee:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the *Activity* is a contingency fee
+        title: Contingency Fee
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Activity* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Activity* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A check reference for a HardCostEntry.
+        title: Reference
+      non_billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Activity* is non-billable
+        title: Non Billable
+      non_billable_total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total cost of non-billable items in the *Activity*
+        title: Non Billable Total
+      no_charge:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the non-billable *Activity* is shown on the bill.
+        title: No Charge
+      tax_setting:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The option denoting whether primary tax, secondary tax, or both
+          is applied to an expense entry.
+        title: Tax Setting
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: The currency of the *Activity*
+        title: Currency
+    title: ActivityBase
+    type: object
+  AvatarBase:
+    description: AvatarBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Avatar*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Avatar*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Avatar* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Avatar* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The URL for the *Avatar*
+        title: Url
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether to destroy the *Avatar*
+        title: Destroy
+    title: AvatarBase
+    type: object
+  MatterBase:
+    description: MatterBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Matter*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Matter*
+        title: Etag
+      number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number given to the *Matter* within an account
+        title: Number
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The reference and label of the *Matter*. Depending on the account's
+          manual_matter_numbering setting, this is either read only (generated) or
+          customizable.
+        title: Display Number
+      custom_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: User defined custom number of the *Matter*
+        title: Custom Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the matter
+        title: Currency
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The detailed description of the *Matter*
+        title: Description
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current status of the *Matter*
+        title: Status
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The location of the *Matter*
+        title: Location
+      client_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Client Reference string for external uses
+        title: Client Reference
+      client_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Client ID
+        title: Client Id
+      billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether this matter is billable
+        title: Billable
+      maildrop_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A unique Maildrop email address for the matter
+        title: Maildrop Address
+      billing_method:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Billing method of this matter
+        title: Billing Method
+      open_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to open (as a ISO-8601 date)
+        title: Open Date
+      close_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to closed (as a ISO-8601 date)
+        title: Close Date
+      pending_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to pending (as a ISO-8601 date)
+        title: Pending Date
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      shared:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the matter is currently shared with Clio Connect
+        title: Shared
+      has_tasks:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the matter has any tasks.
+        title: Has Tasks
+      last_activity_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The greatest date out of all of the activities on the matter
+          (as a ISO-8601 date)
+        title: Last Activity Date
+      matter_stage_updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter stage was last updated (as a ISO-8601 date)
+        title: Matter Stage Updated At
+    title: MatterBase
+    type: object
+  Participant:
+    description: Participant
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Participant*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Participant*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Participant* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Participant* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the Participant. Person and Company are subtypes
+          of Contact
+        title: Type
+      identifier:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A string to identify the *Participant*
+        title: Identifier
+      secondary_identifier:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A secondary string to identify the *Participant*
+        title: Secondary Identifier
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The enabled state of the *Participant* record. Always 'null'
+          if *Participant* type is Contact
+        title: Enabled
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Participant* record
+        title: Name
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A  string with the participant initials
+        title: Initials
+      job_title_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: the job title name of the participant if they are a firm user
+          and have one
+        title: Job Title Name
+      avatar:
+        anyOf:
+        - $ref: '#/$defs/AvatarBase'
+        - type: 'null'
+        default: null
+    title: Participant
+    type: object
+  ReminderBase:
+    description: ReminderBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Reminder*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Reminder*
+        title: Etag
+      duration:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Time in minutes to remind user before the subject
+        title: Duration
+      next_delivery_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Reminder* will be delivered (as a ISO-8601 timestamp)
+        title: Next Delivery At
+      state:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current state of the *Reminder*
+        title: State
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Reminder* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Reminder* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: ReminderBase
+    type: object
+  Task:
+    description: Task
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Task*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Task*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Task*
+        title: Name
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Status of the *Task*. (Note that users without advanced tasks
+          can only have either complete or pending)
+        title: Status
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the *Task*
+        title: Description
+      priority:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The priority of the *Task*
+        title: Priority
+      due_at:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the *Task* is due (as a ISO-8601 date)
+        title: Due At
+      permission:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The permission of the *Task*
+        title: Permission
+      completed_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Task* was completed (as a ISO-8601 timestamp)
+        title: Completed At
+      notify_completion:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether to notify the assigner of the task's completion
+        title: Notify Completion
+      statute_of_limitations:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the task is a statute of limitations
+        title: Statute Of Limitations
+      time_estimated:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Time the *Task* should take to complete
+        title: Time Estimated
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Task* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Task* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      time_entries_count:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of time entries associated with this task
+        title: Time Entries Count
+      time_entries:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ActivityBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: Activity
+        title: Time Entries
+      task_type:
+        anyOf:
+        - $ref: '#/$defs/TaskTypeBase'
+        - type: 'null'
+        default: null
+      assigner:
+        anyOf:
+        - $ref: '#/$defs/UserBase'
+        - type: 'null'
+        default: null
+      matter:
+        anyOf:
+        - $ref: '#/$defs/MatterBase'
+        - type: 'null'
+        default: null
+      assignee:
+        anyOf:
+        - $ref: '#/$defs/Participant'
+        - type: 'null'
+        default: null
+      reminders:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ReminderBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: Reminder
+        title: Reminders
+    title: Task
+    type: object
+  TaskTypeBase:
+    description: TaskTypeBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *TaskType*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *TaskType*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *TaskType*
+        title: Name
+      deleted_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskType* was deleted (as a ISO-8601 timestamp)
+        title: Deleted At
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskType* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TaskType* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: TaskTypeBase
+    type: object
+  UserBase:
+    description: UserBase
+    properties:
+      account_owner:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is the owner of the account
+        title: Account Owner
+      clio_connect:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a Clio Connect user
+        title: Clio Connect
+      court_rules_default_attendee:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a default attendee for court rules events
+        title: Court Rules Default Attendee
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was created (as a ISO-8601 timestamp)
+        title: Created At
+      default_calendar_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default calendar id for *User*.
+        title: Default Calendar Id
+      email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The email of the *User*
+        title: Email
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is allowed to log in
+        title: Enabled
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *User*
+        title: Etag
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The first name of the *User*
+        title: First Name
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *User*
+        title: Id
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *User*
+        title: Initials
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The last name of the *User*
+        title: Last Name
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *User*
+        title: Name
+      phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number for the *User*.
+        title: Phone Number
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default user activity rate for *User*.
+        title: Rate
+      roles:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: An array of roles assigned to this *User*
+        title: Roles
+      subscription_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subscription type of the *User*
+        title: Subscription Type
+      time_zone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The selected time zone of the *User*
+        title: Time Zone
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: UserBase
+    type: object
+description: TaskList
+properties:
+  data:
+    description: Task List Response
+    items:
+      $ref: '#/$defs/Task'
+    title: Data
+    type: array
+required:
+- data
+title: TaskList
+type: object

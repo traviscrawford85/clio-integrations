@@ -1,0 +1,66 @@
+$defs:
+  TextSnippet:
+    description: TextSnippet
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *TextSnippet*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *TextSnippet*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TextSnippet* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TextSnippet* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      snippet:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The abbreviation that should be expanded
+        title: Snippet
+      phrase:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The phrase the abbreviation should be expanded to
+        title: Phrase
+      whole_word:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *TextSnippet* abbreviation requires a space after
+          it has been entered to expand to a phrase
+        title: Whole Word
+    title: TextSnippet
+    type: object
+description: TextSnippetShow
+properties:
+  data:
+    $ref: '#/$defs/TextSnippet'
+required:
+- data
+title: TextSnippetShow
+type: object

@@ -1,0 +1,48 @@
+description: InstantMessengerBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *InstantMessenger*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *InstantMessenger*
+    title: Etag
+  address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The address of the *InstantMessenger*
+    title: Address
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of *InstantMessenger* it is
+    title: Name
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *InstantMessenger* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *InstantMessenger* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: InstantMessengerBase
+type: object

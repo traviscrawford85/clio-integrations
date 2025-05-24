@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # -----------------------------------
 # Python
 __pycache__/
@@ -61,3 +62,7 @@ Thumbs.db
 # Clio Python client-specific (optional)
 clio_python_client/env/
 clio_python_client/target/
+=======
+venv/
+.venv
+>>>>>>> 3e85d5d40c261624283b78ae5d30eddf06a7faae

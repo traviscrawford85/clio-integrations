@@ -1,0 +1,26 @@
+description: DamageUpdateRequestData
+properties:
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Amount
+    title: Amount
+  damage_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Damage type
+    title: Damage Type
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Description
+    title: Description
+title: DamageUpdateRequestData
+type: object

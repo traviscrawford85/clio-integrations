@@ -1,0 +1,18 @@
+description: MatterCustomRateBase
+properties:
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *MatterCustomRate*
+    title: Type
+  on_invoice:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Specifies if the matter's associated activity is posted or on a bill.
+    title: On Invoice
+title: MatterCustomRateBase
+type: object

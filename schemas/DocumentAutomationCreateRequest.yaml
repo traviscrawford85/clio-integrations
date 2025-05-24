@@ -1,0 +1,58 @@
+$defs:
+  DocumentAutomationCreateRequestData:
+    description: DocumentAutomationCreateRequestData
+    properties:
+      document_template:
+        $ref: '#/$defs/DocumentAutomationCreateRequestDataDocumentTemplate'
+      filename:
+        description: The filename the generated document should have.
+        title: Filename
+        type: string
+      formats:
+        description: The formats the document should be generated as. It can either
+          be generated as a PDF and/or in whatever type the document template is.
+        items:
+          type: string
+        title: Formats
+        type: array
+      matter:
+        $ref: '#/$defs/DocumentAutomationCreateRequestDataMatter'
+    required:
+    - document_template
+    - filename
+    - formats
+    - matter
+    title: DocumentAutomationCreateRequestData
+    type: object
+  DocumentAutomationCreateRequestDataDocumentTemplate:
+    description: DocumentAutomationCreateRequestDataDocumentTemplate
+    properties:
+      id:
+        description: The unique identifier for a single DocumentTemplate associated
+          with the DocumentAutomation. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: DocumentAutomationCreateRequestDataDocumentTemplate
+    type: object
+  DocumentAutomationCreateRequestDataMatter:
+    description: DocumentAutomationCreateRequestDataMatter
+    properties:
+      id:
+        description: The unique identifier for a single Matter associated with the
+          DocumentAutomation. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: DocumentAutomationCreateRequestDataMatter
+    type: object
+description: DocumentAutomationCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/DocumentAutomationCreateRequestData'
+required:
+- data
+title: DocumentAutomationCreateRequest
+type: object

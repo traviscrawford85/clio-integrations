@@ -1,0 +1,78 @@
+description: ClioPaymentsPaymentBase
+properties:
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount of the payment.
+    title: Amount
+  confirmation_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The confirmation number of the payment.
+    title: Confirmation Number
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ClioPaymentsPayment* was created (as a ISO-8601 timestamp)
+    title: Created At
+  currency:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The currency the payment was processed in.
+    title: Currency
+  deposit_as_revenue:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the payment was deposited as revenue.
+    title: Deposit As Revenue
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The description of the payment.
+    title: Description
+  email_address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The email address of the client.
+    title: Email Address
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ClioPaymentsPayment*
+    title: Id
+  state:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The state of the payment (authorized, completed, failed, etc).
+    title: State
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ClioPaymentsPayment* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: ClioPaymentsPaymentBase
+type: object

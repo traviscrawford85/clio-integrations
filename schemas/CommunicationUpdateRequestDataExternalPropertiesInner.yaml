@@ -1,0 +1,36 @@
+description: CommunicationUpdateRequestDataExternalPropertiesInner
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single ExternalProperty associated with
+      the Communication. The keyword `null` is not valid for this field.
+    title: Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: 'The ExternalProperty name. Note: **there is a limit of 5 external_properties
+      per Communication**'
+    title: Name
+  value:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The ExternalProperty value.
+    title: Value
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The destroy flag. If the flag is set to `true` and the unique identifier
+      of the associated ExternalProperty is present, the ExternalProperty is deleted
+      from the Communication.
+    title: Destroy
+title: CommunicationUpdateRequestDataExternalPropertiesInner
+type: object

@@ -1,0 +1,25 @@
+description: CommunicationCreateRequestDataReceiversInner
+properties:
+  _deleted:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the receivers should be deleted.
+    title: Deleted
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique ids for the receivers of this Communication.
+    title: Id
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Types of the receivers of this Communication.
+    title: Type
+title: CommunicationCreateRequestDataReceiversInner
+type: object

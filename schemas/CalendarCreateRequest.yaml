@@ -1,0 +1,43 @@
+$defs:
+  CalendarCreateRequestData:
+    description: CalendarCreateRequestData
+    properties:
+      color:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Calendar color as seen in the Clio Web UI.
+        title: Color
+      name:
+        description: Calendar name.
+        title: Name
+        type: string
+      source:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The source that visible applies to, by default the Clio Web UI
+          (Expects 'mobile' or 'web').
+        title: Source
+      visible:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Calendar should be visible by default in the
+          Clio Web UI (assuming no source is provided).
+        title: Visible
+    required:
+    - name
+    title: CalendarCreateRequestData
+    type: object
+description: CalendarCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/CalendarCreateRequestData'
+required:
+- data
+title: CalendarCreateRequest
+type: object

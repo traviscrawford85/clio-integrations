@@ -1,0 +1,43 @@
+description: CustomFieldSetAssociationBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *CustomFieldSetAssociation*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *CustomFieldSetAssociation*
+    title: Etag
+  display_order:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The display position of the *CustomFieldSetAssociation*
+    title: Display Order
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CustomFieldSetAssociation* was created (as a ISO-8601
+      timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CustomFieldSetAssociation* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: CustomFieldSetAssociationBase
+type: object

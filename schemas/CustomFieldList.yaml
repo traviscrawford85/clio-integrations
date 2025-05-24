@@ -1,0 +1,157 @@
+$defs:
+  CustomField:
+    description: CustomField
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *CustomField*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *CustomField*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CustomField* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CustomField* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *CustomField*
+        title: Name
+      parent_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Type of object the *CustomField* is for
+        title: Parent Type
+      field_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Field type of the *CustomField*
+        title: Field Type
+      displayed:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomField* is displayed by default
+        title: Displayed
+      deleted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomField* is deleted for future use
+        title: Deleted
+      required:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomField* requires a value
+        title: Required
+      display_order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The display position of the *CustomField*
+        title: Display Order
+      picklist_options:
+        anyOf:
+        - items:
+            $ref: '#/$defs/PicklistOptionBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: PicklistOption
+        title: Picklist Options
+    title: CustomField
+    type: object
+  PicklistOptionBase:
+    description: PicklistOptionBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *PicklistOption*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *PicklistOption*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PicklistOption* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PicklistOption* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      option:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The value of the *PicklistOption*
+        title: Option
+      deleted_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PicklistOption* was deleted (as a ISO-8601 timestamp)
+        title: Deleted At
+    title: PicklistOptionBase
+    type: object
+description: CustomFieldList
+properties:
+  data:
+    description: CustomField List Response
+    items:
+      $ref: '#/$defs/CustomField'
+    title: Data
+    type: array
+required:
+- data
+title: CustomFieldList
+type: object

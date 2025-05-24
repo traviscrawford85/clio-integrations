@@ -1,0 +1,19 @@
+description: TaskUpdateRequestDataAssignee
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single User or Contact associated with
+      the Task. The keyword `null` is not valid for this field.
+    title: Id
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Model type of the assignee.
+    title: Type
+title: TaskUpdateRequestDataAssignee
+type: object

@@ -1,0 +1,311 @@
+$defs:
+  Comment:
+    description: Comment
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Comment*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Comment*
+        title: Etag
+      message:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The content of the Comment
+        title: Message
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Comment* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Comment* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      creator:
+        anyOf:
+        - $ref: '#/$defs/UserBase'
+        - type: 'null'
+        default: null
+      document_version:
+        anyOf:
+        - $ref: '#/$defs/DocumentVersionBase'
+        - type: 'null'
+        default: null
+    title: Comment
+    type: object
+  DocumentVersionBase:
+    description: DocumentVersionBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *DocumentVersion*
+        title: Id
+      document_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The ID of the parent document.
+        title: Document Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *DocumentVersion*
+        title: Etag
+      uuid:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: UUID associated with the DocumentVersion. UUID is required to
+          mark a document fully uploaded.
+        title: Uuid
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *DocumentVersion* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *DocumentVersion* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      filename:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The uploaded file name of the DocumentVersion.
+        title: Filename
+      size:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The size of the DocumentVersion in bytes.
+        title: Size
+      version_number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The ordered number of when this DocumentVersion was uploaded.
+        title: Version Number
+      content_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A standard MIME type describing the format of the object data.
+        title: Content Type
+      received_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the DocumentVersion was received (as an ISO-8601 timestamp)
+        title: Received At
+      put_url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A signed URL for uploading the file in a single operation. It
+          expires in 10 minutes. If the document is fully uploaded, the field is empty.
+        title: Put Url
+      fully_uploaded:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: True if the DocumentVersion is uploaded. False if the DocumentVersion
+          is being uploaded.
+        title: Fully Uploaded
+    title: DocumentVersionBase
+    type: object
+  UserBase:
+    description: UserBase
+    properties:
+      account_owner:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is the owner of the account
+        title: Account Owner
+      clio_connect:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a Clio Connect user
+        title: Clio Connect
+      court_rules_default_attendee:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a default attendee for court rules events
+        title: Court Rules Default Attendee
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was created (as a ISO-8601 timestamp)
+        title: Created At
+      default_calendar_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default calendar id for *User*.
+        title: Default Calendar Id
+      email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The email of the *User*
+        title: Email
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is allowed to log in
+        title: Enabled
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *User*
+        title: Etag
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The first name of the *User*
+        title: First Name
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *User*
+        title: Id
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *User*
+        title: Initials
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The last name of the *User*
+        title: Last Name
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *User*
+        title: Name
+      phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number for the *User*.
+        title: Phone Number
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default user activity rate for *User*.
+        title: Rate
+      roles:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: An array of roles assigned to this *User*
+        title: Roles
+      subscription_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subscription type of the *User*
+        title: Subscription Type
+      time_zone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The selected time zone of the *User*
+        title: Time Zone
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: UserBase
+    type: object
+description: CommentList
+properties:
+  data:
+    description: Comment List Response
+    items:
+      $ref: '#/$defs/Comment'
+    title: Data
+    type: array
+required:
+- data
+title: CommentList
+type: object

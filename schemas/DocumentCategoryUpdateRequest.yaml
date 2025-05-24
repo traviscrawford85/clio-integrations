@@ -1,0 +1,21 @@
+$defs:
+  DocumentCategoryUpdateRequestData:
+    description: DocumentCategoryUpdateRequestData
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: What the DocumentCategory should be called.
+        title: Name
+    title: DocumentCategoryUpdateRequestData
+    type: object
+description: DocumentCategoryUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/DocumentCategoryUpdateRequestData'
+required:
+- data
+title: DocumentCategoryUpdateRequest
+type: object

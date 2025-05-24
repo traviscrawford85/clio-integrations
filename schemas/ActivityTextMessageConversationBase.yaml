@@ -1,0 +1,18 @@
+description: ActivityTextMessageConversationBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *TextMessageConversation*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *TextMessageConversation*
+    title: Etag
+title: ActivityTextMessageConversationBase
+type: object

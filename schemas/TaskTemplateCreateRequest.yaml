@@ -1,0 +1,139 @@
+$defs:
+  TaskTemplateCreateRequestData:
+    description: TaskTemplateCreateRequestData
+    properties:
+      cascading:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Determines if the TaskTemplate has a due date that is derived
+          from another TaskTemplate. (Note that if false, no other cascading information
+          will be checked)
+        title: Cascading
+      cascading_offset:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The amount of time that will differentiate the cascaded TaskTemplate
+          from its parent.
+        title: Cascading Offset
+      cascading_offset_polarity:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Determines whether or not the cascading_offset occurs before
+          or after its parent.
+        title: Cascading Offset Polarity
+      cascading_offset_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Determines the quantity of the cascading offset (e.g. CalendarDays,
+          CalendarWeeks etc.)
+        title: Cascading Offset Type
+      cascading_source:
+        anyOf:
+        - $ref: '#/$defs/TaskTemplateCreateRequestDataCascadingSource'
+        - type: 'null'
+        default: null
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Longer description for the TaskTemplate.
+        title: Description
+      name:
+        description: Short name for the TaskTemplate.
+        title: Name
+        type: string
+      priority:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Normal
+        description: Priority of the task.
+        title: Priority
+      private:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not this TaskTemplate should be private.
+        title: Private
+      reminder_templates:
+        anyOf:
+        - items:
+            $ref: '#/$defs/TaskTemplateCreateRequestDataReminderTemplatesInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Reminder Templates
+      task_template_list:
+        anyOf:
+        - $ref: '#/$defs/TaskTemplateCreateRequestDataTaskTemplateList'
+        - type: 'null'
+        default: null
+    required:
+    - name
+    title: TaskTemplateCreateRequestData
+    type: object
+  TaskTemplateCreateRequestDataCascadingSource:
+    description: TaskTemplateCreateRequestDataCascadingSource
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single TaskTemplate associated with
+          the TaskTemplate. The keyword `null` is not valid for this field.
+        title: Id
+    title: TaskTemplateCreateRequestDataCascadingSource
+    type: object
+  TaskTemplateCreateRequestDataReminderTemplatesInner:
+    description: TaskTemplateCreateRequestDataReminderTemplatesInner
+    properties:
+      duration_value:
+        description: Time measured in `duration_unit` to remind user before the subject.
+        title: Duration Value
+        type: integer
+      duration_unit:
+        description: Unit to measure the duration value in.
+        title: Duration Unit
+        type: string
+      notification_type:
+        description: Notification method.
+        title: Notification Type
+        type: string
+    required:
+    - duration_value
+    - duration_unit
+    - notification_type
+    title: TaskTemplateCreateRequestDataReminderTemplatesInner
+    type: object
+  TaskTemplateCreateRequestDataTaskTemplateList:
+    description: TaskTemplateCreateRequestDataTaskTemplateList
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single TaskTemplateList associated
+          with the TaskTemplate. The keyword `null` is not valid for this field.
+        title: Id
+    title: TaskTemplateCreateRequestDataTaskTemplateList
+    type: object
+description: TaskTemplateCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/TaskTemplateCreateRequestData'
+required:
+- data
+title: TaskTemplateCreateRequest
+type: object

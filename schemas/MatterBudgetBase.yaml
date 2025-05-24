@@ -1,0 +1,65 @@
+description: MatterBudgetBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *MatterBudget*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *MatterBudget*
+    title: Etag
+  budget:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount allocated for the matter.
+    title: Budget
+  include_expenses:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the budget includes expenses.
+    title: Include Expenses
+  notification_threshold:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Percentage of the budget when it starts notifying users. The number
+      must be between 0 and 100.
+    title: Notification Threshold
+  notify_users:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether to notify users when the matter reaches the notification
+      threshold.
+    title: Notify Users
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MatterBudget* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MatterBudget* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: MatterBudgetBase
+type: object

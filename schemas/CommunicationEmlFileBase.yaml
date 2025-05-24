@@ -1,0 +1,11 @@
+description: CommunicationEmlFileBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *CommunicationEmlFile*
+    title: Id
+title: CommunicationEmlFileBase
+type: object

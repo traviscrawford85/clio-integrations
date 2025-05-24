@@ -1,0 +1,21 @@
+description: CustomActionCreateRequestData
+properties:
+  label:
+    description: Text label to be displayed on the custom link.
+    title: Label
+    type: string
+  target_url:
+    description: Target URL which will be opened in a new tab when the user clicks
+      the custom link.
+    title: Target Url
+    type: string
+  ui_reference:
+    description: UI reference location within Clio where the link will be displayed.
+    title: Ui Reference
+    type: string
+required:
+- label
+- target_url
+- ui_reference
+title: CustomActionCreateRequestData
+type: object

@@ -1,0 +1,55 @@
+description: DocumentTemplateBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *DocumentTemplate*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *DocumentTemplate*
+    title: Etag
+  size:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The size in bytes of the template
+    title: Size
+  content_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A standard MIME type describing the format of the object data.
+    title: Content Type
+  filename:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the original file that was uploaded
+    title: Filename
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *DocumentTemplate* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *DocumentTemplate* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: DocumentTemplateBase
+type: object

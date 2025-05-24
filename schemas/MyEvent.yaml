@@ -1,0 +1,137 @@
+$defs:
+  EventBase:
+    description: EventBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Event*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Event*
+        title: Etag
+      message:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Concise headline message describing the event
+        title: Message
+      icon:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Font Awesome icon to display (without the fa- prefix)
+        title: Icon
+      title:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The title or subject of the event (e.g. Matter Number, Document
+          Title)
+        title: Title
+      title_url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Target URL that will be opened if the user clicks on the event
+          title
+        title: Title Url
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Description or additional information about the event (e.g. Matter
+          Description)
+        title: Description
+      description_url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Target URL that will be opened if the user clicks on the event
+          description
+        title: Description Url
+      primary_detail:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Optional additional information about the event (e.g. Matter
+          Client, Document Author)
+        title: Primary Detail
+      primary_detail_url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Target URL that will be opened if the user clicks on the primary
+          detail
+        title: Primary Detail Url
+      secondary_detail:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Optional additional information about the event (e.g. Matter
+          Status, Document Size)
+        title: Secondary Detail
+      secondary_detail_url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Target URL that will be opened if the user clicks on the secondary
+          detail
+        title: Secondary Detail Url
+      occurred_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: When the event occurred
+        title: Occurred At
+      mobile_icon:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Icon to be displayed in the mobile app
+        title: Mobile Icon
+      subject_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of subject that triggered the notification (e.g. Matter,
+          Document)
+        title: Subject Type
+      subject_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Id of the subject that triggered the notification
+        title: Subject Id
+    title: EventBase
+    type: object
+description: MyEvent
+properties:
+  event:
+    anyOf:
+    - $ref: '#/$defs/EventBase'
+    - type: 'null'
+    default: null
+title: MyEvent
+type: object

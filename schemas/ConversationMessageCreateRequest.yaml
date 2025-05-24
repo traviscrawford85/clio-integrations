@@ -1,0 +1,108 @@
+$defs:
+  ConversationMessageCreateRequestData:
+    description: ConversationMessageCreateRequestData
+    properties:
+      attachment:
+        anyOf:
+        - $ref: '#/$defs/ConversationMessageCreateRequestDataAttachment'
+        - type: 'null'
+        default: null
+      body:
+        description: The body value.
+        title: Body
+        type: string
+      conversation:
+        anyOf:
+        - $ref: '#/$defs/ConversationMessageCreateRequestDataConversation'
+        - type: 'null'
+        default: null
+      matter:
+        anyOf:
+        - $ref: '#/$defs/ConversationMessageCreateRequestDataMatter'
+        - type: 'null'
+        default: null
+      receivers:
+        items:
+          $ref: '#/$defs/ConversationMessageCreateRequestDataReceiversInner'
+        title: Receivers
+        type: array
+      subject:
+        description: The subject value.
+        title: Subject
+        type: string
+    required:
+    - body
+    - receivers
+    - subject
+    title: ConversationMessageCreateRequestData
+    type: object
+  ConversationMessageCreateRequestDataAttachment:
+    description: ConversationMessageCreateRequestDataAttachment
+    properties:
+      document_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The document id of the attached document.
+        title: Document Id
+      document_version_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The document version id of the attached document.
+        title: Document Version Id
+    title: ConversationMessageCreateRequestDataAttachment
+    type: object
+  ConversationMessageCreateRequestDataConversation:
+    description: ConversationMessageCreateRequestDataConversation
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Conversation associated with
+          this ConversationMessage.
+        title: Id
+    title: ConversationMessageCreateRequestDataConversation
+    type: object
+  ConversationMessageCreateRequestDataMatter:
+    description: ConversationMessageCreateRequestDataMatter
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Matter associated with the
+          ConversationMessage. The keyword `null` is not valid for this field.
+        title: Id
+    title: ConversationMessageCreateRequestDataMatter
+    type: object
+  ConversationMessageCreateRequestDataReceiversInner:
+    description: ConversationMessageCreateRequestDataReceiversInner
+    properties:
+      id:
+        description: The unique identifier for a single receiver for this ConversationMessage.
+        title: Id
+        type: integer
+      type:
+        description: The type for a single receiver for this ConversationMessage,
+          could be `Contact` or `User`.
+        title: Type
+        type: string
+    required:
+    - id
+    - type
+    title: ConversationMessageCreateRequestDataReceiversInner
+    type: object
+description: ConversationMessageCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/ConversationMessageCreateRequestData'
+required:
+- data
+title: ConversationMessageCreateRequest
+type: object

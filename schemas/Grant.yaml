@@ -1,0 +1,135 @@
+$defs:
+  GrantFundingSourceBase:
+    description: GrantFundingSourceBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *GrantFundingSource*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *GrantFundingSource*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *GrantFundingSource*
+        title: Name
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *GrantFundingSource* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *GrantFundingSource* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+    title: GrantFundingSourceBase
+    type: object
+description: Grant
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Grant*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Grant*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *Grant*
+    title: Name
+  funding_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Funding code of the grant
+    title: Funding Code
+  funding_code_and_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Funding code and name of the grant
+    title: Funding Code And Name
+  funding_source_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Name of the funding source of the grant
+    title: Funding Source Name
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Grant* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Grant* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  balance:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Balance of the grant
+    title: Balance
+  start_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Start date of the grant
+    title: Start Date
+  end_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: End date of the grant
+    title: End Date
+  grant_funding_source:
+    anyOf:
+    - $ref: '#/$defs/GrantFundingSourceBase'
+    - type: 'null'
+    default: null
+title: Grant
+type: object

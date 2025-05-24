@@ -1,0 +1,79 @@
+$defs:
+  CustomFieldCreateRequestDataPicklistOptionsInner:
+    description: CustomFieldCreateRequestDataPicklistOptionsInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single PicklistOption associated
+          with the CustomField. The keyword `null` is not valid for this field. Not
+          required for creating new PicklistOptions, but required for updating or
+          deleting existing ones.
+        title: Id
+      option:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The option value.
+        title: Option
+      _deleted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the PicklistOption should be deleted.
+        title: Deleted
+    title: CustomFieldCreateRequestDataPicklistOptionsInner
+    type: object
+  CustomFieldUpdateRequestData:
+    description: CustomFieldUpdateRequestData
+    properties:
+      display_order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The display position of the CustomField.
+        title: Display Order
+      displayed:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: true
+        description: Whether or not the CustomField should be displayed by default.
+        title: Displayed
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: CustomField name.
+        title: Name
+      picklist_options:
+        anyOf:
+        - items:
+            $ref: '#/$defs/CustomFieldCreateRequestDataPicklistOptionsInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Picklist Options
+      required:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: false
+        description: Whether or not the CustomField should require a value.
+        title: Required
+    title: CustomFieldUpdateRequestData
+    type: object
+description: CustomFieldUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/CustomFieldUpdateRequestData'
+required:
+- data
+title: CustomFieldUpdateRequest
+type: object

@@ -1,0 +1,122 @@
+description: ReportSchedule
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ReportSchedule*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ReportSchedule*
+    title: Etag
+  time_of_day:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: What time the Report Schedule is run
+    title: Time Of Day
+  frequency:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: How often the Report Schedule is run
+    title: Frequency
+  days_of_week:
+    anyOf:
+    - items:
+        type: integer
+      type: array
+    - type: 'null'
+    default: null
+    description: If the frequency is weekly, which days of the week the Report Schedule
+      is run. Values are 0 to 6, representing Sunday to Saturday.
+    title: Days Of Week
+  day_of_month:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: If the frequency is monthly, which day of the month the Report Schedule
+      is run. 32 is used to represent the last day of the month.
+    title: Day Of Month
+  status:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The status of the Report Schedule
+    title: Status
+  status_updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: When the status of the Report Schedule was last updated
+    title: Status Updated At
+  next_scheduled_date:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The next time the Report Schedule should run
+    title: Next Scheduled Date
+  time_zone:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Used in conjunction with `time_of_day` to determine when the Report
+      Schedule should run
+    title: Time Zone
+  report_preset_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier of the Report Preset to use when generating
+      the scheduled report
+    title: Report Preset Id
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ReportSchedule* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ReportSchedule* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  every_no_of_months:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: If the frequency is monthly, how many months between each run of
+      the Report Schedule
+    title: Every No Of Months
+  effective_from:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date the Report Schedule will become enabled (a ISO-8601 date)
+    title: Effective From
+title: ReportSchedule
+type: object

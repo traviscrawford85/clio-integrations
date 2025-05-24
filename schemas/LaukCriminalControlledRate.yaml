@@ -1,0 +1,154 @@
+description: LaukCriminalControlledRate
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *LaukCriminalControlledRate*
+    title: Id
+  activity:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Activity of the *LaukCriminalControlledRate*
+    title: Activity
+  activity_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Activity type
+    title: Activity Type
+  category_of_law:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Category of law
+    title: Category Of Law
+  counsel:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Associated counsel
+    title: Counsel
+  court:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Court associated
+    title: Court
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *LaukCriminalControlledRate* was created (as a ISO-8601
+      timestamp)
+    title: Created At
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *LaukCriminalControlledRate*
+    title: Etag
+  exceptional:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Fee applied for high activity count
+    title: Exceptional
+  fee:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Fee amount
+    title: Fee
+  fee_scheme:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Fee scheme
+    title: Fee Scheme
+  post_nov_24_exceptional:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Post-Nov 24 exceptional fee
+    title: Post Nov 24 Exceptional
+  post_nov_24_fee:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Post-Nov 24 fee amount
+    title: Post Nov 24 Fee
+  post_sept_22_exceptional:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Post-Sept 22 exceptional fee
+    title: Post Sept 22 Exceptional
+  post_sept_22_fee:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Post-Sept 22 fee amount
+    title: Post Sept 22 Fee
+  key:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Unique key
+    title: Key
+  rate_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Rate type
+    title: Rate Type
+  region:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Region
+    title: Region
+  solicitor_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Solicitor type
+    title: Solicitor Type
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *LaukCriminalControlledRate* was last updated (as a
+      ISO-8601 timestamp)
+    title: Updated At
+title: LaukCriminalControlledRate
+type: object

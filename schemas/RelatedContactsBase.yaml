@@ -1,0 +1,118 @@
+description: RelatedContactsBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *RelatedContacts*
+    title: Id
+  contact_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The id of the *RelatedContacts*
+    title: Contact Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The full name of the *RelatedContacts*
+    title: Name
+  first_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: First name of the Person
+    title: First Name
+  middle_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Middle name of the Person
+    title: Middle Name
+  last_name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Last name of the Person
+    title: Last Name
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *RelatedContacts*
+    title: Type
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *RelatedContacts* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *RelatedContacts* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  prefix:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The prefix of the *RelatedContacts* (Mr, Mrs, etc)
+    title: Prefix
+  title:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The designated title of the *RelatedContacts*
+    title: Title
+  initials:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The initials of the *RelatedContacts*
+    title: Initials
+  is_matter_client:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the RelatedContacts is also the client of the matter
+    title: Is Matter Client
+  primary_email_address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The primary email address of related contact
+    title: Primary Email Address
+  primary_phone_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The primary phone number of related contact
+    title: Primary Phone Number
+  client_connect_user_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The client connect ID of the contacts associated user
+    title: Client Connect User Id
+title: RelatedContactsBase
+type: object

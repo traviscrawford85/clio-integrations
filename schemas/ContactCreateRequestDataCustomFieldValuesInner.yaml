@@ -1,0 +1,26 @@
+$defs:
+  ContactCreateRequestDataCustomFieldValuesInnerCustomField:
+    description: ContactCreateRequestDataCustomFieldValuesInnerCustomField
+    properties:
+      id:
+        description: The unique identifier for a single CustomField associated with
+          the CustomFieldValue. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: ContactCreateRequestDataCustomFieldValuesInnerCustomField
+    type: object
+description: ContactCreateRequestDataCustomFieldValuesInner
+properties:
+  value:
+    description: The value of the CustomFieldValue.
+    title: Value
+    type: string
+  custom_field:
+    $ref: '#/$defs/ContactCreateRequestDataCustomFieldValuesInnerCustomField'
+required:
+- value
+- custom_field
+title: ContactCreateRequestDataCustomFieldValuesInner
+type: object

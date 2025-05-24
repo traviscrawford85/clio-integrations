@@ -1,0 +1,11 @@
+description: CalendarEntryCreateRequestDataCalendarOwner
+properties:
+  id:
+    description: The unique identifier for a single Calendar associated with the CalendarEntry.
+      The keyword `null` is not valid for this field.
+    title: Id
+    type: integer
+required:
+- id
+title: CalendarEntryCreateRequestDataCalendarOwner
+type: object

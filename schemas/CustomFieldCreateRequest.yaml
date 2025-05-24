@@ -1,0 +1,88 @@
+$defs:
+  CustomFieldCreateRequestData:
+    description: CustomFieldCreateRequestData
+    properties:
+      display_order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The display position of the CustomField.
+        title: Display Order
+      displayed:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: true
+        description: Whether or not the CustomField should be displayed by default.
+        title: Displayed
+      field_type:
+        description: Field type of the CustomField.
+        title: Field Type
+        type: string
+      name:
+        description: CustomField name.
+        title: Name
+        type: string
+      parent_type:
+        description: Type of object the CustomField is for.
+        title: Parent Type
+        type: string
+      picklist_options:
+        anyOf:
+        - items:
+            $ref: '#/$defs/CustomFieldCreateRequestDataPicklistOptionsInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Picklist Options
+      required:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: false
+        description: Whether or not the CustomField should require a value.
+        title: Required
+    required:
+    - field_type
+    - name
+    - parent_type
+    title: CustomFieldCreateRequestData
+    type: object
+  CustomFieldCreateRequestDataPicklistOptionsInner:
+    description: CustomFieldCreateRequestDataPicklistOptionsInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single PicklistOption associated
+          with the CustomField. The keyword `null` is not valid for this field. Not
+          required for creating new PicklistOptions, but required for updating or
+          deleting existing ones.
+        title: Id
+      option:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The option value.
+        title: Option
+      _deleted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the PicklistOption should be deleted.
+        title: Deleted
+    title: CustomFieldCreateRequestDataPicklistOptionsInner
+    type: object
+description: CustomFieldCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/CustomFieldCreateRequestData'
+required:
+- data
+title: CustomFieldCreateRequest
+type: object

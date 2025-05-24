@@ -1,0 +1,624 @@
+$defs:
+  CalendarEntryBase:
+    description: CalendarEntryBase
+    properties:
+      id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *CalendarEntry*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *CalendarEntry*
+        title: Etag
+      summary:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A short summary of the *CalendarEntry*
+        title: Summary
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the *CalendarEntry*
+        title: Description
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The geographic location of the *CalendarEntry*
+        title: Location
+      start_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CalendarEntry* starts (as an ISO-8601 timestamp)
+        title: Start At
+      end_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CalendarEntry* ends (as an ISO-8601 timestamp)
+        title: End At
+      all_day:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the event is all day
+        title: All Day
+      recurrence_rule:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Recurrence rule for expanding
+        title: Recurrence Rule
+      parent_calendar_entry_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Identifier for the parent *CalendarEntry*
+        title: Parent Calendar Entry Id
+      court_rule:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether this event is associated with a Court Rule
+        title: Court Rule
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CalendarEntry* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CalendarEntry* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      permission:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The view permission for the current user, will return 'viewer'
+          when permission is 'limited_viewer' and the user is an attendee.
+        title: Permission
+      calendar_owner_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The id of the calendar owner.
+        title: Calendar Owner Id
+      start_at_time_zone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Original start at time zone of the event.
+        title: Start At Time Zone
+      time_entries_count:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of `TimeEntry` activities associated with the *CalendarEntry*
+        title: Time Entries Count
+    title: CalendarEntryBase
+    type: object
+  JurisdictionBase:
+    description: JurisdictionBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Jurisdiction*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Jurisdiction*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Jurisdiction* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Jurisdiction* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      system_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Server ID
+        title: System Id
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Description
+        title: Description
+      default:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Jurisdiction* is default for the current user
+        title: Default
+      display_timezone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Formatted IANA timezone with UTC offset
+        title: Display Timezone
+      valid_subscription:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Boolean value for whether the user has the jurisdictions
+        title: Valid Subscription
+      is_local_timezone:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Boolean value for when the timezone is in the local users timezone
+        title: Is Local Timezone
+    title: JurisdictionBase
+    type: object
+  JurisdictionsToTriggerBase:
+    description: JurisdictionsToTriggerBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *JurisdictionsToTrigger*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *JurisdictionsToTrigger*
+        title: Etag
+      system_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Server id
+        title: System Id
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the *JurisdictionsToTrigger*
+        title: Description
+      do_not_recalculate:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the associated dates should not be recalculated
+        title: Do Not Recalculate
+      is_served:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the user must select a Date Offset (Service Type)
+        title: Is Served
+      is_requirements_required:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the trigger has requirements
+        title: Is Requirements Required
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *JurisdictionsToTrigger* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *JurisdictionsToTrigger* was last updated (as a
+          ISO-8601 timestamp)
+        title: Updated At
+    title: JurisdictionsToTriggerBase
+    type: object
+  MatterBase:
+    description: MatterBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Matter*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Matter*
+        title: Etag
+      number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number given to the *Matter* within an account
+        title: Number
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The reference and label of the *Matter*. Depending on the account's
+          manual_matter_numbering setting, this is either read only (generated) or
+          customizable.
+        title: Display Number
+      custom_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: User defined custom number of the *Matter*
+        title: Custom Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the matter
+        title: Currency
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The detailed description of the *Matter*
+        title: Description
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current status of the *Matter*
+        title: Status
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The location of the *Matter*
+        title: Location
+      client_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Client Reference string for external uses
+        title: Client Reference
+      client_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Client ID
+        title: Client Id
+      billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether this matter is billable
+        title: Billable
+      maildrop_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A unique Maildrop email address for the matter
+        title: Maildrop Address
+      billing_method:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Billing method of this matter
+        title: Billing Method
+      open_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to open (as a ISO-8601 date)
+        title: Open Date
+      close_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to closed (as a ISO-8601 date)
+        title: Close Date
+      pending_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to pending (as a ISO-8601 date)
+        title: Pending Date
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      shared:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the matter is currently shared with Clio Connect
+        title: Shared
+      has_tasks:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the matter has any tasks.
+        title: Has Tasks
+      last_activity_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The greatest date out of all of the activities on the matter
+          (as a ISO-8601 date)
+        title: Last Activity Date
+      matter_stage_updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter stage was last updated (as a ISO-8601 date)
+        title: Matter Stage Updated At
+    title: MatterBase
+    type: object
+  MatterDocket:
+    description: MatterDocket
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *MatterDocket*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *MatterDocket*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *MatterDocket*
+        title: Name
+      start_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the *MatterDocket* will start (as a ISO-8601 date)
+        title: Start Date
+      start_time:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterDocket* will start, required for specific
+          triggers (as a ISO-8601 timestamp)
+        title: Start Time
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The status of the *MatterDocket* creation
+        title: Status
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterDocket* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterDocket* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      deleted_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterDocket* was deleted (as a ISO-8601 timestamp)
+        title: Deleted At
+      matter:
+        anyOf:
+        - $ref: '#/$defs/MatterBase'
+        - type: 'null'
+        default: null
+      jurisdiction:
+        anyOf:
+        - $ref: '#/$defs/JurisdictionBase'
+        - type: 'null'
+        default: null
+      trigger:
+        anyOf:
+        - $ref: '#/$defs/JurisdictionsToTriggerBase'
+        - type: 'null'
+        default: null
+      service_type:
+        anyOf:
+        - $ref: '#/$defs/ServiceTypeBase'
+        - type: 'null'
+        default: null
+      calendar_entries:
+        anyOf:
+        - items:
+            $ref: '#/$defs/CalendarEntryBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: CalendarEntry
+        title: Calendar Entries
+    title: MatterDocket
+    type: object
+  ServiceTypeBase:
+    description: ServiceTypeBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ServiceType*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ServiceType*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ServiceType* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ServiceType* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      system_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Server ID
+        title: System Id
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the *ServiceType*
+        title: Description
+      default:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether *ServiceType* is default for the current user
+        title: Default
+    title: ServiceTypeBase
+    type: object
+description: MatterDocketShow
+properties:
+  data:
+    $ref: '#/$defs/MatterDocket'
+required:
+- data
+title: MatterDocketShow
+type: object

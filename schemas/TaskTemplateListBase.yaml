@@ -1,0 +1,55 @@
+description: TaskTemplateListBase
+properties:
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *TaskTemplateList* was created (as a ISO-8601 timestamp)
+    title: Created At
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A detailed description of the *TaskTemplateList*
+    title: Description
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *TaskTemplateList*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *TaskTemplateList*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *TaskTemplateList*
+    title: Name
+  templates_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: How many task templates exist as an association to the *TaskTemplateList*
+    title: Templates Count
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *TaskTemplateList* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: TaskTemplateListBase
+type: object

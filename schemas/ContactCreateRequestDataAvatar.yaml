@@ -1,0 +1,20 @@
+description: ContactCreateRequestDataAvatar
+properties:
+  image:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The avatar image for the *Contact*, base64-encoded. Must be a valid
+      GIF, JPG, or PNG image of less than 2 megabytes in size.
+    title: Image
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The destroy flag. If the flag is set to `true` and the unique identifier
+      of the associated Avatar is present, the Avatar is deleted from the Contact.
+    title: Destroy
+title: ContactCreateRequestDataAvatar
+type: object

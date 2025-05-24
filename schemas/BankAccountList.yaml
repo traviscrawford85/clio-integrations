@@ -1,0 +1,326 @@
+$defs:
+  BankAccount:
+    description: BankAccount
+    properties:
+      account_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The account number for *BankAccount*
+        title: Account Number
+      balance:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The current balance of the *BankAccount*
+        title: Balance
+      bank_transactions_count:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of bank transactions associated with the account.
+        title: Bank Transactions Count
+      clio_payment_page_link:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Link to Single Payment Page which allows to transfer funds without
+          logging in.
+        title: Clio Payment Page Link
+      clio_payment_page_qr_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A QR code that links to a Single Payment Page which allows to
+          transfer funds without logging in.
+        title: Clio Payment Page Qr Code
+      clio_payments_enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the bank account is connected to Clio Payments
+        title: Clio Payments Enabled
+      controlled_account:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether is a controlled account
+        title: Controlled Account
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *BankAccount* was created (as a ISO-8601 timestamp)
+        title: Created At
+      currency:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The currency type of the *BankAccount*
+        title: Currency
+      currency_id:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The currency ID of the *BankAccount*
+        title: Currency Id
+      default_account:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether it is the default account
+        title: Default Account
+      domicile_branch:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the branch where the account was opened
+        title: Domicile Branch
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *BankAccount*
+        title: Etag
+      general_ledger_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: General ledger number
+        title: General Ledger Number
+      holder:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the person or business that owns the *BankAccount*
+        title: Holder
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *BankAccount*
+        title: Id
+      institution:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The financial institution where the *BankAccount* is registered
+        title: Institution
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *BankAccount*
+        title: Name
+      swift:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A unique identification code for the financial institution
+        title: Swift
+      transit_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Transit number for the bank account branch
+        title: Transit Number
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *BankAccount*
+        title: Type
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *BankAccount* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      user:
+        anyOf:
+        - $ref: '#/$defs/UserBase'
+        - type: 'null'
+        default: null
+    title: BankAccount
+    type: object
+  UserBase:
+    description: UserBase
+    properties:
+      account_owner:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is the owner of the account
+        title: Account Owner
+      clio_connect:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a Clio Connect user
+        title: Clio Connect
+      court_rules_default_attendee:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is a default attendee for court rules events
+        title: Court Rules Default Attendee
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was created (as a ISO-8601 timestamp)
+        title: Created At
+      default_calendar_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default calendar id for *User*.
+        title: Default Calendar Id
+      email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The email of the *User*
+        title: Email
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *User* is allowed to log in
+        title: Enabled
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *User*
+        title: Etag
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The first name of the *User*
+        title: First Name
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *User*
+        title: Id
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *User*
+        title: Initials
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The last name of the *User*
+        title: Last Name
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *User*
+        title: Name
+      phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number for the *User*.
+        title: Phone Number
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default user activity rate for *User*.
+        title: Rate
+      roles:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: An array of roles assigned to this *User*
+        title: Roles
+      subscription_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subscription type of the *User*
+        title: Subscription Type
+      time_zone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The selected time zone of the *User*
+        title: Time Zone
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *User* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: UserBase
+    type: object
+description: BankAccountList
+properties:
+  data:
+    description: BankAccount List Response
+    items:
+      $ref: '#/$defs/BankAccount'
+    title: Data
+    type: array
+required:
+- data
+title: BankAccountList
+type: object

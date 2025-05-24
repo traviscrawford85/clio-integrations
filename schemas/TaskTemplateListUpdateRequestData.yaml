@@ -1,0 +1,37 @@
+$defs:
+  TaskTemplateListCreateRequestDataPracticeArea:
+    description: TaskTemplateListCreateRequestDataPracticeArea
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single PracticeArea associated with
+          the TaskTemplateList. The keyword `null` is not valid for this field.
+        title: Id
+    title: TaskTemplateListCreateRequestDataPracticeArea
+    type: object
+description: TaskTemplateListUpdateRequestData
+properties:
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Description of the TaskTemplateList.
+    title: Description
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Name of the TaskTemplateList.
+    title: Name
+  practice_area:
+    anyOf:
+    - $ref: '#/$defs/TaskTemplateListCreateRequestDataPracticeArea'
+    - type: 'null'
+    default: null
+title: TaskTemplateListUpdateRequestData
+type: object

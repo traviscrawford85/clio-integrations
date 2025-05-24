@@ -1,0 +1,57 @@
+description: InterestChargeBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *InterestCharge*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *InterestCharge*
+    title: Etag
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The *InterestCharge* date (as a ISO-8601 date)
+    title: Date
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The description for the *InterestCharge*
+    title: Description
+  total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total amount for the *InterestCharge*
+    title: Total
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *InterestCharge* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *InterestCharge* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: InterestChargeBase
+type: object

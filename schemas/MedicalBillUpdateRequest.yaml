@@ -1,0 +1,103 @@
+$defs:
+  MedicalBillUpdateRequestData:
+    description: MedicalBillUpdateRequestData
+    properties:
+      adjustment:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Adjustment
+        title: Adjustment
+      amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Amount
+        title: Amount
+      balance:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Balance
+        title: Balance
+      bill_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Bill Date (Expects an ISO-8601 date).
+        title: Bill Date
+      bill_received_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Bill Received Date (Expects an ISO-8601 date).
+        title: Bill Received Date
+      mark_balance_as_lien:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Mark balance as lien
+        title: Mark Balance As Lien
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Name
+        title: Name
+      payers:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MedicalBillUpdateRequestDataPayersInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Payers
+    title: MedicalBillUpdateRequestData
+    type: object
+  MedicalBillUpdateRequestDataPayersInner:
+    description: MedicalBillUpdateRequestDataPayersInner
+    properties:
+      amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Lien amount.
+        title: Amount
+      holder_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Lien holder ID
+        title: Holder Id
+      mark_as_lien:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Mark record as Lien.
+        title: Mark As Lien
+    title: MedicalBillUpdateRequestDataPayersInner
+    type: object
+description: MedicalBillUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/MedicalBillUpdateRequestData'
+required:
+- data
+title: MedicalBillUpdateRequest
+type: object

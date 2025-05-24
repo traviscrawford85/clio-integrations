@@ -1,0 +1,28 @@
+description: ActivityCreateRequestDataActivityDescription
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single ActivityDescription associated
+      with the Activity. The keyword `null` is not valid for this field.
+    title: Id
+  utbms_task_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single UtbmsTask associated with the
+      Activity. The keyword `null` is not valid for this field.
+    title: Utbms Task Id
+  utbms_activity_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single UtbmsActivity associated with
+      the Activity. The keyword `null` is not valid for this field.
+    title: Utbms Activity Id
+title: ActivityCreateRequestDataActivityDescription
+type: object

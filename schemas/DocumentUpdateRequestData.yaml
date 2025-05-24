@@ -1,0 +1,204 @@
+$defs:
+  DocumentCopyRequestDataDocumentCategory:
+    description: DocumentCopyRequestDataDocumentCategory
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single DocumentCategory associated
+          with the Document. Use the keyword `null` to specify no association.
+        title: Id
+    title: DocumentCopyRequestDataDocumentCategory
+    type: object
+  DocumentCopyRequestDataExternalPropertiesInner:
+    description: DocumentCopyRequestDataExternalPropertiesInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single ExternalProperty associated
+          with the Document. The keyword `null` is not valid for this field.
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: 'The ExternalProperty name. Note: **there is a limit of 5 external_properties
+          per Document**'
+        title: Name
+      value:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The ExternalProperty value.
+        title: Value
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated ExternalProperty is present, the ExternalProperty
+          is deleted from the Document.
+        title: Destroy
+    title: DocumentCopyRequestDataExternalPropertiesInner
+    type: object
+  DocumentUpdateRequestDataMultipartsInner:
+    description: DocumentUpdateRequestDataMultipartsInner
+    properties:
+      part_number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The part number of multipart upload. It must be an integer between
+          1 to 10,000, inclusive.  Multipart upload supports upload a single file
+          as a set of parts. Each part is a contiguous portion of the data. A `part_number`
+          uniquely identifies a part and also defines its position within the document
+          being uploaded. Each part must be at least 5 MB in size, except the last
+          part. There is no minimum size limit on the last part.  The URLs of multipart
+          upload are returned in the field, `put_url`, with the corresponding `multipart`  The
+          API handles maximum 50 `multiparts` in one request. If the upload is split
+          to more than 50 parts, make a PUT request with `fully_uploaded` equal to
+          `false`, and another set of part numbers. '
+        title: Part Number
+      content_length:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The size of the part of the upload file in bytes.
+        title: Content Length
+      content_md5:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The base64-encoded 128-bit MD5 digest of the part data. This
+          header can be used as a message integrity check to verify that the part
+          data is the same data that was originally sent. Although it is optional,
+          we recommend using the Content-MD5 mechanism as an end-to-end integrity
+          check.
+        title: Content Md5
+    title: DocumentUpdateRequestDataMultipartsInner
+    type: object
+  DocumentUpdateRequestDataParent:
+    description: DocumentUpdateRequestDataParent
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier of the parent object.
+        title: Id
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: 'Type of parent object: * "Document" represents an existing Clio
+          document. It is specified when you provide a new revision (or document version)
+          to an existing document. * "Folder" represents a specified folder on Clio
+          by folder id. It if specified when you add / move an item to a folder. *
+          "Contact" represents a contact folder on Clio identified by contact id.
+          It is specified when you add / move an item to a contact folder. A contact
+          folder will be created for the specified contact if none exists already.
+          * "Matter" represents a matter folder on Clio identified by matter id. It
+          is specified when you add / move an item to a matter folder. '
+        title: Type
+    title: DocumentUpdateRequestDataParent
+    type: object
+description: DocumentUpdateRequestData
+properties:
+  communication_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Related communication record.
+    title: Communication Id
+  copy_version:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Indicates whether to create a new version with the updated filename
+      on rename. This is intended to handle cases where the document extension has
+      been changed; if the document extension has not changed, no new version will
+      be created.
+    title: Copy Version
+  document_category:
+    anyOf:
+    - $ref: '#/$defs/DocumentCopyRequestDataDocumentCategory'
+    - type: 'null'
+    default: null
+  external_properties:
+    anyOf:
+    - items:
+        $ref: '#/$defs/DocumentCopyRequestDataExternalPropertiesInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: External Properties
+  fully_uploaded:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: 'Indicates whether document is uploaded.  When marking the document
+      fully uploaded, it arises errors when: * The file is not successfully uploaded.
+      * Not all the file parts are uploaded. * The document is already marked as fully
+      uploaded. '
+    title: Fully Uploaded
+  multiparts:
+    anyOf:
+    - items:
+        $ref: '#/$defs/DocumentUpdateRequestDataMultipartsInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Multiparts
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Document name.
+    title: Name
+  parent:
+    anyOf:
+    - $ref: '#/$defs/DocumentUpdateRequestDataParent'
+    - type: 'null'
+    default: null
+  received_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Date and time the document was received (Expects an ISO-8601 timestamp).
+    title: Received At
+  restore:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not a trashed Document should be restored.
+    title: Restore
+  uuid:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: UUID associated with the document version. UUID is required to mark
+      a document fully uploaded.
+    title: Uuid
+title: DocumentUpdateRequestData
+type: object
