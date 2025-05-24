@@ -1,0 +1,55 @@
+# copilot.yaml
+goals:
+  - Audit the codebase for deprecated file-based token storage.
+  - Replace all use of clio_token_store.json with the ClioToken SQLAlchemy model.
+  - Ensure all OpenAPI API clients are configured with the correct token handling.
+  - Validate that Configuration.host is set to "https://app.clio.com/api/v4" in all clients.
+  - Ensure Authorization headers are added using config.api_key + config.api_key_prefix, not manually or incorrectly.
+  - Highlight duplicate or unused API client wrappers (e.g., ClioApiClient vs ApiClient).
+  - Recommend minimal and correct PATCH request formatting for Clio API calls.
+  - Detect and consolidate redundant token refresh logic if present.
+
+tools:
+  codebase:
+    include:
+      - clio/
+      - clio_client/
+      - scripts/
+      - main.py
+    exclude:
+      - tests/
+      - .venv/
+      - clio_token_store.json
+      - README.md
+
+  problems:
+    enabled: true
+    filters:
+      - deprecated-usage
+      - hardcoded-secret
+      - insecure-token-storage
+      - misconfigured-auth-header
+  issues:
+    enabled: true
+    filters:
+      - duplicate-api-client
+      - unused-api-client
+      - incorrect-patch-request
+      - verbose-patch-request
+      - redundant-token-refresh
+  projects:
+    enabled: true
+    filters:
+      - clio-token-sqlalchemy
+      - clio-api-client
+      - clio-configuration
+
+instructions:
+  - Look for any usage of "open(...clio_token_store.json...)", get_stored_token_data, or direct file I/O for token loading.
+  - Flag use of Configuration without setting `host="https://app.clio.com/api/v4"`.
+  - Ensure tokens are assigned to `config.api_key["Authorization"]` without the "Bearer " prefix.
+  - Confirm `config.api_key_prefix["Authorization"]` is set to "Bearer".
+  - Point out and consolidate duplicate ApiClient instances or wrappers unless clearly scoped.
+  - Validate Content-Type headers on PATCH requests are application/json.
+  - Warn if PATCH requests are verbose or malformed — suggest using minimal valid fields like description and status.
+  - Check that all token refresh logic routes through a single, tested method using SQLAlchemy ClioToken.
