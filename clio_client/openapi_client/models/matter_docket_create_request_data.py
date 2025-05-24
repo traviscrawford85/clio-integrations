@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,15 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.matter_docket_create_request_data_jurisdiction import \
-    MatterDocketCreateRequestDataJurisdiction
-from clio_client.openapi_client.models.matter_docket_create_request_data_trigger import \
-    MatterDocketCreateRequestDataTrigger
+from clio_client.openapi_client.models.matter_docket_create_request_data_jurisdiction import (
+    MatterDocketCreateRequestDataJurisdiction,
+)
+from clio_client.openapi_client.models.matter_docket_create_request_data_trigger import (
+    MatterDocketCreateRequestDataTrigger,
+)
 
 
 class MatterDocketCreateRequestData(BaseModel):
@@ -37,9 +38,9 @@ class MatterDocketCreateRequestData(BaseModel):
     jurisdiction: MatterDocketCreateRequestDataJurisdiction
     name: StrictStr = Field(description="Name of the MatterDocket.")
     start_date: date = Field(description="Start date of the MatterDocket. (Expects an ISO-8601 date).")
-    start_time: Optional[datetime] = Field(default=None, description="Start time of the MatterDocket. Required for some triggers.  (Expects an ISO-8601 timestamp).")
+    start_time: datetime | None = Field(default=None, description="Start time of the MatterDocket. Required for some triggers.  (Expects an ISO-8601 timestamp).")
     trigger: MatterDocketCreateRequestDataTrigger
-    __properties: ClassVar[List[str]] = ["jurisdiction", "name", "start_date", "start_time", "trigger"]
+    __properties: ClassVar[list[str]] = ["jurisdiction", "name", "start_date", "start_time", "trigger"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -58,11 +59,11 @@ class MatterDocketCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MatterDocketCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -72,7 +73,7 @@ class MatterDocketCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -89,7 +90,7 @@ class MatterDocketCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MatterDocketCreateRequestData from a dict"""
         if obj is None:
             return None

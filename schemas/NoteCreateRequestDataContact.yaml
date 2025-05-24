@@ -1,0 +1,12 @@
+description: NoteCreateRequestDataContact
+properties:
+  id:
+    description: The unique identifier for a single Contact associated with the Note.
+      The keyword null is not valid for this field. Required only if the Note type
+      is `"Contact"`.
+    title: Id
+    type: integer
+required:
+- id
+title: NoteCreateRequestDataContact
+type: object

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,7 +17,7 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing_extensions import Self
@@ -28,18 +27,18 @@ class BankAccountUpdateRequestData(BaseModel):
     """
     BankAccountUpdateRequestData
     """ # noqa: E501
-    account_number: Optional[StrictStr] = Field(default=None, description="Account number for the BankAccount.")
-    controlled_account: Optional[StrictBool] = Field(default=None, description="Whether is a controlled account.")
-    currency: Optional[StrictStr] = Field(default=None, description="Currency the BankAccount is in.")
-    default_account: Optional[StrictBool] = Field(default=None, description="Whether or not the BankAccount should be the default account.")
-    domicile_branch: Optional[StrictStr] = Field(default=None, description="Branch where the BankAccount was opened.")
-    general_ledger_number: Optional[StrictStr] = Field(default=None, description="General ledger number used for the Law Society of Alberta.")
-    holder: Optional[StrictStr] = Field(default=None, description="BankAccount holder.")
-    institution: Optional[StrictStr] = Field(default=None, description="Financial institution.")
-    name: Optional[StrictStr] = Field(default=None, description="BankAccount name.")
-    swift: Optional[StrictStr] = Field(default=None, description="Identification code for the financial institution.")
-    transit_number: Optional[StrictStr] = Field(default=None, description="Transit number for the BankAccount branch.")
-    __properties: ClassVar[List[str]] = ["account_number", "controlled_account", "currency", "default_account", "domicile_branch", "general_ledger_number", "holder", "institution", "name", "swift", "transit_number"]
+    account_number: StrictStr | None = Field(default=None, description="Account number for the BankAccount.")
+    controlled_account: StrictBool | None = Field(default=None, description="Whether is a controlled account.")
+    currency: StrictStr | None = Field(default=None, description="Currency the BankAccount is in.")
+    default_account: StrictBool | None = Field(default=None, description="Whether or not the BankAccount should be the default account.")
+    domicile_branch: StrictStr | None = Field(default=None, description="Branch where the BankAccount was opened.")
+    general_ledger_number: StrictStr | None = Field(default=None, description="General ledger number used for the Law Society of Alberta.")
+    holder: StrictStr | None = Field(default=None, description="BankAccount holder.")
+    institution: StrictStr | None = Field(default=None, description="Financial institution.")
+    name: StrictStr | None = Field(default=None, description="BankAccount name.")
+    swift: StrictStr | None = Field(default=None, description="Identification code for the financial institution.")
+    transit_number: StrictStr | None = Field(default=None, description="Transit number for the BankAccount branch.")
+    __properties: ClassVar[list[str]] = ["account_number", "controlled_account", "currency", "default_account", "domicile_branch", "general_ledger_number", "holder", "institution", "name", "swift", "transit_number"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -58,11 +57,11 @@ class BankAccountUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of BankAccountUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -72,7 +71,7 @@ class BankAccountUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -83,7 +82,7 @@ class BankAccountUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of BankAccountUpdateRequestData from a dict"""
         if obj is None:
             return None

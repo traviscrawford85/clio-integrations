@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,18 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -30,47 +37,47 @@ class BillBase(BaseModel):
     """
     BillBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Bill*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Bill*")
-    number: Optional[StrictStr] = Field(default=None, description="The *Bill* identifier (not necessarily numeric)'")
-    issued_at: Optional[date] = Field(default=None, description="The time the *Bill* was issued (as a ISO-8601 date)")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Bill* was created (as a ISO-8601 timestamp)")
-    due_at: Optional[date] = Field(default=None, description="The date the *Bill* is due (as a ISO-8601 date)")
-    tax_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The tax rate to the *Bill*")
-    secondary_tax_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="A secondary tax rate applied to the *Bill*")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Bill* was last updated (as a ISO-8601 timestamp)")
-    subject: Optional[StrictStr] = Field(default=None, description="The subject of the *Bill*")
-    purchase_order: Optional[StrictStr] = Field(default=None, description="The purchase order of the *Bill*")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *Bill*")
-    memo: Optional[StrictStr] = Field(default=None, description="A memo for the *Bill*")
-    start_at: Optional[date] = Field(default=None, description="The time the billing period starts (as a ISO-8601 date)")
-    end_at: Optional[date] = Field(default=None, description="The time the billing period ends (as a ISO-8601 date)")
-    balance: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The outstanding balance of the *Bill*")
-    state: Optional[StrictStr] = Field(default=None, description="The billing state the *Bill* is in")
-    kind: Optional[StrictStr] = Field(default=None, description="The kind of the *Bill*")
-    total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total with interest of the *Bill*")
-    paid: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total amount paid for the *Bill*")
-    paid_at: Optional[datetime] = Field(default=None, description="The date of the last payment on the *Bill*")
-    pending: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of pending credit card payments on the *Bill*")
-    due: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total amount of the *Bill* with interest and less discounts")
-    discount_services_only: Optional[StrictStr] = Field(default=None, description="The selected discount is applied to services only.")
-    can_update: Optional[StrictBool] = Field(default=None, description="This value indicates if your *Bill*'s line items and information can be updated.")
-    credits_issued: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total credits issued for the *Bill*")
-    shared: Optional[StrictBool] = Field(default=None, description="Whether the *Bill* is a shared")
-    last_sent_at: Optional[datetime] = Field(default=None, description="The last time the *Bill* was sent (as a ISO-8601 date)")
-    services_secondary_tax: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total secondary tax of the bill's line items of a service kind")
-    services_sub_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The sub total of all the bill's line items of a service kind")
-    services_tax: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total tax of the bill's line items of a service kind")
-    services_taxable_sub_total: Optional[StrictInt] = Field(default=None, description="The services portion of the bill's primary tax")
-    services_secondary_taxable_sub_total: Optional[StrictInt] = Field(default=None, description="The services portion of the bill's secondary tax")
-    taxable_sub_total: Optional[StrictInt] = Field(default=None, description="The total taxable bill amount")
-    secondary_taxable_sub_total: Optional[StrictInt] = Field(default=None, description="The subtotal of the bill's secondary tax")
-    sub_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Sub total for the *Bill*")
-    tax_sum: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Sum of primary tax for the model")
-    secondary_tax_sum: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Sum of secondary tax for the model")
-    total_tax: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total amount of tax for the bill.")
-    available_state_transitions: Optional[List[StrictStr]] = Field(default=None, description="The available *Bill* state transitions.")
-    __properties: ClassVar[List[str]] = ["id", "etag", "number", "issued_at", "created_at", "due_at", "tax_rate", "secondary_tax_rate", "updated_at", "subject", "purchase_order", "type", "memo", "start_at", "end_at", "balance", "state", "kind", "total", "paid", "paid_at", "pending", "due", "discount_services_only", "can_update", "credits_issued", "shared", "last_sent_at", "services_secondary_tax", "services_sub_total", "services_tax", "services_taxable_sub_total", "services_secondary_taxable_sub_total", "taxable_sub_total", "secondary_taxable_sub_total", "sub_total", "tax_sum", "secondary_tax_sum", "total_tax", "available_state_transitions"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Bill*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Bill*")
+    number: StrictStr | None = Field(default=None, description="The *Bill* identifier (not necessarily numeric)'")
+    issued_at: date | None = Field(default=None, description="The time the *Bill* was issued (as a ISO-8601 date)")
+    created_at: datetime | None = Field(default=None, description="The time the *Bill* was created (as a ISO-8601 timestamp)")
+    due_at: date | None = Field(default=None, description="The date the *Bill* is due (as a ISO-8601 date)")
+    tax_rate: StrictFloat | StrictInt | None = Field(default=None, description="The tax rate to the *Bill*")
+    secondary_tax_rate: StrictFloat | StrictInt | None = Field(default=None, description="A secondary tax rate applied to the *Bill*")
+    updated_at: datetime | None = Field(default=None, description="The time the *Bill* was last updated (as a ISO-8601 timestamp)")
+    subject: StrictStr | None = Field(default=None, description="The subject of the *Bill*")
+    purchase_order: StrictStr | None = Field(default=None, description="The purchase order of the *Bill*")
+    type: StrictStr | None = Field(default=None, description="The type of the *Bill*")
+    memo: StrictStr | None = Field(default=None, description="A memo for the *Bill*")
+    start_at: date | None = Field(default=None, description="The time the billing period starts (as a ISO-8601 date)")
+    end_at: date | None = Field(default=None, description="The time the billing period ends (as a ISO-8601 date)")
+    balance: StrictFloat | StrictInt | None = Field(default=None, description="The outstanding balance of the *Bill*")
+    state: StrictStr | None = Field(default=None, description="The billing state the *Bill* is in")
+    kind: StrictStr | None = Field(default=None, description="The kind of the *Bill*")
+    total: StrictFloat | StrictInt | None = Field(default=None, description="The total with interest of the *Bill*")
+    paid: StrictFloat | StrictInt | None = Field(default=None, description="The total amount paid for the *Bill*")
+    paid_at: datetime | None = Field(default=None, description="The date of the last payment on the *Bill*")
+    pending: StrictFloat | StrictInt | None = Field(default=None, description="The amount of pending credit card payments on the *Bill*")
+    due: StrictFloat | StrictInt | None = Field(default=None, description="The total amount of the *Bill* with interest and less discounts")
+    discount_services_only: StrictStr | None = Field(default=None, description="The selected discount is applied to services only.")
+    can_update: StrictBool | None = Field(default=None, description="This value indicates if your *Bill*'s line items and information can be updated.")
+    credits_issued: StrictFloat | StrictInt | None = Field(default=None, description="The total credits issued for the *Bill*")
+    shared: StrictBool | None = Field(default=None, description="Whether the *Bill* is a shared")
+    last_sent_at: datetime | None = Field(default=None, description="The last time the *Bill* was sent (as a ISO-8601 date)")
+    services_secondary_tax: StrictFloat | StrictInt | None = Field(default=None, description="The total secondary tax of the bill's line items of a service kind")
+    services_sub_total: StrictFloat | StrictInt | None = Field(default=None, description="The sub total of all the bill's line items of a service kind")
+    services_tax: StrictFloat | StrictInt | None = Field(default=None, description="The total tax of the bill's line items of a service kind")
+    services_taxable_sub_total: StrictInt | None = Field(default=None, description="The services portion of the bill's primary tax")
+    services_secondary_taxable_sub_total: StrictInt | None = Field(default=None, description="The services portion of the bill's secondary tax")
+    taxable_sub_total: StrictInt | None = Field(default=None, description="The total taxable bill amount")
+    secondary_taxable_sub_total: StrictInt | None = Field(default=None, description="The subtotal of the bill's secondary tax")
+    sub_total: StrictFloat | StrictInt | None = Field(default=None, description="Sub total for the *Bill*")
+    tax_sum: StrictFloat | StrictInt | None = Field(default=None, description="Sum of primary tax for the model")
+    secondary_tax_sum: StrictFloat | StrictInt | None = Field(default=None, description="Sum of secondary tax for the model")
+    total_tax: StrictFloat | StrictInt | None = Field(default=None, description="The total amount of tax for the bill.")
+    available_state_transitions: list[StrictStr] | None = Field(default=None, description="The available *Bill* state transitions.")
+    __properties: ClassVar[list[str]] = ["id", "etag", "number", "issued_at", "created_at", "due_at", "tax_rate", "secondary_tax_rate", "updated_at", "subject", "purchase_order", "type", "memo", "start_at", "end_at", "balance", "state", "kind", "total", "paid", "paid_at", "pending", "due", "discount_services_only", "can_update", "credits_issued", "shared", "last_sent_at", "services_secondary_tax", "services_sub_total", "services_tax", "services_taxable_sub_total", "services_secondary_taxable_sub_total", "taxable_sub_total", "secondary_taxable_sub_total", "sub_total", "tax_sum", "secondary_tax_sum", "total_tax", "available_state_transitions"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -130,11 +137,11 @@ class BillBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of BillBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -144,7 +151,7 @@ class BillBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -155,7 +162,7 @@ class BillBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of BillBase from a dict"""
         if obj is None:
             return None

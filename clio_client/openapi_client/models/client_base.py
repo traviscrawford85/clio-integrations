@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -30,23 +36,23 @@ class ClientBase(BaseModel):
     """
     ClientBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Client*")
-    name: Optional[StrictStr] = Field(default=None, description="The full name of the *Client*")
-    first_name: Optional[StrictStr] = Field(default=None, description="First name of the Person")
-    middle_name: Optional[StrictStr] = Field(default=None, description="Middle name of the Person")
-    last_name: Optional[StrictStr] = Field(default=None, description="Last name of the Person")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *Client*")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Client* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Client* was last updated (as a ISO-8601 timestamp)")
-    prefix: Optional[StrictStr] = Field(default=None, description="The prefix of the *Client* (Mr, Mrs, etc)")
-    title: Optional[StrictStr] = Field(default=None, description="The designated title of the *Client*")
-    initials: Optional[StrictStr] = Field(default=None, description="The initials of the *Client*")
-    is_matter_client: Optional[StrictBool] = Field(default=None, description="Whether or not the Client is also the client of the matter")
-    primary_email_address: Optional[StrictStr] = Field(default=None, description="The primary email address of client")
-    primary_phone_number: Optional[StrictStr] = Field(default=None, description="The primary phone number of client")
-    client_connect_user_id: Optional[StrictInt] = Field(default=None, description="The client connect ID of the contacts associated user")
-    date_of_birth: Optional[date] = Field(default=None, description="Date of Birth")
-    __properties: ClassVar[List[str]] = ["id", "name", "first_name", "middle_name", "last_name", "type", "created_at", "updated_at", "prefix", "title", "initials", "is_matter_client", "primary_email_address", "primary_phone_number", "client_connect_user_id", "date_of_birth"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Client*")
+    name: StrictStr | None = Field(default=None, description="The full name of the *Client*")
+    first_name: StrictStr | None = Field(default=None, description="First name of the Person")
+    middle_name: StrictStr | None = Field(default=None, description="Middle name of the Person")
+    last_name: StrictStr | None = Field(default=None, description="Last name of the Person")
+    type: StrictStr | None = Field(default=None, description="The type of the *Client*")
+    created_at: datetime | None = Field(default=None, description="The time the *Client* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Client* was last updated (as a ISO-8601 timestamp)")
+    prefix: StrictStr | None = Field(default=None, description="The prefix of the *Client* (Mr, Mrs, etc)")
+    title: StrictStr | None = Field(default=None, description="The designated title of the *Client*")
+    initials: StrictStr | None = Field(default=None, description="The initials of the *Client*")
+    is_matter_client: StrictBool | None = Field(default=None, description="Whether or not the Client is also the client of the matter")
+    primary_email_address: StrictStr | None = Field(default=None, description="The primary email address of client")
+    primary_phone_number: StrictStr | None = Field(default=None, description="The primary phone number of client")
+    client_connect_user_id: StrictInt | None = Field(default=None, description="The client connect ID of the contacts associated user")
+    date_of_birth: date | None = Field(default=None, description="Date of Birth")
+    __properties: ClassVar[list[str]] = ["id", "name", "first_name", "middle_name", "last_name", "type", "created_at", "updated_at", "prefix", "title", "initials", "is_matter_client", "primary_email_address", "primary_phone_number", "client_connect_user_id", "date_of_birth"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -75,11 +81,11 @@ class ClientBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ClientBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -89,7 +95,7 @@ class ClientBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -100,7 +106,7 @@ class ClientBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ClientBase from a dict"""
         if obj is None:
             return None

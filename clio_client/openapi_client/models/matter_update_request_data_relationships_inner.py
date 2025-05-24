@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,25 +17,25 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.matter_update_request_data_relationships_inner_contact import \
-    MatterUpdateRequestDataRelationshipsInnerContact
+from clio_client.openapi_client.models.matter_update_request_data_relationships_inner_contact import (
+    MatterUpdateRequestDataRelationshipsInnerContact,
+)
 
 
 class MatterUpdateRequestDataRelationshipsInner(BaseModel):
     """
     MatterUpdateRequestDataRelationshipsInner
     """ # noqa: E501
-    description: Optional[StrictStr] = Field(default=None, description="Describe the relationship between a Contact and a Matter.")
-    contact: Optional[MatterUpdateRequestDataRelationshipsInnerContact] = None
-    id: Optional[StrictInt] = Field(default=None, description="The unique identifier for a single Relationship associated with the Matter. The keyword `null` is not valid for this field.")
-    destroy: Optional[StrictBool] = Field(default=None, description="The destroy flag. If the flag is set to `true` and the unique identifier of the associated Relationship is present, the Relationship is deleted from the Matter.", alias="_destroy")
-    __properties: ClassVar[List[str]] = ["description", "contact", "id", "_destroy"]
+    description: StrictStr | None = Field(default=None, description="Describe the relationship between a Contact and a Matter.")
+    contact: MatterUpdateRequestDataRelationshipsInnerContact | None = None
+    id: StrictInt | None = Field(default=None, description="The unique identifier for a single Relationship associated with the Matter. The keyword `null` is not valid for this field.")
+    destroy: StrictBool | None = Field(default=None, description="The destroy flag. If the flag is set to `true` and the unique identifier of the associated Relationship is present, the Relationship is deleted from the Matter.", alias="_destroy")
+    __properties: ClassVar[list[str]] = ["description", "contact", "id", "_destroy"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,11 +54,11 @@ class MatterUpdateRequestDataRelationshipsInner(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MatterUpdateRequestDataRelationshipsInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -69,7 +68,7 @@ class MatterUpdateRequestDataRelationshipsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -83,7 +82,7 @@ class MatterUpdateRequestDataRelationshipsInner(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MatterUpdateRequestDataRelationshipsInner from a dict"""
         if obj is None:
             return None

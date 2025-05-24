@@ -1,0 +1,232 @@
+$defs:
+  ExpenseCategory:
+    description: ExpenseCategory
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ExpenseCategory*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ExpenseCategory*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the expense category
+        title: Name
+      rate:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The price charged per unit cost
+        title: Rate
+      entry_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of expense entry the category is associated to. Can
+          be either "hard_cost", "soft_cost" or "unassociated"
+        title: Entry Type
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ExpenseCategory* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ExpenseCategory* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      xero_expense_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Custom Xero expense code for an expense category
+        title: Xero Expense Code
+      accessible_to_user:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Determines if expense category is accessible to user
+        title: Accessible To User
+      tax_setting:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of tax rate applied to the expense category.
+        title: Tax Setting
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: The currency details for the expense category
+        title: Currency
+      groups:
+        anyOf:
+        - items:
+            $ref: '#/$defs/GroupBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: Group
+        title: Groups
+      utbms_code:
+        anyOf:
+        - $ref: '#/$defs/UtbmsCodeBase'
+        - type: 'null'
+        default: null
+    title: ExpenseCategory
+    type: object
+  GroupBase:
+    description: GroupBase
+    properties:
+      client_connect_user:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Group is a UserGroup for a Clio Connect User
+        title: Client Connect User
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Group*
+        title: Etag
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Group*
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Group*
+        title: Name
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Group*
+        title: Type
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Group* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: GroupBase
+    type: object
+  UtbmsCodeBase:
+    description: UtbmsCodeBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *UtbmsCode*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *UtbmsCode*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *UtbmsCode*
+        title: Name
+      code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The UTBMS code for the *UtbmsCode*
+        title: Code
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The UTBMS description for the *UtbmsCode*
+        title: Description
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *UtbmsCode*
+        title: Type
+      utbms_set_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Set id for the *UtbmsCode*
+        title: Utbms Set Id
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *UtbmsCode* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *UtbmsCode* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: UtbmsCodeBase
+    type: object
+description: ExpenseCategoryList
+properties:
+  data:
+    description: ExpenseCategory List Response
+    items:
+      $ref: '#/$defs/ExpenseCategory'
+    title: Data
+    type: array
+required:
+- data
+title: ExpenseCategoryList
+type: object

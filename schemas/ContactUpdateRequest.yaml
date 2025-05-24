@@ -1,0 +1,550 @@
+$defs:
+  ContactCreateRequestDataAvatar:
+    description: ContactCreateRequestDataAvatar
+    properties:
+      image:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The avatar image for the *Contact*, base64-encoded. Must be a
+          valid GIF, JPG, or PNG image of less than 2 megabytes in size.
+        title: Image
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated Avatar is present, the Avatar is deleted from
+          the Contact.
+        title: Destroy
+    title: ContactCreateRequestDataAvatar
+    type: object
+  ContactCreateRequestDataCoCounselRate:
+    description: ContactCreateRequestDataCoCounselRate
+    properties:
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'Billing rate if the Contact is a co-counsel.  Note: this value
+          can only be provided during PATCH requests. It cannot be provided at the
+          time a Contact is created (i.e. POST requests). '
+        title: Rate
+    title: ContactCreateRequestDataCoCounselRate
+    type: object
+  ContactCreateRequestDataCompany:
+    description: ContactCreateRequestDataCompany
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Company associated with the
+          Contact. The keyword `null` is not valid for this field.
+        title: Id
+    title: ContactCreateRequestDataCompany
+    type: object
+  ContactUpdateRequestData:
+    description: ContactUpdateRequestData
+    properties:
+      addresses:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ContactUpdateRequestDataAddressesInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Addresses
+      avatar:
+        anyOf:
+        - $ref: '#/$defs/ContactCreateRequestDataAvatar'
+        - type: 'null'
+        default: null
+      clio_connect_email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Notifications will be sent to this email when a resource is shared.
+        title: Clio Connect Email
+      co_counsel_rate:
+        anyOf:
+        - $ref: '#/$defs/ContactCreateRequestDataCoCounselRate'
+        - type: 'null'
+        default: null
+      company:
+        anyOf:
+        - $ref: '#/$defs/ContactCreateRequestDataCompany'
+        - type: 'null'
+        default: null
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: The Currency the contact is associated with.
+        title: Currency
+      custom_field_set_associations:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ContactUpdateRequestDataCustomFieldSetAssociationsInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Custom Field Set Associations
+      custom_field_values:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ContactUpdateRequestDataCustomFieldValuesInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Custom Field Values
+      date_of_birth:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date of birth of the Contact.
+        title: Date Of Birth
+      email_addresses:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ContactUpdateRequestDataEmailAddressesInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Email Addresses
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: First name of the Contact.
+        title: First Name
+      instant_messengers:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ContactUpdateRequestDataInstantMessengersInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Instant Messengers
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Last name of the Contact.
+        title: Last Name
+      ledes_client_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: LEDES client id of the Contact.
+        title: Ledes Client Id
+      middle_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Middle name of the Contact.
+        title: Middle Name
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Full name of the Contact. For requirements, see [Contact Name](https://docs.developers.clio.com/api-reference/#section/Contact-Name).
+        title: Name
+      phone_numbers:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ContactUpdateRequestDataPhoneNumbersInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Phone Numbers
+      prefix:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Personal title of the Contact.
+        title: Prefix
+      sales_tax_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A contact's sales tax number will appear on invoices generated
+          for the Contact.
+        title: Sales Tax Number
+      title:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Professional title of the Contact.
+        title: Title
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Type of the Contact.
+        title: Type
+      web_sites:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ContactUpdateRequestDataWebSitesInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Web Sites
+    title: ContactUpdateRequestData
+    type: object
+  ContactUpdateRequestDataAddressesInner:
+    description: ContactUpdateRequestDataAddressesInner
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Other
+        description: Name of the Address.
+        title: Name
+      street:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Street.
+        title: Street
+      city:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: City.
+        title: City
+      province:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Province or state.
+        title: Province
+      postal_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Postal code or zip code.
+        title: Postal Code
+      country:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Country
+        title: Country
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Address associated with the
+          Contact. The keyword `null` is not valid for this field.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated Address is present, the Address is deleted
+          from the Contact.
+        title: Destroy
+    title: ContactUpdateRequestDataAddressesInner
+    type: object
+  ContactUpdateRequestDataCustomFieldSetAssociationsInner:
+    description: ContactUpdateRequestDataCustomFieldSetAssociationsInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CustomFieldSetAssociation
+          associated with the Contact. The keyword `null` is not valid for this field.
+        title: Id
+      display_order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The order to display the CustomFieldSet in a Contact. If not
+          specified, it is added as the last CustomFieldSet of the Contact.
+        title: Display Order
+      custom_field_set:
+        anyOf:
+        - $ref: '#/$defs/ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet'
+        - type: 'null'
+        default: null
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated CustomFieldSetAssociation is present, the CustomFieldSetAssociation
+          is deleted from the Contact.
+        title: Destroy
+    title: ContactUpdateRequestDataCustomFieldSetAssociationsInner
+    type: object
+  ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet:
+    description: ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CustomFieldSet associated
+          with the CustomFieldSetAssociation. The keyword `null` is not valid for
+          this field.
+        title: Id
+    title: ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+    type: object
+  ContactUpdateRequestDataCustomFieldValuesInner:
+    description: ContactUpdateRequestDataCustomFieldValuesInner
+    properties:
+      value:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The value of the CustomFieldValue.
+        title: Value
+      custom_field:
+        anyOf:
+        - $ref: '#/$defs/ContactUpdateRequestDataCustomFieldValuesInnerCustomField'
+        - type: 'null'
+        default: null
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CustomFieldValue associated
+          with the Contact. The keyword `null` is not valid for this field.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated CustomFieldValue is present, the CustomFieldValue
+          is deleted from the Contact.
+        title: Destroy
+    title: ContactUpdateRequestDataCustomFieldValuesInner
+    type: object
+  ContactUpdateRequestDataCustomFieldValuesInnerCustomField:
+    description: ContactUpdateRequestDataCustomFieldValuesInnerCustomField
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single CustomField associated with
+          the CustomFieldValue. The keyword `null` is not valid for this field.
+        title: Id
+    title: ContactUpdateRequestDataCustomFieldValuesInnerCustomField
+    type: object
+  ContactUpdateRequestDataEmailAddressesInner:
+    description: ContactUpdateRequestDataEmailAddressesInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single EmailAddress associated with
+          the Contact. The keyword `null` is not valid for this field.
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Other
+        description: Name of the EmailAddress.
+        title: Name
+      address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Email address.
+        title: Address
+      default_email:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact should be the default email for the
+          Contact.
+        title: Default Email
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated EmailAddress is present, the EmailAddress is
+          deleted from the Contact.
+        title: Destroy
+    title: ContactUpdateRequestDataEmailAddressesInner
+    type: object
+  ContactUpdateRequestDataInstantMessengersInner:
+    description: ContactUpdateRequestDataInstantMessengersInner
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Other
+        description: Name of the InstantMessenger.
+        title: Name
+      address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Address of the InstantMessenger.
+        title: Address
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single InstantMessenger associated
+          with the Contact. The keyword `null` is not valid for this field.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated InstantMessenger is present, the InstantMessenger
+          is deleted from the Contact.
+        title: Destroy
+    title: ContactUpdateRequestDataInstantMessengersInner
+    type: object
+  ContactUpdateRequestDataPhoneNumbersInner:
+    description: ContactUpdateRequestDataPhoneNumbersInner
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Other
+        description: Name of the PhoneNumber.
+        title: Name
+      number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Phone number.
+        title: Number
+      default_number:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the PhoneNumber should be the default number for
+          the Contact.
+        title: Default Number
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single PhoneNumber associated with
+          the Contact. The keyword `null` is not valid for this field.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated PhoneNumber is present, the PhoneNumber is
+          deleted from the Contact.
+        title: Destroy
+    title: ContactUpdateRequestDataPhoneNumbersInner
+    type: object
+  ContactUpdateRequestDataWebSitesInner:
+    description: ContactUpdateRequestDataWebSitesInner
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: Other
+        description: Name of the WebSite.
+        title: Name
+      address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: URL of the WebSite.
+        title: Address
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single WebSite associated with the
+          Contact. The keyword `null` is not valid for this field.
+        title: Id
+      default_web_site:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact should be the default website for
+          the Contact.
+        title: Default Web Site
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated WebSite is present, the WebSite is deleted
+          from the Contact.
+        title: Destroy
+    title: ContactUpdateRequestDataWebSitesInner
+    type: object
+description: ContactUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/ContactUpdateRequestData'
+required:
+- data
+title: ContactUpdateRequest
+type: object

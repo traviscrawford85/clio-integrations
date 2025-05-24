@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,24 +17,25 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.contact_update_request_data_custom_field_set_associations_inner_custom_field_set import \
-    ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+from clio_client.openapi_client.models.contact_update_request_data_custom_field_set_associations_inner_custom_field_set import (
+    ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet,
+)
 
 
 class ContactUpdateRequestDataCustomFieldSetAssociationsInner(BaseModel):
     """
     ContactUpdateRequestDataCustomFieldSetAssociationsInner
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="The unique identifier for a single CustomFieldSetAssociation associated with the Contact. The keyword `null` is not valid for this field.")
-    display_order: Optional[StrictInt] = Field(default=None, description="The order to display the CustomFieldSet in a Contact. If not specified, it is added as the last CustomFieldSet of the Contact.")
-    custom_field_set: Optional[ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet] = None
-    destroy: Optional[StrictBool] = Field(default=None, description="The destroy flag. If the flag is set to `true` and the unique identifier of the associated CustomFieldSetAssociation is present, the CustomFieldSetAssociation is deleted from the Contact.", alias="_destroy")
-    __properties: ClassVar[List[str]] = ["id", "display_order", "custom_field_set", "_destroy"]
+    id: StrictInt | None = Field(default=None, description="The unique identifier for a single CustomFieldSetAssociation associated with the Contact. The keyword `null` is not valid for this field.")
+    display_order: StrictInt | None = Field(default=None, description="The order to display the CustomFieldSet in a Contact. If not specified, it is added as the last CustomFieldSet of the Contact.")
+    custom_field_set: ContactUpdateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet | None = None
+    destroy: StrictBool | None = Field(default=None, description="The destroy flag. If the flag is set to `true` and the unique identifier of the associated CustomFieldSetAssociation is present, the CustomFieldSetAssociation is deleted from the Contact.", alias="_destroy")
+    __properties: ClassVar[list[str]] = ["id", "display_order", "custom_field_set", "_destroy"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,11 +54,11 @@ class ContactUpdateRequestDataCustomFieldSetAssociationsInner(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ContactUpdateRequestDataCustomFieldSetAssociationsInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -68,7 +68,7 @@ class ContactUpdateRequestDataCustomFieldSetAssociationsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -82,7 +82,7 @@ class ContactUpdateRequestDataCustomFieldSetAssociationsInner(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ContactUpdateRequestDataCustomFieldSetAssociationsInner from a dict"""
         if obj is None:
             return None

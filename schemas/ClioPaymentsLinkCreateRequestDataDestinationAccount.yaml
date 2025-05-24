@@ -1,0 +1,10 @@
+description: ClioPaymentsLinkCreateRequestDataDestinationAccount
+properties:
+  id:
+    description: The ID of the bank account that the payment will be deposited into.
+    title: Id
+    type: integer
+required:
+- id
+title: ClioPaymentsLinkCreateRequestDataDestinationAccount
+type: object

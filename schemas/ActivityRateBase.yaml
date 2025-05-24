@@ -1,0 +1,63 @@
+description: ActivityRateBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ActivityRate*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ActivityRate*
+    title: Etag
+  rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Monetary value of this rate. Either hourly value or flat rate value
+    title: Rate
+  flat_rate:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether this is a flat rate
+    title: Flat Rate
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ActivityRate* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ActivityRate* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  contact_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Filter ActivityRate records for the contact.
+    title: Contact Id
+  co_counsel_contact_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Filter ActivityRate records for the co-counsel.
+    title: Co Counsel Contact Id
+title: ActivityRateBase
+type: object

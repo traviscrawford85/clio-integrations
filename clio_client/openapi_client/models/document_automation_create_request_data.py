@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,15 +17,17 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.document_automation_create_request_data_document_template import \
-    DocumentAutomationCreateRequestDataDocumentTemplate
-from clio_client.openapi_client.models.document_automation_create_request_data_matter import \
-    DocumentAutomationCreateRequestDataMatter
+from clio_client.openapi_client.models.document_automation_create_request_data_document_template import (
+    DocumentAutomationCreateRequestDataDocumentTemplate,
+)
+from clio_client.openapi_client.models.document_automation_create_request_data_matter import (
+    DocumentAutomationCreateRequestDataMatter,
+)
 
 
 class DocumentAutomationCreateRequestData(BaseModel):
@@ -35,9 +36,9 @@ class DocumentAutomationCreateRequestData(BaseModel):
     """ # noqa: E501
     document_template: DocumentAutomationCreateRequestDataDocumentTemplate
     filename: StrictStr = Field(description="The filename the generated document should have.")
-    formats: List[StrictStr] = Field(description="The formats the document should be generated as. It can either be generated as a PDF and/or in whatever type the document template is.")
+    formats: list[StrictStr] = Field(description="The formats the document should be generated as. It can either be generated as a PDF and/or in whatever type the document template is.")
     matter: DocumentAutomationCreateRequestDataMatter
-    __properties: ClassVar[List[str]] = ["document_template", "filename", "formats", "matter"]
+    __properties: ClassVar[list[str]] = ["document_template", "filename", "formats", "matter"]
 
     @field_validator('formats')
     def formats_validate_enum(cls, value):
@@ -64,11 +65,11 @@ class DocumentAutomationCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of DocumentAutomationCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -78,7 +79,7 @@ class DocumentAutomationCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -95,7 +96,7 @@ class DocumentAutomationCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of DocumentAutomationCreateRequestData from a dict"""
         if obj is None:
             return None

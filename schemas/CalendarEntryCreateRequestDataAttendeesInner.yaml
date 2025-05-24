@@ -1,0 +1,27 @@
+description: CalendarEntryCreateRequestDataAttendeesInner
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single Attendee associated with the CalendarEntry.
+      The keyword `null` is not valid for this field. Not required for creating new
+      Attendee, but required for updating or deleting existing ones.
+    title: Id
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of attendee (Calendar, Contact)
+    title: Type
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Flag to delete a specific attendee.
+    title: Destroy
+title: CalendarEntryCreateRequestDataAttendeesInner
+type: object

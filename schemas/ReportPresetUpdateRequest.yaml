@@ -1,0 +1,43 @@
+$defs:
+  ReportPresetUpdateRequestData:
+    description: ReportPresetUpdateRequestData
+    properties:
+      format:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: What format the report will be generated in.
+        title: Format
+      kind:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: What kind of report will be generated.
+        title: Kind
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Name of the ReportPreset.
+        title: Name
+      options:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: What the report generation parameters are. See [Creating a Report
+          Preset](#section/Creating-a-Report-Preset) for a sample request.
+        title: Options
+    title: ReportPresetUpdateRequestData
+    type: object
+description: ReportPresetUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/ReportPresetUpdateRequestData'
+required:
+- data
+title: ReportPresetUpdateRequest
+type: object

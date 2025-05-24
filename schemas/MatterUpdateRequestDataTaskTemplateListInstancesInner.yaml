@@ -1,0 +1,47 @@
+$defs:
+  MatterUpdateRequestDataTaskTemplateListInstancesInnerTaskTemplateList:
+    description: MatterUpdateRequestDataTaskTemplateListInstancesInnerTaskTemplateList
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single TaskTemplateList associated
+          with the TaskTemplateListInstance. The keyword `null` is not valid for this
+          field.
+        title: Id
+    title: MatterUpdateRequestDataTaskTemplateListInstancesInnerTaskTemplateList
+    type: object
+description: MatterUpdateRequestDataTaskTemplateListInstancesInner
+properties:
+  task_template_list:
+    anyOf:
+    - $ref: '#/$defs/MatterUpdateRequestDataTaskTemplateListInstancesInnerTaskTemplateList'
+    - type: 'null'
+    default: null
+  assignee_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The id of the user to assign the task template list to.
+    title: Assignee Id
+  notify_assignees:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not task list assignees should be notified when the task
+      list is assigned to a matter.
+    title: Notify Assignees
+  due_at:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Due date of the tasks. (Expects an ISO-8601 date).
+    title: Due At
+title: MatterUpdateRequestDataTaskTemplateListInstancesInner
+type: object

@@ -1,0 +1,12 @@
+description: CalendarEntryCreateRequestDataConferenceMeeting
+properties:
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of conference meeting. If no conference meeting is present
+      or the user is in an ineligible pricing tier for this feature, it will be null.
+    title: Type
+title: CalendarEntryCreateRequestDataConferenceMeeting
+type: object

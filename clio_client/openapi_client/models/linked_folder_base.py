@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -30,16 +36,16 @@ class LinkedFolderBase(BaseModel):
     """
     LinkedFolderBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Folder*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Folder*")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Folder* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Folder* was last updated (as a ISO-8601 timestamp)")
-    deleted_at: Optional[datetime] = Field(default=None, description="The time the *Folder* was deleted (as a ISO-8601 timestamp)")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *Folder*")
-    locked: Optional[StrictBool] = Field(default=None, description="Whether or not the Folder is locked. Locked Folder cannot be modified")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the *Folder*")
-    root: Optional[StrictBool] = Field(default=None, description="Whether or not the Folder is the root folder. There is only one root folder per account")
-    __properties: ClassVar[List[str]] = ["id", "etag", "created_at", "updated_at", "deleted_at", "type", "locked", "name", "root"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Folder*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Folder*")
+    created_at: datetime | None = Field(default=None, description="The time the *Folder* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Folder* was last updated (as a ISO-8601 timestamp)")
+    deleted_at: datetime | None = Field(default=None, description="The time the *Folder* was deleted (as a ISO-8601 timestamp)")
+    type: StrictStr | None = Field(default=None, description="The type of the *Folder*")
+    locked: StrictBool | None = Field(default=None, description="Whether or not the Folder is locked. Locked Folder cannot be modified")
+    name: StrictStr | None = Field(default=None, description="The name of the *Folder*")
+    root: StrictBool | None = Field(default=None, description="Whether or not the Folder is the root folder. There is only one root folder per account")
+    __properties: ClassVar[list[str]] = ["id", "etag", "created_at", "updated_at", "deleted_at", "type", "locked", "name", "root"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -68,11 +74,11 @@ class LinkedFolderBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of LinkedFolderBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -82,7 +88,7 @@ class LinkedFolderBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -93,7 +99,7 @@ class LinkedFolderBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of LinkedFolderBase from a dict"""
         if obj is None:
             return None

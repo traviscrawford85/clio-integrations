@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictFloat, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.lien_base import LienBase
@@ -33,20 +31,20 @@ class MedicalBill(BaseModel):
     """
     MedicalBill
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *MedicalBill*")
-    adjustment: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Adjustment for Medical Bill")
-    amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Amount for Medical Bill")
-    bill_date: Optional[date] = Field(default=None, description="Bill date for Medical Bill (as a ISO-8601 date)")
-    bill_received_date: Optional[date] = Field(default=None, description="Bill received date for Medical Bill (as a ISO-8601 date)")
-    damage_type: Optional[StrictStr] = Field(default=None, description="Damage Type")
-    document_id: Optional[StrictInt] = Field(default=None, description="The id of the document associated with the Medical Bill")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *MedicalBill*")
-    name: Optional[StrictStr] = Field(default=None, description="Name of the Medical Bill")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *MedicalBill* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *MedicalBill* was last updated (as a ISO-8601 timestamp)")
-    matter: Optional[MatterBase] = None
-    liens: Optional[List[LienBase]] = Field(default=None, description="Lien")
-    __properties: ClassVar[List[str]] = ["id", "adjustment", "amount", "bill_date", "bill_received_date", "damage_type", "document_id", "etag", "name", "created_at", "updated_at", "matter", "liens"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *MedicalBill*")
+    adjustment: StrictFloat | StrictInt | None = Field(default=None, description="Adjustment for Medical Bill")
+    amount: StrictFloat | StrictInt | None = Field(default=None, description="Amount for Medical Bill")
+    bill_date: date | None = Field(default=None, description="Bill date for Medical Bill (as a ISO-8601 date)")
+    bill_received_date: date | None = Field(default=None, description="Bill received date for Medical Bill (as a ISO-8601 date)")
+    damage_type: StrictStr | None = Field(default=None, description="Damage Type")
+    document_id: StrictInt | None = Field(default=None, description="The id of the document associated with the Medical Bill")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *MedicalBill*")
+    name: StrictStr | None = Field(default=None, description="Name of the Medical Bill")
+    created_at: datetime | None = Field(default=None, description="The time the *MedicalBill* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *MedicalBill* was last updated (as a ISO-8601 timestamp)")
+    matter: MatterBase | None = None
+    liens: list[LienBase] | None = Field(default=None, description="Lien")
+    __properties: ClassVar[list[str]] = ["id", "adjustment", "amount", "bill_date", "bill_received_date", "damage_type", "document_id", "etag", "name", "created_at", "updated_at", "matter", "liens"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -65,11 +63,11 @@ class MedicalBill(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MedicalBill from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -79,7 +77,7 @@ class MedicalBill(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -100,7 +98,7 @@ class MedicalBill(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MedicalBill from a dict"""
         if obj is None:
             return None

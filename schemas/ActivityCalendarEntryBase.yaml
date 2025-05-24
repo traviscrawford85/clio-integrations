@@ -1,0 +1,25 @@
+description: ActivityCalendarEntryBase
+properties:
+  id:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *CalendarEntry*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *CalendarEntry*
+    title: Etag
+  calendar_owner_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The id of the calendar owner.
+    title: Calendar Owner Id
+title: ActivityCalendarEntryBase
+type: object

@@ -1,0 +1,73 @@
+description: MatterDocketBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *MatterDocket*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *MatterDocket*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *MatterDocket*
+    title: Name
+  start_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date the *MatterDocket* will start (as a ISO-8601 date)
+    title: Start Date
+  start_time:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MatterDocket* will start, required for specific triggers
+      (as a ISO-8601 timestamp)
+    title: Start Time
+  status:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The status of the *MatterDocket* creation
+    title: Status
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MatterDocket* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MatterDocket* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  deleted_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *MatterDocket* was deleted (as a ISO-8601 timestamp)
+    title: Deleted At
+title: MatterDocketBase
+type: object

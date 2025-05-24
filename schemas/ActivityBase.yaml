@@ -1,0 +1,195 @@
+description: ActivityBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Activity*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Activity*
+    title: Etag
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *Activity*
+    title: Type
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date the *Activity* was performed (as a ISO-8601 date)
+    title: Date
+  quantity_in_hours:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of hours the TimeEntry took.
+    title: Quantity In Hours
+  rounded_quantity_in_hours:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: 'The number of hours rounded accordingly to the billing settings.
+      The rounded value is used to calculate the total. '
+    title: Rounded Quantity In Hours
+  quantity:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: 'The field is applicable to TimeEntry, ExpenseEntry, and SoftCostEntry.  **Version
+      <= 4.0.3:** The number of hours the TimeEntry took.  **Latest version:** The
+      number of seconds the TimeEntry took. '
+    title: Quantity
+  rounded_quantity:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: 'The field is applicable to time entries only.  **Version <= 4.0.3:**
+      The number of hours rounded accordingly to the billing settings. The rounded
+      value is used to calculate the total.  **Latest version:** The number of seconds
+      rounded accordingly to the billing settings. The rounded value is used to calculate
+      the total. '
+    title: Rounded Quantity
+  quantity_redacted:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: 'Is `true` if any of the following fields are redacted: `quantity`,
+      `rounded_quantity`, `rounded_quantity_in_hours`, `quantity_in_hours`, `total`,
+      `non_billable_total` '
+    title: Quantity Redacted
+  price:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The hourly or flat rate of the *Activity*
+    title: Price
+  note:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The details about the *Activity*
+    title: Note
+  flat_rate:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *Activity* is a flat rate
+    title: Flat Rate
+  billed:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *Activity* has been added to an active bill that is in
+      the state of `awaiting_payment` or `paid`
+    title: Billed
+  on_bill:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *Activity* has been added to an active bill that is in
+      the state of `draft`, `awaiting_approval`, `awaiting_payment` or `paid`
+    title: On Bill
+  total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total cost of draft, billable and billed items in the *Activity*
+    title: Total
+  contingency_fee:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the *Activity* is a contingency fee
+    title: Contingency Fee
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Activity* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Activity* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  reference:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A check reference for a HardCostEntry.
+    title: Reference
+  non_billable:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *Activity* is non-billable
+    title: Non Billable
+  non_billable_total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total cost of non-billable items in the *Activity*
+    title: Non Billable Total
+  no_charge:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the non-billable *Activity* is shown on the bill.
+    title: No Charge
+  tax_setting:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The option denoting whether primary tax, secondary tax, or both is
+      applied to an expense entry.
+    title: Tax Setting
+  currency:
+    anyOf:
+    - additionalProperties: true
+      type: object
+    - type: 'null'
+    default: null
+    description: The currency of the *Activity*
+    title: Currency
+title: ActivityBase
+type: object

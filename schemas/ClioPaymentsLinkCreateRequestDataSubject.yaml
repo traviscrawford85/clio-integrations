@@ -1,0 +1,20 @@
+description: ClioPaymentsLinkCreateRequestDataSubject
+properties:
+  id:
+    description: The ID of the record associated with the payment link.
+    title: Id
+    type: integer
+  type:
+    description: 'The type of the record associated with the payment link. The type
+      of record determines the behavior of the payment link.  Type of subject object:
+      * ''BankAccount'' results in a payment link for a direct payment. * ''Bill''
+      results in a payment link for paying an existing invoice or trust request. *
+      ''Contact'' results in a payment link for paying the outstanding invoices of
+      a contact. '
+    title: Type
+    type: string
+required:
+- id
+- type
+title: ClioPaymentsLinkCreateRequestDataSubject
+type: object

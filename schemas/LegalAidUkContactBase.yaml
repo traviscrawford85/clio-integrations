@@ -1,0 +1,67 @@
+description: LegalAidUkContactBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *LegalAidUkContact*
+    title: Id
+  disability:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The disability of the LegalAidUkContact
+    title: Disability
+  disability_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The disability code of the LegalAidUkContact
+    title: Disability Code
+  ethnicity:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The ethnicity of the LegalAidUkContact
+    title: Ethnicity
+  ethnicity_title:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The ethnicity title of the LegalAidUkContact
+    title: Ethnicity Title
+  financially_eligible:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The financial eligibility of the LegalAidUkContact
+    title: Financially Eligible
+  gender:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The gender of the LegalAidUkContact
+    title: Gender
+  gender_title:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The gender title of the LegalAidUkContact
+    title: Gender Title
+  national_insurance_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: National Insurance Number
+    title: National Insurance Number
+title: LegalAidUkContactBase
+type: object

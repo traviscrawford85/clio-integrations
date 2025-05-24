@@ -1,0 +1,26 @@
+description: BillUpdateRequestDataInterest
+properties:
+  rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Interest amount for the Bill as percentage.
+    title: Rate
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of interest you are applying to your Bill with the `interest[rate]`.
+    title: Type
+  period:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The interest period for how frequently your Bill will charge interest.
+    title: Period
+title: BillUpdateRequestDataInterest
+type: object

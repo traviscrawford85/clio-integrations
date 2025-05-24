@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,37 +18,46 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.medical_records_request_create_request_data_medical_bills_inner import \
-    MedicalRecordsRequestCreateRequestDataMedicalBillsInner
-from clio_client.openapi_client.models.medical_records_request_create_request_data_medical_records_inner import \
-    MedicalRecordsRequestCreateRequestDataMedicalRecordsInner
+from clio_client.openapi_client.models.medical_records_request_create_request_data_medical_bills_inner import (
+    MedicalRecordsRequestCreateRequestDataMedicalBillsInner,
+)
+from clio_client.openapi_client.models.medical_records_request_create_request_data_medical_records_inner import (
+    MedicalRecordsRequestCreateRequestDataMedicalRecordsInner,
+)
 
 
 class MedicalRecordsRequestCreateRequestData(BaseModel):
     """
     MedicalRecordsRequestCreateRequestData
     """ # noqa: E501
-    bills_follow_up_date: Optional[datetime] = Field(default=None, description="Follow up date for Medical Bills. (Expects an ISO-8601 date).")
-    bills_request_date: Optional[datetime] = Field(default=None, description="Requested date for Medical Bills. (Expects an ISO-8601 date).")
+    bills_follow_up_date: datetime | None = Field(default=None, description="Follow up date for Medical Bills. (Expects an ISO-8601 date).")
+    bills_request_date: datetime | None = Field(default=None, description="Requested date for Medical Bills. (Expects an ISO-8601 date).")
     bills_status: StrictStr = Field(description="Current status for the Medical Bills.")
-    description: Optional[StrictStr] = Field(default=None, description="Detailed description of the Medical Records Detail.")
+    description: StrictStr | None = Field(default=None, description="Detailed description of the Medical Records Detail.")
     in_treatment: StrictBool = Field(description="True or false value to record if the treatment has been completed.")
     matter_id: StrictInt = Field(description="The ID of the matter that the Medical Records Detail belongs to.")
-    medical_bills: Optional[List[MedicalRecordsRequestCreateRequestDataMedicalBillsInner]] = None
+    medical_bills: list[MedicalRecordsRequestCreateRequestDataMedicalBillsInner] | None = None
     medical_provider_id: StrictInt = Field(description="The unique identifier for a single Medical Provider associated with this Medical Records Detail.")
-    medical_records: Optional[List[MedicalRecordsRequestCreateRequestDataMedicalRecordsInner]] = None
-    records_follow_up_date: Optional[datetime] = Field(default=None, description="Follow up date for Medical Records. (Expects an ISO-8601 date).")
-    records_request_date: Optional[datetime] = Field(default=None, description="Requested date for Medical Records. (Expects an ISO-8601 date).")
+    medical_records: list[MedicalRecordsRequestCreateRequestDataMedicalRecordsInner] | None = None
+    records_follow_up_date: datetime | None = Field(default=None, description="Follow up date for Medical Records. (Expects an ISO-8601 date).")
+    records_request_date: datetime | None = Field(default=None, description="Requested date for Medical Records. (Expects an ISO-8601 date).")
     records_status: StrictStr = Field(description="Current status for the Medical Records.")
-    treatment_end_date: Optional[datetime] = Field(default=None, description="End date for the treatment. (Expects an ISO-8601 date).")
-    treatment_start_date: Optional[datetime] = Field(default=None, description="Start date for the treatment. (Expects an ISO-8601 date).")
-    __properties: ClassVar[List[str]] = ["bills_follow_up_date", "bills_request_date", "bills_status", "description", "in_treatment", "matter_id", "medical_bills", "medical_provider_id", "medical_records", "records_follow_up_date", "records_request_date", "records_status", "treatment_end_date", "treatment_start_date"]
+    treatment_end_date: datetime | None = Field(default=None, description="End date for the treatment. (Expects an ISO-8601 date).")
+    treatment_start_date: datetime | None = Field(default=None, description="Start date for the treatment. (Expects an ISO-8601 date).")
+    __properties: ClassVar[list[str]] = ["bills_follow_up_date", "bills_request_date", "bills_status", "description", "in_treatment", "matter_id", "medical_bills", "medical_provider_id", "medical_records", "records_follow_up_date", "records_request_date", "records_status", "treatment_end_date", "treatment_start_date"]
 
     @field_validator('bills_status')
     def bills_status_validate_enum(cls, value):
@@ -82,11 +90,11 @@ class MedicalRecordsRequestCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MedicalRecordsRequestCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -96,7 +104,7 @@ class MedicalRecordsRequestCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -121,7 +129,7 @@ class MedicalRecordsRequestCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MedicalRecordsRequestCreateRequestData from a dict"""
         if obj is None:
             return None

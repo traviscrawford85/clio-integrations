@@ -1,0 +1,15 @@
+description: CalendarEntryEventTypeCreateRequestData
+properties:
+  color:
+    description: The color assigned to the CalendarEntryEventType
+    title: Color
+    type: string
+  name:
+    description: The name of the CalendarEntryEventType
+    title: Name
+    type: string
+required:
+- color
+- name
+title: CalendarEntryEventTypeCreateRequestData
+type: object

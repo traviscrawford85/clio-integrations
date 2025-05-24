@@ -1,0 +1,37 @@
+$defs:
+  DamageCreateRequestData:
+    description: DamageCreateRequestData
+    properties:
+      amount:
+        anyOf:
+        - type: number
+        - type: integer
+        description: Amount
+        title: Amount
+      damage_type:
+        description: Damage type
+        title: Damage Type
+        type: string
+      description:
+        description: Description
+        title: Description
+        type: string
+      matter_id:
+        description: The unique identifier of the Matter to which the Damage is associated.
+        title: Matter Id
+        type: integer
+    required:
+    - amount
+    - damage_type
+    - description
+    - matter_id
+    title: DamageCreateRequestData
+    type: object
+description: DamageCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/DamageCreateRequestData'
+required:
+- data
+title: DamageCreateRequest
+type: object

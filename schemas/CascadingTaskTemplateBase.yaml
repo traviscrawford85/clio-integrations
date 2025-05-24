@@ -1,0 +1,18 @@
+description: CascadingTaskTemplateBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *TaskTemplate*
+    title: Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *TaskTemplate*
+    title: Name
+title: CascadingTaskTemplateBase
+type: object

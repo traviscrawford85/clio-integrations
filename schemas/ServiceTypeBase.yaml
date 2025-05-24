@@ -1,0 +1,55 @@
+description: ServiceTypeBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ServiceType*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ServiceType*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ServiceType* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ServiceType* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  system_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Server ID
+    title: System Id
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A detailed description of the *ServiceType*
+    title: Description
+  default:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether *ServiceType* is default for the current user
+    title: Default
+title: ServiceTypeBase
+type: object

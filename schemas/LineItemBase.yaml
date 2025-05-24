@@ -1,0 +1,139 @@
+description: LineItemBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *LineItem*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *LineItem*
+    title: Etag
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *LineItem*
+    title: Type
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The description for the *LineItem*
+    title: Description
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The *LineItem* date (as a ISO-8601 date)
+    title: Date
+  price:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The price of the *LineItem*
+    title: Price
+  taxable:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *LineItem* is taxable
+    title: Taxable
+  kind:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The kind of *LineItem*
+    title: Kind
+  note:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The note attached to the *LineItem*
+    title: Note
+  secondary_taxable:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *LineItem* is secondary taxable
+    title: Secondary Taxable
+  total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total amount for the *LineItem*
+    title: Total
+  tax:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The tax amount for the *LineItem*
+    title: Tax
+  secondary_tax:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The secondary tax amount for the *LineItem*
+    title: Secondary Tax
+  sub_total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The subtotal amount for the *LineItem*
+    title: Sub Total
+  quantity:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount of hours for the *LineItem*
+    title: Quantity
+  group_ordering:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The value to specify the ordering of the *LineItem* on a bill
+    title: Group Ordering
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *LineItem* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *LineItem* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: LineItemBase
+type: object

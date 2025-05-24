@@ -1,0 +1,42 @@
+description: TaskTemplateUpdateRequestDataReminderTemplatesInner
+properties:
+  duration_value:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Time measured in `duration_unit` to remind user before the subject.
+    title: Duration Value
+  duration_unit:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Unit to measure the duration value in.
+    title: Duration Unit
+  notification_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Notification method.
+    title: Notification Type
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single ReminderTemplate associated with
+      the TaskTemplate. The keyword `null` is not valid for this field.
+    title: Id
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The destroy flag. If the flag is set to `true` and the unique identifier
+      of the associated ReminderTemplate is present, the ReminderTemplate is deleted
+      from the TaskTemplate.
+    title: Destroy
+title: TaskTemplateUpdateRequestDataReminderTemplatesInner
+type: object

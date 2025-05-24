@@ -3,7 +3,7 @@ import sys
 
 
 def list_schema_keys(json_file, output_file):
-    with open(json_file, 'r') as f:
+    with open(json_file) as f:
         data = json.load(f)
 
     schemas = data.get('components', {}).get('schemas', {})

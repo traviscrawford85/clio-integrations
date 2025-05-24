@@ -1,9 +1,10 @@
 # webhooks.py
 # FastAPI routes for handling Clio webhook events
 from fastapi import APIRouter, Request
-from clio.validators import validate_matter_data
+
 from clio.calculators import compute_limitations_date
 from clio.matters import update_matter_limitations_date
+from clio.validators import validate_matter_data
 
 router = APIRouter()
 
@@ -21,7 +22,9 @@ async def matter_webhook(request: Request):
     limitations_date = compute_limitations_date(incident_date)
 
     if limitations_date:
-        update_matter_limitations_date(matter["id"], limitations_date)
+        # You need to specify the correct custom_field_id here
+        custom_field_id = custom_fields.get("Limitations Date Field ID")
+        update_matter_limitations_date(matter["id"], limitations_date, custom_field_id)
         return {"status": "success", "limitations_date": limitations_date}
     
     return {"status": "error", "message": "Could not compute limitations date"}

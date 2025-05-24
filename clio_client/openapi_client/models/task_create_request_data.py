@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,18 +18,28 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.task_create_request_data_assignee import \
-    TaskCreateRequestDataAssignee
-from clio_client.openapi_client.models.task_create_request_data_matter import \
-    TaskCreateRequestDataMatter
-from clio_client.openapi_client.models.task_create_request_data_task_type import \
-    TaskCreateRequestDataTaskType
+from clio_client.openapi_client.models.task_create_request_data_assignee import (
+    TaskCreateRequestDataAssignee,
+)
+from clio_client.openapi_client.models.task_create_request_data_matter import (
+    TaskCreateRequestDataMatter,
+)
+from clio_client.openapi_client.models.task_create_request_data_task_type import (
+    TaskCreateRequestDataTaskType,
+)
 
 
 class TaskCreateRequestData(BaseModel):
@@ -38,24 +47,24 @@ class TaskCreateRequestData(BaseModel):
     TaskCreateRequestData
     """ # noqa: E501
     assignee: TaskCreateRequestDataAssignee
-    cascading: Optional[StrictBool] = Field(default=None, description="Determines if the Task has a due date that is derived from another Task. (Note that if false, no other cascading information will be checked)")
-    cascading_offset: Optional[StrictInt] = Field(default=None, description="The amount of time that will differentiate the cascaded Task from its parent.")
-    cascading_offset_polarity: Optional[StrictStr] = Field(default=None, description="Determines whether or not the cascading_offset occurs before or after its parent.")
-    cascading_offset_type: Optional[StrictStr] = Field(default=None, description="Determines the quantity of the cascading offset (e.g. CalendarDays, CalendarWeeks etc.)")
-    cascading_source: Optional[StrictInt] = Field(default=None, description="The parent Task that is used to determine the due_at property of the cascaded Task")
+    cascading: StrictBool | None = Field(default=None, description="Determines if the Task has a due date that is derived from another Task. (Note that if false, no other cascading information will be checked)")
+    cascading_offset: StrictInt | None = Field(default=None, description="The amount of time that will differentiate the cascaded Task from its parent.")
+    cascading_offset_polarity: StrictStr | None = Field(default=None, description="Determines whether or not the cascading_offset occurs before or after its parent.")
+    cascading_offset_type: StrictStr | None = Field(default=None, description="Determines the quantity of the cascading offset (e.g. CalendarDays, CalendarWeeks etc.)")
+    cascading_source: StrictInt | None = Field(default=None, description="The parent Task that is used to determine the due_at property of the cascaded Task")
     description: StrictStr = Field(description="Longer description of the Task.")
-    due_at: Optional[datetime] = Field(default=None, description="Date when the Task must be completed by. (Expects an ISO-8601 date).")
-    matter: Optional[TaskCreateRequestDataMatter] = None
+    due_at: datetime | None = Field(default=None, description="Date when the Task must be completed by. (Expects an ISO-8601 date).")
+    matter: TaskCreateRequestDataMatter | None = None
     name: StrictStr = Field(description="Name of the Task.")
-    notify_assignee: Optional[StrictBool] = Field(default=None, description="Whether or not the Task should notify the assignee on creation.")
-    notify_completion: Optional[StrictBool] = Field(default=None, description="Whether or not the Task should notify the assigner on completion.")
-    permission: Optional[StrictStr] = Field(default='public', description="Permission of the Task. Defaults to `public`")
-    priority: Optional[StrictStr] = Field(default='Normal', description="Priority of the Task.")
-    status: Optional[StrictStr] = Field(default='pending', description="Task status. Users without advanced tasks are allowed to select `Complete` or `Pending` only.")
-    statute_of_limitations: Optional[StrictBool] = Field(default=None, description="Whether or not the Task should be a statute of limitations.")
-    task_type: Optional[TaskCreateRequestDataTaskType] = None
-    time_estimated: Optional[StrictInt] = Field(default=None, description="Time the Task should take to complete.")
-    __properties: ClassVar[List[str]] = ["assignee", "cascading", "cascading_offset", "cascading_offset_polarity", "cascading_offset_type", "cascading_source", "description", "due_at", "matter", "name", "notify_assignee", "notify_completion", "permission", "priority", "status", "statute_of_limitations", "task_type", "time_estimated"]
+    notify_assignee: StrictBool | None = Field(default=None, description="Whether or not the Task should notify the assignee on creation.")
+    notify_completion: StrictBool | None = Field(default=None, description="Whether or not the Task should notify the assigner on completion.")
+    permission: StrictStr | None = Field(default='public', description="Permission of the Task. Defaults to `public`")
+    priority: StrictStr | None = Field(default='Normal', description="Priority of the Task.")
+    status: StrictStr | None = Field(default='pending', description="Task status. Users without advanced tasks are allowed to select `Complete` or `Pending` only.")
+    statute_of_limitations: StrictBool | None = Field(default=None, description="Whether or not the Task should be a statute of limitations.")
+    task_type: TaskCreateRequestDataTaskType | None = None
+    time_estimated: StrictInt | None = Field(default=None, description="Time the Task should take to complete.")
+    __properties: ClassVar[list[str]] = ["assignee", "cascading", "cascading_offset", "cascading_offset_polarity", "cascading_offset_type", "cascading_source", "description", "due_at", "matter", "name", "notify_assignee", "notify_completion", "permission", "priority", "status", "statute_of_limitations", "task_type", "time_estimated"]
 
     @field_validator('cascading_offset_polarity')
     def cascading_offset_polarity_validate_enum(cls, value):
@@ -124,11 +133,11 @@ class TaskCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of TaskCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -138,7 +147,7 @@ class TaskCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -158,7 +167,7 @@ class TaskCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of TaskCreateRequestData from a dict"""
         if obj is None:
             return None

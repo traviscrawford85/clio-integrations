@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,10 +17,9 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing_extensions import Self
 
 
@@ -29,10 +27,10 @@ class CommunicationUpdateRequestDataNotificationEventSubscribersInner(BaseModel)
     """
     CommunicationUpdateRequestDataNotificationEventSubscribersInner
     """ # noqa: E501
-    user_id: Optional[StrictStr] = Field(default=None, description="The unique identifier for a User to be added as a notification event subscriber to the Phone Log Communication. Note: Only applicable to Phone Log Communications, invalid for other communication types.")
-    id: Optional[StrictInt] = Field(default=None, description="Unique id of this Communication. Note: Only applicable to Phone Log Communications, invalid for other communication types.")
-    destroy: Optional[StrictBool] = Field(default=None, description="Whether or not the notification event subscriber should be deleted. Note: Only applicable to Phone Log Communications, invalid for other communication types.", alias="_destroy")
-    __properties: ClassVar[List[str]] = ["user_id", "id", "_destroy"]
+    user_id: StrictStr | None = Field(default=None, description="The unique identifier for a User to be added as a notification event subscriber to the Phone Log Communication. Note: Only applicable to Phone Log Communications, invalid for other communication types.")
+    id: StrictInt | None = Field(default=None, description="Unique id of this Communication. Note: Only applicable to Phone Log Communications, invalid for other communication types.")
+    destroy: StrictBool | None = Field(default=None, description="Whether or not the notification event subscriber should be deleted. Note: Only applicable to Phone Log Communications, invalid for other communication types.", alias="_destroy")
+    __properties: ClassVar[list[str]] = ["user_id", "id", "_destroy"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,11 +49,11 @@ class CommunicationUpdateRequestDataNotificationEventSubscribersInner(BaseModel)
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of CommunicationUpdateRequestDataNotificationEventSubscribersInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -65,7 +63,7 @@ class CommunicationUpdateRequestDataNotificationEventSubscribersInner(BaseModel)
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -76,7 +74,7 @@ class CommunicationUpdateRequestDataNotificationEventSubscribersInner(BaseModel)
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of CommunicationUpdateRequestDataNotificationEventSubscribersInner from a dict"""
         if obj is None:
             return None

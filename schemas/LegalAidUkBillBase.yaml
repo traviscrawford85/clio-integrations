@@ -1,0 +1,313 @@
+description: LegalAidUkBillBase
+properties:
+  additional_travel_payment:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Additional travel payment, for Legal Aid England and Wales
+    title: Additional Travel Payment
+  adjourned_hearing_fee:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Adjourned hearing fee
+    title: Adjourned Hearing Fee
+  advocacy_costs:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Advocacy costs
+    title: Advocacy Costs
+  advice_time:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Advice time
+    title: Advice Time
+  bill_type:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Bill type
+    title: Bill Type
+  case_concluded:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Case concluded
+    title: Case Concluded
+  case_stage_level:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Case stage level
+    title: Case Stage Level
+  cla_exemption_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: CLA exemption code
+    title: Cla Exemption Code
+  cla_reference:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: CLA reference
+    title: Cla Reference
+  cmrh_oral:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: CMRH oral
+    title: Cmrh Oral
+  cmrh_telephone:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: CMRH telephone
+    title: Cmrh Telephone
+  cost_of_counsel:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Cost of counsel
+    title: Cost Of Counsel
+  costs_are_those_of:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Costs are those of
+    title: Costs Are Those Of
+  court_location:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Court location (HPCDS matters)
+    title: Court Location
+  date_of_claim:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Date of claim
+    title: Date Of Claim
+  designated_accredited_representative:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Designated accredited representative
+    title: Designated Accredited Representative
+  detention_travel_and_waiting_costs:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Detention travel & waiting costs ex VAT
+    title: Detention Travel And Waiting Costs
+  disbursements_vat:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Disbursements VAT
+    title: Disbursements Vat
+  exceptional_case_funding_reference:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Exceptional case funding reference
+    title: Exceptional Case Funding Reference
+  exemption_criteria_satisfied:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Exemption criteria satisfied
+    title: Exemption Criteria Satisfied
+  follow_on_work:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Follow on work
+    title: Follow On Work
+  ho_interview:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: HO interview
+    title: Ho Interview
+  ho_ucn:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: HO UCN
+    title: Ho Ucn
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *LegalAidUkBill*
+    title: Id
+  independent_medical_reports_claimed:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Independent medical reports claimed
+    title: Independent Medical Reports Claimed
+  jr_form_filling:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: JR/Form filling ex VAT, for Legal Aid England and Wales
+    title: Jr Form Filling
+  maat_id:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: MAAT ID
+    title: Maat Id
+  meetings_attended:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Meetings attended
+    title: Meetings Attended
+  mht_ref_no:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: MHT reference number
+    title: Mht Ref No
+  net_disbursements:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Net disbursements
+    title: Net Disbursements
+  net_profit_costs:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Net profit cost
+    title: Net Profit Costs
+  niat_disbursement_prior_authority_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: NIAT disbursement prior authority number
+    title: Niat Disbursement Prior Authority Number
+  number_of_attendances:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Number of attendances
+    title: Number Of Attendances
+  outcome_for_the_client:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Outcome for the client
+    title: Outcome For The Client
+  profit_costs_ex_vat:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Profit costs ex VAT
+    title: Profit Costs Ex Vat
+  prior_authority_reference:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Prior authority reference number
+    title: Prior Authority Reference
+  representation_order_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Representation order date
+    title: Representation Order Date
+  stage_reached:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Stage reached
+    title: Stage Reached
+  substantive_hearing:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Substantive hearing
+    title: Substantive Hearing
+  travel_and_waiting_costs:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Travel & waiting costs
+    title: Travel And Waiting Costs
+  travel_time:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Travel time
+    title: Travel Time
+  value_of_costs:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Value of costs
+    title: Value Of Costs
+  waiting_time:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Waiting time
+    title: Waiting Time
+title: LegalAidUkBillBase
+type: object

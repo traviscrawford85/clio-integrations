@@ -1,0 +1,128 @@
+description: CalendarEntryBase
+properties:
+  id:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *CalendarEntry*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *CalendarEntry*
+    title: Etag
+  summary:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A short summary of the *CalendarEntry*
+    title: Summary
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A detailed description of the *CalendarEntry*
+    title: Description
+  location:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The geographic location of the *CalendarEntry*
+    title: Location
+  start_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CalendarEntry* starts (as an ISO-8601 timestamp)
+    title: Start At
+  end_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CalendarEntry* ends (as an ISO-8601 timestamp)
+    title: End At
+  all_day:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the event is all day
+    title: All Day
+  recurrence_rule:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Recurrence rule for expanding
+    title: Recurrence Rule
+  parent_calendar_entry_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Identifier for the parent *CalendarEntry*
+    title: Parent Calendar Entry Id
+  court_rule:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether this event is associated with a Court Rule
+    title: Court Rule
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CalendarEntry* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CalendarEntry* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  permission:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The view permission for the current user, will return 'viewer' when
+      permission is 'limited_viewer' and the user is an attendee.
+    title: Permission
+  calendar_owner_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The id of the calendar owner.
+    title: Calendar Owner Id
+  start_at_time_zone:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Original start at time zone of the event.
+    title: Start At Time Zone
+  time_entries_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of `TimeEntry` activities associated with the *CalendarEntry*
+    title: Time Entries Count
+title: CalendarEntryBase
+type: object

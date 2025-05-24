@@ -1,0 +1,25 @@
+description: CommunicationCreateRequestDataSendersInner
+properties:
+  _deleted:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the senders should be deleted.
+    title: Deleted
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique ids for the senders of this Communication.
+    title: Id
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Types of the senders of this Communication.
+    title: Type
+title: CommunicationCreateRequestDataSendersInner
+type: object

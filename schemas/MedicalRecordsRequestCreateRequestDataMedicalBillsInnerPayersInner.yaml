@@ -1,0 +1,23 @@
+description: MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner
+properties:
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    description: Lien amount.
+    title: Amount
+  holder_id:
+    description: The unique identifier for a single Damage associated with the MedicalRecordsRequest.
+      The keyword `null` is not valid for this field.
+    title: Holder Id
+    type: integer
+  mark_as_lien:
+    description: Mark record as Lien.
+    title: Mark As Lien
+    type: boolean
+required:
+- amount
+- holder_id
+- mark_as_lien
+title: MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner
+type: object

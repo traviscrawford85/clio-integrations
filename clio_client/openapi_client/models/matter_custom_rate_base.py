@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,10 +17,16 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictStr,
-                      field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -29,9 +34,9 @@ class MatterCustomRateBase(BaseModel):
     """
     MatterCustomRateBase
     """ # noqa: E501
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *MatterCustomRate*")
-    on_invoice: Optional[StrictBool] = Field(default=None, description="Specifies if the matter's associated activity is posted or on a bill.")
-    __properties: ClassVar[List[str]] = ["type", "on_invoice"]
+    type: StrictStr | None = Field(default=None, description="The type of the *MatterCustomRate*")
+    on_invoice: StrictBool | None = Field(default=None, description="Specifies if the matter's associated activity is posted or on a bill.")
+    __properties: ClassVar[list[str]] = ["type", "on_invoice"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -60,11 +65,11 @@ class MatterCustomRateBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MatterCustomRateBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -74,7 +79,7 @@ class MatterCustomRateBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -85,7 +90,7 @@ class MatterCustomRateBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MatterCustomRateBase from a dict"""
         if obj is None:
             return None

@@ -1,0 +1,48 @@
+description: UtbmsSet
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *UtbmsSet*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *UtbmsSet*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *UtbmsSet*
+    title: Name
+  enabled:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *UtbmsSet* is enabled for the current account.
+    title: Enabled
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *UtbmsSet* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *UtbmsSet* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: UtbmsSet
+type: object

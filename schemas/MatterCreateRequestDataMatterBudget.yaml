@@ -1,0 +1,43 @@
+description: MatterCreateRequestDataMatterBudget
+properties:
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Determines whether the matter budget associated with the matter should
+      be destroyed. Only users with matter budget destroy capabilities can destroy
+      matter budgets.
+    title: Destroy
+  budget:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount allocated for the matter.
+    title: Budget
+  include_expenses:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Determines whether the budget includes expenses in the calculation.
+    title: Include Expenses
+  notification_threshold:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Percentage of the budget when it starts notifying users.
+    title: Notification Threshold
+  notify_users:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: false
+    description: Determine whether to notify users when the matter reaches the notification
+      threshold.
+    title: Notify Users
+title: MatterCreateRequestDataMatterBudget
+type: object

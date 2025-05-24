@@ -1,0 +1,1169 @@
+$defs:
+  ActivityBase:
+    description: ActivityBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Activity*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Activity*
+        title: Etag
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Activity*
+        title: Type
+      date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the *Activity* was performed (as a ISO-8601 date)
+        title: Date
+      quantity_in_hours:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of hours the TimeEntry took.
+        title: Quantity In Hours
+      rounded_quantity_in_hours:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The number of hours rounded accordingly to the billing settings.
+          The rounded value is used to calculate the total. '
+        title: Rounded Quantity In Hours
+      quantity:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The field is applicable to TimeEntry, ExpenseEntry, and SoftCostEntry.  **Version
+          <= 4.0.3:** The number of hours the TimeEntry took.  **Latest version:**
+          The number of seconds the TimeEntry took. '
+        title: Quantity
+      rounded_quantity:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: 'The field is applicable to time entries only.  **Version <=
+          4.0.3:** The number of hours rounded accordingly to the billing settings.
+          The rounded value is used to calculate the total.  **Latest version:** The
+          number of seconds rounded accordingly to the billing settings. The rounded
+          value is used to calculate the total. '
+        title: Rounded Quantity
+      quantity_redacted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: 'Is `true` if any of the following fields are redacted: `quantity`,
+          `rounded_quantity`, `rounded_quantity_in_hours`, `quantity_in_hours`, `total`,
+          `non_billable_total` '
+        title: Quantity Redacted
+      price:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The hourly or flat rate of the *Activity*
+        title: Price
+      note:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The details about the *Activity*
+        title: Note
+      flat_rate:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Activity* is a flat rate
+        title: Flat Rate
+      billed:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Activity* has been added to an active bill that
+          is in the state of `awaiting_payment` or `paid`
+        title: Billed
+      on_bill:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Activity* has been added to an active bill that
+          is in the state of `draft`, `awaiting_approval`, `awaiting_payment` or `paid`
+        title: On Bill
+      total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total cost of draft, billable and billed items in the *Activity*
+        title: Total
+      contingency_fee:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the *Activity* is a contingency fee
+        title: Contingency Fee
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Activity* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Activity* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A check reference for a HardCostEntry.
+        title: Reference
+      non_billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Activity* is non-billable
+        title: Non Billable
+      non_billable_total:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The total cost of non-billable items in the *Activity*
+        title: Non Billable Total
+      no_charge:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the non-billable *Activity* is shown on the bill.
+        title: No Charge
+      tax_setting:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The option denoting whether primary tax, secondary tax, or both
+          is applied to an expense entry.
+        title: Tax Setting
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: The currency of the *Activity*
+        title: Currency
+    title: ActivityBase
+    type: object
+  AttendeeBase:
+    description: AttendeeBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Attendee*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Attendee*
+        title: Etag
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The class name of the *Attendee*
+        title: Type
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Attendee*
+        title: Name
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: If the Attendee is a user, represents whether the user is enabled
+          or disabled. Returns null if attendee is a Contact.
+        title: Enabled
+      email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: If the Attendee is a User, this is the User's email. If the Attendee
+          is a contact, this is the Contact's primary email address.
+        title: Email
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Attendee* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Attendee* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: AttendeeBase
+    type: object
+  CalendarBase:
+    description: CalendarBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Calendar*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Calendar*
+        title: Etag
+      color:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Color
+        title: Color
+      light_color:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Accent color to complement the main calendar color.
+        title: Light Color
+      court_rules_default_calendar:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the calendar is default court rules calendar for current
+          user
+        title: Court Rules Default Calendar
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Calendar*
+        title: Name
+      permission:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The user's permission to the *Calendar*
+        title: Permission
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Calendar*
+        title: Type
+      visible:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *Calendar* will be shown by default in the Clio Web
+          UI (assuming no source is provided).
+        title: Visible
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Calendar* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Calendar* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      source:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The source that visible applies to, by default the Clio Web UI
+          (Expects 'mobile' or 'web').
+        title: Source
+    title: CalendarBase
+    type: object
+  CalendarEntryBase:
+    description: CalendarEntryBase
+    properties:
+      id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *CalendarEntry*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *CalendarEntry*
+        title: Etag
+      summary:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A short summary of the *CalendarEntry*
+        title: Summary
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the *CalendarEntry*
+        title: Description
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The geographic location of the *CalendarEntry*
+        title: Location
+      start_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CalendarEntry* starts (as an ISO-8601 timestamp)
+        title: Start At
+      end_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CalendarEntry* ends (as an ISO-8601 timestamp)
+        title: End At
+      all_day:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the event is all day
+        title: All Day
+      recurrence_rule:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Recurrence rule for expanding
+        title: Recurrence Rule
+      parent_calendar_entry_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Identifier for the parent *CalendarEntry*
+        title: Parent Calendar Entry Id
+      court_rule:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether this event is associated with a Court Rule
+        title: Court Rule
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CalendarEntry* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CalendarEntry* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      permission:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The view permission for the current user, will return 'viewer'
+          when permission is 'limited_viewer' and the user is an attendee.
+        title: Permission
+      calendar_owner_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The id of the calendar owner.
+        title: Calendar Owner Id
+      start_at_time_zone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Original start at time zone of the event.
+        title: Start At Time Zone
+      time_entries_count:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of `TimeEntry` activities associated with the *CalendarEntry*
+        title: Time Entries Count
+    title: CalendarEntryBase
+    type: object
+  CalendarEntryEventTypeBase:
+    description: CalendarEntryEventTypeBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *CalendarEntryEventType*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *CalendarEntryEventType*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CalendarEntryEventType* was created (as a ISO-8601
+          timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CalendarEntryEventType* was last updated (as a
+          ISO-8601 timestamp)
+        title: Updated At
+      color:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The color describing the *CalendarEntryEventType*
+        title: Color
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name for the *CalendarEntryEventType*
+        title: Name
+    title: CalendarEntryEventTypeBase
+    type: object
+  ConferenceMeetingBase:
+    description: ConferenceMeetingBase
+    properties:
+      conference_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Third-party provider unique meeting ID
+        title: Conference Id
+      conference_password:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Third-party provider meeting password
+        title: Conference Password
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ConferenceMeeting* was created (as a ISO-8601 timestamp)
+        title: Created At
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ConferenceMeeting*
+        title: Etag
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ConferenceMeeting*
+        title: Id
+      join_url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: URL for participants to join the video conference
+        title: Join Url
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of video conference
+        title: Type
+      source_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The external ID of the video conference meeting
+        title: Source Id
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ConferenceMeeting* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+    title: ConferenceMeetingBase
+    type: object
+  ExternalPropertyBase:
+    description: ExternalPropertyBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ExternalProperty*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ExternalProperty*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *ExternalProperty*
+        title: Name
+      value:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The value of the *ExternalProperty*
+        title: Value
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ExternalProperty* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ExternalProperty* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+    title: ExternalPropertyBase
+    type: object
+  MatterBase:
+    description: MatterBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Matter*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Matter*
+        title: Etag
+      number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number given to the *Matter* within an account
+        title: Number
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The reference and label of the *Matter*. Depending on the account's
+          manual_matter_numbering setting, this is either read only (generated) or
+          customizable.
+        title: Display Number
+      custom_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: User defined custom number of the *Matter*
+        title: Custom Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the matter
+        title: Currency
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The detailed description of the *Matter*
+        title: Description
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current status of the *Matter*
+        title: Status
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The location of the *Matter*
+        title: Location
+      client_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Client Reference string for external uses
+        title: Client Reference
+      client_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Client ID
+        title: Client Id
+      billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether this matter is billable
+        title: Billable
+      maildrop_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A unique Maildrop email address for the matter
+        title: Maildrop Address
+      billing_method:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Billing method of this matter
+        title: Billing Method
+      open_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to open (as a ISO-8601 date)
+        title: Open Date
+      close_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to closed (as a ISO-8601 date)
+        title: Close Date
+      pending_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to pending (as a ISO-8601 date)
+        title: Pending Date
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      shared:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the matter is currently shared with Clio Connect
+        title: Shared
+      has_tasks:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the matter has any tasks.
+        title: Has Tasks
+      last_activity_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The greatest date out of all of the activities on the matter
+          (as a ISO-8601 date)
+        title: Last Activity Date
+      matter_stage_updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter stage was last updated (as a ISO-8601 date)
+        title: Matter Stage Updated At
+    title: MatterBase
+    type: object
+  MatterDocketBase:
+    description: MatterDocketBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *MatterDocket*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *MatterDocket*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *MatterDocket*
+        title: Name
+      start_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the *MatterDocket* will start (as a ISO-8601 date)
+        title: Start Date
+      start_time:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterDocket* will start, required for specific
+          triggers (as a ISO-8601 timestamp)
+        title: Start Time
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The status of the *MatterDocket* creation
+        title: Status
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterDocket* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterDocket* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      deleted_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *MatterDocket* was deleted (as a ISO-8601 timestamp)
+        title: Deleted At
+    title: MatterDocketBase
+    type: object
+  ReminderBase:
+    description: ReminderBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Reminder*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Reminder*
+        title: Etag
+      duration:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Time in minutes to remind user before the subject
+        title: Duration
+      next_delivery_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Reminder* will be delivered (as a ISO-8601 timestamp)
+        title: Next Delivery At
+      state:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current state of the *Reminder*
+        title: State
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Reminder* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Reminder* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: ReminderBase
+    type: object
+description: CalendarEntry
+properties:
+  id:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *CalendarEntry*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *CalendarEntry*
+    title: Etag
+  summary:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A short summary of the *CalendarEntry*
+    title: Summary
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A detailed description of the *CalendarEntry*
+    title: Description
+  location:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The geographic location of the *CalendarEntry*
+    title: Location
+  start_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CalendarEntry* starts (as an ISO-8601 timestamp)
+    title: Start At
+  end_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CalendarEntry* ends (as an ISO-8601 timestamp)
+    title: End At
+  all_day:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the event is all day
+    title: All Day
+  recurrence_rule:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Recurrence rule for expanding
+    title: Recurrence Rule
+  parent_calendar_entry_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Identifier for the parent *CalendarEntry*
+    title: Parent Calendar Entry Id
+  court_rule:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether this event is associated with a Court Rule
+    title: Court Rule
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CalendarEntry* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CalendarEntry* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  permission:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The view permission for the current user, will return 'viewer' when
+      permission is 'limited_viewer' and the user is an attendee.
+    title: Permission
+  calendar_owner_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The id of the calendar owner.
+    title: Calendar Owner Id
+  start_at_time_zone:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Original start at time zone of the event.
+    title: Start At Time Zone
+  time_entries_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of `TimeEntry` activities associated with the *CalendarEntry*
+    title: Time Entries Count
+  time_entries:
+    anyOf:
+    - items:
+        $ref: '#/$defs/ActivityBase'
+      type: array
+    - type: 'null'
+    default: null
+    description: Activity
+    title: Time Entries
+  conference_meeting:
+    anyOf:
+    - $ref: '#/$defs/ConferenceMeetingBase'
+    - type: 'null'
+    default: null
+  matter:
+    anyOf:
+    - $ref: '#/$defs/MatterBase'
+    - type: 'null'
+    default: null
+  matter_docket:
+    anyOf:
+    - $ref: '#/$defs/MatterDocketBase'
+    - type: 'null'
+    default: null
+  calendar_owner:
+    anyOf:
+    - $ref: '#/$defs/CalendarBase'
+    - type: 'null'
+    default: null
+  parent_calendar_entry:
+    anyOf:
+    - $ref: '#/$defs/CalendarEntryBase'
+    - type: 'null'
+    default: null
+  calendar_entry_event_type:
+    anyOf:
+    - $ref: '#/$defs/CalendarEntryEventTypeBase'
+    - type: 'null'
+    default: null
+  attendees:
+    anyOf:
+    - items:
+        $ref: '#/$defs/AttendeeBase'
+      type: array
+    - type: 'null'
+    default: null
+    description: Attendee
+    title: Attendees
+  calendars:
+    anyOf:
+    - items:
+        $ref: '#/$defs/CalendarBase'
+      type: array
+    - type: 'null'
+    default: null
+    description: Calendar
+    title: Calendars
+  reminders:
+    anyOf:
+    - items:
+        $ref: '#/$defs/ReminderBase'
+      type: array
+    - type: 'null'
+    default: null
+    description: Reminder
+    title: Reminders
+  external_properties:
+    anyOf:
+    - items:
+        $ref: '#/$defs/ExternalPropertyBase'
+      type: array
+    - type: 'null'
+    default: null
+    description: ExternalProperty
+    title: External Properties
+title: CalendarEntry
+type: object

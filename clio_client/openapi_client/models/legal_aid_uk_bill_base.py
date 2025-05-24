@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing_extensions import Self
 
 
@@ -30,50 +36,50 @@ class LegalAidUkBillBase(BaseModel):
     """
     LegalAidUkBillBase
     """ # noqa: E501
-    additional_travel_payment: Optional[StrictBool] = Field(default=None, description="Additional travel payment, for Legal Aid England and Wales")
-    adjourned_hearing_fee: Optional[StrictStr] = Field(default=None, description="Adjourned hearing fee")
-    advocacy_costs: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Advocacy costs")
-    advice_time: Optional[StrictInt] = Field(default=None, description="Advice time")
-    bill_type: Optional[StrictInt] = Field(default=None, description="Bill type")
-    case_concluded: Optional[date] = Field(default=None, description="Case concluded")
-    case_stage_level: Optional[StrictInt] = Field(default=None, description="Case stage level")
-    cla_exemption_code: Optional[StrictStr] = Field(default=None, description="CLA exemption code")
-    cla_reference: Optional[StrictStr] = Field(default=None, description="CLA reference")
-    cmrh_oral: Optional[StrictInt] = Field(default=None, description="CMRH oral")
-    cmrh_telephone: Optional[StrictInt] = Field(default=None, description="CMRH telephone")
-    cost_of_counsel: Optional[StrictStr] = Field(default=None, description="Cost of counsel")
-    costs_are_those_of: Optional[StrictInt] = Field(default=None, description="Costs are those of")
-    court_location: Optional[StrictStr] = Field(default=None, description="Court location (HPCDS matters)")
-    date_of_claim: Optional[date] = Field(default=None, description="Date of claim")
-    designated_accredited_representative: Optional[StrictInt] = Field(default=None, description="Designated accredited representative")
-    detention_travel_and_waiting_costs: Optional[StrictStr] = Field(default=None, description="Detention travel & waiting costs ex VAT")
-    disbursements_vat: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disbursements VAT")
-    exceptional_case_funding_reference: Optional[StrictStr] = Field(default=None, description="Exceptional case funding reference")
-    exemption_criteria_satisfied: Optional[StrictInt] = Field(default=None, description="Exemption criteria satisfied")
-    follow_on_work: Optional[StrictInt] = Field(default=None, description="Follow on work")
-    ho_interview: Optional[StrictInt] = Field(default=None, description="HO interview")
-    ho_ucn: Optional[StrictInt] = Field(default=None, description="HO UCN")
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *LegalAidUkBill*")
-    independent_medical_reports_claimed: Optional[StrictStr] = Field(default=None, description="Independent medical reports claimed")
-    jr_form_filling: Optional[StrictStr] = Field(default=None, description="JR/Form filling ex VAT, for Legal Aid England and Wales")
-    maat_id: Optional[StrictStr] = Field(default=None, description="MAAT ID")
-    meetings_attended: Optional[StrictInt] = Field(default=None, description="Meetings attended")
-    mht_ref_no: Optional[StrictStr] = Field(default=None, description="MHT reference number")
-    net_disbursements: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Net disbursements")
-    net_profit_costs: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Net profit cost")
-    niat_disbursement_prior_authority_number: Optional[StrictStr] = Field(default=None, description="NIAT disbursement prior authority number")
-    number_of_attendances: Optional[StrictInt] = Field(default=None, description="Number of attendances")
-    outcome_for_the_client: Optional[StrictInt] = Field(default=None, description="Outcome for the client")
-    profit_costs_ex_vat: Optional[StrictInt] = Field(default=None, description="Profit costs ex VAT")
-    prior_authority_reference: Optional[StrictStr] = Field(default=None, description="Prior authority reference number")
-    representation_order_date: Optional[date] = Field(default=None, description="Representation order date")
-    stage_reached: Optional[StrictInt] = Field(default=None, description="Stage reached")
-    substantive_hearing: Optional[StrictInt] = Field(default=None, description="Substantive hearing")
-    travel_and_waiting_costs: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Travel & waiting costs")
-    travel_time: Optional[StrictInt] = Field(default=None, description="Travel time")
-    value_of_costs: Optional[StrictStr] = Field(default=None, description="Value of costs")
-    waiting_time: Optional[StrictInt] = Field(default=None, description="Waiting time")
-    __properties: ClassVar[List[str]] = ["additional_travel_payment", "adjourned_hearing_fee", "advocacy_costs", "advice_time", "bill_type", "case_concluded", "case_stage_level", "cla_exemption_code", "cla_reference", "cmrh_oral", "cmrh_telephone", "cost_of_counsel", "costs_are_those_of", "court_location", "date_of_claim", "designated_accredited_representative", "detention_travel_and_waiting_costs", "disbursements_vat", "exceptional_case_funding_reference", "exemption_criteria_satisfied", "follow_on_work", "ho_interview", "ho_ucn", "id", "independent_medical_reports_claimed", "jr_form_filling", "maat_id", "meetings_attended", "mht_ref_no", "net_disbursements", "net_profit_costs", "niat_disbursement_prior_authority_number", "number_of_attendances", "outcome_for_the_client", "profit_costs_ex_vat", "prior_authority_reference", "representation_order_date", "stage_reached", "substantive_hearing", "travel_and_waiting_costs", "travel_time", "value_of_costs", "waiting_time"]
+    additional_travel_payment: StrictBool | None = Field(default=None, description="Additional travel payment, for Legal Aid England and Wales")
+    adjourned_hearing_fee: StrictStr | None = Field(default=None, description="Adjourned hearing fee")
+    advocacy_costs: StrictFloat | StrictInt | None = Field(default=None, description="Advocacy costs")
+    advice_time: StrictInt | None = Field(default=None, description="Advice time")
+    bill_type: StrictInt | None = Field(default=None, description="Bill type")
+    case_concluded: date | None = Field(default=None, description="Case concluded")
+    case_stage_level: StrictInt | None = Field(default=None, description="Case stage level")
+    cla_exemption_code: StrictStr | None = Field(default=None, description="CLA exemption code")
+    cla_reference: StrictStr | None = Field(default=None, description="CLA reference")
+    cmrh_oral: StrictInt | None = Field(default=None, description="CMRH oral")
+    cmrh_telephone: StrictInt | None = Field(default=None, description="CMRH telephone")
+    cost_of_counsel: StrictStr | None = Field(default=None, description="Cost of counsel")
+    costs_are_those_of: StrictInt | None = Field(default=None, description="Costs are those of")
+    court_location: StrictStr | None = Field(default=None, description="Court location (HPCDS matters)")
+    date_of_claim: date | None = Field(default=None, description="Date of claim")
+    designated_accredited_representative: StrictInt | None = Field(default=None, description="Designated accredited representative")
+    detention_travel_and_waiting_costs: StrictStr | None = Field(default=None, description="Detention travel & waiting costs ex VAT")
+    disbursements_vat: StrictFloat | StrictInt | None = Field(default=None, description="Disbursements VAT")
+    exceptional_case_funding_reference: StrictStr | None = Field(default=None, description="Exceptional case funding reference")
+    exemption_criteria_satisfied: StrictInt | None = Field(default=None, description="Exemption criteria satisfied")
+    follow_on_work: StrictInt | None = Field(default=None, description="Follow on work")
+    ho_interview: StrictInt | None = Field(default=None, description="HO interview")
+    ho_ucn: StrictInt | None = Field(default=None, description="HO UCN")
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *LegalAidUkBill*")
+    independent_medical_reports_claimed: StrictStr | None = Field(default=None, description="Independent medical reports claimed")
+    jr_form_filling: StrictStr | None = Field(default=None, description="JR/Form filling ex VAT, for Legal Aid England and Wales")
+    maat_id: StrictStr | None = Field(default=None, description="MAAT ID")
+    meetings_attended: StrictInt | None = Field(default=None, description="Meetings attended")
+    mht_ref_no: StrictStr | None = Field(default=None, description="MHT reference number")
+    net_disbursements: StrictFloat | StrictInt | None = Field(default=None, description="Net disbursements")
+    net_profit_costs: StrictFloat | StrictInt | None = Field(default=None, description="Net profit cost")
+    niat_disbursement_prior_authority_number: StrictStr | None = Field(default=None, description="NIAT disbursement prior authority number")
+    number_of_attendances: StrictInt | None = Field(default=None, description="Number of attendances")
+    outcome_for_the_client: StrictInt | None = Field(default=None, description="Outcome for the client")
+    profit_costs_ex_vat: StrictInt | None = Field(default=None, description="Profit costs ex VAT")
+    prior_authority_reference: StrictStr | None = Field(default=None, description="Prior authority reference number")
+    representation_order_date: date | None = Field(default=None, description="Representation order date")
+    stage_reached: StrictInt | None = Field(default=None, description="Stage reached")
+    substantive_hearing: StrictInt | None = Field(default=None, description="Substantive hearing")
+    travel_and_waiting_costs: StrictFloat | StrictInt | None = Field(default=None, description="Travel & waiting costs")
+    travel_time: StrictInt | None = Field(default=None, description="Travel time")
+    value_of_costs: StrictStr | None = Field(default=None, description="Value of costs")
+    waiting_time: StrictInt | None = Field(default=None, description="Waiting time")
+    __properties: ClassVar[list[str]] = ["additional_travel_payment", "adjourned_hearing_fee", "advocacy_costs", "advice_time", "bill_type", "case_concluded", "case_stage_level", "cla_exemption_code", "cla_reference", "cmrh_oral", "cmrh_telephone", "cost_of_counsel", "costs_are_those_of", "court_location", "date_of_claim", "designated_accredited_representative", "detention_travel_and_waiting_costs", "disbursements_vat", "exceptional_case_funding_reference", "exemption_criteria_satisfied", "follow_on_work", "ho_interview", "ho_ucn", "id", "independent_medical_reports_claimed", "jr_form_filling", "maat_id", "meetings_attended", "mht_ref_no", "net_disbursements", "net_profit_costs", "niat_disbursement_prior_authority_number", "number_of_attendances", "outcome_for_the_client", "profit_costs_ex_vat", "prior_authority_reference", "representation_order_date", "stage_reached", "substantive_hearing", "travel_and_waiting_costs", "travel_time", "value_of_costs", "waiting_time"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,11 +98,11 @@ class LegalAidUkBillBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of LegalAidUkBillBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -106,7 +112,7 @@ class LegalAidUkBillBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -117,7 +123,7 @@ class LegalAidUkBillBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of LegalAidUkBillBase from a dict"""
         if obj is None:
             return None

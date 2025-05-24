@@ -1,0 +1,83 @@
+$defs:
+  MatterUpdateRequestDataStatuteOfLimitationsRemindersInner:
+    description: MatterUpdateRequestDataStatuteOfLimitationsRemindersInner
+    properties:
+      duration_value:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Time measured in `duration_unit` to remind user before the subject.
+        title: Duration Value
+      duration_unit:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Unit to measure the duration value in.
+        title: Duration Unit
+      notification_method:
+        anyOf:
+        - $ref: '#/$defs/MatterUpdateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod'
+        - type: 'null'
+        default: null
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Reminder associated with the
+          Matter. The keyword `null` is not valid for this field.
+        title: Id
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: The destroy flag. If the flag is set to `true` and the unique
+          identifier of the associated Reminder is present, the Reminder is deleted
+          from the Matter.
+        title: Destroy
+    title: MatterUpdateRequestDataStatuteOfLimitationsRemindersInner
+    type: object
+  MatterUpdateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod:
+    description: MatterUpdateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single NotificationMethod associated
+          with the Reminder. The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterUpdateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+    type: object
+description: MatterUpdateRequestDataStatuteOfLimitations
+properties:
+  status:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The task status of Statue of Limitations. Users without advanced
+      tasks are allowed to select `Complete' or `Pending` only.
+    title: Status
+  due_at:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The due date of Statute of Limitations. (Expects an ISO-8601 date).
+    title: Due At
+  reminders:
+    anyOf:
+    - items:
+        $ref: '#/$defs/MatterUpdateRequestDataStatuteOfLimitationsRemindersInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Reminders
+title: MatterUpdateRequestDataStatuteOfLimitations
+type: object

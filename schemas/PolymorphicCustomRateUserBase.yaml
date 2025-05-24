@@ -1,0 +1,32 @@
+description: PolymorphicCustomRateUserBase
+properties:
+  enabled:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *User* is allowed to log in
+    title: Enabled
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *User*
+    title: Etag
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *User*
+    title: Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The full name of the *User*
+    title: Name
+title: PolymorphicCustomRateUserBase
+type: object

@@ -1,0 +1,12 @@
+description: ActivityCreateRequestDataMatter
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single Matter associated with the Activity.
+      The keyword `null` is not valid for this field.
+    title: Id
+title: ActivityCreateRequestDataMatter
+type: object

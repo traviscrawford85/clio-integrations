@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,29 +17,38 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictFloat, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.expense_category_create_request_data_groups_inner import \
-    ExpenseCategoryCreateRequestDataGroupsInner
-from clio_client.openapi_client.models.expense_category_create_request_data_utbms_code import \
-    ExpenseCategoryCreateRequestDataUtbmsCode
+from clio_client.openapi_client.models.expense_category_create_request_data_groups_inner import (
+    ExpenseCategoryCreateRequestDataGroupsInner,
+)
+from clio_client.openapi_client.models.expense_category_create_request_data_utbms_code import (
+    ExpenseCategoryCreateRequestDataUtbmsCode,
+)
 
 
 class ExpenseCategoryCreateRequestData(BaseModel):
     """
     ExpenseCategoryCreateRequestData
     """ # noqa: E501
-    currency: Optional[Dict[str, Any]] = Field(default=None, description="Currency of the Expense Category.")
-    entry_type: Optional[StrictStr] = Field(default=None, description="Defaults to unassociated.")
-    groups: Optional[List[ExpenseCategoryCreateRequestDataGroupsInner]] = None
+    currency: dict[str, Any] | None = Field(default=None, description="Currency of the Expense Category.")
+    entry_type: StrictStr | None = Field(default=None, description="Defaults to unassociated.")
+    groups: list[ExpenseCategoryCreateRequestDataGroupsInner] | None = None
     name: StrictStr = Field(description="Name of the Expense Category.")
-    rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Rate of the Expense Category, default is null.")
-    utbms_code: Optional[ExpenseCategoryCreateRequestDataUtbmsCode] = None
-    __properties: ClassVar[List[str]] = ["currency", "entry_type", "groups", "name", "rate", "utbms_code"]
+    rate: StrictFloat | StrictInt | None = Field(default=None, description="Rate of the Expense Category, default is null.")
+    utbms_code: ExpenseCategoryCreateRequestDataUtbmsCode | None = None
+    __properties: ClassVar[list[str]] = ["currency", "entry_type", "groups", "name", "rate", "utbms_code"]
 
     @field_validator('entry_type')
     def entry_type_validate_enum(cls, value):
@@ -69,11 +77,11 @@ class ExpenseCategoryCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ExpenseCategoryCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -83,7 +91,7 @@ class ExpenseCategoryCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -104,7 +112,7 @@ class ExpenseCategoryCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ExpenseCategoryCreateRequestData from a dict"""
         if obj is None:
             return None

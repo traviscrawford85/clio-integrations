@@ -1,0 +1,24 @@
+description: MatterCreateRequestDataSplitInvoicePayersInner
+properties:
+  contact_id:
+    description: Contact id for the matter payer.
+    title: Contact Id
+    type: integer
+  send_to_bill_recipients:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Boolean indication to send a split invoice to all bill recipients.
+    title: Send To Bill Recipients
+  split_portion:
+    anyOf:
+    - type: number
+    - type: integer
+    description: The split portion for the payer.
+    title: Split Portion
+required:
+- contact_id
+- split_portion
+title: MatterCreateRequestDataSplitInvoicePayersInner
+type: object

@@ -1,0 +1,338 @@
+$defs:
+  ClioCreatorBase:
+    description: ClioCreatorBase
+    properties:
+      account_owner:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *ClioCreator* is the owner of the account
+        title: Account Owner
+      clio_connect:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *ClioCreator* is a Clio Connect user
+        title: Clio Connect
+      court_rules_default_attendee:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *ClioCreator* is a default attendee for court rules
+          events
+        title: Court Rules Default Attendee
+      default_calendar_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default calendar id for *ClioCreator*.
+        title: Default Calendar Id
+      email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The email of the *ClioCreator*
+        title: Email
+      enabled:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *ClioCreator* is allowed to log in
+        title: Enabled
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *ClioCreator*
+        title: Etag
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *ClioCreator*
+        title: Id
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *ClioCreator*
+        title: Type
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *ClioCreator*
+        title: Initials
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The first name of the *ClioCreator*
+        title: First Name
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The last name of the *ClioCreator*
+        title: Last Name
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *ClioCreator*
+        title: Name
+      phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number for the *ClioCreator*.
+        title: Phone Number
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Default user activity rate for *ClioCreator*.
+        title: Rate
+      subscription_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The subscription type of the *ClioCreator*
+        title: Subscription Type
+      time_zone:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The selected time zone of the *ClioCreator*
+        title: Time Zone
+      roles:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: An array of roles assigned to this *ClioCreator*
+        title: Roles
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ClioCreator* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *ClioCreator* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: ClioCreatorBase
+    type: object
+  DocumentVersion:
+    description: DocumentVersion
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *DocumentVersion*
+        title: Id
+      document_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The ID of the parent document.
+        title: Document Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *DocumentVersion*
+        title: Etag
+      uuid:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: UUID associated with the DocumentVersion. UUID is required to
+          mark a document fully uploaded.
+        title: Uuid
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *DocumentVersion* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *DocumentVersion* was last updated (as a ISO-8601
+          timestamp)
+        title: Updated At
+      filename:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The uploaded file name of the DocumentVersion.
+        title: Filename
+      size:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The size of the DocumentVersion in bytes.
+        title: Size
+      version_number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The ordered number of when this DocumentVersion was uploaded.
+        title: Version Number
+      content_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A standard MIME type describing the format of the object data.
+        title: Content Type
+      received_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the DocumentVersion was received (as an ISO-8601 timestamp)
+        title: Received At
+      put_url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A signed URL for uploading the file in a single operation. It
+          expires in 10 minutes. If the document is fully uploaded, the field is empty.
+        title: Put Url
+      fully_uploaded:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: True if the DocumentVersion is uploaded. False if the DocumentVersion
+          is being uploaded.
+        title: Fully Uploaded
+      creator:
+        anyOf:
+        - $ref: '#/$defs/ClioCreatorBase'
+        - type: 'null'
+        default: null
+      put_headers:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MultipartHeaderBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: MultipartHeader
+        title: Put Headers
+      multiparts:
+        anyOf:
+        - items:
+            $ref: '#/$defs/Multipart'
+          type: array
+        - type: 'null'
+        default: null
+        description: Multipart
+        title: Multiparts
+    title: DocumentVersion
+    type: object
+  Multipart:
+    description: Multipart
+    properties:
+      part_number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier of a part which defines its position within
+          the document being uploaded.
+        title: Part Number
+      put_url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A signed URL for uploading the file part. It expires in 10 minutes.
+        title: Put Url
+      put_headers:
+        anyOf:
+        - items:
+            $ref: '#/$defs/MultipartHeaderBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: MultipartHeader
+        title: Put Headers
+    title: Multipart
+    type: object
+  MultipartHeaderBase:
+    description: MultipartHeaderBase
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Required HTTP header field name for uploading.
+        title: Name
+      value:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Required HTTP header field value for uploading.
+        title: Value
+    title: MultipartHeaderBase
+    type: object
+description: DocumentVersionList
+properties:
+  data:
+    description: DocumentVersion List Response
+    items:
+      $ref: '#/$defs/DocumentVersion'
+    title: Data
+    type: array
+required:
+- data
+title: DocumentVersionList
+type: object

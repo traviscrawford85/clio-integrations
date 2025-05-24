@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,10 +17,17 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing_extensions import Self
 
 
@@ -29,23 +35,23 @@ class LegalAidUkActivityBase(BaseModel):
     """
     LegalAidUkActivityBase
     """ # noqa: E501
-    activity_sub_category: Optional[StrictStr] = Field(default=None, description="Activity sub-category")
-    advocacy: Optional[StrictInt] = Field(default=None, description="Advocacy")
-    base_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Base rate")
-    bolt_ons: Optional[StrictStr] = Field(default=None, description="Bolt ons")
-    bolt_ons_summary: Optional[StrictStr] = Field(default=None, description="Bolt ons summary")
-    court: Optional[StrictInt] = Field(default=None, description="Court")
-    eligible_for_sqm: Optional[StrictBool] = Field(default=None, description="Eligible for SQM")
-    expert: Optional[StrictInt] = Field(default=None, description="Expert")
-    form_of_civil_legal_service: Optional[StrictInt] = Field(default=None, description="Form of civil legal service")
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *LegalAidUkActivity*")
-    is_custom_rate: Optional[StrictBool] = Field(default=None, description="Flag to indicate if rate was manually entered by user")
-    json_key: Optional[StrictStr] = Field(default=None, description="Lookup key that references JSON data")
-    region: Optional[StrictInt] = Field(default=None, description="Region")
-    tax_exclusive: Optional[StrictBool] = Field(default=None, description="Flag to indicate if tax is exclusive")
-    uplift: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Uplift percentage applied to activity rate")
-    user_type: Optional[StrictInt] = Field(default=None, description="User type")
-    __properties: ClassVar[List[str]] = ["activity_sub_category", "advocacy", "base_rate", "bolt_ons", "bolt_ons_summary", "court", "eligible_for_sqm", "expert", "form_of_civil_legal_service", "id", "is_custom_rate", "json_key", "region", "tax_exclusive", "uplift", "user_type"]
+    activity_sub_category: StrictStr | None = Field(default=None, description="Activity sub-category")
+    advocacy: StrictInt | None = Field(default=None, description="Advocacy")
+    base_rate: StrictFloat | StrictInt | None = Field(default=None, description="Base rate")
+    bolt_ons: StrictStr | None = Field(default=None, description="Bolt ons")
+    bolt_ons_summary: StrictStr | None = Field(default=None, description="Bolt ons summary")
+    court: StrictInt | None = Field(default=None, description="Court")
+    eligible_for_sqm: StrictBool | None = Field(default=None, description="Eligible for SQM")
+    expert: StrictInt | None = Field(default=None, description="Expert")
+    form_of_civil_legal_service: StrictInt | None = Field(default=None, description="Form of civil legal service")
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *LegalAidUkActivity*")
+    is_custom_rate: StrictBool | None = Field(default=None, description="Flag to indicate if rate was manually entered by user")
+    json_key: StrictStr | None = Field(default=None, description="Lookup key that references JSON data")
+    region: StrictInt | None = Field(default=None, description="Region")
+    tax_exclusive: StrictBool | None = Field(default=None, description="Flag to indicate if tax is exclusive")
+    uplift: StrictFloat | StrictInt | None = Field(default=None, description="Uplift percentage applied to activity rate")
+    user_type: StrictInt | None = Field(default=None, description="User type")
+    __properties: ClassVar[list[str]] = ["activity_sub_category", "advocacy", "base_rate", "bolt_ons", "bolt_ons_summary", "court", "eligible_for_sqm", "expert", "form_of_civil_legal_service", "id", "is_custom_rate", "json_key", "region", "tax_exclusive", "uplift", "user_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -64,11 +70,11 @@ class LegalAidUkActivityBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of LegalAidUkActivityBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -78,7 +84,7 @@ class LegalAidUkActivityBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -89,7 +95,7 @@ class LegalAidUkActivityBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of LegalAidUkActivityBase from a dict"""
         if obj is None:
             return None

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,41 +18,53 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.line_item_update_request_data_activity import \
-    LineItemUpdateRequestDataActivity
-from clio_client.openapi_client.models.line_item_update_request_data_bill import \
-    LineItemUpdateRequestDataBill
-from clio_client.openapi_client.models.line_item_update_request_data_discount import \
-    LineItemUpdateRequestDataDiscount
-from clio_client.openapi_client.models.line_item_update_request_data_matter import \
-    LineItemUpdateRequestDataMatter
+from clio_client.openapi_client.models.line_item_update_request_data_activity import (
+    LineItemUpdateRequestDataActivity,
+)
+from clio_client.openapi_client.models.line_item_update_request_data_bill import (
+    LineItemUpdateRequestDataBill,
+)
+from clio_client.openapi_client.models.line_item_update_request_data_discount import (
+    LineItemUpdateRequestDataDiscount,
+)
+from clio_client.openapi_client.models.line_item_update_request_data_matter import (
+    LineItemUpdateRequestDataMatter,
+)
 
 
 class LineItemUpdateRequestData(BaseModel):
     """
     LineItemUpdateRequestData
     """ # noqa: E501
-    activity: Optional[LineItemUpdateRequestDataActivity] = None
-    bill: Optional[LineItemUpdateRequestDataBill] = None
-    var_date: Optional[date] = Field(default=None, description="The LineItem date.", alias="date")
-    description: Optional[StrictStr] = Field(default=None, description="Description of the LineItem.")
-    discount: Optional[LineItemUpdateRequestDataDiscount] = None
-    group_ordering: Optional[StrictInt] = Field(default=None, description="The LineItem group ordering.")
-    kind: Optional[StrictStr] = Field(default=None, description="The specific type of activity which is associated with the LineItem.")
-    matter: Optional[LineItemUpdateRequestDataMatter] = None
-    note: Optional[StrictStr] = Field(default=None, description="The note attached to the LineItem.")
-    price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The price of the LineItem.")
-    quantity: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Quantity of the LineItem.")
-    secondary_taxable: Optional[StrictBool] = Field(default=None, description="Whether the LineItem is secondary taxable.")
-    taxable: Optional[StrictBool] = Field(default=None, description="Whether the LineItem taxable.")
-    update_original_record: Optional[StrictBool] = Field(default=None, description="Whether the associated activity will be updated.")
-    __properties: ClassVar[List[str]] = ["activity", "bill", "date", "description", "discount", "group_ordering", "kind", "matter", "note", "price", "quantity", "secondary_taxable", "taxable", "update_original_record"]
+    activity: LineItemUpdateRequestDataActivity | None = None
+    bill: LineItemUpdateRequestDataBill | None = None
+    var_date: date | None = Field(default=None, description="The LineItem date.", alias="date")
+    description: StrictStr | None = Field(default=None, description="Description of the LineItem.")
+    discount: LineItemUpdateRequestDataDiscount | None = None
+    group_ordering: StrictInt | None = Field(default=None, description="The LineItem group ordering.")
+    kind: StrictStr | None = Field(default=None, description="The specific type of activity which is associated with the LineItem.")
+    matter: LineItemUpdateRequestDataMatter | None = None
+    note: StrictStr | None = Field(default=None, description="The note attached to the LineItem.")
+    price: StrictFloat | StrictInt | None = Field(default=None, description="The price of the LineItem.")
+    quantity: StrictFloat | StrictInt | None = Field(default=None, description="Quantity of the LineItem.")
+    secondary_taxable: StrictBool | None = Field(default=None, description="Whether the LineItem is secondary taxable.")
+    taxable: StrictBool | None = Field(default=None, description="Whether the LineItem taxable.")
+    update_original_record: StrictBool | None = Field(default=None, description="Whether the associated activity will be updated.")
+    __properties: ClassVar[list[str]] = ["activity", "bill", "date", "description", "discount", "group_ordering", "kind", "matter", "note", "price", "quantity", "secondary_taxable", "taxable", "update_original_record"]
 
     @field_validator('kind')
     def kind_validate_enum(cls, value):
@@ -82,11 +93,11 @@ class LineItemUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of LineItemUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -96,7 +107,7 @@ class LineItemUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -119,7 +130,7 @@ class LineItemUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of LineItemUpdateRequestData from a dict"""
         if obj is None:
             return None

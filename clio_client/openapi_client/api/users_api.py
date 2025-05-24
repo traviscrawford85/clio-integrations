@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -12,22 +11,14 @@
     Do not edit the class manually.
 """  # noqa: E501
 from datetime import date, datetime
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Annotated, Any
 
-from pydantic import (Field, StrictBool, StrictFloat, StrictInt, StrictStr,
-                      validate_call)
-from typing_extensions import Annotated
+from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, validate_call
 
 from clio_client.openapi_client.api_client import ApiClient
+from clio_client.openapi_client.api_response import ApiResponse
 from clio_client.openapi_client.models.user_list import UserList
 from clio_client.openapi_client.models.user_show import UserShow
-from clio_client.openapi_client.api_response import ApiResponse
-from typing import List
-from typing import Dict
-from typing import Optional
-from typing import Union
-from datetime import datetime
-from datetime import date
 
 
 class UsersApi:
@@ -46,31 +37,24 @@ class UsersApi:
     @validate_call
     def user_index(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter User records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        enabled: Annotated[Optional[StrictBool], Field(description="Filter User records to those that are enabled or disabled.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter User records to those having the specified unique identifiers.")] = None,
-        include_co_counsel: Annotated[Optional[StrictBool], Field(description="Filter User to include co-counsel users")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of User records to be returned. Limit can range between 1 and 2000. Default: `2000`.")] = None,
-        name: Annotated[Optional[StrictStr], Field(description="Filter User records to those with the given name.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the User records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        pending_setup: Annotated[Optional[StrictBool], Field(description="Filter User records based on whether or not they are still being setup.")] = None,
-        role: Annotated[Optional[StrictStr], Field(description="Filter User records to those with a specific role.")] = None,
-        subscription_type: Annotated[Optional[StrictStr], Field(description="Filter User records to those with a specific subscription type.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter User records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter User records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        enabled: Annotated[StrictBool | None, Field(description="Filter User records to those that are enabled or disabled.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter User records to those having the specified unique identifiers.")] = None,
+        include_co_counsel: Annotated[StrictBool | None, Field(description="Filter User to include co-counsel users")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of User records to be returned. Limit can range between 1 and 2000. Default: `2000`.")] = None,
+        name: Annotated[StrictStr | None, Field(description="Filter User records to those with the given name.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the User records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        pending_setup: Annotated[StrictBool | None, Field(description="Filter User records based on whether or not they are still being setup.")] = None,
+        role: Annotated[StrictStr | None, Field(description="Filter User records to those with a specific role.")] = None,
+        subscription_type: Annotated[StrictStr | None, Field(description="Filter User records to those with a specific subscription type.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter User records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> UserList:
         """Return the data for all Users
@@ -148,7 +132,7 @@ class UsersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UserList",
             '400': "Error",
             '401': "Error",
@@ -169,31 +153,24 @@ class UsersApi:
     @validate_call
     def user_index_with_http_info(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter User records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        enabled: Annotated[Optional[StrictBool], Field(description="Filter User records to those that are enabled or disabled.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter User records to those having the specified unique identifiers.")] = None,
-        include_co_counsel: Annotated[Optional[StrictBool], Field(description="Filter User to include co-counsel users")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of User records to be returned. Limit can range between 1 and 2000. Default: `2000`.")] = None,
-        name: Annotated[Optional[StrictStr], Field(description="Filter User records to those with the given name.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the User records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        pending_setup: Annotated[Optional[StrictBool], Field(description="Filter User records based on whether or not they are still being setup.")] = None,
-        role: Annotated[Optional[StrictStr], Field(description="Filter User records to those with a specific role.")] = None,
-        subscription_type: Annotated[Optional[StrictStr], Field(description="Filter User records to those with a specific subscription type.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter User records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter User records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        enabled: Annotated[StrictBool | None, Field(description="Filter User records to those that are enabled or disabled.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter User records to those having the specified unique identifiers.")] = None,
+        include_co_counsel: Annotated[StrictBool | None, Field(description="Filter User to include co-counsel users")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of User records to be returned. Limit can range between 1 and 2000. Default: `2000`.")] = None,
+        name: Annotated[StrictStr | None, Field(description="Filter User records to those with the given name.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the User records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        pending_setup: Annotated[StrictBool | None, Field(description="Filter User records based on whether or not they are still being setup.")] = None,
+        role: Annotated[StrictStr | None, Field(description="Filter User records to those with a specific role.")] = None,
+        subscription_type: Annotated[StrictStr | None, Field(description="Filter User records to those with a specific subscription type.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter User records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[UserList]:
         """Return the data for all Users
@@ -271,7 +248,7 @@ class UsersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UserList",
             '400': "Error",
             '401': "Error",
@@ -292,31 +269,24 @@ class UsersApi:
     @validate_call
     def user_index_without_preload_content(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter User records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        enabled: Annotated[Optional[StrictBool], Field(description="Filter User records to those that are enabled or disabled.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter User records to those having the specified unique identifiers.")] = None,
-        include_co_counsel: Annotated[Optional[StrictBool], Field(description="Filter User to include co-counsel users")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of User records to be returned. Limit can range between 1 and 2000. Default: `2000`.")] = None,
-        name: Annotated[Optional[StrictStr], Field(description="Filter User records to those with the given name.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the User records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        pending_setup: Annotated[Optional[StrictBool], Field(description="Filter User records based on whether or not they are still being setup.")] = None,
-        role: Annotated[Optional[StrictStr], Field(description="Filter User records to those with a specific role.")] = None,
-        subscription_type: Annotated[Optional[StrictStr], Field(description="Filter User records to those with a specific subscription type.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter User records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter User records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        enabled: Annotated[StrictBool | None, Field(description="Filter User records to those that are enabled or disabled.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter User records to those having the specified unique identifiers.")] = None,
+        include_co_counsel: Annotated[StrictBool | None, Field(description="Filter User to include co-counsel users")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of User records to be returned. Limit can range between 1 and 2000. Default: `2000`.")] = None,
+        name: Annotated[StrictStr | None, Field(description="Filter User records to those with the given name.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the User records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        pending_setup: Annotated[StrictBool | None, Field(description="Filter User records based on whether or not they are still being setup.")] = None,
+        role: Annotated[StrictStr | None, Field(description="Filter User records to those with a specific role.")] = None,
+        subscription_type: Annotated[StrictStr | None, Field(description="Filter User records to those with a specific subscription type.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter User records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Return the data for all Users
@@ -394,7 +364,7 @@ class UsersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UserList",
             '400': "Error",
             '401': "Error",
@@ -432,17 +402,17 @@ class UsersApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         # process the query parameters
@@ -533,7 +503,7 @@ class UsersApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -558,21 +528,14 @@ class UsersApi:
     def user_show(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the User.")],
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> UserShow:
         """Return the data for a single User
@@ -623,7 +586,7 @@ class UsersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UserShow",
             '400': "Error",
             '403': "Error",
@@ -647,21 +610,14 @@ class UsersApi:
     def user_show_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the User.")],
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[UserShow]:
         """Return the data for a single User
@@ -712,7 +668,7 @@ class UsersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UserShow",
             '400': "Error",
             '403': "Error",
@@ -736,21 +692,14 @@ class UsersApi:
     def user_show_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the User.")],
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Return the data for a single User
@@ -801,7 +750,7 @@ class UsersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UserShow",
             '400': "Error",
             '403': "Error",
@@ -832,17 +781,17 @@ class UsersApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         if id is not None:
@@ -873,7 +822,7 @@ class UsersApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -897,21 +846,14 @@ class UsersApi:
     @validate_call
     def user_who_am_i(
         self,
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> UserShow:
         """Return the data for the current User
@@ -959,7 +901,7 @@ class UsersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UserShow",
             '400': "Error",
             '403': "Error",
@@ -982,21 +924,14 @@ class UsersApi:
     @validate_call
     def user_who_am_i_with_http_info(
         self,
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[UserShow]:
         """Return the data for the current User
@@ -1044,7 +979,7 @@ class UsersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UserShow",
             '400': "Error",
             '403': "Error",
@@ -1067,21 +1002,14 @@ class UsersApi:
     @validate_call
     def user_who_am_i_without_preload_content(
         self,
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Return the data for the current User
@@ -1129,7 +1057,7 @@ class UsersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UserShow",
             '400': "Error",
             '403': "Error",
@@ -1159,17 +1087,17 @@ class UsersApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         # process the query parameters
@@ -1198,7 +1126,7 @@ class UsersApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(

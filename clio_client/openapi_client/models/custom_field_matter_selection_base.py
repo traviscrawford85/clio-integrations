@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,7 +17,7 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing_extensions import Self
@@ -28,9 +27,9 @@ class CustomFieldMatterSelectionBase(BaseModel):
     """
     CustomFieldMatterSelectionBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *CustomFieldMatterSelection*")
-    display_number: Optional[StrictStr] = Field(default=None, description="The reference and label of the *CustomFieldMatterSelection*. Depending on the account's manual_matter_numbering setting, this is either read only (generated) or customizable.")
-    __properties: ClassVar[List[str]] = ["id", "display_number"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *CustomFieldMatterSelection*")
+    display_number: StrictStr | None = Field(default=None, description="The reference and label of the *CustomFieldMatterSelection*. Depending on the account's manual_matter_numbering setting, this is either read only (generated) or customizable.")
+    __properties: ClassVar[list[str]] = ["id", "display_number"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,11 +48,11 @@ class CustomFieldMatterSelectionBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of CustomFieldMatterSelectionBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -63,7 +62,7 @@ class CustomFieldMatterSelectionBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -74,7 +73,7 @@ class CustomFieldMatterSelectionBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of CustomFieldMatterSelectionBase from a dict"""
         if obj is None:
             return None

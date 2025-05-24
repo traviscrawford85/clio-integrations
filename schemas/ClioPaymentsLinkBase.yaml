@@ -1,0 +1,92 @@
+description: ClioPaymentsLinkBase
+properties:
+  active:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the payment link is active.
+    title: Active
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The defined amount of the payment link, if set.
+    title: Amount
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ClioPaymentsLink* was created (as a ISO-8601 timestamp)
+    title: Created At
+  currency:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The currency the payment link will collect.
+    title: Currency
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The defined description of the payment link, if set.
+    title: Description
+  email_address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The email address to pre-fill the field on the the payment link,
+      if set.
+    title: Email Address
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ClioPaymentsLink*
+    title: Etag
+  expires_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The ISO 8601 date and time the payment link will expire.
+    title: Expires At
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ClioPaymentsLink*
+    title: Id
+  is_allocated_as_revenue:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the payment link is allocated as revenue.
+    title: Is Allocated As Revenue
+  redirect_url:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The URL to redirect the client to after the payment has been made.
+    title: Redirect Url
+  url:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The URL of the payment link.
+    title: Url
+title: ClioPaymentsLinkBase
+type: object

@@ -1,0 +1,171 @@
+$defs:
+  BillUpdateRequestDataBillTheme:
+    description: BillUpdateRequestDataBillTheme
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier of the bill theme applied to the Bill.
+        title: Id
+    title: BillUpdateRequestDataBillTheme
+    type: object
+  BillUpdateRequestDataDiscount:
+    description: BillUpdateRequestDataDiscount
+    properties:
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Discount amount for the Bill. This can either be a percentage
+          or monetary value, this is determined by the `discount[type]`.
+        title: Rate
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of discount you are applying to your Bill with the `discount[rate]`.
+        title: Type
+      note:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A note for your Bill's discount.
+        title: Note
+    title: BillUpdateRequestDataDiscount
+    type: object
+  BillUpdateRequestDataInterest:
+    description: BillUpdateRequestDataInterest
+    properties:
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Interest amount for the Bill as percentage.
+        title: Rate
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of interest you are applying to your Bill with the `interest[rate]`.
+        title: Type
+      period:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The interest period for how frequently your Bill will charge
+          interest.
+        title: Period
+    title: BillUpdateRequestDataInterest
+    type: object
+description: BillUpdateRequestData
+properties:
+  bill_theme:
+    anyOf:
+    - $ref: '#/$defs/BillUpdateRequestDataBillTheme'
+    - type: 'null'
+    default: null
+  currency_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: ID of the currency applied to the Bill.
+    title: Currency Id
+  discount:
+    anyOf:
+    - $ref: '#/$defs/BillUpdateRequestDataDiscount'
+    - type: 'null'
+    default: null
+  due_at:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Date the Bill is due. If `use_grace_period` is true, this field is
+      ignored.
+    title: Due At
+  interest:
+    anyOf:
+    - $ref: '#/$defs/BillUpdateRequestDataInterest'
+    - type: 'null'
+    default: null
+  issued_at:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Date the Bill was issued.
+    title: Issued At
+  memo:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Memo for the Bill.
+    title: Memo
+  number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Bill's number.
+    title: Number
+  purchase_order:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Purchase order information for the Bill.
+    title: Purchase Order
+  secondary_tax_rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Secondary tax rate as percentage for the Bill.
+    title: Secondary Tax Rate
+  state:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Bill's state.
+    title: State
+  subject:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Subject details for the Bill.
+    title: Subject
+  tax_rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Tax rate as percentage for the Bill
+    title: Tax Rate
+  use_grace_period:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: When true, sets the bill's due date based on the client's grace period.
+      This setting overrides the `due_at` parameter.
+    title: Use Grace Period
+title: BillUpdateRequestData
+type: object

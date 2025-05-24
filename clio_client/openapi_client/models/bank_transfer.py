@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictFloat, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.bank_account_base import BankAccountBase
@@ -34,20 +32,20 @@ class BankTransfer(BaseModel):
     """
     BankTransfer
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *BankTransfer*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *BankTransfer*")
-    amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of the transfer.")
-    var_date: Optional[datetime] = Field(default=None, description="The date of the transfer.", alias="date")
-    description: Optional[StrictStr] = Field(default=None, description="The description of the transfer.")
-    primary_authorizer: Optional[StrictStr] = Field(default=None, description="The primary authorizer of the transfer.")
-    secondary_authorizer: Optional[StrictStr] = Field(default=None, description="The secondary authorizer of the transfer.")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *BankTransfer* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *BankTransfer* was last updated (as a ISO-8601 timestamp)")
-    client: Optional[ContactBase] = None
-    destination_account: Optional[BankAccountBase] = None
-    matter: Optional[MatterBase] = None
-    source_account: Optional[BankAccountBase] = None
-    __properties: ClassVar[List[str]] = ["id", "etag", "amount", "date", "description", "primary_authorizer", "secondary_authorizer", "created_at", "updated_at", "client", "destination_account", "matter", "source_account"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *BankTransfer*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *BankTransfer*")
+    amount: StrictFloat | StrictInt | None = Field(default=None, description="The amount of the transfer.")
+    var_date: datetime | None = Field(default=None, description="The date of the transfer.", alias="date")
+    description: StrictStr | None = Field(default=None, description="The description of the transfer.")
+    primary_authorizer: StrictStr | None = Field(default=None, description="The primary authorizer of the transfer.")
+    secondary_authorizer: StrictStr | None = Field(default=None, description="The secondary authorizer of the transfer.")
+    created_at: datetime | None = Field(default=None, description="The time the *BankTransfer* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *BankTransfer* was last updated (as a ISO-8601 timestamp)")
+    client: ContactBase | None = None
+    destination_account: BankAccountBase | None = None
+    matter: MatterBase | None = None
+    source_account: BankAccountBase | None = None
+    __properties: ClassVar[list[str]] = ["id", "etag", "amount", "date", "description", "primary_authorizer", "secondary_authorizer", "created_at", "updated_at", "client", "destination_account", "matter", "source_account"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -66,11 +64,11 @@ class BankTransfer(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of BankTransfer from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -80,7 +78,7 @@ class BankTransfer(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -103,7 +101,7 @@ class BankTransfer(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of BankTransfer from a dict"""
         if obj is None:
             return None

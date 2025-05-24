@@ -1,0 +1,24 @@
+description: FolderUpdateRequestDataParent
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier of the parent object.
+    title: Id
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: 'Type of parent object: * "Folder" represents a specified folder
+      on Clio by folder id. It if specified when you add / move an item to a folder.
+      * "Contact" represents a contact folder on Clio identified by contact id. It
+      is specified when you add / move an item to a contact folder. A contact folder
+      will be created for the specified contact if none exists already. * "Matter"
+      represents a matter folder on Clio identified by matter id. It is specified
+      when you add / move an item to a matter folder. '
+    title: Type
+title: FolderUpdateRequestDataParent
+type: object

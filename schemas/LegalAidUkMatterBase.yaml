@@ -1,0 +1,608 @@
+description: LegalAidUkMatterBase
+properties:
+  access_point:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Access point
+    title: Access Point
+  laa_office_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: LAA office number
+    title: Laa Office Number
+  ait_hearing_centre:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: AIT hearing centre
+    title: Ait Hearing Centre
+  attended_several_hearings_acting_for_multiple_clients:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Attended several hearings acting for multiple clients
+    title: Attended Several Hearings Acting For Multiple Clients
+  bill_ho_ucn:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Bill HO UCN
+    title: Bill Ho Ucn
+  bill_number_of_attendances:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Bill number of attendances
+    title: Bill Number Of Attendances
+  bill_outcome_for_the_client_code:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Bill outcome for the client code
+    title: Bill Outcome For The Client Code
+  bill_stage_reached_code:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Bill stage reached code
+    title: Bill Stage Reached Code
+  case_reference:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Case reference
+    title: Case Reference
+  case_start_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Case start date
+    title: Case Start Date
+  category:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Category
+    title: Category
+  category_as_string:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Category as string
+    title: Category As String
+  certificate_effective_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Certificate effective date
+    title: Certificate Effective Date
+  certificate_expiration_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Certificate expiration date
+    title: Certificate Expiration Date
+  certificate_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Certificate number
+    title: Certificate Number
+  certificate_scope:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Certificate scope
+    title: Certificate Scope
+  certification_type:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Certification type
+    title: Certification Type
+  change_of_solicitor:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Change of solicitor
+    title: Change Of Solicitor
+  client_equal_opportunity_monitoring:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Client equal opportunity monitoring
+    title: Client Equal Opportunity Monitoring
+  client_type:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Client type
+    title: Client Type
+  clr_start_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: CLR start date
+    title: Clr Start Date
+  clr_total_profit_costs:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: CLR total profit costs
+    title: Clr Total Profit Costs
+  cost_limit:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Cost limit
+    title: Cost Limit
+  counsel:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Counsel
+    title: Counsel
+  court:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Court
+    title: Court
+  court_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Court ID
+    title: Court Id
+  court_id_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Court ID code
+    title: Court Id Code
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *LegalAidUkMatter* was created (as a ISO-8601 timestamp)
+    title: Created At
+  delivery_location:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Delivery location
+    title: Delivery Location
+  dscc_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: DSCC number
+    title: Dscc Number
+  duty_solicitor:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Duty solicitor
+    title: Duty Solicitor
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *LegalAidUkMatter*
+    title: Etag
+  exceptional_case_funding_reference:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Exceptional case funding reference
+    title: Exceptional Case Funding Reference
+  expense_limit:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Expense limit
+    title: Expense Limit
+  fee_scheme:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Fee scheme
+    title: Fee Scheme
+  first_conducting_solicitor:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: First conducting solicitor
+    title: First Conducting Solicitor
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *LegalAidUkMatter*
+    title: Id
+  irc_surgery:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Irc surgery
+    title: Irc Surgery
+  legacy_case:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Legacy case
+    title: Legacy Case
+  legal_representation_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Legal representation number
+    title: Legal Representation Number
+  lh_total_disbursements:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: LH total disbursements
+    title: Lh Total Disbursements
+  lh_start_date:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: LH start date
+    title: Lh Start Date
+  lh_total_profit_costs:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: LH total profit costs
+    title: Lh Total Profit Costs
+  linked_matter_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Linked matter ID
+    title: Linked Matter Id
+  local_authority_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Local authority number
+    title: Local Authority Number
+  maat_id:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: MAAT ID
+    title: Maat Id
+  matter_type:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Matter type
+    title: Matter Type
+  matter_type_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Matter type code
+    title: Matter Type Code
+  matter_type_1:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Matter type 1
+    title: Matter Type 1
+  matter_type_1_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Matter type 1 code
+    title: Matter Type 1 Code
+  matter_type_1_title:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Matter type 1 title
+    title: Matter Type 1 Title
+  matter_type_2:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Matter type 2
+    title: Matter Type 2
+  matter_type_2_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Matter type 2 code
+    title: Matter Type 2 Code
+  matter_type_2_title:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Matter type 2 title
+    title: Matter Type 2 Title
+  matter_types_combined:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Matter types combined
+    title: Matter Types Combined
+  number_of_clients_seen_at_surgery:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Number of clients seen at surgery
+    title: Number Of Clients Seen At Surgery
+  number_of_clients:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Number of clients
+    title: Number Of Clients
+  party:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Party
+    title: Party
+  police_station:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Police station
+    title: Police Station
+  post_transfer_clients_represented:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Post transfer clients represented
+    title: Post Transfer Clients Represented
+  postal_application_accepted:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Postal application accepted
+    title: Postal Application Accepted
+  prior_authority_reference:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Priory authority reference
+    title: Prior Authority Reference
+  prison_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Prison ID
+    title: Prison Id
+  prison_law_prior_approval_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Prison law prior approval number
+    title: Prison Law Prior Approval Number
+  procurement_area:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Procurement area
+    title: Procurement Area
+  region:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Region
+    title: Region
+  related_claims_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Related claims number
+    title: Related Claims Number
+  representation_order_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Representation order date
+    title: Representation Order Date
+  schedule_reference_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Schedule reference number
+    title: Schedule Reference Number
+  scheme_id:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Scheme ID
+    title: Scheme Id
+  session_type:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Session type
+    title: Session Type
+  solicitor_type:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Solicitor type
+    title: Solicitor Type
+  standard_fee_category:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Standard fee category
+    title: Standard Fee Category
+  surgery_clients_resulting_in_a_legal_help_matter_opened:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Surgery clients resulting in a legal help matter opened
+    title: Surgery Clients Resulting In A Legal Help Matter Opened
+  surgery_clients:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Surgery clients
+    title: Surgery Clients
+  surgery_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Surgery date
+    title: Surgery Date
+  transfer_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Transfer date
+    title: Transfer Date
+  type_of_advice:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Type of advice
+    title: Type Of Advice
+  type_of_service:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Type of service
+    title: Type Of Service
+  ucn:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: UCN
+    title: Ucn
+  ufn:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: UFN
+    title: Ufn
+  undesignated_area_court:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Undesignated area court
+    title: Undesignated Area Court
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *LegalAidUkMatter* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  user_type:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: User type
+    title: User Type
+  youth_court:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Youth court
+    title: Youth Court
+title: LegalAidUkMatterBase
+type: object

@@ -1,0 +1,78 @@
+description: ReportPresetBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ReportPreset*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ReportPreset*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A specified name for the report preset
+    title: Name
+  kind:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The kind of report the preset generates
+    title: Kind
+  format:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The format of the report the preset generates
+    title: Format
+  last_generated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time of the last generated report from this preset (as a ISO-8601
+      timestamp)
+    title: Last Generated At
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ReportPreset* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ReportPreset* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  category:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The category of the report the preset generates
+    title: Category
+  options:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The report options parameters
+    title: Options
+title: ReportPresetBase
+type: object

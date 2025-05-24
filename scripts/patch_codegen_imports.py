@@ -14,7 +14,7 @@ COMMON_IMPORTS = {
 
 def patch_codegen_imports():
     for py_file in API_FOLDER.glob("*.py"):
-        with open(py_file, "r") as f:
+        with open(py_file) as f:
             lines = f.readlines()
 
         needs_patch = False

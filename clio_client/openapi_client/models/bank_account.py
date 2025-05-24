@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,18 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.user_base import UserBase
@@ -32,30 +39,30 @@ class BankAccount(BaseModel):
     """
     BankAccount
     """ # noqa: E501
-    account_number: Optional[StrictStr] = Field(default=None, description="The account number for *BankAccount*")
-    balance: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The current balance of the *BankAccount*")
-    bank_transactions_count: Optional[StrictInt] = Field(default=None, description="The number of bank transactions associated with the account.")
-    clio_payment_page_link: Optional[StrictStr] = Field(default=None, description="Link to Single Payment Page which allows to transfer funds without logging in.")
-    clio_payment_page_qr_code: Optional[StrictStr] = Field(default=None, description="A QR code that links to a Single Payment Page which allows to transfer funds without logging in.")
-    clio_payments_enabled: Optional[StrictBool] = Field(default=None, description="Whether the bank account is connected to Clio Payments")
-    controlled_account: Optional[StrictBool] = Field(default=None, description="Whether is a controlled account")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *BankAccount* was created (as a ISO-8601 timestamp)")
-    currency: Optional[StrictStr] = Field(default=None, description="The currency type of the *BankAccount*")
-    currency_id: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The currency ID of the *BankAccount*")
-    default_account: Optional[StrictBool] = Field(default=None, description="Whether it is the default account")
-    domicile_branch: Optional[StrictStr] = Field(default=None, description="The name of the branch where the account was opened")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *BankAccount*")
-    general_ledger_number: Optional[StrictStr] = Field(default=None, description="General ledger number")
-    holder: Optional[StrictStr] = Field(default=None, description="The name of the person or business that owns the *BankAccount*")
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *BankAccount*")
-    institution: Optional[StrictStr] = Field(default=None, description="The financial institution where the *BankAccount* is registered")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the *BankAccount*")
-    swift: Optional[StrictStr] = Field(default=None, description="A unique identification code for the financial institution")
-    transit_number: Optional[StrictStr] = Field(default=None, description="Transit number for the bank account branch")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *BankAccount*")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *BankAccount* was last updated (as a ISO-8601 timestamp)")
-    user: Optional[UserBase] = None
-    __properties: ClassVar[List[str]] = ["account_number", "balance", "bank_transactions_count", "clio_payment_page_link", "clio_payment_page_qr_code", "clio_payments_enabled", "controlled_account", "created_at", "currency", "currency_id", "default_account", "domicile_branch", "etag", "general_ledger_number", "holder", "id", "institution", "name", "swift", "transit_number", "type", "updated_at", "user"]
+    account_number: StrictStr | None = Field(default=None, description="The account number for *BankAccount*")
+    balance: StrictFloat | StrictInt | None = Field(default=None, description="The current balance of the *BankAccount*")
+    bank_transactions_count: StrictInt | None = Field(default=None, description="The number of bank transactions associated with the account.")
+    clio_payment_page_link: StrictStr | None = Field(default=None, description="Link to Single Payment Page which allows to transfer funds without logging in.")
+    clio_payment_page_qr_code: StrictStr | None = Field(default=None, description="A QR code that links to a Single Payment Page which allows to transfer funds without logging in.")
+    clio_payments_enabled: StrictBool | None = Field(default=None, description="Whether the bank account is connected to Clio Payments")
+    controlled_account: StrictBool | None = Field(default=None, description="Whether is a controlled account")
+    created_at: datetime | None = Field(default=None, description="The time the *BankAccount* was created (as a ISO-8601 timestamp)")
+    currency: StrictStr | None = Field(default=None, description="The currency type of the *BankAccount*")
+    currency_id: StrictFloat | StrictInt | None = Field(default=None, description="The currency ID of the *BankAccount*")
+    default_account: StrictBool | None = Field(default=None, description="Whether it is the default account")
+    domicile_branch: StrictStr | None = Field(default=None, description="The name of the branch where the account was opened")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *BankAccount*")
+    general_ledger_number: StrictStr | None = Field(default=None, description="General ledger number")
+    holder: StrictStr | None = Field(default=None, description="The name of the person or business that owns the *BankAccount*")
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *BankAccount*")
+    institution: StrictStr | None = Field(default=None, description="The financial institution where the *BankAccount* is registered")
+    name: StrictStr | None = Field(default=None, description="The name of the *BankAccount*")
+    swift: StrictStr | None = Field(default=None, description="A unique identification code for the financial institution")
+    transit_number: StrictStr | None = Field(default=None, description="Transit number for the bank account branch")
+    type: StrictStr | None = Field(default=None, description="The type of the *BankAccount*")
+    updated_at: datetime | None = Field(default=None, description="The time the *BankAccount* was last updated (as a ISO-8601 timestamp)")
+    user: UserBase | None = None
+    __properties: ClassVar[list[str]] = ["account_number", "balance", "bank_transactions_count", "clio_payment_page_link", "clio_payment_page_qr_code", "clio_payments_enabled", "controlled_account", "created_at", "currency", "currency_id", "default_account", "domicile_branch", "etag", "general_ledger_number", "holder", "id", "institution", "name", "swift", "transit_number", "type", "updated_at", "user"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -84,11 +91,11 @@ class BankAccount(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of BankAccount from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -98,7 +105,7 @@ class BankAccount(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -112,7 +119,7 @@ class BankAccount(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of BankAccount from a dict"""
         if obj is None:
             return None

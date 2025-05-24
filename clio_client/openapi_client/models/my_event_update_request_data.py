@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,7 +17,7 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing_extensions import Self
@@ -28,8 +27,8 @@ class MyEventUpdateRequestData(BaseModel):
     """
     MyEventUpdateRequestData
     """ # noqa: E501
-    marked_as_read: Optional[StrictBool] = Field(default=None, description="Indicates whether the event notification should be marked as read by the current user. If `false` the event status is reset to unread.")
-    __properties: ClassVar[List[str]] = ["marked_as_read"]
+    marked_as_read: StrictBool | None = Field(default=None, description="Indicates whether the event notification should be marked as read by the current user. If `false` the event status is reset to unread.")
+    __properties: ClassVar[list[str]] = ["marked_as_read"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,11 +47,11 @@ class MyEventUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MyEventUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -62,7 +61,7 @@ class MyEventUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -73,7 +72,7 @@ class MyEventUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MyEventUpdateRequestData from a dict"""
         if obj is None:
             return None

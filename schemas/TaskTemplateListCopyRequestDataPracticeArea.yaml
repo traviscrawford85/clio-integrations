@@ -1,0 +1,12 @@
+description: TaskTemplateListCopyRequestDataPracticeArea
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for the practice area of the TaskTemplateList
+      copy.
+    title: Id
+title: TaskTemplateListCopyRequestDataPracticeArea
+type: object

@@ -1,0 +1,63 @@
+description: LienBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Lien*
+    title: Id
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount for Lien
+    title: Amount
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Lien description
+    title: Description
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Lien*
+    title: Etag
+  lien_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Lien type
+    title: Lien Type
+  mark_as_lien:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Mark item as Lien
+    title: Mark As Lien
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Lien* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Lien* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: LienBase
+type: object

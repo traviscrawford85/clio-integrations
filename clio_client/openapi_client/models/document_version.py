@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,39 +18,37 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.clio_creator_base import ClioCreatorBase
 from clio_client.openapi_client.models.multipart import Multipart
-from clio_client.openapi_client.models.multipart_header_base import \
-    MultipartHeaderBase
+from clio_client.openapi_client.models.multipart_header_base import MultipartHeaderBase
 
 
 class DocumentVersion(BaseModel):
     """
     DocumentVersion
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *DocumentVersion*")
-    document_id: Optional[StrictInt] = Field(default=None, description="The ID of the parent document.")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *DocumentVersion*")
-    uuid: Optional[StrictStr] = Field(default=None, description="UUID associated with the DocumentVersion. UUID is required to mark a document fully uploaded.")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *DocumentVersion* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *DocumentVersion* was last updated (as a ISO-8601 timestamp)")
-    filename: Optional[StrictStr] = Field(default=None, description="The uploaded file name of the DocumentVersion.")
-    size: Optional[StrictInt] = Field(default=None, description="The size of the DocumentVersion in bytes.")
-    version_number: Optional[StrictInt] = Field(default=None, description="The ordered number of when this DocumentVersion was uploaded.")
-    content_type: Optional[StrictStr] = Field(default=None, description="A standard MIME type describing the format of the object data.")
-    received_at: Optional[datetime] = Field(default=None, description="The time the DocumentVersion was received (as an ISO-8601 timestamp)")
-    put_url: Optional[StrictStr] = Field(default=None, description="A signed URL for uploading the file in a single operation. It expires in 10 minutes. If the document is fully uploaded, the field is empty.")
-    fully_uploaded: Optional[StrictBool] = Field(default=None, description="True if the DocumentVersion is uploaded. False if the DocumentVersion is being uploaded.")
-    creator: Optional[ClioCreatorBase] = None
-    put_headers: Optional[List[MultipartHeaderBase]] = Field(default=None, description="MultipartHeader")
-    multiparts: Optional[List[Multipart]] = Field(default=None, description="Multipart")
-    __properties: ClassVar[List[str]] = ["id", "document_id", "etag", "uuid", "created_at", "updated_at", "filename", "size", "version_number", "content_type", "received_at", "put_url", "fully_uploaded", "creator", "put_headers", "multiparts"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *DocumentVersion*")
+    document_id: StrictInt | None = Field(default=None, description="The ID of the parent document.")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *DocumentVersion*")
+    uuid: StrictStr | None = Field(default=None, description="UUID associated with the DocumentVersion. UUID is required to mark a document fully uploaded.")
+    created_at: datetime | None = Field(default=None, description="The time the *DocumentVersion* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *DocumentVersion* was last updated (as a ISO-8601 timestamp)")
+    filename: StrictStr | None = Field(default=None, description="The uploaded file name of the DocumentVersion.")
+    size: StrictInt | None = Field(default=None, description="The size of the DocumentVersion in bytes.")
+    version_number: StrictInt | None = Field(default=None, description="The ordered number of when this DocumentVersion was uploaded.")
+    content_type: StrictStr | None = Field(default=None, description="A standard MIME type describing the format of the object data.")
+    received_at: datetime | None = Field(default=None, description="The time the DocumentVersion was received (as an ISO-8601 timestamp)")
+    put_url: StrictStr | None = Field(default=None, description="A signed URL for uploading the file in a single operation. It expires in 10 minutes. If the document is fully uploaded, the field is empty.")
+    fully_uploaded: StrictBool | None = Field(default=None, description="True if the DocumentVersion is uploaded. False if the DocumentVersion is being uploaded.")
+    creator: ClioCreatorBase | None = None
+    put_headers: list[MultipartHeaderBase] | None = Field(default=None, description="MultipartHeader")
+    multiparts: list[Multipart] | None = Field(default=None, description="Multipart")
+    __properties: ClassVar[list[str]] = ["id", "document_id", "etag", "uuid", "created_at", "updated_at", "filename", "size", "version_number", "content_type", "received_at", "put_url", "fully_uploaded", "creator", "put_headers", "multiparts"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,11 +67,11 @@ class DocumentVersion(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of DocumentVersion from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -84,7 +81,7 @@ class DocumentVersion(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -112,7 +109,7 @@ class DocumentVersion(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of DocumentVersion from a dict"""
         if obj is None:
             return None

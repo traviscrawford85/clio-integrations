@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,13 +18,12 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.conversation_base import \
-    ConversationBase
+from clio_client.openapi_client.models.conversation_base import ConversationBase
 from clio_client.openapi_client.models.document_base import DocumentBase
 
 
@@ -33,17 +31,17 @@ class ConversationMessage(BaseModel):
     """
     ConversationMessage
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *ConversationMessage*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *ConversationMessage*")
-    var_date: Optional[StrictStr] = Field(default=None, description="The creation date of the message in the current user's time zone", alias="date")
-    body: Optional[StrictStr] = Field(default=None, description="The main content of the *ConversationMessage*")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *ConversationMessage* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *ConversationMessage* was last updated (as a ISO-8601 timestamp)")
-    sender: Optional[Dict[str, Any]] = None
-    document: Optional[DocumentBase] = None
-    conversation: Optional[ConversationBase] = None
-    receivers: Optional[List[Dict[str, Any]]] = Field(default=None, description="UnredactedParticipant")
-    __properties: ClassVar[List[str]] = ["id", "etag", "date", "body", "created_at", "updated_at", "sender", "document", "conversation", "receivers"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *ConversationMessage*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *ConversationMessage*")
+    var_date: StrictStr | None = Field(default=None, description="The creation date of the message in the current user's time zone", alias="date")
+    body: StrictStr | None = Field(default=None, description="The main content of the *ConversationMessage*")
+    created_at: datetime | None = Field(default=None, description="The time the *ConversationMessage* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *ConversationMessage* was last updated (as a ISO-8601 timestamp)")
+    sender: dict[str, Any] | None = None
+    document: DocumentBase | None = None
+    conversation: ConversationBase | None = None
+    receivers: list[dict[str, Any]] | None = Field(default=None, description="UnredactedParticipant")
+    __properties: ClassVar[list[str]] = ["id", "etag", "date", "body", "created_at", "updated_at", "sender", "document", "conversation", "receivers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -62,11 +60,11 @@ class ConversationMessage(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ConversationMessage from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -76,7 +74,7 @@ class ConversationMessage(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -93,7 +91,7 @@ class ConversationMessage(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ConversationMessage from a dict"""
         if obj is None:
             return None

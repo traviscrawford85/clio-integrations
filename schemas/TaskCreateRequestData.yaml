@@ -1,0 +1,170 @@
+$defs:
+  TaskCreateRequestDataAssignee:
+    description: TaskCreateRequestDataAssignee
+    properties:
+      id:
+        description: The unique identifier for a single User or Contact associated
+          with the Task. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+      type:
+        description: Model type of the assignee.
+        title: Type
+        type: string
+    required:
+    - id
+    - type
+    title: TaskCreateRequestDataAssignee
+    type: object
+  TaskCreateRequestDataMatter:
+    description: TaskCreateRequestDataMatter
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Matter associated with the
+          Task. The keyword `null` is not valid for this field.
+        title: Id
+    title: TaskCreateRequestDataMatter
+    type: object
+  TaskCreateRequestDataTaskType:
+    description: TaskCreateRequestDataTaskType
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single TaskType associated with the
+          Task. The keyword `null` is not valid for this field.
+        title: Id
+    title: TaskCreateRequestDataTaskType
+    type: object
+description: TaskCreateRequestData
+properties:
+  assignee:
+    $ref: '#/$defs/TaskCreateRequestDataAssignee'
+  cascading:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Determines if the Task has a due date that is derived from another
+      Task. (Note that if false, no other cascading information will be checked)
+    title: Cascading
+  cascading_offset:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount of time that will differentiate the cascaded Task from
+      its parent.
+    title: Cascading Offset
+  cascading_offset_polarity:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Determines whether or not the cascading_offset occurs before or after
+      its parent.
+    title: Cascading Offset Polarity
+  cascading_offset_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Determines the quantity of the cascading offset (e.g. CalendarDays,
+      CalendarWeeks etc.)
+    title: Cascading Offset Type
+  cascading_source:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The parent Task that is used to determine the due_at property of
+      the cascaded Task
+    title: Cascading Source
+  description:
+    description: Longer description of the Task.
+    title: Description
+    type: string
+  due_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Date when the Task must be completed by. (Expects an ISO-8601 date).
+    title: Due At
+  matter:
+    anyOf:
+    - $ref: '#/$defs/TaskCreateRequestDataMatter'
+    - type: 'null'
+    default: null
+  name:
+    description: Name of the Task.
+    title: Name
+    type: string
+  notify_assignee:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the Task should notify the assignee on creation.
+    title: Notify Assignee
+  notify_completion:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the Task should notify the assigner on completion.
+    title: Notify Completion
+  permission:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: public
+    description: Permission of the Task. Defaults to `public`
+    title: Permission
+  priority:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: Normal
+    description: Priority of the Task.
+    title: Priority
+  status:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: pending
+    description: Task status. Users without advanced tasks are allowed to select `Complete`
+      or `Pending` only.
+    title: Status
+  statute_of_limitations:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the Task should be a statute of limitations.
+    title: Statute Of Limitations
+  task_type:
+    anyOf:
+    - $ref: '#/$defs/TaskCreateRequestDataTaskType'
+    - type: 'null'
+    default: null
+  time_estimated:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Time the Task should take to complete.
+    title: Time Estimated
+required:
+- assignee
+- description
+- name
+title: TaskCreateRequestData
+type: object

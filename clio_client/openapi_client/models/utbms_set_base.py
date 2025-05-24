@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing_extensions import Self
 
 
@@ -30,13 +28,13 @@ class UtbmsSetBase(BaseModel):
     """
     UtbmsSetBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *UtbmsSet*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *UtbmsSet*")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the *UtbmsSet*")
-    enabled: Optional[StrictBool] = Field(default=None, description="Whether the *UtbmsSet* is enabled for the current account.")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *UtbmsSet* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *UtbmsSet* was last updated (as a ISO-8601 timestamp)")
-    __properties: ClassVar[List[str]] = ["id", "etag", "name", "enabled", "created_at", "updated_at"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *UtbmsSet*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *UtbmsSet*")
+    name: StrictStr | None = Field(default=None, description="The name of the *UtbmsSet*")
+    enabled: StrictBool | None = Field(default=None, description="Whether the *UtbmsSet* is enabled for the current account.")
+    created_at: datetime | None = Field(default=None, description="The time the *UtbmsSet* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *UtbmsSet* was last updated (as a ISO-8601 timestamp)")
+    __properties: ClassVar[list[str]] = ["id", "etag", "name", "enabled", "created_at", "updated_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,11 +53,11 @@ class UtbmsSetBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of UtbmsSetBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -69,7 +67,7 @@ class UtbmsSetBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -80,7 +78,7 @@ class UtbmsSetBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of UtbmsSetBase from a dict"""
         if obj is None:
             return None

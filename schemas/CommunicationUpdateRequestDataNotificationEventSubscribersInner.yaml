@@ -1,0 +1,30 @@
+description: CommunicationUpdateRequestDataNotificationEventSubscribersInner
+properties:
+  user_id:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: 'The unique identifier for a User to be added as a notification event
+      subscriber to the Phone Log Communication. Note: Only applicable to Phone Log
+      Communications, invalid for other communication types.'
+    title: User Id
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: 'Unique id of this Communication. Note: Only applicable to Phone
+      Log Communications, invalid for other communication types.'
+    title: Id
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: 'Whether or not the notification event subscriber should be deleted.
+      Note: Only applicable to Phone Log Communications, invalid for other communication
+      types.'
+    title: Destroy
+title: CommunicationUpdateRequestDataNotificationEventSubscribersInner
+type: object

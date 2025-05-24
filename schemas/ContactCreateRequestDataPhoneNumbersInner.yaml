@@ -1,0 +1,26 @@
+description: ContactCreateRequestDataPhoneNumbersInner
+properties:
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: Other
+    description: Name of the PhoneNumber.
+    title: Name
+  number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Phone number.
+    title: Number
+  default_number:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the PhoneNumber should be the default number for the
+      Contact.
+    title: Default Number
+title: ContactCreateRequestDataPhoneNumbersInner
+type: object

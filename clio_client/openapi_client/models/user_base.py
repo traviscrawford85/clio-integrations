@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,18 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -30,26 +37,26 @@ class UserBase(BaseModel):
     """
     UserBase
     """ # noqa: E501
-    account_owner: Optional[StrictBool] = Field(default=None, description="Whether the *User* is the owner of the account")
-    clio_connect: Optional[StrictBool] = Field(default=None, description="Whether the *User* is a Clio Connect user")
-    court_rules_default_attendee: Optional[StrictBool] = Field(default=None, description="Whether the *User* is a default attendee for court rules events")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *User* was created (as a ISO-8601 timestamp)")
-    default_calendar_id: Optional[StrictInt] = Field(default=None, description="Default calendar id for *User*.")
-    email: Optional[StrictStr] = Field(default=None, description="The email of the *User*")
-    enabled: Optional[StrictBool] = Field(default=None, description="Whether the *User* is allowed to log in")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *User*")
-    first_name: Optional[StrictStr] = Field(default=None, description="The first name of the *User*")
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *User*")
-    initials: Optional[StrictStr] = Field(default=None, description="The initials of the *User*")
-    last_name: Optional[StrictStr] = Field(default=None, description="The last name of the *User*")
-    name: Optional[StrictStr] = Field(default=None, description="The full name of the *User*")
-    phone_number: Optional[StrictStr] = Field(default=None, description="The primary phone number for the *User*.")
-    rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Default user activity rate for *User*.")
-    roles: Optional[List[StrictStr]] = Field(default=None, description="An array of roles assigned to this *User*")
-    subscription_type: Optional[StrictStr] = Field(default=None, description="The subscription type of the *User*")
-    time_zone: Optional[StrictStr] = Field(default=None, description="The selected time zone of the *User*")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *User* was last updated (as a ISO-8601 timestamp)")
-    __properties: ClassVar[List[str]] = ["account_owner", "clio_connect", "court_rules_default_attendee", "created_at", "default_calendar_id", "email", "enabled", "etag", "first_name", "id", "initials", "last_name", "name", "phone_number", "rate", "roles", "subscription_type", "time_zone", "updated_at"]
+    account_owner: StrictBool | None = Field(default=None, description="Whether the *User* is the owner of the account")
+    clio_connect: StrictBool | None = Field(default=None, description="Whether the *User* is a Clio Connect user")
+    court_rules_default_attendee: StrictBool | None = Field(default=None, description="Whether the *User* is a default attendee for court rules events")
+    created_at: datetime | None = Field(default=None, description="The time the *User* was created (as a ISO-8601 timestamp)")
+    default_calendar_id: StrictInt | None = Field(default=None, description="Default calendar id for *User*.")
+    email: StrictStr | None = Field(default=None, description="The email of the *User*")
+    enabled: StrictBool | None = Field(default=None, description="Whether the *User* is allowed to log in")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *User*")
+    first_name: StrictStr | None = Field(default=None, description="The first name of the *User*")
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *User*")
+    initials: StrictStr | None = Field(default=None, description="The initials of the *User*")
+    last_name: StrictStr | None = Field(default=None, description="The last name of the *User*")
+    name: StrictStr | None = Field(default=None, description="The full name of the *User*")
+    phone_number: StrictStr | None = Field(default=None, description="The primary phone number for the *User*.")
+    rate: StrictFloat | StrictInt | None = Field(default=None, description="Default user activity rate for *User*.")
+    roles: list[StrictStr] | None = Field(default=None, description="An array of roles assigned to this *User*")
+    subscription_type: StrictStr | None = Field(default=None, description="The subscription type of the *User*")
+    time_zone: StrictStr | None = Field(default=None, description="The selected time zone of the *User*")
+    updated_at: datetime | None = Field(default=None, description="The time the *User* was last updated (as a ISO-8601 timestamp)")
+    __properties: ClassVar[list[str]] = ["account_owner", "clio_connect", "court_rules_default_attendee", "created_at", "default_calendar_id", "email", "enabled", "etag", "first_name", "id", "initials", "last_name", "name", "phone_number", "rate", "roles", "subscription_type", "time_zone", "updated_at"]
 
     @field_validator('subscription_type')
     def subscription_type_validate_enum(cls, value):
@@ -78,11 +85,11 @@ class UserBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of UserBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -92,7 +99,7 @@ class UserBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -103,7 +110,7 @@ class UserBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of UserBase from a dict"""
         if obj is None:
             return None

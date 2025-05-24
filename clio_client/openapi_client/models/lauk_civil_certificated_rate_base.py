@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing_extensions import Self
 
 
@@ -30,32 +36,32 @@ class LaukCivilCertificatedRateBase(BaseModel):
     """
     LaukCivilCertificatedRateBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *LaukCivilCertificatedRate*")
-    activity: Optional[StrictStr] = Field(default=None, description="Activity of the *LaukCivilCertificatedRate*")
-    activity_sub_category: Optional[StrictStr] = Field(default=None, description="Activity sub-category")
-    activity_type: Optional[StrictStr] = Field(default=None, description="Activity type")
-    attended_several_hearings_for_multiple_clients: Optional[StrictBool] = Field(default=None, description="Multiple hearings for multiple clients indicator")
-    category_of_law: Optional[StrictStr] = Field(default=None, description="Category of law")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *LaukCivilCertificatedRate* was created (as a ISO-8601 timestamp)")
-    change_of_solicitor: Optional[StrictBool] = Field(default=None, description="Change of solicitor indicator")
-    court: Optional[StrictStr] = Field(default=None, description="Court associated")
-    eligible_for_sqm: Optional[StrictBool] = Field(default=None, description="SQM eligibility (Legal Aid England and Wales)")
-    exceptional: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Fee applied for high activity count")
-    exceptional_warning: Optional[StrictStr] = Field(default=None, description="Warning for exceptional status")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *LaukCivilCertificatedRate*")
-    fee: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Fee amount")
-    fee_scheme: Optional[StrictStr] = Field(default=None, description="Fee scheme")
-    first_conducting_solicitor: Optional[StrictBool] = Field(default=None, description="First conducting solicitor indicator")
-    key: Optional[StrictStr] = Field(default=None, description="Unique key")
-    number_of_clients: Optional[StrictStr] = Field(default=None, description="Number of clients")
-    party: Optional[StrictStr] = Field(default=None, description="Associated party")
-    post_transfer_clients_represented: Optional[StrictStr] = Field(default=None, description="Post-transfer clients represented")
-    rate_type: Optional[StrictStr] = Field(default=None, description="Rate type")
-    region: Optional[StrictStr] = Field(default=None, description="Region")
-    session_type: Optional[StrictStr] = Field(default=None, description="Session type")
-    user_type: Optional[StrictStr] = Field(default=None, description="User type")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *LaukCivilCertificatedRate* was last updated (as a ISO-8601 timestamp)")
-    __properties: ClassVar[List[str]] = ["id", "activity", "activity_sub_category", "activity_type", "attended_several_hearings_for_multiple_clients", "category_of_law", "created_at", "change_of_solicitor", "court", "eligible_for_sqm", "exceptional", "exceptional_warning", "etag", "fee", "fee_scheme", "first_conducting_solicitor", "key", "number_of_clients", "party", "post_transfer_clients_represented", "rate_type", "region", "session_type", "user_type", "updated_at"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *LaukCivilCertificatedRate*")
+    activity: StrictStr | None = Field(default=None, description="Activity of the *LaukCivilCertificatedRate*")
+    activity_sub_category: StrictStr | None = Field(default=None, description="Activity sub-category")
+    activity_type: StrictStr | None = Field(default=None, description="Activity type")
+    attended_several_hearings_for_multiple_clients: StrictBool | None = Field(default=None, description="Multiple hearings for multiple clients indicator")
+    category_of_law: StrictStr | None = Field(default=None, description="Category of law")
+    created_at: datetime | None = Field(default=None, description="The time the *LaukCivilCertificatedRate* was created (as a ISO-8601 timestamp)")
+    change_of_solicitor: StrictBool | None = Field(default=None, description="Change of solicitor indicator")
+    court: StrictStr | None = Field(default=None, description="Court associated")
+    eligible_for_sqm: StrictBool | None = Field(default=None, description="SQM eligibility (Legal Aid England and Wales)")
+    exceptional: StrictFloat | StrictInt | None = Field(default=None, description="Fee applied for high activity count")
+    exceptional_warning: StrictStr | None = Field(default=None, description="Warning for exceptional status")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *LaukCivilCertificatedRate*")
+    fee: StrictFloat | StrictInt | None = Field(default=None, description="Fee amount")
+    fee_scheme: StrictStr | None = Field(default=None, description="Fee scheme")
+    first_conducting_solicitor: StrictBool | None = Field(default=None, description="First conducting solicitor indicator")
+    key: StrictStr | None = Field(default=None, description="Unique key")
+    number_of_clients: StrictStr | None = Field(default=None, description="Number of clients")
+    party: StrictStr | None = Field(default=None, description="Associated party")
+    post_transfer_clients_represented: StrictStr | None = Field(default=None, description="Post-transfer clients represented")
+    rate_type: StrictStr | None = Field(default=None, description="Rate type")
+    region: StrictStr | None = Field(default=None, description="Region")
+    session_type: StrictStr | None = Field(default=None, description="Session type")
+    user_type: StrictStr | None = Field(default=None, description="User type")
+    updated_at: datetime | None = Field(default=None, description="The time the *LaukCivilCertificatedRate* was last updated (as a ISO-8601 timestamp)")
+    __properties: ClassVar[list[str]] = ["id", "activity", "activity_sub_category", "activity_type", "attended_several_hearings_for_multiple_clients", "category_of_law", "created_at", "change_of_solicitor", "court", "eligible_for_sqm", "exceptional", "exceptional_warning", "etag", "fee", "fee_scheme", "first_conducting_solicitor", "key", "number_of_clients", "party", "post_transfer_clients_represented", "rate_type", "region", "session_type", "user_type", "updated_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,11 +80,11 @@ class LaukCivilCertificatedRateBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of LaukCivilCertificatedRateBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -88,7 +94,7 @@ class LaukCivilCertificatedRateBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -99,7 +105,7 @@ class LaukCivilCertificatedRateBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of LaukCivilCertificatedRateBase from a dict"""
         if obj is None:
             return None

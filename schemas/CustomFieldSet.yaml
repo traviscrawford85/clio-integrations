@@ -1,0 +1,149 @@
+$defs:
+  CustomFieldBase:
+    description: CustomFieldBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *CustomField*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *CustomField*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CustomField* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *CustomField* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *CustomField*
+        title: Name
+      parent_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Type of object the *CustomField* is for
+        title: Parent Type
+      field_type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Field type of the *CustomField*
+        title: Field Type
+      displayed:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomField* is displayed by default
+        title: Displayed
+      deleted:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomField* is deleted for future use
+        title: Deleted
+      required:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the *CustomField* requires a value
+        title: Required
+      display_order:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The display position of the *CustomField*
+        title: Display Order
+    title: CustomFieldBase
+    type: object
+description: CustomFieldSet
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *CustomFieldSet*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *CustomFieldSet*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the custom field set.
+    title: Name
+  parent_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Type of object the *CustomFieldSet* is for.
+    title: Parent Type
+  displayed:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the *CustomFieldSet* should be displayed by default.
+    title: Displayed
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CustomFieldSet* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *CustomFieldSet* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  custom_fields:
+    anyOf:
+    - items:
+        $ref: '#/$defs/CustomFieldBase'
+      type: array
+    - type: 'null'
+    default: null
+    description: CustomField
+    title: Custom Fields
+title: CustomFieldSet
+type: object

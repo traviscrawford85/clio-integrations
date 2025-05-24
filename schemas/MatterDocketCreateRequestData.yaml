@@ -1,0 +1,56 @@
+$defs:
+  MatterDocketCreateRequestDataJurisdiction:
+    description: MatterDocketCreateRequestDataJurisdiction
+    properties:
+      id:
+        description: The unique identifier for a single Jurisdiction associated with
+          the MatterDocket. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: MatterDocketCreateRequestDataJurisdiction
+    type: object
+  MatterDocketCreateRequestDataTrigger:
+    description: MatterDocketCreateRequestDataTrigger
+    properties:
+      id:
+        description: The unique identifier for a single Trigger associated with the
+          MatterDocket. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: MatterDocketCreateRequestDataTrigger
+    type: object
+description: MatterDocketCreateRequestData
+properties:
+  jurisdiction:
+    $ref: '#/$defs/MatterDocketCreateRequestDataJurisdiction'
+  name:
+    description: Name of the MatterDocket.
+    title: Name
+    type: string
+  start_date:
+    description: Start date of the MatterDocket. (Expects an ISO-8601 date).
+    format: date
+    title: Start Date
+    type: string
+  start_time:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Start time of the MatterDocket. Required for some triggers.  (Expects
+      an ISO-8601 timestamp).
+    title: Start Time
+  trigger:
+    $ref: '#/$defs/MatterDocketCreateRequestDataTrigger'
+required:
+- jurisdiction
+- name
+- start_date
+- trigger
+title: MatterDocketCreateRequestData
+type: object

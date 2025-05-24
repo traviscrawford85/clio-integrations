@@ -1,0 +1,19 @@
+description: MatterBalanceBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *MatterBalance*
+    title: Id
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount of balance of a matter.
+    title: Amount
+title: MatterBalanceBase
+type: object

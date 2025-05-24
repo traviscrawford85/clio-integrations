@@ -1,0 +1,90 @@
+$defs:
+  TrustRequestCreateRequestData:
+    description: TrustRequestCreateRequestData
+    properties:
+      approved:
+        description: Whether or not the TrustRequest should be automatically approved.
+        title: Approved
+        type: boolean
+      client_id:
+        description: The client_id associated to the TrustRequest
+        title: Client Id
+        type: integer
+      due_date:
+        description: The date the TrustRequest is due (Expects an ISO-8601 date).
+        format: date
+        title: Due Date
+        type: string
+      issue_date:
+        description: The date the TrustRequest is issued (Expects an ISO-8601 date).
+        format: date
+        title: Issue Date
+        type: string
+      matter:
+        anyOf:
+        - items:
+            $ref: '#/$defs/TrustRequestCreateRequestDataMatterInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Matter
+      note:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The client level TrustRequest note
+        title: Note
+      trust_amount:
+        anyOf:
+        - type: number
+        - type: integer
+        description: The TrustRequest's amount
+        title: Trust Amount
+      trust_type:
+        description: The type of TrustRequest
+        title: Trust Type
+        type: string
+    required:
+    - approved
+    - client_id
+    - due_date
+    - issue_date
+    - trust_amount
+    - trust_type
+    title: TrustRequestCreateRequestData
+    type: object
+  TrustRequestCreateRequestDataMatterInner:
+    description: TrustRequestCreateRequestDataMatterInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The matter id associated to the TrustRequest
+        title: Id
+      trust_amount:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The matter level TrustRequest's amount
+        title: Trust Amount
+      note:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The client level TrustRequest note
+        title: Note
+    title: TrustRequestCreateRequestDataMatterInner
+    type: object
+description: TrustRequestCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/TrustRequestCreateRequestData'
+required:
+- data
+title: TrustRequestCreateRequest
+type: object

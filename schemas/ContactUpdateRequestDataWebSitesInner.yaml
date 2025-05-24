@@ -1,0 +1,42 @@
+description: ContactUpdateRequestDataWebSitesInner
+properties:
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: Other
+    description: Name of the WebSite.
+    title: Name
+  address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: URL of the WebSite.
+    title: Address
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single WebSite associated with the Contact.
+      The keyword `null` is not valid for this field.
+    title: Id
+  default_web_site:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the Contact should be the default website for the
+      Contact.
+    title: Default Web Site
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The destroy flag. If the flag is set to `true` and the unique identifier
+      of the associated WebSite is present, the WebSite is deleted from the Contact.
+    title: Destroy
+title: ContactUpdateRequestDataWebSitesInner
+type: object

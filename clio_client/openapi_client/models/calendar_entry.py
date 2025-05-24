@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,26 +18,26 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.activity_base import ActivityBase
 from clio_client.openapi_client.models.attendee_base import AttendeeBase
 from clio_client.openapi_client.models.calendar_base import CalendarBase
-from clio_client.openapi_client.models.calendar_entry_base import \
-    CalendarEntryBase
-from clio_client.openapi_client.models.calendar_entry_event_type_base import \
-    CalendarEntryEventTypeBase
-from clio_client.openapi_client.models.conference_meeting_base import \
-    ConferenceMeetingBase
-from clio_client.openapi_client.models.external_property_base import \
-    ExternalPropertyBase
+from clio_client.openapi_client.models.calendar_entry_base import CalendarEntryBase
+from clio_client.openapi_client.models.calendar_entry_event_type_base import (
+    CalendarEntryEventTypeBase,
+)
+from clio_client.openapi_client.models.conference_meeting_base import (
+    ConferenceMeetingBase,
+)
+from clio_client.openapi_client.models.external_property_base import (
+    ExternalPropertyBase,
+)
 from clio_client.openapi_client.models.matter_base import MatterBase
-from clio_client.openapi_client.models.matter_docket_base import \
-    MatterDocketBase
+from clio_client.openapi_client.models.matter_docket_base import MatterDocketBase
 from clio_client.openapi_client.models.reminder_base import ReminderBase
 
 
@@ -46,35 +45,35 @@ class CalendarEntry(BaseModel):
     """
     CalendarEntry
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for the *CalendarEntry*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *CalendarEntry*")
-    summary: Optional[StrictStr] = Field(default=None, description="A short summary of the *CalendarEntry*")
-    description: Optional[StrictStr] = Field(default=None, description="A detailed description of the *CalendarEntry*")
-    location: Optional[StrictStr] = Field(default=None, description="The geographic location of the *CalendarEntry*")
-    start_at: Optional[datetime] = Field(default=None, description="The time the *CalendarEntry* starts (as an ISO-8601 timestamp)")
-    end_at: Optional[datetime] = Field(default=None, description="The time the *CalendarEntry* ends (as an ISO-8601 timestamp)")
-    all_day: Optional[StrictBool] = Field(default=None, description="Whether the event is all day")
-    recurrence_rule: Optional[StrictStr] = Field(default=None, description="Recurrence rule for expanding")
-    parent_calendar_entry_id: Optional[StrictInt] = Field(default=None, description="Identifier for the parent *CalendarEntry*")
-    court_rule: Optional[StrictBool] = Field(default=None, description="Whether this event is associated with a Court Rule")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *CalendarEntry* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *CalendarEntry* was last updated (as a ISO-8601 timestamp)")
-    permission: Optional[StrictStr] = Field(default=None, description="The view permission for the current user, will return 'viewer' when permission is 'limited_viewer' and the user is an attendee.")
-    calendar_owner_id: Optional[StrictInt] = Field(default=None, description="The id of the calendar owner.")
-    start_at_time_zone: Optional[StrictStr] = Field(default=None, description="Original start at time zone of the event.")
-    time_entries_count: Optional[StrictInt] = Field(default=None, description="The number of `TimeEntry` activities associated with the *CalendarEntry*")
-    time_entries: Optional[List[ActivityBase]] = Field(default=None, description="Activity")
-    conference_meeting: Optional[ConferenceMeetingBase] = None
-    matter: Optional[MatterBase] = None
-    matter_docket: Optional[MatterDocketBase] = None
-    calendar_owner: Optional[CalendarBase] = None
-    parent_calendar_entry: Optional[CalendarEntryBase] = None
-    calendar_entry_event_type: Optional[CalendarEntryEventTypeBase] = None
-    attendees: Optional[List[AttendeeBase]] = Field(default=None, description="Attendee")
-    calendars: Optional[List[CalendarBase]] = Field(default=None, description="Calendar")
-    reminders: Optional[List[ReminderBase]] = Field(default=None, description="Reminder")
-    external_properties: Optional[List[ExternalPropertyBase]] = Field(default=None, description="ExternalProperty")
-    __properties: ClassVar[List[str]] = ["id", "etag", "summary", "description", "location", "start_at", "end_at", "all_day", "recurrence_rule", "parent_calendar_entry_id", "court_rule", "created_at", "updated_at", "permission", "calendar_owner_id", "start_at_time_zone", "time_entries_count", "time_entries", "conference_meeting", "matter", "matter_docket", "calendar_owner", "parent_calendar_entry", "calendar_entry_event_type", "attendees", "calendars", "reminders", "external_properties"]
+    id: StrictStr | None = Field(default=None, description="Unique identifier for the *CalendarEntry*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *CalendarEntry*")
+    summary: StrictStr | None = Field(default=None, description="A short summary of the *CalendarEntry*")
+    description: StrictStr | None = Field(default=None, description="A detailed description of the *CalendarEntry*")
+    location: StrictStr | None = Field(default=None, description="The geographic location of the *CalendarEntry*")
+    start_at: datetime | None = Field(default=None, description="The time the *CalendarEntry* starts (as an ISO-8601 timestamp)")
+    end_at: datetime | None = Field(default=None, description="The time the *CalendarEntry* ends (as an ISO-8601 timestamp)")
+    all_day: StrictBool | None = Field(default=None, description="Whether the event is all day")
+    recurrence_rule: StrictStr | None = Field(default=None, description="Recurrence rule for expanding")
+    parent_calendar_entry_id: StrictInt | None = Field(default=None, description="Identifier for the parent *CalendarEntry*")
+    court_rule: StrictBool | None = Field(default=None, description="Whether this event is associated with a Court Rule")
+    created_at: datetime | None = Field(default=None, description="The time the *CalendarEntry* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *CalendarEntry* was last updated (as a ISO-8601 timestamp)")
+    permission: StrictStr | None = Field(default=None, description="The view permission for the current user, will return 'viewer' when permission is 'limited_viewer' and the user is an attendee.")
+    calendar_owner_id: StrictInt | None = Field(default=None, description="The id of the calendar owner.")
+    start_at_time_zone: StrictStr | None = Field(default=None, description="Original start at time zone of the event.")
+    time_entries_count: StrictInt | None = Field(default=None, description="The number of `TimeEntry` activities associated with the *CalendarEntry*")
+    time_entries: list[ActivityBase] | None = Field(default=None, description="Activity")
+    conference_meeting: ConferenceMeetingBase | None = None
+    matter: MatterBase | None = None
+    matter_docket: MatterDocketBase | None = None
+    calendar_owner: CalendarBase | None = None
+    parent_calendar_entry: CalendarEntryBase | None = None
+    calendar_entry_event_type: CalendarEntryEventTypeBase | None = None
+    attendees: list[AttendeeBase] | None = Field(default=None, description="Attendee")
+    calendars: list[CalendarBase] | None = Field(default=None, description="Calendar")
+    reminders: list[ReminderBase] | None = Field(default=None, description="Reminder")
+    external_properties: list[ExternalPropertyBase] | None = Field(default=None, description="ExternalProperty")
+    __properties: ClassVar[list[str]] = ["id", "etag", "summary", "description", "location", "start_at", "end_at", "all_day", "recurrence_rule", "parent_calendar_entry_id", "court_rule", "created_at", "updated_at", "permission", "calendar_owner_id", "start_at_time_zone", "time_entries_count", "time_entries", "conference_meeting", "matter", "matter_docket", "calendar_owner", "parent_calendar_entry", "calendar_entry_event_type", "attendees", "calendars", "reminders", "external_properties"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,11 +92,11 @@ class CalendarEntry(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of CalendarEntry from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -107,7 +106,7 @@ class CalendarEntry(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -171,7 +170,7 @@ class CalendarEntry(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of CalendarEntry from a dict"""
         if obj is None:
             return None

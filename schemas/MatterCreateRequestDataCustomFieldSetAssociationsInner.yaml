@@ -1,0 +1,30 @@
+$defs:
+  ContactCreateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet:
+    description: ContactCreateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+    properties:
+      id:
+        description: The unique identifier for a single CustomFieldSet associated
+          with the CustomFieldSetAssociation. The keyword `null` is not valid for
+          this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: ContactCreateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet
+    type: object
+description: MatterCreateRequestDataCustomFieldSetAssociationsInner
+properties:
+  display_order:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The order to display the CustomFieldSet in a Matter. If not specified,
+      it is added as the last CustomFieldSet of the Matter.
+    title: Display Order
+  custom_field_set:
+    $ref: '#/$defs/ContactCreateRequestDataCustomFieldSetAssociationsInnerCustomFieldSet'
+required:
+- custom_field_set
+title: MatterCreateRequestDataCustomFieldSetAssociationsInner
+type: object

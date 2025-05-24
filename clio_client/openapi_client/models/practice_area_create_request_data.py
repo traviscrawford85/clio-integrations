@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,7 +17,7 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing_extensions import Self
@@ -28,10 +27,10 @@ class PracticeAreaCreateRequestData(BaseModel):
     """
     PracticeAreaCreateRequestData
     """ # noqa: E501
-    category: Optional[StrictStr] = Field(default=None, description="The practice area category associated with the *PracticeArea*. The friendly display values corresponding to the enum strings: * Administrative * Admiralty / Maritime * Anti-Trust / Competition * Appellate * Banking / Finance * Bankruptcy * Business Formation / Compliance * Civil Litigation * Civil Rights / Constitutional * Collections & Debt * Commercial / Sale of Goods * Commercial Litigation * Construction * Consumer Protection * Contracts * Corporate Litigation * Criminal * Disability / Social Security * Education * Elder * Employment / Labor * Energy / Environmental * Ethics * Family * Food / Drug * General Practice * Government * Healthcare * Immigration * In-House Counsel * Insurance * Intellectual Property * International * Juvenile * Legal Aid * Mediation / Arbitration * Medical Malpractice * Military * Multi-Practice * Non-Profit / Pro Bono * Other * Personal Injury * Privacy / Information Security * Private Client * Product Liability * Real Estate * Science / Technology * Securities / Mergers & Acquisitions * Small Claims * Sports / Entertainment / Gaming * Tax * Telecommunications * Traffic Offenses * Transportation * Tribal * Trusts * Wills & Estates * Worker's Compensation ")
-    code: Optional[StrictStr] = Field(default=None, description="The code attached to the PracticeArea.")
+    category: StrictStr | None = Field(default=None, description="The practice area category associated with the *PracticeArea*. The friendly display values corresponding to the enum strings: * Administrative * Admiralty / Maritime * Anti-Trust / Competition * Appellate * Banking / Finance * Bankruptcy * Business Formation / Compliance * Civil Litigation * Civil Rights / Constitutional * Collections & Debt * Commercial / Sale of Goods * Commercial Litigation * Construction * Consumer Protection * Contracts * Corporate Litigation * Criminal * Disability / Social Security * Education * Elder * Employment / Labor * Energy / Environmental * Ethics * Family * Food / Drug * General Practice * Government * Healthcare * Immigration * In-House Counsel * Insurance * Intellectual Property * International * Juvenile * Legal Aid * Mediation / Arbitration * Medical Malpractice * Military * Multi-Practice * Non-Profit / Pro Bono * Other * Personal Injury * Privacy / Information Security * Private Client * Product Liability * Real Estate * Science / Technology * Securities / Mergers & Acquisitions * Small Claims * Sports / Entertainment / Gaming * Tax * Telecommunications * Traffic Offenses * Transportation * Tribal * Trusts * Wills & Estates * Worker's Compensation ")
+    code: StrictStr | None = Field(default=None, description="The code attached to the PracticeArea.")
     name: StrictStr = Field(description="Name of the PracticeArea.")
-    __properties: ClassVar[List[str]] = ["category", "code", "name"]
+    __properties: ClassVar[list[str]] = ["category", "code", "name"]
 
     @field_validator('category')
     def category_validate_enum(cls, value):
@@ -60,11 +59,11 @@ class PracticeAreaCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of PracticeAreaCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -74,7 +73,7 @@ class PracticeAreaCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -85,7 +84,7 @@ class PracticeAreaCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of PracticeAreaCreateRequestData from a dict"""
         if obj is None:
             return None

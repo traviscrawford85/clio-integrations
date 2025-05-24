@@ -11,6 +11,7 @@
 
     Do not edit the class manually.
 """  # noqa: E501
+from datetime import date
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 from pydantic import Field, StrictFloat, StrictInt, StrictStr, validate_call
@@ -18,13 +19,13 @@ from typing_extensions import Annotated
 
 from clio_client.openapi_client.api_client import ApiClient
 from clio_client.openapi_client.models.medical_bill_show import MedicalBillShow
-from clio_client.openapi_client.models.medical_bill_update_request import \
-from clio_client.openapi_client.api_response import ApiResponse
-from typing import List
-from typing import Dict
-from typing import Optional
-from typing import Union
-from datetime import date
+from clio_client.openapi_client.models.medical_bill_update_request import (
+    ApiResponse,
+    clio_client.openapi_client.api_response,
+    from,
+    import,
+)
+
     MedicalBillUpdateRequest
 
 

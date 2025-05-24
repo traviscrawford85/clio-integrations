@@ -1,0 +1,11 @@
+description: ClioPaymentsLinkUpdateRequestData
+properties:
+  expired:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Setting this will update the payment link to be immediately expired.
+    title: Expired
+title: ClioPaymentsLinkUpdateRequestData
+type: object

@@ -1,0 +1,14 @@
+description: ContactCreateRequestDataCoCounselRate
+properties:
+  rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: 'Billing rate if the Contact is a co-counsel.  Note: this value can
+      only be provided during PATCH requests. It cannot be provided at the time a
+      Contact is created (i.e. POST requests). '
+    title: Rate
+title: ContactCreateRequestDataCoCounselRate
+type: object

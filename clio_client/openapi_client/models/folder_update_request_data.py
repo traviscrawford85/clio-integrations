@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,29 +17,32 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.folder_create_request_data_document_category import \
-    FolderCreateRequestDataDocumentCategory
-from clio_client.openapi_client.models.folder_update_request_data_external_properties_inner import \
-    FolderUpdateRequestDataExternalPropertiesInner
-from clio_client.openapi_client.models.folder_update_request_data_parent import \
-    FolderUpdateRequestDataParent
+from clio_client.openapi_client.models.folder_create_request_data_document_category import (
+    FolderCreateRequestDataDocumentCategory,
+)
+from clio_client.openapi_client.models.folder_update_request_data_external_properties_inner import (
+    FolderUpdateRequestDataExternalPropertiesInner,
+)
+from clio_client.openapi_client.models.folder_update_request_data_parent import (
+    FolderUpdateRequestDataParent,
+)
 
 
 class FolderUpdateRequestData(BaseModel):
     """
     FolderUpdateRequestData
     """ # noqa: E501
-    document_category: Optional[FolderCreateRequestDataDocumentCategory] = None
-    external_properties: Optional[List[FolderUpdateRequestDataExternalPropertiesInner]] = None
-    name: Optional[StrictStr] = Field(default=None, description="Name of the Folder")
-    parent: Optional[FolderUpdateRequestDataParent] = None
-    restore: Optional[StrictBool] = Field(default=None, description="Whether or not a trashed Folder should be restored.")
-    __properties: ClassVar[List[str]] = ["document_category", "external_properties", "name", "parent", "restore"]
+    document_category: FolderCreateRequestDataDocumentCategory | None = None
+    external_properties: list[FolderUpdateRequestDataExternalPropertiesInner] | None = None
+    name: StrictStr | None = Field(default=None, description="Name of the Folder")
+    parent: FolderUpdateRequestDataParent | None = None
+    restore: StrictBool | None = Field(default=None, description="Whether or not a trashed Folder should be restored.")
+    __properties: ClassVar[list[str]] = ["document_category", "external_properties", "name", "parent", "restore"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,11 +61,11 @@ class FolderUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of FolderUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -73,7 +75,7 @@ class FolderUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -97,7 +99,7 @@ class FolderUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of FolderUpdateRequestData from a dict"""
         if obj is None:
             return None

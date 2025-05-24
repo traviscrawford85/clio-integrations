@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing_extensions import Self
 
 
@@ -30,92 +28,92 @@ class LegalAidUkMatterBase(BaseModel):
     """
     LegalAidUkMatterBase
     """ # noqa: E501
-    access_point: Optional[StrictStr] = Field(default=None, description="Access point")
-    laa_office_number: Optional[StrictStr] = Field(default=None, description="LAA office number")
-    ait_hearing_centre: Optional[StrictInt] = Field(default=None, description="AIT hearing centre")
-    attended_several_hearings_acting_for_multiple_clients: Optional[StrictBool] = Field(default=None, description="Attended several hearings acting for multiple clients")
-    bill_ho_ucn: Optional[StrictStr] = Field(default=None, description="Bill HO UCN")
-    bill_number_of_attendances: Optional[StrictInt] = Field(default=None, description="Bill number of attendances")
-    bill_outcome_for_the_client_code: Optional[StrictInt] = Field(default=None, description="Bill outcome for the client code")
-    bill_stage_reached_code: Optional[StrictInt] = Field(default=None, description="Bill stage reached code")
-    case_reference: Optional[StrictStr] = Field(default=None, description="Case reference")
-    case_start_date: Optional[date] = Field(default=None, description="Case start date")
-    category: Optional[StrictInt] = Field(default=None, description="Category")
-    category_as_string: Optional[StrictStr] = Field(default=None, description="Category as string")
-    certificate_effective_date: Optional[date] = Field(default=None, description="Certificate effective date")
-    certificate_expiration_date: Optional[date] = Field(default=None, description="Certificate expiration date")
-    certificate_number: Optional[StrictStr] = Field(default=None, description="Certificate number")
-    certificate_scope: Optional[StrictStr] = Field(default=None, description="Certificate scope")
-    certification_type: Optional[StrictInt] = Field(default=None, description="Certification type")
-    change_of_solicitor: Optional[StrictBool] = Field(default=None, description="Change of solicitor")
-    client_equal_opportunity_monitoring: Optional[StrictStr] = Field(default=None, description="Client equal opportunity monitoring")
-    client_type: Optional[StrictInt] = Field(default=None, description="Client type")
-    clr_start_date: Optional[date] = Field(default=None, description="CLR start date")
-    clr_total_profit_costs: Optional[StrictStr] = Field(default=None, description="CLR total profit costs")
-    cost_limit: Optional[StrictStr] = Field(default=None, description="Cost limit")
-    counsel: Optional[StrictInt] = Field(default=None, description="Counsel")
-    court: Optional[StrictInt] = Field(default=None, description="Court")
-    court_id: Optional[StrictInt] = Field(default=None, description="Court ID")
-    court_id_code: Optional[StrictStr] = Field(default=None, description="Court ID code")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *LegalAidUkMatter* was created (as a ISO-8601 timestamp)")
-    delivery_location: Optional[StrictStr] = Field(default=None, description="Delivery location")
-    dscc_number: Optional[StrictStr] = Field(default=None, description="DSCC number")
-    duty_solicitor: Optional[StrictBool] = Field(default=None, description="Duty solicitor")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *LegalAidUkMatter*")
-    exceptional_case_funding_reference: Optional[StrictStr] = Field(default=None, description="Exceptional case funding reference")
-    expense_limit: Optional[StrictStr] = Field(default=None, description="Expense limit")
-    fee_scheme: Optional[StrictInt] = Field(default=None, description="Fee scheme")
-    first_conducting_solicitor: Optional[StrictBool] = Field(default=None, description="First conducting solicitor")
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *LegalAidUkMatter*")
-    irc_surgery: Optional[StrictStr] = Field(default=None, description="Irc surgery")
-    legacy_case: Optional[StrictStr] = Field(default=None, description="Legacy case")
-    legal_representation_number: Optional[StrictStr] = Field(default=None, description="Legal representation number")
-    lh_total_disbursements: Optional[StrictStr] = Field(default=None, description="LH total disbursements")
-    lh_start_date: Optional[StrictStr] = Field(default=None, description="LH start date")
-    lh_total_profit_costs: Optional[StrictStr] = Field(default=None, description="LH total profit costs")
-    linked_matter_id: Optional[StrictInt] = Field(default=None, description="Linked matter ID")
-    local_authority_number: Optional[StrictStr] = Field(default=None, description="Local authority number")
-    maat_id: Optional[StrictStr] = Field(default=None, description="MAAT ID")
-    matter_type: Optional[StrictInt] = Field(default=None, description="Matter type")
-    matter_type_code: Optional[StrictStr] = Field(default=None, description="Matter type code")
-    matter_type_1: Optional[StrictInt] = Field(default=None, description="Matter type 1")
-    matter_type_1_code: Optional[StrictStr] = Field(default=None, description="Matter type 1 code")
-    matter_type_1_title: Optional[StrictStr] = Field(default=None, description="Matter type 1 title")
-    matter_type_2: Optional[StrictInt] = Field(default=None, description="Matter type 2")
-    matter_type_2_code: Optional[StrictStr] = Field(default=None, description="Matter type 2 code")
-    matter_type_2_title: Optional[StrictStr] = Field(default=None, description="Matter type 2 title")
-    matter_types_combined: Optional[StrictStr] = Field(default=None, description="Matter types combined")
-    number_of_clients_seen_at_surgery: Optional[StrictInt] = Field(default=None, description="Number of clients seen at surgery")
-    number_of_clients: Optional[StrictInt] = Field(default=None, description="Number of clients")
-    party: Optional[StrictInt] = Field(default=None, description="Party")
-    police_station: Optional[StrictStr] = Field(default=None, description="Police station")
-    post_transfer_clients_represented: Optional[StrictInt] = Field(default=None, description="Post transfer clients represented")
-    postal_application_accepted: Optional[StrictStr] = Field(default=None, description="Postal application accepted")
-    prior_authority_reference: Optional[StrictStr] = Field(default=None, description="Priory authority reference")
-    prison_id: Optional[StrictInt] = Field(default=None, description="Prison ID")
-    prison_law_prior_approval_number: Optional[StrictStr] = Field(default=None, description="Prison law prior approval number")
-    procurement_area: Optional[StrictStr] = Field(default=None, description="Procurement area")
-    region: Optional[StrictInt] = Field(default=None, description="Region")
-    related_claims_number: Optional[StrictStr] = Field(default=None, description="Related claims number")
-    representation_order_date: Optional[date] = Field(default=None, description="Representation order date")
-    schedule_reference_number: Optional[StrictStr] = Field(default=None, description="Schedule reference number")
-    scheme_id: Optional[StrictStr] = Field(default=None, description="Scheme ID")
-    session_type: Optional[StrictInt] = Field(default=None, description="Session type")
-    solicitor_type: Optional[StrictInt] = Field(default=None, description="Solicitor type")
-    standard_fee_category: Optional[StrictInt] = Field(default=None, description="Standard fee category")
-    surgery_clients_resulting_in_a_legal_help_matter_opened: Optional[StrictInt] = Field(default=None, description="Surgery clients resulting in a legal help matter opened")
-    surgery_clients: Optional[StrictInt] = Field(default=None, description="Surgery clients")
-    surgery_date: Optional[date] = Field(default=None, description="Surgery date")
-    transfer_date: Optional[date] = Field(default=None, description="Transfer date")
-    type_of_advice: Optional[StrictInt] = Field(default=None, description="Type of advice")
-    type_of_service: Optional[StrictStr] = Field(default=None, description="Type of service")
-    ucn: Optional[StrictStr] = Field(default=None, description="UCN")
-    ufn: Optional[StrictStr] = Field(default=None, description="UFN")
-    undesignated_area_court: Optional[StrictBool] = Field(default=None, description="Undesignated area court")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *LegalAidUkMatter* was last updated (as a ISO-8601 timestamp)")
-    user_type: Optional[StrictInt] = Field(default=None, description="User type")
-    youth_court: Optional[StrictBool] = Field(default=None, description="Youth court")
-    __properties: ClassVar[List[str]] = ["access_point", "laa_office_number", "ait_hearing_centre", "attended_several_hearings_acting_for_multiple_clients", "bill_ho_ucn", "bill_number_of_attendances", "bill_outcome_for_the_client_code", "bill_stage_reached_code", "case_reference", "case_start_date", "category", "category_as_string", "certificate_effective_date", "certificate_expiration_date", "certificate_number", "certificate_scope", "certification_type", "change_of_solicitor", "client_equal_opportunity_monitoring", "client_type", "clr_start_date", "clr_total_profit_costs", "cost_limit", "counsel", "court", "court_id", "court_id_code", "created_at", "delivery_location", "dscc_number", "duty_solicitor", "etag", "exceptional_case_funding_reference", "expense_limit", "fee_scheme", "first_conducting_solicitor", "id", "irc_surgery", "legacy_case", "legal_representation_number", "lh_total_disbursements", "lh_start_date", "lh_total_profit_costs", "linked_matter_id", "local_authority_number", "maat_id", "matter_type", "matter_type_code", "matter_type_1", "matter_type_1_code", "matter_type_1_title", "matter_type_2", "matter_type_2_code", "matter_type_2_title", "matter_types_combined", "number_of_clients_seen_at_surgery", "number_of_clients", "party", "police_station", "post_transfer_clients_represented", "postal_application_accepted", "prior_authority_reference", "prison_id", "prison_law_prior_approval_number", "procurement_area", "region", "related_claims_number", "representation_order_date", "schedule_reference_number", "scheme_id", "session_type", "solicitor_type", "standard_fee_category", "surgery_clients_resulting_in_a_legal_help_matter_opened", "surgery_clients", "surgery_date", "transfer_date", "type_of_advice", "type_of_service", "ucn", "ufn", "undesignated_area_court", "updated_at", "user_type", "youth_court"]
+    access_point: StrictStr | None = Field(default=None, description="Access point")
+    laa_office_number: StrictStr | None = Field(default=None, description="LAA office number")
+    ait_hearing_centre: StrictInt | None = Field(default=None, description="AIT hearing centre")
+    attended_several_hearings_acting_for_multiple_clients: StrictBool | None = Field(default=None, description="Attended several hearings acting for multiple clients")
+    bill_ho_ucn: StrictStr | None = Field(default=None, description="Bill HO UCN")
+    bill_number_of_attendances: StrictInt | None = Field(default=None, description="Bill number of attendances")
+    bill_outcome_for_the_client_code: StrictInt | None = Field(default=None, description="Bill outcome for the client code")
+    bill_stage_reached_code: StrictInt | None = Field(default=None, description="Bill stage reached code")
+    case_reference: StrictStr | None = Field(default=None, description="Case reference")
+    case_start_date: date | None = Field(default=None, description="Case start date")
+    category: StrictInt | None = Field(default=None, description="Category")
+    category_as_string: StrictStr | None = Field(default=None, description="Category as string")
+    certificate_effective_date: date | None = Field(default=None, description="Certificate effective date")
+    certificate_expiration_date: date | None = Field(default=None, description="Certificate expiration date")
+    certificate_number: StrictStr | None = Field(default=None, description="Certificate number")
+    certificate_scope: StrictStr | None = Field(default=None, description="Certificate scope")
+    certification_type: StrictInt | None = Field(default=None, description="Certification type")
+    change_of_solicitor: StrictBool | None = Field(default=None, description="Change of solicitor")
+    client_equal_opportunity_monitoring: StrictStr | None = Field(default=None, description="Client equal opportunity monitoring")
+    client_type: StrictInt | None = Field(default=None, description="Client type")
+    clr_start_date: date | None = Field(default=None, description="CLR start date")
+    clr_total_profit_costs: StrictStr | None = Field(default=None, description="CLR total profit costs")
+    cost_limit: StrictStr | None = Field(default=None, description="Cost limit")
+    counsel: StrictInt | None = Field(default=None, description="Counsel")
+    court: StrictInt | None = Field(default=None, description="Court")
+    court_id: StrictInt | None = Field(default=None, description="Court ID")
+    court_id_code: StrictStr | None = Field(default=None, description="Court ID code")
+    created_at: datetime | None = Field(default=None, description="The time the *LegalAidUkMatter* was created (as a ISO-8601 timestamp)")
+    delivery_location: StrictStr | None = Field(default=None, description="Delivery location")
+    dscc_number: StrictStr | None = Field(default=None, description="DSCC number")
+    duty_solicitor: StrictBool | None = Field(default=None, description="Duty solicitor")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *LegalAidUkMatter*")
+    exceptional_case_funding_reference: StrictStr | None = Field(default=None, description="Exceptional case funding reference")
+    expense_limit: StrictStr | None = Field(default=None, description="Expense limit")
+    fee_scheme: StrictInt | None = Field(default=None, description="Fee scheme")
+    first_conducting_solicitor: StrictBool | None = Field(default=None, description="First conducting solicitor")
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *LegalAidUkMatter*")
+    irc_surgery: StrictStr | None = Field(default=None, description="Irc surgery")
+    legacy_case: StrictStr | None = Field(default=None, description="Legacy case")
+    legal_representation_number: StrictStr | None = Field(default=None, description="Legal representation number")
+    lh_total_disbursements: StrictStr | None = Field(default=None, description="LH total disbursements")
+    lh_start_date: StrictStr | None = Field(default=None, description="LH start date")
+    lh_total_profit_costs: StrictStr | None = Field(default=None, description="LH total profit costs")
+    linked_matter_id: StrictInt | None = Field(default=None, description="Linked matter ID")
+    local_authority_number: StrictStr | None = Field(default=None, description="Local authority number")
+    maat_id: StrictStr | None = Field(default=None, description="MAAT ID")
+    matter_type: StrictInt | None = Field(default=None, description="Matter type")
+    matter_type_code: StrictStr | None = Field(default=None, description="Matter type code")
+    matter_type_1: StrictInt | None = Field(default=None, description="Matter type 1")
+    matter_type_1_code: StrictStr | None = Field(default=None, description="Matter type 1 code")
+    matter_type_1_title: StrictStr | None = Field(default=None, description="Matter type 1 title")
+    matter_type_2: StrictInt | None = Field(default=None, description="Matter type 2")
+    matter_type_2_code: StrictStr | None = Field(default=None, description="Matter type 2 code")
+    matter_type_2_title: StrictStr | None = Field(default=None, description="Matter type 2 title")
+    matter_types_combined: StrictStr | None = Field(default=None, description="Matter types combined")
+    number_of_clients_seen_at_surgery: StrictInt | None = Field(default=None, description="Number of clients seen at surgery")
+    number_of_clients: StrictInt | None = Field(default=None, description="Number of clients")
+    party: StrictInt | None = Field(default=None, description="Party")
+    police_station: StrictStr | None = Field(default=None, description="Police station")
+    post_transfer_clients_represented: StrictInt | None = Field(default=None, description="Post transfer clients represented")
+    postal_application_accepted: StrictStr | None = Field(default=None, description="Postal application accepted")
+    prior_authority_reference: StrictStr | None = Field(default=None, description="Priory authority reference")
+    prison_id: StrictInt | None = Field(default=None, description="Prison ID")
+    prison_law_prior_approval_number: StrictStr | None = Field(default=None, description="Prison law prior approval number")
+    procurement_area: StrictStr | None = Field(default=None, description="Procurement area")
+    region: StrictInt | None = Field(default=None, description="Region")
+    related_claims_number: StrictStr | None = Field(default=None, description="Related claims number")
+    representation_order_date: date | None = Field(default=None, description="Representation order date")
+    schedule_reference_number: StrictStr | None = Field(default=None, description="Schedule reference number")
+    scheme_id: StrictStr | None = Field(default=None, description="Scheme ID")
+    session_type: StrictInt | None = Field(default=None, description="Session type")
+    solicitor_type: StrictInt | None = Field(default=None, description="Solicitor type")
+    standard_fee_category: StrictInt | None = Field(default=None, description="Standard fee category")
+    surgery_clients_resulting_in_a_legal_help_matter_opened: StrictInt | None = Field(default=None, description="Surgery clients resulting in a legal help matter opened")
+    surgery_clients: StrictInt | None = Field(default=None, description="Surgery clients")
+    surgery_date: date | None = Field(default=None, description="Surgery date")
+    transfer_date: date | None = Field(default=None, description="Transfer date")
+    type_of_advice: StrictInt | None = Field(default=None, description="Type of advice")
+    type_of_service: StrictStr | None = Field(default=None, description="Type of service")
+    ucn: StrictStr | None = Field(default=None, description="UCN")
+    ufn: StrictStr | None = Field(default=None, description="UFN")
+    undesignated_area_court: StrictBool | None = Field(default=None, description="Undesignated area court")
+    updated_at: datetime | None = Field(default=None, description="The time the *LegalAidUkMatter* was last updated (as a ISO-8601 timestamp)")
+    user_type: StrictInt | None = Field(default=None, description="User type")
+    youth_court: StrictBool | None = Field(default=None, description="Youth court")
+    __properties: ClassVar[list[str]] = ["access_point", "laa_office_number", "ait_hearing_centre", "attended_several_hearings_acting_for_multiple_clients", "bill_ho_ucn", "bill_number_of_attendances", "bill_outcome_for_the_client_code", "bill_stage_reached_code", "case_reference", "case_start_date", "category", "category_as_string", "certificate_effective_date", "certificate_expiration_date", "certificate_number", "certificate_scope", "certification_type", "change_of_solicitor", "client_equal_opportunity_monitoring", "client_type", "clr_start_date", "clr_total_profit_costs", "cost_limit", "counsel", "court", "court_id", "court_id_code", "created_at", "delivery_location", "dscc_number", "duty_solicitor", "etag", "exceptional_case_funding_reference", "expense_limit", "fee_scheme", "first_conducting_solicitor", "id", "irc_surgery", "legacy_case", "legal_representation_number", "lh_total_disbursements", "lh_start_date", "lh_total_profit_costs", "linked_matter_id", "local_authority_number", "maat_id", "matter_type", "matter_type_code", "matter_type_1", "matter_type_1_code", "matter_type_1_title", "matter_type_2", "matter_type_2_code", "matter_type_2_title", "matter_types_combined", "number_of_clients_seen_at_surgery", "number_of_clients", "party", "police_station", "post_transfer_clients_represented", "postal_application_accepted", "prior_authority_reference", "prison_id", "prison_law_prior_approval_number", "procurement_area", "region", "related_claims_number", "representation_order_date", "schedule_reference_number", "scheme_id", "session_type", "solicitor_type", "standard_fee_category", "surgery_clients_resulting_in_a_legal_help_matter_opened", "surgery_clients", "surgery_date", "transfer_date", "type_of_advice", "type_of_service", "ucn", "ufn", "undesignated_area_court", "updated_at", "user_type", "youth_court"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -134,11 +132,11 @@ class LegalAidUkMatterBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of LegalAidUkMatterBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -148,7 +146,7 @@ class LegalAidUkMatterBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -159,7 +157,7 @@ class LegalAidUkMatterBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of LegalAidUkMatterBase from a dict"""
         if obj is None:
             return None

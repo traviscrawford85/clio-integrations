@@ -1,0 +1,94 @@
+description: OutstandingClientBalanceBase
+properties:
+  associated_matter_ids:
+    anyOf:
+    - items:
+        type: integer
+      type: array
+    - type: 'null'
+    default: null
+    description: An array of Matter IDs associated with bills in the unpaid state
+    title: Associated Matter Ids
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *OutstandingClientBalance*
+    title: Etag
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *OutstandingClientBalance*
+    title: Id
+  last_payment_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date the most recent payment from the contact was received
+    title: Last Payment Date
+  last_shared_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date of the most recently shared bills through the outstanding
+      balance table
+    title: Last Shared Date
+  newest_issued_bill_due_date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The due date of the contact's newest bill
+    title: Newest Issued Bill Due Date
+  pending_payments_total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The sum of all online payments in a pending state on the outstanding
+      bills
+    title: Pending Payments Total
+  reminders_enabled:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The status of automated reminders for this client
+    title: Reminders Enabled
+  total_outstanding_balance:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The sum of all bills in the unpaid state
+    title: Total Outstanding Balance
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *OutstandingClientBalance* was created (as a ISO-8601
+      timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *OutstandingClientBalance* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: OutstandingClientBalanceBase
+type: object

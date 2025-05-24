@@ -1,0 +1,16 @@
+description: TaskCreateRequestDataAssignee
+properties:
+  id:
+    description: The unique identifier for a single User or Contact associated with
+      the Task. The keyword `null` is not valid for this field.
+    title: Id
+    type: integer
+  type:
+    description: Model type of the assignee.
+    title: Type
+    type: string
+required:
+- id
+- type
+title: TaskCreateRequestDataAssignee
+type: object

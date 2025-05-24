@@ -1,0 +1,310 @@
+description: BillBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Bill*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Bill*
+    title: Etag
+  number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The *Bill* identifier (not necessarily numeric)'
+    title: Number
+  issued_at:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Bill* was issued (as a ISO-8601 date)
+    title: Issued At
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Bill* was created (as a ISO-8601 timestamp)
+    title: Created At
+  due_at:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date the *Bill* is due (as a ISO-8601 date)
+    title: Due At
+  tax_rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The tax rate to the *Bill*
+    title: Tax Rate
+  secondary_tax_rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: A secondary tax rate applied to the *Bill*
+    title: Secondary Tax Rate
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Bill* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  subject:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The subject of the *Bill*
+    title: Subject
+  purchase_order:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The purchase order of the *Bill*
+    title: Purchase Order
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *Bill*
+    title: Type
+  memo:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A memo for the *Bill*
+    title: Memo
+  start_at:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the billing period starts (as a ISO-8601 date)
+    title: Start At
+  end_at:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the billing period ends (as a ISO-8601 date)
+    title: End At
+  balance:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The outstanding balance of the *Bill*
+    title: Balance
+  state:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The billing state the *Bill* is in
+    title: State
+  kind:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The kind of the *Bill*
+    title: Kind
+  total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total with interest of the *Bill*
+    title: Total
+  paid:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total amount paid for the *Bill*
+    title: Paid
+  paid_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The date of the last payment on the *Bill*
+    title: Paid At
+  pending:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount of pending credit card payments on the *Bill*
+    title: Pending
+  due:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total amount of the *Bill* with interest and less discounts
+    title: Due
+  discount_services_only:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The selected discount is applied to services only.
+    title: Discount Services Only
+  can_update:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: This value indicates if your *Bill*'s line items and information
+      can be updated.
+    title: Can Update
+  credits_issued:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total credits issued for the *Bill*
+    title: Credits Issued
+  shared:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the *Bill* is a shared
+    title: Shared
+  last_sent_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The last time the *Bill* was sent (as a ISO-8601 date)
+    title: Last Sent At
+  services_secondary_tax:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total secondary tax of the bill's line items of a service kind
+    title: Services Secondary Tax
+  services_sub_total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The sub total of all the bill's line items of a service kind
+    title: Services Sub Total
+  services_tax:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total tax of the bill's line items of a service kind
+    title: Services Tax
+  services_taxable_sub_total:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The services portion of the bill's primary tax
+    title: Services Taxable Sub Total
+  services_secondary_taxable_sub_total:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The services portion of the bill's secondary tax
+    title: Services Secondary Taxable Sub Total
+  taxable_sub_total:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total taxable bill amount
+    title: Taxable Sub Total
+  secondary_taxable_sub_total:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The subtotal of the bill's secondary tax
+    title: Secondary Taxable Sub Total
+  sub_total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Sub total for the *Bill*
+    title: Sub Total
+  tax_sum:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Sum of primary tax for the model
+    title: Tax Sum
+  secondary_tax_sum:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Sum of secondary tax for the model
+    title: Secondary Tax Sum
+  total_tax:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total amount of tax for the bill.
+    title: Total Tax
+  available_state_transitions:
+    anyOf:
+    - items:
+        type: string
+      type: array
+    - type: 'null'
+    default: null
+    description: The available *Bill* state transitions.
+    title: Available State Transitions
+title: BillBase
+type: object

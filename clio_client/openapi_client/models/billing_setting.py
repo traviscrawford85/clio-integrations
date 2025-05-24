@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,18 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -30,26 +37,26 @@ class BillingSetting(BaseModel):
     """
     BillingSetting
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *BillingSetting*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *BillingSetting*")
-    rounded_duration: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Rounded equivalent of duration submitted")
-    rounding: Optional[StrictInt] = Field(default=None, description="Minute increment for time rounding")
-    use_decimal_rounding: Optional[StrictBool] = Field(default=None, description="Round time to two decimal places")
-    currency: Optional[StrictStr] = Field(default=None, description="Current user setting of currency")
-    currency_sign: Optional[StrictStr] = Field(default=None, description="The sign of the current currency")
-    tax_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Rate applied for primary tax on invoices using this BillingSetting")
-    tax_name: Optional[StrictStr] = Field(default=None, description="Name shown for primary tax on invoices using this BillingSetting")
-    apply_tax_by_default: Optional[StrictBool] = Field(default=None, description="Used to determine if primary tax should be applied to invoices by default")
-    time_on_flat_rate_contingency_matters_is_non_billable: Optional[StrictBool] = Field(default=None, description="Used to determine if hourly time entries on flat rate or contingency fee matters should be non-billable by default")
-    use_secondary_tax: Optional[StrictBool] = Field(default=None, description="Used to determine if secondary tax applies to invoices using this BillingSetting")
-    secondary_tax_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Rate applied for secondary tax on invoices using this BillingSetting")
-    secondary_tax_rule: Optional[StrictStr] = Field(default=None, description="Used to determine if secondary tax should be applied separately or additionally to primary tax")
-    secondary_tax_name: Optional[StrictStr] = Field(default=None, description="Name shown for secondary tax on invoices using this BillingSetting")
-    notify_after_bill_created: Optional[StrictBool] = Field(default=None, description="Flag to indicate if users should have the option to notify other users when generating a bill")
-    use_utbms_codes: Optional[StrictBool] = Field(default=None, description="Controls usage of UTBMS codes, allowing creation of coded time entries and expenses")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *BillingSetting* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *BillingSetting* was last updated (as a ISO-8601 timestamp)")
-    __properties: ClassVar[List[str]] = ["id", "etag", "rounded_duration", "rounding", "use_decimal_rounding", "currency", "currency_sign", "tax_rate", "tax_name", "apply_tax_by_default", "time_on_flat_rate_contingency_matters_is_non_billable", "use_secondary_tax", "secondary_tax_rate", "secondary_tax_rule", "secondary_tax_name", "notify_after_bill_created", "use_utbms_codes", "created_at", "updated_at"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *BillingSetting*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *BillingSetting*")
+    rounded_duration: StrictFloat | StrictInt | None = Field(default=None, description="Rounded equivalent of duration submitted")
+    rounding: StrictInt | None = Field(default=None, description="Minute increment for time rounding")
+    use_decimal_rounding: StrictBool | None = Field(default=None, description="Round time to two decimal places")
+    currency: StrictStr | None = Field(default=None, description="Current user setting of currency")
+    currency_sign: StrictStr | None = Field(default=None, description="The sign of the current currency")
+    tax_rate: StrictFloat | StrictInt | None = Field(default=None, description="Rate applied for primary tax on invoices using this BillingSetting")
+    tax_name: StrictStr | None = Field(default=None, description="Name shown for primary tax on invoices using this BillingSetting")
+    apply_tax_by_default: StrictBool | None = Field(default=None, description="Used to determine if primary tax should be applied to invoices by default")
+    time_on_flat_rate_contingency_matters_is_non_billable: StrictBool | None = Field(default=None, description="Used to determine if hourly time entries on flat rate or contingency fee matters should be non-billable by default")
+    use_secondary_tax: StrictBool | None = Field(default=None, description="Used to determine if secondary tax applies to invoices using this BillingSetting")
+    secondary_tax_rate: StrictFloat | StrictInt | None = Field(default=None, description="Rate applied for secondary tax on invoices using this BillingSetting")
+    secondary_tax_rule: StrictStr | None = Field(default=None, description="Used to determine if secondary tax should be applied separately or additionally to primary tax")
+    secondary_tax_name: StrictStr | None = Field(default=None, description="Name shown for secondary tax on invoices using this BillingSetting")
+    notify_after_bill_created: StrictBool | None = Field(default=None, description="Flag to indicate if users should have the option to notify other users when generating a bill")
+    use_utbms_codes: StrictBool | None = Field(default=None, description="Controls usage of UTBMS codes, allowing creation of coded time entries and expenses")
+    created_at: datetime | None = Field(default=None, description="The time the *BillingSetting* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *BillingSetting* was last updated (as a ISO-8601 timestamp)")
+    __properties: ClassVar[list[str]] = ["id", "etag", "rounded_duration", "rounding", "use_decimal_rounding", "currency", "currency_sign", "tax_rate", "tax_name", "apply_tax_by_default", "time_on_flat_rate_contingency_matters_is_non_billable", "use_secondary_tax", "secondary_tax_rate", "secondary_tax_rule", "secondary_tax_name", "notify_after_bill_created", "use_utbms_codes", "created_at", "updated_at"]
 
     @field_validator('secondary_tax_rule')
     def secondary_tax_rule_validate_enum(cls, value):
@@ -78,11 +85,11 @@ class BillingSetting(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of BillingSetting from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -92,7 +99,7 @@ class BillingSetting(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -103,7 +110,7 @@ class BillingSetting(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of BillingSetting from a dict"""
         if obj is None:
             return None

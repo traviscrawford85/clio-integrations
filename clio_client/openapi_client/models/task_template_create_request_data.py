@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,36 +17,46 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.task_template_create_request_data_cascading_source import \
-    TaskTemplateCreateRequestDataCascadingSource
-from clio_client.openapi_client.models.task_template_create_request_data_reminder_templates_inner import \
-    TaskTemplateCreateRequestDataReminderTemplatesInner
-from clio_client.openapi_client.models.task_template_create_request_data_task_template_list import \
-    TaskTemplateCreateRequestDataTaskTemplateList
+from clio_client.openapi_client.models.task_template_create_request_data_cascading_source import (
+    TaskTemplateCreateRequestDataCascadingSource,
+)
+from clio_client.openapi_client.models.task_template_create_request_data_reminder_templates_inner import (
+    TaskTemplateCreateRequestDataReminderTemplatesInner,
+)
+from clio_client.openapi_client.models.task_template_create_request_data_task_template_list import (
+    TaskTemplateCreateRequestDataTaskTemplateList,
+)
 
 
 class TaskTemplateCreateRequestData(BaseModel):
     """
     TaskTemplateCreateRequestData
     """ # noqa: E501
-    cascading: Optional[StrictBool] = Field(default=None, description="Determines if the TaskTemplate has a due date that is derived from another TaskTemplate. (Note that if false, no other cascading information will be checked)")
-    cascading_offset: Optional[StrictInt] = Field(default=None, description="The amount of time that will differentiate the cascaded TaskTemplate from its parent.")
-    cascading_offset_polarity: Optional[StrictStr] = Field(default=None, description="Determines whether or not the cascading_offset occurs before or after its parent.")
-    cascading_offset_type: Optional[StrictStr] = Field(default=None, description="Determines the quantity of the cascading offset (e.g. CalendarDays, CalendarWeeks etc.)")
-    cascading_source: Optional[TaskTemplateCreateRequestDataCascadingSource] = None
-    description: Optional[StrictStr] = Field(default=None, description="Longer description for the TaskTemplate.")
+    cascading: StrictBool | None = Field(default=None, description="Determines if the TaskTemplate has a due date that is derived from another TaskTemplate. (Note that if false, no other cascading information will be checked)")
+    cascading_offset: StrictInt | None = Field(default=None, description="The amount of time that will differentiate the cascaded TaskTemplate from its parent.")
+    cascading_offset_polarity: StrictStr | None = Field(default=None, description="Determines whether or not the cascading_offset occurs before or after its parent.")
+    cascading_offset_type: StrictStr | None = Field(default=None, description="Determines the quantity of the cascading offset (e.g. CalendarDays, CalendarWeeks etc.)")
+    cascading_source: TaskTemplateCreateRequestDataCascadingSource | None = None
+    description: StrictStr | None = Field(default=None, description="Longer description for the TaskTemplate.")
     name: StrictStr = Field(description="Short name for the TaskTemplate.")
-    priority: Optional[StrictStr] = Field(default='Normal', description="Priority of the task.")
-    private: Optional[StrictBool] = Field(default=None, description="Whether or not this TaskTemplate should be private.")
-    reminder_templates: Optional[List[TaskTemplateCreateRequestDataReminderTemplatesInner]] = None
-    task_template_list: Optional[TaskTemplateCreateRequestDataTaskTemplateList] = None
-    __properties: ClassVar[List[str]] = ["cascading", "cascading_offset", "cascading_offset_polarity", "cascading_offset_type", "cascading_source", "description", "name", "priority", "private", "reminder_templates", "task_template_list"]
+    priority: StrictStr | None = Field(default='Normal', description="Priority of the task.")
+    private: StrictBool | None = Field(default=None, description="Whether or not this TaskTemplate should be private.")
+    reminder_templates: list[TaskTemplateCreateRequestDataReminderTemplatesInner] | None = None
+    task_template_list: TaskTemplateCreateRequestDataTaskTemplateList | None = None
+    __properties: ClassVar[list[str]] = ["cascading", "cascading_offset", "cascading_offset_polarity", "cascading_offset_type", "cascading_source", "description", "name", "priority", "private", "reminder_templates", "task_template_list"]
 
     @field_validator('cascading_offset_polarity')
     def cascading_offset_polarity_validate_enum(cls, value):
@@ -96,11 +105,11 @@ class TaskTemplateCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of TaskTemplateCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -110,7 +119,7 @@ class TaskTemplateCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -134,7 +143,7 @@ class TaskTemplateCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of TaskTemplateCreateRequestData from a dict"""
         if obj is None:
             return None

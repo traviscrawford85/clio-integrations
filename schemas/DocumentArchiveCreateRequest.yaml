@@ -1,0 +1,38 @@
+$defs:
+  DocumentArchiveCreateRequestData:
+    description: DocumentArchiveCreateRequestData
+    properties:
+      items:
+        items:
+          $ref: '#/$defs/DocumentArchiveCreateRequestDataItemsInner'
+        title: Items
+        type: array
+    required:
+    - items
+    title: DocumentArchiveCreateRequestData
+    type: object
+  DocumentArchiveCreateRequestDataItemsInner:
+    description: DocumentArchiveCreateRequestDataItemsInner
+    properties:
+      id:
+        description: The unique identifier for a single Document or Folder associated
+          with the DocumentArchive. Use the keyword `null` to specify no association.
+        title: Id
+        type: integer
+      type:
+        description: The type of the item to download
+        title: Type
+        type: integer
+    required:
+    - id
+    - type
+    title: DocumentArchiveCreateRequestDataItemsInner
+    type: object
+description: DocumentArchiveCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/DocumentArchiveCreateRequestData'
+required:
+- data
+title: DocumentArchiveCreateRequest
+type: object

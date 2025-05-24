@@ -1,0 +1,56 @@
+description: BillableMatterBase
+properties:
+  currency_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The currency code
+    title: Currency Code
+  currency_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The currency ID
+    title: Currency Id
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *BillableMatter*
+    title: Id
+  unbilled_hours:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unbilled number of hours for the matter
+    title: Unbilled Hours
+  unbilled_amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unbilled amount for the matter
+    title: Unbilled Amount
+  amount_in_trust:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The trust amount available for the matter
+    title: Amount In Trust
+  display_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The reference to the matter
+    title: Display Number
+title: BillableMatterBase
+type: object

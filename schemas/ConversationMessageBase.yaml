@@ -1,0 +1,49 @@
+description: ConversationMessageBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ConversationMessage*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ConversationMessage*
+    title: Etag
+  date:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The creation date of the message in the current user's time zone
+    title: Date
+  body:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The main content of the *ConversationMessage*
+    title: Body
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ConversationMessage* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ConversationMessage* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: ConversationMessageBase
+type: object

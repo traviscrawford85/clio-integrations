@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -12,27 +11,17 @@
     Do not edit the class manually.
 """  # noqa: E501
 from datetime import date, datetime
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Annotated, Any
 
-from pydantic import (Field, StrictBool, StrictFloat, StrictInt, StrictStr,
-                      validate_call)
-from typing_extensions import Annotated
+from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, validate_call
 
 from clio_client.openapi_client.api_client import ApiClient
-from clio_client.openapi_client.models.folder_create_request import \
-    FolderCreateRequest
+from clio_client.openapi_client.api_response import ApiResponse
+from clio_client.openapi_client.models.folder_create_request import FolderCreateRequest
 from clio_client.openapi_client.models.folder_list import FolderList
 from clio_client.openapi_client.models.folder_show import FolderShow
-from clio_client.openapi_client.models.folder_update_request import \
-    FolderUpdateRequest
+from clio_client.openapi_client.models.folder_update_request import FolderUpdateRequest
 from clio_client.openapi_client.models.item_list import ItemList
-from clio_client.openapi_client.api_response import ApiResponse
-from typing import List
-from typing import Dict
-from typing import Optional
-from typing import Union
-from datetime import datetime
-from datetime import date
 
 
 class FoldersApi:
@@ -51,20 +40,13 @@ class FoldersApi:
     @validate_call
     def folder_create(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        folder_create_request: Annotated[Optional[FolderCreateRequest], Field(description="Request Body for Folders")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        folder_create_request: Annotated[FolderCreateRequest | None, Field(description="Request Body for Folders")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> FolderShow:
         """Create a new Folder
@@ -109,7 +91,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '201': "FolderShow",
             '400': "Error",
             '403': "Error",
@@ -132,20 +114,13 @@ class FoldersApi:
     @validate_call
     def folder_create_with_http_info(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        folder_create_request: Annotated[Optional[FolderCreateRequest], Field(description="Request Body for Folders")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        folder_create_request: Annotated[FolderCreateRequest | None, Field(description="Request Body for Folders")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[FolderShow]:
         """Create a new Folder
@@ -190,7 +165,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '201': "FolderShow",
             '400': "Error",
             '403': "Error",
@@ -213,20 +188,13 @@ class FoldersApi:
     @validate_call
     def folder_create_without_preload_content(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        folder_create_request: Annotated[Optional[FolderCreateRequest], Field(description="Request Body for Folders")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        folder_create_request: Annotated[FolderCreateRequest | None, Field(description="Request Body for Folders")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Create a new Folder
@@ -271,7 +239,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '201': "FolderShow",
             '400': "Error",
             '403': "Error",
@@ -300,17 +268,17 @@ class FoldersApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         # process the query parameters
@@ -352,7 +320,7 @@ class FoldersApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -377,18 +345,11 @@ class FoldersApi:
     def folder_destroy(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the Folder.")],
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Delete a single Folder
@@ -430,7 +391,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '204': None,
             '400': "Error",
             '409': "Error",
@@ -451,18 +412,11 @@ class FoldersApi:
     def folder_destroy_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the Folder.")],
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Delete a single Folder
@@ -504,7 +458,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '204': None,
             '400': "Error",
             '409': "Error",
@@ -525,18 +479,11 @@ class FoldersApi:
     def folder_destroy_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the Folder.")],
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Delete a single Folder
@@ -578,7 +525,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '204': None,
             '400': "Error",
             '409': "Error",
@@ -603,17 +550,17 @@ class FoldersApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         if id is not None:
@@ -636,7 +583,7 @@ class FoldersApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -660,34 +607,27 @@ class FoldersApi:
     @validate_call
     def folder_index(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        contact_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        document_category_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        external_property_name: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
-        external_property_value: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
-        include_deleted: Annotated[Optional[StrictBool], Field(description="Allow trashed Folder record to be included.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        matter_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        parent_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Wildcard search for `name` matching the given string.")] = None,
-        scope: Annotated[Optional[StrictStr], Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        contact_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        document_category_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        external_property_name: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
+        external_property_value: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
+        include_deleted: Annotated[StrictBool | None, Field(description="Allow trashed Folder record to be included.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        matter_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        parent_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
+        query: Annotated[StrictStr | None, Field(description="Wildcard search for `name` matching the given string.")] = None,
+        scope: Annotated[StrictStr | None, Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> FolderList:
         """Return the data for all Folders
@@ -774,7 +714,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "FolderList",
             '400': "Error",
             '401': "Error",
@@ -795,34 +735,27 @@ class FoldersApi:
     @validate_call
     def folder_index_with_http_info(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        contact_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        document_category_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        external_property_name: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
-        external_property_value: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
-        include_deleted: Annotated[Optional[StrictBool], Field(description="Allow trashed Folder record to be included.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        matter_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        parent_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Wildcard search for `name` matching the given string.")] = None,
-        scope: Annotated[Optional[StrictStr], Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        contact_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        document_category_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        external_property_name: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
+        external_property_value: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
+        include_deleted: Annotated[StrictBool | None, Field(description="Allow trashed Folder record to be included.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        matter_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        parent_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
+        query: Annotated[StrictStr | None, Field(description="Wildcard search for `name` matching the given string.")] = None,
+        scope: Annotated[StrictStr | None, Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[FolderList]:
         """Return the data for all Folders
@@ -909,7 +842,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "FolderList",
             '400': "Error",
             '401': "Error",
@@ -930,34 +863,27 @@ class FoldersApi:
     @validate_call
     def folder_index_without_preload_content(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        contact_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        document_category_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        external_property_name: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
-        external_property_value: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
-        include_deleted: Annotated[Optional[StrictBool], Field(description="Allow trashed Folder record to be included.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        matter_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        parent_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Wildcard search for `name` matching the given string.")] = None,
-        scope: Annotated[Optional[StrictStr], Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        contact_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        document_category_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        external_property_name: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
+        external_property_value: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
+        include_deleted: Annotated[StrictBool | None, Field(description="Allow trashed Folder record to be included.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        matter_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        parent_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
+        query: Annotated[StrictStr | None, Field(description="Wildcard search for `name` matching the given string.")] = None,
+        scope: Annotated[StrictStr | None, Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Return the data for all Folders
@@ -1044,7 +970,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "FolderList",
             '400': "Error",
             '401': "Error",
@@ -1085,17 +1011,17 @@ class FoldersApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         # process the query parameters
@@ -1198,7 +1124,7 @@ class FoldersApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -1222,35 +1148,28 @@ class FoldersApi:
     @validate_call
     def folder_list(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        contact_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        document_category_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        external_property_name: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
-        external_property_value: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
-        include_deleted: Annotated[Optional[StrictBool], Field(description="Allow trashed Folder record to be included.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        matter_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        parent_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Wildcard search for `name` matching the given string.")] = None,
-        scope: Annotated[Optional[StrictStr], Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
-        show_uncompleted: Annotated[Optional[StrictBool], Field(description="Allow Folder record being uploaded to be included.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        contact_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        document_category_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        external_property_name: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
+        external_property_value: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
+        include_deleted: Annotated[StrictBool | None, Field(description="Allow trashed Folder record to be included.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        matter_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        parent_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
+        query: Annotated[StrictStr | None, Field(description="Wildcard search for `name` matching the given string.")] = None,
+        scope: Annotated[StrictStr | None, Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
+        show_uncompleted: Annotated[StrictBool | None, Field(description="Allow Folder record being uploaded to be included.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ItemList:
         """Return the data of the contents of a Folder
@@ -1340,7 +1259,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ItemList",
             '400': "Error",
             '401': "Error",
@@ -1361,35 +1280,28 @@ class FoldersApi:
     @validate_call
     def folder_list_with_http_info(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        contact_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        document_category_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        external_property_name: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
-        external_property_value: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
-        include_deleted: Annotated[Optional[StrictBool], Field(description="Allow trashed Folder record to be included.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        matter_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        parent_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Wildcard search for `name` matching the given string.")] = None,
-        scope: Annotated[Optional[StrictStr], Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
-        show_uncompleted: Annotated[Optional[StrictBool], Field(description="Allow Folder record being uploaded to be included.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        contact_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        document_category_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        external_property_name: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
+        external_property_value: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
+        include_deleted: Annotated[StrictBool | None, Field(description="Allow trashed Folder record to be included.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        matter_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        parent_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
+        query: Annotated[StrictStr | None, Field(description="Wildcard search for `name` matching the given string.")] = None,
+        scope: Annotated[StrictStr | None, Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
+        show_uncompleted: Annotated[StrictBool | None, Field(description="Allow Folder record being uploaded to be included.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ItemList]:
         """Return the data of the contents of a Folder
@@ -1479,7 +1391,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ItemList",
             '400': "Error",
             '401': "Error",
@@ -1500,35 +1412,28 @@ class FoldersApi:
     @validate_call
     def folder_list_without_preload_content(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        contact_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        document_category_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        external_property_name: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
-        external_property_value: Annotated[Optional[StrictStr], Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
-        include_deleted: Annotated[Optional[StrictBool], Field(description="Allow trashed Folder record to be included.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        matter_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        parent_id: Annotated[Optional[StrictInt], Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Wildcard search for `name` matching the given string.")] = None,
-        scope: Annotated[Optional[StrictStr], Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
-        show_uncompleted: Annotated[Optional[StrictBool], Field(description="Allow Folder record being uploaded to be included.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        contact_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Contact. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        document_category_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single DocumentCategory. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        external_property_name: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) name set.  e.g. `?external_property_name=Name` ")] = None,
+        external_property_value: Annotated[StrictStr | None, Field(description="Filter records to only those with the given external property(s) value set. Requires external property name as well.  e.g. `?external_property_name=Name&external_property_value=Value` ")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter Folder records to those having the specified unique identifiers.")] = None,
+        include_deleted: Annotated[StrictBool | None, Field(description="Allow trashed Folder record to be included.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of Folder records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        matter_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Matter. Use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the Folder records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        parent_id: Annotated[StrictInt | None, Field(description="The unique identifier for a single Folder.  When returning the data of the contents of a Folder, the keyword `null` is not valid for this field. If no Folder is provided, it will default to the account's root Folder.  When returning the data for all Folders, use the keyword `null` to match those without a Folder. The list will be filtered to include only the Folder records with the matching property. ")] = None,
+        query: Annotated[StrictStr | None, Field(description="Wildcard search for `name` matching the given string.")] = None,
+        scope: Annotated[StrictStr | None, Field(description="Filters Folder record to those being a child of the parent Folder, or a descendant of the parent Folder. Default is `children`.")] = None,
+        show_uncompleted: Annotated[StrictBool | None, Field(description="Allow Folder record being uploaded to be included.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter Folder records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Return the data of the contents of a Folder
@@ -1618,7 +1523,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ItemList",
             '400': "Error",
             '401': "Error",
@@ -1660,17 +1565,17 @@ class FoldersApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         # process the query parameters
@@ -1777,7 +1682,7 @@ class FoldersApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -1802,21 +1707,14 @@ class FoldersApi:
     def folder_show(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the Folder.")],
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> FolderShow:
         """Return the data for a single Folder
@@ -1867,7 +1765,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "FolderShow",
             '400': "Error",
             '403': "Error",
@@ -1891,21 +1789,14 @@ class FoldersApi:
     def folder_show_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the Folder.")],
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[FolderShow]:
         """Return the data for a single Folder
@@ -1956,7 +1847,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "FolderShow",
             '400': "Error",
             '403': "Error",
@@ -1980,21 +1871,14 @@ class FoldersApi:
     def folder_show_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the Folder.")],
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Return the data for a single Folder
@@ -2045,7 +1929,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "FolderShow",
             '400': "Error",
             '403': "Error",
@@ -2076,17 +1960,17 @@ class FoldersApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         if id is not None:
@@ -2117,7 +2001,7 @@ class FoldersApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -2142,21 +2026,14 @@ class FoldersApi:
     def folder_update(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the Folder.")],
-        if_match: Annotated[Optional[StrictStr], Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        folder_update_request: Annotated[Optional[FolderUpdateRequest], Field(description="Request Body for Folders")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_match: Annotated[StrictStr | None, Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        folder_update_request: Annotated[FolderUpdateRequest | None, Field(description="Request Body for Folders")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> FolderShow:
         """Update a single Folder
@@ -2207,7 +2084,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "FolderShow",
             '400': "Error",
             '403': "Error",
@@ -2232,21 +2109,14 @@ class FoldersApi:
     def folder_update_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the Folder.")],
-        if_match: Annotated[Optional[StrictStr], Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        folder_update_request: Annotated[Optional[FolderUpdateRequest], Field(description="Request Body for Folders")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_match: Annotated[StrictStr | None, Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        folder_update_request: Annotated[FolderUpdateRequest | None, Field(description="Request Body for Folders")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[FolderShow]:
         """Update a single Folder
@@ -2297,7 +2167,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "FolderShow",
             '400': "Error",
             '403': "Error",
@@ -2322,21 +2192,14 @@ class FoldersApi:
     def folder_update_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the Folder.")],
-        if_match: Annotated[Optional[StrictStr], Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        folder_update_request: Annotated[Optional[FolderUpdateRequest], Field(description="Request Body for Folders")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_match: Annotated[StrictStr | None, Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        folder_update_request: Annotated[FolderUpdateRequest | None, Field(description="Request Body for Folders")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Update a single Folder
@@ -2387,7 +2250,7 @@ class FoldersApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "FolderShow",
             '400': "Error",
             '403': "Error",
@@ -2419,17 +2282,17 @@ class FoldersApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         if id is not None:
@@ -2475,7 +2338,7 @@ class FoldersApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(

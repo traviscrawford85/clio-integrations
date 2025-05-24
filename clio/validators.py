@@ -1,7 +1,7 @@
 # clio/validators.py
 # Validates phone numbers, custom fields like Date of Incident
 import re
-from typing import List, Dict, Any
+from typing import Any
 
 
 def validate_phone_number(phone: str) -> bool:
@@ -9,11 +9,11 @@ def validate_phone_number(phone: str) -> bool:
     return bool(re.fullmatch(r"\\+\\d{10,15}", phone))
 
 
-def validate_date_of_incident(custom_fields: Dict[str, Any]) -> bool:
+def validate_date_of_incident(custom_fields: dict[str, Any]) -> bool:
     return "Date of Incident" in custom_fields and bool(custom_fields["Date of Incident"])
 
 
-def validate_matter_data(matter: Dict[str, Any]) -> List[str]:
+def validate_matter_data(matter: dict[str, Any]) -> list[str]:
     errors = []
 
     # Validate phone number

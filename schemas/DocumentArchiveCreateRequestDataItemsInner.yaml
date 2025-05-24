@@ -1,0 +1,16 @@
+description: DocumentArchiveCreateRequestDataItemsInner
+properties:
+  id:
+    description: The unique identifier for a single Document or Folder associated
+      with the DocumentArchive. Use the keyword `null` to specify no association.
+    title: Id
+    type: integer
+  type:
+    description: The type of the item to download
+    title: Type
+    type: integer
+required:
+- id
+- type
+title: DocumentArchiveCreateRequestDataItemsInner
+type: object

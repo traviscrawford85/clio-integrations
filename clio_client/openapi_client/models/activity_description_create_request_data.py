@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,28 +17,30 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.activity_description_create_request_data_groups_inner import \
-    ActivityDescriptionCreateRequestDataGroupsInner
-from clio_client.openapi_client.models.activity_description_create_request_data_rate import \
-    ActivityDescriptionCreateRequestDataRate
+from clio_client.openapi_client.models.activity_description_create_request_data_groups_inner import (
+    ActivityDescriptionCreateRequestDataGroupsInner,
+)
+from clio_client.openapi_client.models.activity_description_create_request_data_rate import (
+    ActivityDescriptionCreateRequestDataRate,
+)
 
 
 class ActivityDescriptionCreateRequestData(BaseModel):
     """
     ActivityDescriptionCreateRequestData
     """ # noqa: E501
-    currency: Optional[Dict[str, Any]] = Field(default=None, description="Currency of the ActivityDescription.")
-    default: Optional[StrictBool] = Field(default=None, description="Whether or not this should be the API User's default ActivityDescription.")
-    groups: Optional[List[ActivityDescriptionCreateRequestDataGroupsInner]] = None
+    currency: dict[str, Any] | None = Field(default=None, description="Currency of the ActivityDescription.")
+    default: StrictBool | None = Field(default=None, description="Whether or not this should be the API User's default ActivityDescription.")
+    groups: list[ActivityDescriptionCreateRequestDataGroupsInner] | None = None
     name: StrictStr = Field(description="A detailed description of the ActivityDescription.")
-    rate: Optional[ActivityDescriptionCreateRequestDataRate] = None
-    visible_to_co_counsel: Optional[StrictBool] = Field(default=None, description="Whether or not co counsels on the account can see this ActivityDescription.")
-    __properties: ClassVar[List[str]] = ["currency", "default", "groups", "name", "rate", "visible_to_co_counsel"]
+    rate: ActivityDescriptionCreateRequestDataRate | None = None
+    visible_to_co_counsel: StrictBool | None = Field(default=None, description="Whether or not co counsels on the account can see this ActivityDescription.")
+    __properties: ClassVar[list[str]] = ["currency", "default", "groups", "name", "rate", "visible_to_co_counsel"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -58,11 +59,11 @@ class ActivityDescriptionCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ActivityDescriptionCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -72,7 +73,7 @@ class ActivityDescriptionCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -93,7 +94,7 @@ class ActivityDescriptionCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ActivityDescriptionCreateRequestData from a dict"""
         if obj is None:
             return None

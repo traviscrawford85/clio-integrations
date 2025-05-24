@@ -1,0 +1,46 @@
+description: ContactCreateRequestDataAddressesInner
+properties:
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: Other
+    description: Name of the Address.
+    title: Name
+  street:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Street.
+    title: Street
+  city:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: City.
+    title: City
+  province:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Province or state.
+    title: Province
+  postal_code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Postal code or zip code.
+    title: Postal Code
+  country:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Country
+    title: Country
+title: ContactCreateRequestDataAddressesInner
+type: object

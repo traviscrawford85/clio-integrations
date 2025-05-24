@@ -1,0 +1,450 @@
+$defs:
+  ContactBase:
+    description: ContactBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Contact*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Contact*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *Contact*
+        title: Name
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: First name of the Person
+        title: First Name
+      middle_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Middle name of the Person
+        title: Middle Name
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Last name of the Person
+        title: Last Name
+      date_of_birth:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date of birth
+        title: Date Of Birth
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Contact*
+        title: Type
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Contact* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Contact* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      prefix:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The prefix of the *Contact* (Mr, Mrs, etc)
+        title: Prefix
+      title:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The designated title of the *Contact*
+        title: Title
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *Contact*
+        title: Initials
+      clio_connect_email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Clio Connect email if the *Contact* is a ClioConnect User
+        title: Clio Connect Email
+      locked_clio_connect_email:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: A boolean indicating if the ability to modify this *Contacts
+          Clio connect email is locked.
+        title: Locked Clio Connect Email
+      client_connect_user_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The ID for the Clio Connect user associated with this *Contact*
+        title: Client Connect User Id
+      primary_email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary email address associated with this *Contact*.
+        title: Primary Email Address
+      secondary_email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The secondary email address associated with this *Contact*.
+        title: Secondary Email Address
+      primary_phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number associated with this *Contact*.
+        title: Primary Phone Number
+      secondary_phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The secondary phone number of the *Contact*.
+        title: Secondary Phone Number
+      ledes_client_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: LEDES client id of the Contact
+        title: Ledes Client Id
+      has_clio_for_clients_permission:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: True if at least one resource has been shared with the contact
+          using Clio for Clients.
+        title: Has Clio For Clients Permission
+      is_client:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact is a client
+        title: Is Client
+      is_clio_for_client_user:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not this contact has client_login and client_user
+          (can be created due to addition to client portal or client_share_permissions)
+        title: Is Clio For Client User
+      is_co_counsel:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact has matters shared as co-counsel
+        title: Is Co Counsel
+      is_bill_recipient:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the Contact is a bill recipient on at least one matter.
+        title: Is Bill Recipient
+      sales_tax_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The sales tax number of the *Contact*
+        title: Sales Tax Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the *Contact*
+        title: Currency
+    title: ContactBase
+    type: object
+  MatterBase:
+    description: MatterBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Matter*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Matter*
+        title: Etag
+      number:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number given to the *Matter* within an account
+        title: Number
+      display_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The reference and label of the *Matter*. Depending on the account's
+          manual_matter_numbering setting, this is either read only (generated) or
+          customizable.
+        title: Display Number
+      custom_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: User defined custom number of the *Matter*
+        title: Custom Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the matter
+        title: Currency
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The detailed description of the *Matter*
+        title: Description
+      status:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The current status of the *Matter*
+        title: Status
+      location:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The location of the *Matter*
+        title: Location
+      client_reference:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Client Reference string for external uses
+        title: Client Reference
+      client_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Client ID
+        title: Client Id
+      billable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether this matter is billable
+        title: Billable
+      maildrop_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A unique Maildrop email address for the matter
+        title: Maildrop Address
+      billing_method:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Billing method of this matter
+        title: Billing Method
+      open_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to open (as a ISO-8601 date)
+        title: Open Date
+      close_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to closed (as a ISO-8601 date)
+        title: Close Date
+      pending_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter was set to pending (as a ISO-8601 date)
+        title: Pending Date
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Matter* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      shared:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the matter is currently shared with Clio Connect
+        title: Shared
+      has_tasks:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the matter has any tasks.
+        title: Has Tasks
+      last_activity_date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The greatest date out of all of the activities on the matter
+          (as a ISO-8601 date)
+        title: Last Activity Date
+      matter_stage_updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date the matter stage was last updated (as a ISO-8601 date)
+        title: Matter Stage Updated At
+    title: MatterBase
+    type: object
+  Relationship:
+    description: Relationship
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Relationship*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Relationship*
+        title: Etag
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A detailed description of the *Relationship*
+        title: Description
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Relationship* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Relationship* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      matter:
+        anyOf:
+        - $ref: '#/$defs/MatterBase'
+        - type: 'null'
+        default: null
+      contact:
+        anyOf:
+        - $ref: '#/$defs/ContactBase'
+        - type: 'null'
+        default: null
+    title: Relationship
+    type: object
+description: RelationshipList
+properties:
+  data:
+    description: Relationship List Response
+    items:
+      $ref: '#/$defs/Relationship'
+    title: Data
+    type: array
+required:
+- data
+title: RelationshipList
+type: object

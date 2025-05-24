@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,10 +17,9 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictFloat, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing_extensions import Self
 
 
@@ -29,14 +27,14 @@ class BillableMatterBase(BaseModel):
     """
     BillableMatterBase
     """ # noqa: E501
-    currency_code: Optional[StrictStr] = Field(default=None, description="The currency code")
-    currency_id: Optional[StrictInt] = Field(default=None, description="The currency ID")
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *BillableMatter*")
-    unbilled_hours: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The unbilled number of hours for the matter")
-    unbilled_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The unbilled amount for the matter")
-    amount_in_trust: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The trust amount available for the matter")
-    display_number: Optional[StrictStr] = Field(default=None, description="The reference to the matter")
-    __properties: ClassVar[List[str]] = ["currency_code", "currency_id", "id", "unbilled_hours", "unbilled_amount", "amount_in_trust", "display_number"]
+    currency_code: StrictStr | None = Field(default=None, description="The currency code")
+    currency_id: StrictInt | None = Field(default=None, description="The currency ID")
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *BillableMatter*")
+    unbilled_hours: StrictFloat | StrictInt | None = Field(default=None, description="The unbilled number of hours for the matter")
+    unbilled_amount: StrictFloat | StrictInt | None = Field(default=None, description="The unbilled amount for the matter")
+    amount_in_trust: StrictFloat | StrictInt | None = Field(default=None, description="The trust amount available for the matter")
+    display_number: StrictStr | None = Field(default=None, description="The reference to the matter")
+    __properties: ClassVar[list[str]] = ["currency_code", "currency_id", "id", "unbilled_hours", "unbilled_amount", "amount_in_trust", "display_number"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,11 +53,11 @@ class BillableMatterBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of BillableMatterBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -69,7 +67,7 @@ class BillableMatterBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -80,7 +78,7 @@ class BillableMatterBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of BillableMatterBase from a dict"""
         if obj is None:
             return None

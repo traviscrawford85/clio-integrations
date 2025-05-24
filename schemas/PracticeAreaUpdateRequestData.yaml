@@ -1,0 +1,40 @@
+description: PracticeAreaUpdateRequestData
+properties:
+  category:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: 'The practice area category associated with the *PracticeArea*. The
+      friendly display values corresponding to the enum strings: * Administrative
+      * Admiralty / Maritime * Anti-Trust / Competition * Appellate * Banking / Finance
+      * Bankruptcy * Business Formation / Compliance * Civil Litigation * Civil Rights
+      / Constitutional * Collections & Debt * Commercial / Sale of Goods * Commercial
+      Litigation * Construction * Consumer Protection * Contracts * Corporate Litigation
+      * Criminal * Disability / Social Security * Education * Elder * Employment /
+      Labor * Energy / Environmental * Ethics * Family * Food / Drug * General Practice
+      * Government * Healthcare * Immigration * In-House Counsel * Insurance * Intellectual
+      Property * International * Juvenile * Legal Aid * Mediation / Arbitration *
+      Medical Malpractice * Military * Multi-Practice * Non-Profit / Pro Bono * Other
+      * Personal Injury * Privacy / Information Security * Private Client * Product
+      Liability * Real Estate * Science / Technology * Securities / Mergers & Acquisitions
+      * Small Claims * Sports / Entertainment / Gaming * Tax * Telecommunications
+      * Traffic Offenses * Transportation * Tribal * Trusts * Wills & Estates * Worker''s
+      Compensation '
+    title: Category
+  code:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The code attached to the PracticeArea.
+    title: Code
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Name of the PracticeArea.
+    title: Name
+title: PracticeAreaUpdateRequestData
+type: object

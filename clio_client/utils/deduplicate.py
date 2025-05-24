@@ -3,7 +3,7 @@ import json
 input_file = 'openapi.json'
 output_file = 'openapi_cleaned.json'
 
-with open(input_file, 'r') as f:
+with open(input_file) as f:
     spec = json.load(f)
 
 if 'tags' in spec:

@@ -1,0 +1,48 @@
+description: ReminderTemplateBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *ReminderTemplate*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *ReminderTemplate*
+    title: Etag
+  duration:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The time in minutes to remind user before the subject.
+    title: Duration
+  notification_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of method to be notified by
+    title: Notification Type
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ReminderTemplate* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *ReminderTemplate* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: ReminderTemplateBase
+type: object

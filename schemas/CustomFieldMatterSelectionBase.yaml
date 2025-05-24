@@ -1,0 +1,20 @@
+description: CustomFieldMatterSelectionBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *CustomFieldMatterSelection*
+    title: Id
+  display_number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The reference and label of the *CustomFieldMatterSelection*. Depending
+      on the account's manual_matter_numbering setting, this is either read only (generated)
+      or customizable.
+    title: Display Number
+title: CustomFieldMatterSelectionBase
+type: object

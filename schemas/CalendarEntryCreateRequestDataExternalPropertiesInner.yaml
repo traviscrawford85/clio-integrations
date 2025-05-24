@@ -1,0 +1,19 @@
+description: CalendarEntryCreateRequestDataExternalPropertiesInner
+properties:
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: 'The ExternalProperty name. Note: **there is a limit of 5 external_properties
+      per CalendarEntry**'
+    title: Name
+  value:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The ExternalProperty value.
+    title: Value
+title: CalendarEntryCreateRequestDataExternalPropertiesInner
+type: object

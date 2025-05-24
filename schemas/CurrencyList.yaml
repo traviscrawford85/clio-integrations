@@ -1,0 +1,62 @@
+$defs:
+  Currency:
+    description: Currency
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Currency*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Currency*
+        title: Etag
+      code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ISO 4217 code for the *Currency*
+        title: Code
+      sign:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Symbol used to denote monetary values using this *Currency*
+        title: Sign
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Currency* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Currency* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: Currency
+    type: object
+description: CurrencyList
+properties:
+  data:
+    description: Currency List Response
+    items:
+      $ref: '#/$defs/Currency'
+    title: Data
+    type: array
+required:
+- data
+title: CurrencyList
+type: object

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,10 +17,16 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictStr,
-                      field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -29,10 +34,10 @@ class ContactCreateRequestDataEmailAddressesInner(BaseModel):
     """
     ContactCreateRequestDataEmailAddressesInner
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(default='Other', description="Name of the EmailAddress.")
-    address: Optional[StrictStr] = Field(default=None, description="Email address.")
-    default_email: Optional[StrictBool] = Field(default=None, description="Whether or not the Contact should be the default email for the Contact.")
-    __properties: ClassVar[List[str]] = ["name", "address", "default_email"]
+    name: StrictStr | None = Field(default='Other', description="Name of the EmailAddress.")
+    address: StrictStr | None = Field(default=None, description="Email address.")
+    default_email: StrictBool | None = Field(default=None, description="Whether or not the Contact should be the default email for the Contact.")
+    __properties: ClassVar[list[str]] = ["name", "address", "default_email"]
 
     @field_validator('name')
     def name_validate_enum(cls, value):
@@ -61,11 +66,11 @@ class ContactCreateRequestDataEmailAddressesInner(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ContactCreateRequestDataEmailAddressesInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -75,7 +80,7 @@ class ContactCreateRequestDataEmailAddressesInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -86,7 +91,7 @@ class ContactCreateRequestDataEmailAddressesInner(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ContactCreateRequestDataEmailAddressesInner from a dict"""
         if obj is None:
             return None

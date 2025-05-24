@@ -18,18 +18,19 @@ from pydantic import Field, StrictFloat, StrictInt, StrictStr, validate_call
 from typing_extensions import Annotated
 
 from clio_client.openapi_client.api_client import ApiClient
-from clio_client.openapi_client.models.conversation_message_create_request import \
-    ConversationMessageCreateRequest
-from clio_client.openapi_client.models.conversation_message_list import \
-    ConversationMessageList
-from clio_client.openapi_client.models.conversation_message_show import \
-from clio_client.openapi_client.api_response import ApiResponse
-from typing import List
-from typing import Dict
-from typing import Optional
-from typing import Union
-from datetime import datetime
-from datetime import date
+from clio_client.openapi_client.models.conversation_message_create_request import (
+    ConversationMessageCreateRequest,
+)
+from clio_client.openapi_client.models.conversation_message_list import (
+    ConversationMessageList,
+)
+from clio_client.openapi_client.models.conversation_message_show import (
+    ApiResponse,
+    clio_client.openapi_client.api_response,
+    from,
+    import,
+)
+
     ConversationMessageShow
 
 

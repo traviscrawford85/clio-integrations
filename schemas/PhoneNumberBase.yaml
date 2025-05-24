@@ -1,0 +1,55 @@
+description: PhoneNumberBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *PhoneNumber*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *PhoneNumber*
+    title: Etag
+  number:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Contact's Phone Number
+    title: Number
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of *PhoneNumber* it is
+    title: Name
+  primary:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether it is default for this contact
+    title: Primary
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *PhoneNumber* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *PhoneNumber* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: PhoneNumberBase
+type: object

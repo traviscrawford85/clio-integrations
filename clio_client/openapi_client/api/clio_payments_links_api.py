@@ -14,25 +14,26 @@
 from datetime import date, datetime
 from typing import Any, Dict, List, Optional, Tuple, Union
 
-from pydantic import (Field, StrictBool, StrictFloat, StrictInt, StrictStr,
-                      validate_call)
+from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, validate_call
 from typing_extensions import Annotated
 
 from clio_client.openapi_client.api_client import ApiClient
-from clio_client.openapi_client.models.clio_payments_link_create_request import \
-    ClioPaymentsLinkCreateRequest
-from clio_client.openapi_client.models.clio_payments_link_list import \
-    ClioPaymentsLinkList
-from clio_client.openapi_client.models.clio_payments_link_show import \
-    ClioPaymentsLinkShow
-from clio_client.openapi_client.models.clio_payments_link_update_request import \
-from clio_client.openapi_client.api_response import ApiResponse
-from typing import List
-from typing import Dict
-from typing import Optional
-from typing import Union
-from datetime import datetime
-from datetime import date
+from clio_client.openapi_client.models.clio_payments_link_create_request import (
+    ClioPaymentsLinkCreateRequest,
+)
+from clio_client.openapi_client.models.clio_payments_link_list import (
+    ClioPaymentsLinkList,
+)
+from clio_client.openapi_client.models.clio_payments_link_show import (
+    ClioPaymentsLinkShow,
+)
+from clio_client.openapi_client.models.clio_payments_link_update_request import (
+    ApiResponse,
+    clio_client.openapi_client.api_response,
+    from,
+    import,
+)
+
     ClioPaymentsLinkUpdateRequest
 
 

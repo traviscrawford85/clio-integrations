@@ -1,6 +1,6 @@
-# database/models.py
+# clio/database/models.py
+from sqlalchemy import Column, DateTime, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String, DateTime
 
 Base = declarative_base()
 
@@ -9,4 +9,6 @@ class ClioToken(Base):
 
     access_token = Column(String, primary_key=True)
     refresh_token = Column(String)
+    token_type = Column(String)  # ✅ This must match your DB schema
     expires_at = Column(DateTime)
+

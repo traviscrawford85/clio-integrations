@@ -1,36 +1,23 @@
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Request
-from services.statute_of_limitations_service import StatuteOfLimitationsService
+from clio.matters import update_matter_limitations_date
 
 router = APIRouter()
-service = StatuteOfLimitationsService()
 
 @router.post("/webhook/matter_created")
-async def handle_matter_created(request: Request, background_tasks: BackgroundTasks):
-    """
-    Listener for Clio webhook on new Matter creation.
-    """
-    try:
-        payload = await request.json()
-        matter_id = payload.get("data", {}).get("id")
-        date_of_incident = payload.get("data", {}).get("date_of_incident")
+async def matter_created_webhook(request: Request, background_tasks: BackgroundTasks):
+    payload = await request.json()
+    matter_id = payload.get("data", {}).get("id")
+    # Compute limitations_date and custom_field_id as needed
+    limitations_date = "2025-05-23"  # Example, replace with your logic
+    custom_field_id = 12345          # Replace with your actual custom field ID
 
-        if not matter_id:
-            raise HTTPException(status_code=400, detail="Matter ID is missing in webhook payload.")
-
-        background_tasks.add_task(process_statute_update, matter_id, date_of_incident)
-
-        return {"status": "accepted", "matter_id": matter_id}
-
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-async def process_statute_update(matter_id: int, date_of_incident: str):
-    """
-    Background task to compute and update statute of limitations.
-    """
-    statute_due_date = service.compute_statute_due_date(date_of_incident)
-    if statute_due_date:
-        payload = service.prepare_update_payload(status="pending", due_at=statute_due_date)
-        # TODO: Perform API PATCH request to update matter in Clio system
-        print(f"Would update Matter {matter_id} with statute date {statute_due_date}")
+    if matter_id and limitations_date and custom_field_id:
+        background_tasks.add_task(
+            update_matter_limitations_date,
+            matter_id=matter_id,
+            limitations_date=limitations_date,
+            custom_field_id=custom_field_id
+        )
+        return {"status": "scheduled"}
+    else:
+        raise HTTPException(status_code=400, detail="Missing required data")

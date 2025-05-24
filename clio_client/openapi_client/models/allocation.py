@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,43 +18,51 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.bank_account_base import BankAccountBase
 from clio_client.openapi_client.models.bill_base import BillBase
 from clio_client.openapi_client.models.contact_base import ContactBase
 from clio_client.openapi_client.models.matter_base import MatterBase
-from clio_client.openapi_client.models.polymorphic_object_base import \
-    PolymorphicObjectBase
+from clio_client.openapi_client.models.polymorphic_object_base import (
+    PolymorphicObjectBase,
+)
 
 
 class Allocation(BaseModel):
     """
     Allocation
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Allocation*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Allocation*")
-    var_date: Optional[date] = Field(default=None, description="The date the allocation was applied (as a ISO-8601 date)", alias="date")
-    amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total amount of money that the user has allocated")
-    interest: Optional[StrictBool] = Field(default=None, description="Whether the allocation is applied to interest amount")
-    voided_at: Optional[datetime] = Field(default=None, description="Time the *Allocation* was voided (as a ISO-8601 timestamp)")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Allocation* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Allocation* was last updated (as a ISO-8601 timestamp)")
-    description: Optional[StrictStr] = Field(default=None, description="The description from the associated Credit Memo (if applicable)")
-    has_online_payment: Optional[StrictBool] = Field(default=None, description="Whether this allocation is associated with an online payment or not")
-    destroyable: Optional[StrictBool] = Field(default=None, description="Whether the record can be deleted or not")
-    payment_type: Optional[StrictStr] = Field(default=None, description="A string indicating whether the payment is a card or an eCheck payment.")
-    bill: Optional[BillBase] = None
-    source_bank_account: Optional[BankAccountBase] = None
-    destination_bank_account: Optional[BankAccountBase] = None
-    matter: Optional[MatterBase] = None
-    contact: Optional[ContactBase] = None
-    parent: Optional[PolymorphicObjectBase] = None
-    __properties: ClassVar[List[str]] = ["id", "etag", "date", "amount", "interest", "voided_at", "created_at", "updated_at", "description", "has_online_payment", "destroyable", "payment_type", "bill", "source_bank_account", "destination_bank_account", "matter", "contact", "parent"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Allocation*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Allocation*")
+    var_date: date | None = Field(default=None, description="The date the allocation was applied (as a ISO-8601 date)", alias="date")
+    amount: StrictFloat | StrictInt | None = Field(default=None, description="The total amount of money that the user has allocated")
+    interest: StrictBool | None = Field(default=None, description="Whether the allocation is applied to interest amount")
+    voided_at: datetime | None = Field(default=None, description="Time the *Allocation* was voided (as a ISO-8601 timestamp)")
+    created_at: datetime | None = Field(default=None, description="The time the *Allocation* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Allocation* was last updated (as a ISO-8601 timestamp)")
+    description: StrictStr | None = Field(default=None, description="The description from the associated Credit Memo (if applicable)")
+    has_online_payment: StrictBool | None = Field(default=None, description="Whether this allocation is associated with an online payment or not")
+    destroyable: StrictBool | None = Field(default=None, description="Whether the record can be deleted or not")
+    payment_type: StrictStr | None = Field(default=None, description="A string indicating whether the payment is a card or an eCheck payment.")
+    bill: BillBase | None = None
+    source_bank_account: BankAccountBase | None = None
+    destination_bank_account: BankAccountBase | None = None
+    matter: MatterBase | None = None
+    contact: ContactBase | None = None
+    parent: PolymorphicObjectBase | None = None
+    __properties: ClassVar[list[str]] = ["id", "etag", "date", "amount", "interest", "voided_at", "created_at", "updated_at", "description", "has_online_payment", "destroyable", "payment_type", "bill", "source_bank_account", "destination_bank_account", "matter", "contact", "parent"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,11 +81,11 @@ class Allocation(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of Allocation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -88,7 +95,7 @@ class Allocation(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -117,7 +124,7 @@ class Allocation(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of Allocation from a dict"""
         if obj is None:
             return None

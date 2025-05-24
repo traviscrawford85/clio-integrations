@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,7 +17,7 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing_extensions import Self
@@ -30,8 +29,8 @@ class DamageList(BaseModel):
     """
     DamageList
     """ # noqa: E501
-    data: List[Damage] = Field(description="Damage List Response")
-    __properties: ClassVar[List[str]] = ["data"]
+    data: list[Damage] = Field(description="Damage List Response")
+    __properties: ClassVar[list[str]] = ["data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,11 +49,11 @@ class DamageList(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of DamageList from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -64,7 +63,7 @@ class DamageList(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -82,7 +81,7 @@ class DamageList(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of DamageList from a dict"""
         if obj is None:
             return None

@@ -14,23 +14,20 @@
 from datetime import date, datetime
 from typing import Any, Dict, List, Optional, Tuple, Union
 
-from pydantic import (Field, StrictBool, StrictFloat, StrictInt, StrictStr,
-                      validate_call)
+from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, validate_call
 from typing_extensions import Annotated
 
 from clio_client.openapi_client.api_client import ApiClient
-from clio_client.openapi_client.models.task_create_request import \
-    TaskCreateRequest
+from clio_client.openapi_client.models.task_create_request import TaskCreateRequest
 from clio_client.openapi_client.models.task_list import TaskList
 from clio_client.openapi_client.models.task_show import TaskShow
-from clio_client.openapi_client.models.task_update_request import \
-from clio_client.openapi_client.api_response import ApiResponse
-from typing import List
-from typing import Dict
-from typing import Optional
-from typing import Union
-from datetime import datetime
-from datetime import date
+from clio_client.openapi_client.models.task_update_request import (
+    ApiResponse,
+    clio_client.openapi_client.api_response,
+    from,
+    import,
+)
+
     TaskUpdateRequest
 
 

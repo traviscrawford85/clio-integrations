@@ -1,0 +1,39 @@
+description: PolymorphicObjectBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *PolymorphicObject*
+    title: Id
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *PolymorphicObject*
+    title: Type
+  identifier:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A string to identify the *PolymorphicObject*
+    title: Identifier
+  secondary_identifier:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A secondary string to identify the *PolymorphicObject*
+    title: Secondary Identifier
+  tertiary_identifier:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A tertiary string to identify the *PolymorphicObject*
+    title: Tertiary Identifier
+title: PolymorphicObjectBase
+type: object

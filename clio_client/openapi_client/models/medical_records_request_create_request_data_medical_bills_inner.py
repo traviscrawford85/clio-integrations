@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,30 +18,38 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.medical_records_request_create_request_data_medical_bills_inner_payers_inner import \
-    MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner
+from clio_client.openapi_client.models.medical_records_request_create_request_data_medical_bills_inner_payers_inner import (
+    MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner,
+)
 
 
 class MedicalRecordsRequestCreateRequestDataMedicalBillsInner(BaseModel):
     """
     MedicalRecordsRequestCreateRequestDataMedicalBillsInner
     """ # noqa: E501
-    adjustment: Union[StrictFloat, StrictInt] = Field(description="Adjustment for Medical Bill.")
-    amount: Union[StrictFloat, StrictInt] = Field(description="Amount for Medical Bill.")
-    balance: Union[StrictFloat, StrictInt] = Field(description="Balance for Medical Bill.")
-    bill_date: Optional[date] = Field(default=None, description="Bill date for Medical Bill. (Expects an ISO-8601 date).")
-    bill_received_date: Optional[date] = Field(default=None, description="Bill received date for Medical Bill. (Expects an ISO-8601 date).")
-    document_id: Optional[StrictInt] = Field(default=None, description="The unique identifier for a single Damage associated with the MedicalRecordsRequest. The keyword `null` is not valid for this field.")
+    adjustment: StrictFloat | StrictInt = Field(description="Adjustment for Medical Bill.")
+    amount: StrictFloat | StrictInt = Field(description="Amount for Medical Bill.")
+    balance: StrictFloat | StrictInt = Field(description="Balance for Medical Bill.")
+    bill_date: date | None = Field(default=None, description="Bill date for Medical Bill. (Expects an ISO-8601 date).")
+    bill_received_date: date | None = Field(default=None, description="Bill received date for Medical Bill. (Expects an ISO-8601 date).")
+    document_id: StrictInt | None = Field(default=None, description="The unique identifier for a single Damage associated with the MedicalRecordsRequest. The keyword `null` is not valid for this field.")
     name: StrictStr = Field(description="Name for Medical Bill.")
     mark_balance_as_lien: StrictBool = Field(description="Setting the balance of the Medical Bill as a lien.")
-    payers: Optional[List[MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner]] = None
-    __properties: ClassVar[List[str]] = ["adjustment", "amount", "balance", "bill_date", "bill_received_date", "document_id", "name", "mark_balance_as_lien", "payers"]
+    payers: list[MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner] | None = None
+    __properties: ClassVar[list[str]] = ["adjustment", "amount", "balance", "bill_date", "bill_received_date", "document_id", "name", "mark_balance_as_lien", "payers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -61,11 +68,11 @@ class MedicalRecordsRequestCreateRequestDataMedicalBillsInner(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MedicalRecordsRequestCreateRequestDataMedicalBillsInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -75,7 +82,7 @@ class MedicalRecordsRequestCreateRequestDataMedicalBillsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -93,7 +100,7 @@ class MedicalRecordsRequestCreateRequestDataMedicalBillsInner(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MedicalRecordsRequestCreateRequestDataMedicalBillsInner from a dict"""
         if obj is None:
             return None

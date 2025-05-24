@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -30,22 +36,22 @@ class TaskBase(BaseModel):
     """
     TaskBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Task*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Task*")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the *Task*")
-    status: Optional[StrictStr] = Field(default=None, description="Status of the *Task*. (Note that users without advanced tasks can only have either complete or pending)")
-    description: Optional[StrictStr] = Field(default=None, description="A detailed description of the *Task*")
-    priority: Optional[StrictStr] = Field(default=None, description="The priority of the *Task*")
-    due_at: Optional[date] = Field(default=None, description="The date the *Task* is due (as a ISO-8601 date)")
-    permission: Optional[StrictStr] = Field(default=None, description="The permission of the *Task*")
-    completed_at: Optional[datetime] = Field(default=None, description="The time the *Task* was completed (as a ISO-8601 timestamp)")
-    notify_completion: Optional[StrictBool] = Field(default=None, description="Whether to notify the assigner of the task's completion")
-    statute_of_limitations: Optional[StrictBool] = Field(default=None, description="Whether the task is a statute of limitations")
-    time_estimated: Optional[StrictInt] = Field(default=None, description="Time the *Task* should take to complete")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Task* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Task* was last updated (as a ISO-8601 timestamp)")
-    time_entries_count: Optional[StrictInt] = Field(default=None, description="The number of time entries associated with this task")
-    __properties: ClassVar[List[str]] = ["id", "etag", "name", "status", "description", "priority", "due_at", "permission", "completed_at", "notify_completion", "statute_of_limitations", "time_estimated", "created_at", "updated_at", "time_entries_count"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Task*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Task*")
+    name: StrictStr | None = Field(default=None, description="The name of the *Task*")
+    status: StrictStr | None = Field(default=None, description="Status of the *Task*. (Note that users without advanced tasks can only have either complete or pending)")
+    description: StrictStr | None = Field(default=None, description="A detailed description of the *Task*")
+    priority: StrictStr | None = Field(default=None, description="The priority of the *Task*")
+    due_at: date | None = Field(default=None, description="The date the *Task* is due (as a ISO-8601 date)")
+    permission: StrictStr | None = Field(default=None, description="The permission of the *Task*")
+    completed_at: datetime | None = Field(default=None, description="The time the *Task* was completed (as a ISO-8601 timestamp)")
+    notify_completion: StrictBool | None = Field(default=None, description="Whether to notify the assigner of the task's completion")
+    statute_of_limitations: StrictBool | None = Field(default=None, description="Whether the task is a statute of limitations")
+    time_estimated: StrictInt | None = Field(default=None, description="Time the *Task* should take to complete")
+    created_at: datetime | None = Field(default=None, description="The time the *Task* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Task* was last updated (as a ISO-8601 timestamp)")
+    time_entries_count: StrictInt | None = Field(default=None, description="The number of time entries associated with this task")
+    __properties: ClassVar[list[str]] = ["id", "etag", "name", "status", "description", "priority", "due_at", "permission", "completed_at", "notify_completion", "statute_of_limitations", "time_estimated", "created_at", "updated_at", "time_entries_count"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -84,11 +90,11 @@ class TaskBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of TaskBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -98,7 +104,7 @@ class TaskBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -109,7 +115,7 @@ class TaskBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of TaskBase from a dict"""
         if obj is None:
             return None

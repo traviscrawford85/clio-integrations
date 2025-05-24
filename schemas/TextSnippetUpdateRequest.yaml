@@ -1,0 +1,36 @@
+$defs:
+  TextSnippetUpdateRequestData:
+    description: TextSnippetUpdateRequestData
+    properties:
+      phrase:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The phrase expanded to from a TextSnippet.
+        title: Phrase
+      snippet:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The abbreviation that expands to a phrase.
+        title: Snippet
+      whole_word:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the TextSnippet requires a space after to trigger
+          the expansion.
+        title: Whole Word
+    title: TextSnippetUpdateRequestData
+    type: object
+description: TextSnippetUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/TextSnippetUpdateRequestData'
+required:
+- data
+title: TextSnippetUpdateRequest
+type: object

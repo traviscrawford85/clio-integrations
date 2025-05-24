@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictInt, StrictStr,
-                      field_validator)
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing_extensions import Self
 
 
@@ -30,22 +28,22 @@ class ReportScheduleBase(BaseModel):
     """
     ReportScheduleBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *ReportSchedule*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *ReportSchedule*")
-    time_of_day: Optional[datetime] = Field(default=None, description="What time the Report Schedule is run")
-    frequency: Optional[StrictStr] = Field(default=None, description="How often the Report Schedule is run")
-    days_of_week: Optional[List[StrictInt]] = Field(default=None, description="If the frequency is weekly, which days of the week the Report Schedule is run. Values are 0 to 6, representing Sunday to Saturday.")
-    day_of_month: Optional[StrictInt] = Field(default=None, description="If the frequency is monthly, which day of the month the Report Schedule is run. 32 is used to represent the last day of the month.")
-    status: Optional[StrictStr] = Field(default=None, description="The status of the Report Schedule")
-    status_updated_at: Optional[datetime] = Field(default=None, description="When the status of the Report Schedule was last updated")
-    next_scheduled_date: Optional[datetime] = Field(default=None, description="The next time the Report Schedule should run")
-    time_zone: Optional[StrictStr] = Field(default=None, description="Used in conjunction with `time_of_day` to determine when the Report Schedule should run")
-    report_preset_id: Optional[StrictInt] = Field(default=None, description="The unique identifier of the Report Preset to use when generating the scheduled report")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *ReportSchedule* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *ReportSchedule* was last updated (as a ISO-8601 timestamp)")
-    every_no_of_months: Optional[StrictInt] = Field(default=None, description="If the frequency is monthly, how many months between each run of the Report Schedule")
-    effective_from: Optional[date] = Field(default=None, description="The date the Report Schedule will become enabled (a ISO-8601 date)")
-    __properties: ClassVar[List[str]] = ["id", "etag", "time_of_day", "frequency", "days_of_week", "day_of_month", "status", "status_updated_at", "next_scheduled_date", "time_zone", "report_preset_id", "created_at", "updated_at", "every_no_of_months", "effective_from"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *ReportSchedule*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *ReportSchedule*")
+    time_of_day: datetime | None = Field(default=None, description="What time the Report Schedule is run")
+    frequency: StrictStr | None = Field(default=None, description="How often the Report Schedule is run")
+    days_of_week: list[StrictInt] | None = Field(default=None, description="If the frequency is weekly, which days of the week the Report Schedule is run. Values are 0 to 6, representing Sunday to Saturday.")
+    day_of_month: StrictInt | None = Field(default=None, description="If the frequency is monthly, which day of the month the Report Schedule is run. 32 is used to represent the last day of the month.")
+    status: StrictStr | None = Field(default=None, description="The status of the Report Schedule")
+    status_updated_at: datetime | None = Field(default=None, description="When the status of the Report Schedule was last updated")
+    next_scheduled_date: datetime | None = Field(default=None, description="The next time the Report Schedule should run")
+    time_zone: StrictStr | None = Field(default=None, description="Used in conjunction with `time_of_day` to determine when the Report Schedule should run")
+    report_preset_id: StrictInt | None = Field(default=None, description="The unique identifier of the Report Preset to use when generating the scheduled report")
+    created_at: datetime | None = Field(default=None, description="The time the *ReportSchedule* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *ReportSchedule* was last updated (as a ISO-8601 timestamp)")
+    every_no_of_months: StrictInt | None = Field(default=None, description="If the frequency is monthly, how many months between each run of the Report Schedule")
+    effective_from: date | None = Field(default=None, description="The date the Report Schedule will become enabled (a ISO-8601 date)")
+    __properties: ClassVar[list[str]] = ["id", "etag", "time_of_day", "frequency", "days_of_week", "day_of_month", "status", "status_updated_at", "next_scheduled_date", "time_zone", "report_preset_id", "created_at", "updated_at", "every_no_of_months", "effective_from"]
 
     @field_validator('frequency')
     def frequency_validate_enum(cls, value):
@@ -84,11 +82,11 @@ class ReportScheduleBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ReportScheduleBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -98,7 +96,7 @@ class ReportScheduleBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -109,7 +107,7 @@ class ReportScheduleBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ReportScheduleBase from a dict"""
         if obj is None:
             return None

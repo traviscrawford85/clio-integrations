@@ -1,0 +1,12 @@
+description: CommentUpdateRequestDataItem
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier of the Document or Folder to which the Comment
+      is associated.
+    title: Id
+title: CommentUpdateRequestDataItem
+type: object

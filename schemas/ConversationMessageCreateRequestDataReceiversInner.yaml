@@ -1,0 +1,16 @@
+description: ConversationMessageCreateRequestDataReceiversInner
+properties:
+  id:
+    description: The unique identifier for a single receiver for this ConversationMessage.
+    title: Id
+    type: integer
+  type:
+    description: The type for a single receiver for this ConversationMessage, could
+      be `Contact` or `User`.
+    title: Type
+    type: string
+required:
+- id
+- type
+title: ConversationMessageCreateRequestDataReceiversInner
+type: object

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,46 +18,58 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictStr,
-                      field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.calendar_entry_create_request_data_attendees_inner import \
-    CalendarEntryCreateRequestDataAttendeesInner
-from clio_client.openapi_client.models.calendar_entry_create_request_data_calendar_entry_event_type import \
-    CalendarEntryCreateRequestDataCalendarEntryEventType
-from clio_client.openapi_client.models.calendar_entry_create_request_data_conference_meeting import \
-    CalendarEntryCreateRequestDataConferenceMeeting
-from clio_client.openapi_client.models.calendar_entry_create_request_data_matter import \
-    CalendarEntryCreateRequestDataMatter
-from clio_client.openapi_client.models.calendar_entry_update_request_data_calendar_owner import \
-    CalendarEntryUpdateRequestDataCalendarOwner
-from clio_client.openapi_client.models.calendar_entry_update_request_data_external_properties_inner import \
-    CalendarEntryUpdateRequestDataExternalPropertiesInner
+from clio_client.openapi_client.models.calendar_entry_create_request_data_attendees_inner import (
+    CalendarEntryCreateRequestDataAttendeesInner,
+)
+from clio_client.openapi_client.models.calendar_entry_create_request_data_calendar_entry_event_type import (
+    CalendarEntryCreateRequestDataCalendarEntryEventType,
+)
+from clio_client.openapi_client.models.calendar_entry_create_request_data_conference_meeting import (
+    CalendarEntryCreateRequestDataConferenceMeeting,
+)
+from clio_client.openapi_client.models.calendar_entry_create_request_data_matter import (
+    CalendarEntryCreateRequestDataMatter,
+)
+from clio_client.openapi_client.models.calendar_entry_update_request_data_calendar_owner import (
+    CalendarEntryUpdateRequestDataCalendarOwner,
+)
+from clio_client.openapi_client.models.calendar_entry_update_request_data_external_properties_inner import (
+    CalendarEntryUpdateRequestDataExternalPropertiesInner,
+)
 
 
 class CalendarEntryUpdateRequestData(BaseModel):
     """
     CalendarEntryUpdateRequestData
     """ # noqa: E501
-    deleted: Optional[StrictStr] = Field(default=None, description="Flag to delete a specific instance of a recurring event.", alias="_deleted")
-    all_day: Optional[StrictBool] = Field(default=None, description="Whether or not the CalendarEntry is for all day.")
-    attendees: Optional[List[CalendarEntryCreateRequestDataAttendeesInner]] = None
-    calendar_entry_event_type: Optional[CalendarEntryCreateRequestDataCalendarEntryEventType] = None
-    calendar_owner: Optional[CalendarEntryUpdateRequestDataCalendarOwner] = None
-    conference_meeting: Optional[CalendarEntryCreateRequestDataConferenceMeeting] = None
-    description: Optional[StrictStr] = Field(default=None, description="A detailed description of the CalendarEntry.")
-    end_at: Optional[datetime] = Field(default=None, description="The time the CalendarEntry ends (Expects an ISO-8601 timestamp).")
-    external_properties: Optional[List[CalendarEntryUpdateRequestDataExternalPropertiesInner]] = None
-    location: Optional[StrictStr] = Field(default=None, description="The geographic location of the CalendarEntry.")
-    matter: Optional[CalendarEntryCreateRequestDataMatter] = None
-    recurrence_rule: Optional[StrictStr] = Field(default=None, description="Recurrence rule for expanding recurring CalendarEntry. To convert an existing recurring event to a non-recurring event, `''` or `null` are valid values.")
-    send_email_notification: Optional[StrictBool] = Field(default=None, description="Whether the calendar Entry should send email notifications to attendees")
-    start_at: Optional[datetime] = Field(default=None, description="The time the CalendarEntry starts (Expects an ISO-8601 timestamp).")
-    summary: Optional[StrictStr] = Field(default=None, description="A short summary of the CalendarEntry.")
-    __properties: ClassVar[List[str]] = ["_deleted", "all_day", "attendees", "calendar_entry_event_type", "calendar_owner", "conference_meeting", "description", "end_at", "external_properties", "location", "matter", "recurrence_rule", "send_email_notification", "start_at", "summary"]
+    deleted: StrictStr | None = Field(default=None, description="Flag to delete a specific instance of a recurring event.", alias="_deleted")
+    all_day: StrictBool | None = Field(default=None, description="Whether or not the CalendarEntry is for all day.")
+    attendees: list[CalendarEntryCreateRequestDataAttendeesInner] | None = None
+    calendar_entry_event_type: CalendarEntryCreateRequestDataCalendarEntryEventType | None = None
+    calendar_owner: CalendarEntryUpdateRequestDataCalendarOwner | None = None
+    conference_meeting: CalendarEntryCreateRequestDataConferenceMeeting | None = None
+    description: StrictStr | None = Field(default=None, description="A detailed description of the CalendarEntry.")
+    end_at: datetime | None = Field(default=None, description="The time the CalendarEntry ends (Expects an ISO-8601 timestamp).")
+    external_properties: list[CalendarEntryUpdateRequestDataExternalPropertiesInner] | None = None
+    location: StrictStr | None = Field(default=None, description="The geographic location of the CalendarEntry.")
+    matter: CalendarEntryCreateRequestDataMatter | None = None
+    recurrence_rule: StrictStr | None = Field(default=None, description="Recurrence rule for expanding recurring CalendarEntry. To convert an existing recurring event to a non-recurring event, `''` or `null` are valid values.")
+    send_email_notification: StrictBool | None = Field(default=None, description="Whether the calendar Entry should send email notifications to attendees")
+    start_at: datetime | None = Field(default=None, description="The time the CalendarEntry starts (Expects an ISO-8601 timestamp).")
+    summary: StrictStr | None = Field(default=None, description="A short summary of the CalendarEntry.")
+    __properties: ClassVar[list[str]] = ["_deleted", "all_day", "attendees", "calendar_entry_event_type", "calendar_owner", "conference_meeting", "description", "end_at", "external_properties", "location", "matter", "recurrence_rule", "send_email_notification", "start_at", "summary"]
 
     @field_validator('deleted')
     def deleted_validate_enum(cls, value):
@@ -87,11 +98,11 @@ class CalendarEntryUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of CalendarEntryUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -101,7 +112,7 @@ class CalendarEntryUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -138,7 +149,7 @@ class CalendarEntryUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of CalendarEntryUpdateRequestData from a dict"""
         if obj is None:
             return None

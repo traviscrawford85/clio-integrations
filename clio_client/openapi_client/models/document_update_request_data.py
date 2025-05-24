@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,38 +18,41 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.document_copy_request_data_document_category import \
-    DocumentCopyRequestDataDocumentCategory
-from clio_client.openapi_client.models.document_copy_request_data_external_properties_inner import \
-    DocumentCopyRequestDataExternalPropertiesInner
-from clio_client.openapi_client.models.document_update_request_data_multiparts_inner import \
-    DocumentUpdateRequestDataMultipartsInner
-from clio_client.openapi_client.models.document_update_request_data_parent import \
-    DocumentUpdateRequestDataParent
+from clio_client.openapi_client.models.document_copy_request_data_document_category import (
+    DocumentCopyRequestDataDocumentCategory,
+)
+from clio_client.openapi_client.models.document_copy_request_data_external_properties_inner import (
+    DocumentCopyRequestDataExternalPropertiesInner,
+)
+from clio_client.openapi_client.models.document_update_request_data_multiparts_inner import (
+    DocumentUpdateRequestDataMultipartsInner,
+)
+from clio_client.openapi_client.models.document_update_request_data_parent import (
+    DocumentUpdateRequestDataParent,
+)
 
 
 class DocumentUpdateRequestData(BaseModel):
     """
     DocumentUpdateRequestData
     """ # noqa: E501
-    communication_id: Optional[StrictInt] = Field(default=None, description="Related communication record.")
-    copy_version: Optional[StrictBool] = Field(default=None, description="Indicates whether to create a new version with the updated filename on rename. This is intended to handle cases where the document extension has been changed; if the document extension has not changed, no new version will be created.")
-    document_category: Optional[DocumentCopyRequestDataDocumentCategory] = None
-    external_properties: Optional[List[DocumentCopyRequestDataExternalPropertiesInner]] = None
-    fully_uploaded: Optional[StrictBool] = Field(default=None, description="Indicates whether document is uploaded.  When marking the document fully uploaded, it arises errors when: * The file is not successfully uploaded. * Not all the file parts are uploaded. * The document is already marked as fully uploaded. ")
-    multiparts: Optional[List[DocumentUpdateRequestDataMultipartsInner]] = None
-    name: Optional[StrictStr] = Field(default=None, description="Document name.")
-    parent: Optional[DocumentUpdateRequestDataParent] = None
-    received_at: Optional[datetime] = Field(default=None, description="Date and time the document was received (Expects an ISO-8601 timestamp).")
-    restore: Optional[StrictBool] = Field(default=None, description="Whether or not a trashed Document should be restored.")
-    uuid: Optional[StrictStr] = Field(default=None, description="UUID associated with the document version. UUID is required to mark a document fully uploaded.")
-    __properties: ClassVar[List[str]] = ["communication_id", "copy_version", "document_category", "external_properties", "fully_uploaded", "multiparts", "name", "parent", "received_at", "restore", "uuid"]
+    communication_id: StrictInt | None = Field(default=None, description="Related communication record.")
+    copy_version: StrictBool | None = Field(default=None, description="Indicates whether to create a new version with the updated filename on rename. This is intended to handle cases where the document extension has been changed; if the document extension has not changed, no new version will be created.")
+    document_category: DocumentCopyRequestDataDocumentCategory | None = None
+    external_properties: list[DocumentCopyRequestDataExternalPropertiesInner] | None = None
+    fully_uploaded: StrictBool | None = Field(default=None, description="Indicates whether document is uploaded.  When marking the document fully uploaded, it arises errors when: * The file is not successfully uploaded. * Not all the file parts are uploaded. * The document is already marked as fully uploaded. ")
+    multiparts: list[DocumentUpdateRequestDataMultipartsInner] | None = None
+    name: StrictStr | None = Field(default=None, description="Document name.")
+    parent: DocumentUpdateRequestDataParent | None = None
+    received_at: datetime | None = Field(default=None, description="Date and time the document was received (Expects an ISO-8601 timestamp).")
+    restore: StrictBool | None = Field(default=None, description="Whether or not a trashed Document should be restored.")
+    uuid: StrictStr | None = Field(default=None, description="UUID associated with the document version. UUID is required to mark a document fully uploaded.")
+    __properties: ClassVar[list[str]] = ["communication_id", "copy_version", "document_category", "external_properties", "fully_uploaded", "multiparts", "name", "parent", "received_at", "restore", "uuid"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,11 +71,11 @@ class DocumentUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of DocumentUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -83,7 +85,7 @@ class DocumentUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -114,7 +116,7 @@ class DocumentUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of DocumentUpdateRequestData from a dict"""
         if obj is None:
             return None

@@ -1,0 +1,57 @@
+description: NotificationMethodBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *NotificationMethod*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *NotificationMethod*
+    title: Etag
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Human readable description of the type of notification
+    title: Type
+  email_address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Email address to send the notification to (only for email type)
+    title: Email Address
+  is_default_email_address:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: A boolean that is returned only on notification method objects that
+      are relevant e.g. Email notification or Alternative Email
+    title: Is Default Email Address
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *NotificationMethod* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *NotificationMethod* was last updated (as a ISO-8601
+      timestamp)
+    title: Updated At
+title: NotificationMethodBase
+type: object

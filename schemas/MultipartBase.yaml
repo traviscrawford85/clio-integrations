@@ -1,0 +1,19 @@
+description: MultipartBase
+properties:
+  part_number:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier of a part which defines its position within the
+      document being uploaded.
+    title: Part Number
+  put_url:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A signed URL for uploading the file part. It expires in 10 minutes.
+    title: Put Url
+title: MultipartBase
+type: object

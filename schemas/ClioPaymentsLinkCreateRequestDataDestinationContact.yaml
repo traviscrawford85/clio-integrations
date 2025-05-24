@@ -1,0 +1,14 @@
+description: ClioPaymentsLinkCreateRequestDataDestinationContact
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Only applicable for a direct payment. The contact that the payment
+      will be associated with. If not defined, and the payment is collecting an unallocated
+      balance, then the payment can be associated with a contact manually within Manage
+      after it has been made.
+    title: Id
+title: ClioPaymentsLinkCreateRequestDataDestinationContact
+type: object

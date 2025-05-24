@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,10 +17,9 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt
 from typing_extensions import Self
 
 
@@ -29,12 +27,12 @@ class MatterUpdateRequestDataSplitInvoicePayersInner(BaseModel):
     """
     MatterUpdateRequestDataSplitInvoicePayersInner
     """ # noqa: E501
-    contact_id: Optional[StrictInt] = Field(default=None, description="Contact id for the matter payer.")
-    id: Optional[StrictInt] = Field(default=None, description="The id for the payer.")
-    send_to_bill_recipients: Optional[StrictBool] = Field(default=None, description="Boolean indication to send a split invoice to all bill recipients.")
-    split_portion: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The split portion for the payer.")
-    destroy: Optional[StrictBool] = Field(default=None, description="If this flag is set to `true`, the split invoice payer will be deleted from the Matter.", alias="_destroy")
-    __properties: ClassVar[List[str]] = ["contact_id", "id", "send_to_bill_recipients", "split_portion", "_destroy"]
+    contact_id: StrictInt | None = Field(default=None, description="Contact id for the matter payer.")
+    id: StrictInt | None = Field(default=None, description="The id for the payer.")
+    send_to_bill_recipients: StrictBool | None = Field(default=None, description="Boolean indication to send a split invoice to all bill recipients.")
+    split_portion: StrictFloat | StrictInt | None = Field(default=None, description="The split portion for the payer.")
+    destroy: StrictBool | None = Field(default=None, description="If this flag is set to `true`, the split invoice payer will be deleted from the Matter.", alias="_destroy")
+    __properties: ClassVar[list[str]] = ["contact_id", "id", "send_to_bill_recipients", "split_portion", "_destroy"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,11 +51,11 @@ class MatterUpdateRequestDataSplitInvoicePayersInner(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MatterUpdateRequestDataSplitInvoicePayersInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -67,7 +65,7 @@ class MatterUpdateRequestDataSplitInvoicePayersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -78,7 +76,7 @@ class MatterUpdateRequestDataSplitInvoicePayersInner(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MatterUpdateRequestDataSplitInvoicePayersInner from a dict"""
         if obj is None:
             return None

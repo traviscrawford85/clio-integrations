@@ -1,0 +1,686 @@
+$defs:
+  AddressBase:
+    description: AddressBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Address*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Address*
+        title: Etag
+      street:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Street of the *Address*
+        title: Street
+      city:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: City of the *Address*
+        title: City
+      province:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Province or state of the *Address*
+        title: Province
+      postal_code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Postal code of the *Address*
+        title: Postal Code
+      country:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Country of the *Address*
+        title: Country
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *Address*
+        title: Name
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Address* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Address* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      primary:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether it is the default for this contact
+        title: Primary
+    title: AddressBase
+    type: object
+  AvatarBase:
+    description: AvatarBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Avatar*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Avatar*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Avatar* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Avatar* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      url:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The URL for the *Avatar*
+        title: Url
+      _destroy:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether to destroy the *Avatar*
+        title: Destroy
+    title: AvatarBase
+    type: object
+  Client:
+    description: Client
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Client*
+        title: Id
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *Client*
+        title: Name
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: First name of the Person
+        title: First Name
+      middle_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Middle name of the Person
+        title: Middle Name
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Last name of the Person
+        title: Last Name
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Client*
+        title: Type
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Client* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Client* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      prefix:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The prefix of the *Client* (Mr, Mrs, etc)
+        title: Prefix
+      title:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The designated title of the *Client*
+        title: Title
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *Client*
+        title: Initials
+      is_matter_client:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Client is also the client of the matter
+        title: Is Matter Client
+      primary_email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary email address of client
+        title: Primary Email Address
+      primary_phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number of client
+        title: Primary Phone Number
+      client_connect_user_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The client connect ID of the contacts associated user
+        title: Client Connect User Id
+      date_of_birth:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date of Birth
+        title: Date Of Birth
+      avatar:
+        anyOf:
+        - $ref: '#/$defs/AvatarBase'
+        - type: 'null'
+        default: null
+      company:
+        anyOf:
+        - $ref: '#/$defs/ContactBase'
+        - type: 'null'
+        default: null
+      addresses:
+        anyOf:
+        - items:
+            $ref: '#/$defs/AddressBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: Address
+        title: Addresses
+      email_addresses:
+        anyOf:
+        - items:
+            $ref: '#/$defs/EmailAddressBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: EmailAddress
+        title: Email Addresses
+      phone_numbers:
+        anyOf:
+        - items:
+            $ref: '#/$defs/PhoneNumberBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: PhoneNumber
+        title: Phone Numbers
+      web_sites:
+        anyOf:
+        - items:
+            $ref: '#/$defs/WebSiteBase'
+          type: array
+        - type: 'null'
+        default: null
+        description: WebSite
+        title: Web Sites
+    title: Client
+    type: object
+  ContactBase:
+    description: ContactBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *Contact*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *Contact*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The full name of the *Contact*
+        title: Name
+      first_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: First name of the Person
+        title: First Name
+      middle_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Middle name of the Person
+        title: Middle Name
+      last_name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Last name of the Person
+        title: Last Name
+      date_of_birth:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: Date of birth
+        title: Date Of Birth
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *Contact*
+        title: Type
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Contact* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *Contact* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+      prefix:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The prefix of the *Contact* (Mr, Mrs, etc)
+        title: Prefix
+      title:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The designated title of the *Contact*
+        title: Title
+      initials:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The initials of the *Contact*
+        title: Initials
+      clio_connect_email:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Clio Connect email if the *Contact* is a ClioConnect User
+        title: Clio Connect Email
+      locked_clio_connect_email:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: A boolean indicating if the ability to modify this *Contacts
+          Clio connect email is locked.
+        title: Locked Clio Connect Email
+      client_connect_user_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The ID for the Clio Connect user associated with this *Contact*
+        title: Client Connect User Id
+      primary_email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary email address associated with this *Contact*.
+        title: Primary Email Address
+      secondary_email_address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The secondary email address associated with this *Contact*.
+        title: Secondary Email Address
+      primary_phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The primary phone number associated with this *Contact*.
+        title: Primary Phone Number
+      secondary_phone_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The secondary phone number of the *Contact*.
+        title: Secondary Phone Number
+      ledes_client_id:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: LEDES client id of the Contact
+        title: Ledes Client Id
+      has_clio_for_clients_permission:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: True if at least one resource has been shared with the contact
+          using Clio for Clients.
+        title: Has Clio For Clients Permission
+      is_client:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact is a client
+        title: Is Client
+      is_clio_for_client_user:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not this contact has client_login and client_user
+          (can be created due to addition to client portal or client_share_permissions)
+        title: Is Clio For Client User
+      is_co_counsel:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the Contact has matters shared as co-counsel
+        title: Is Co Counsel
+      is_bill_recipient:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the Contact is a bill recipient on at least one matter.
+        title: Is Bill Recipient
+      sales_tax_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The sales tax number of the *Contact*
+        title: Sales Tax Number
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the *Contact*
+        title: Currency
+    title: ContactBase
+    type: object
+  EmailAddressBase:
+    description: EmailAddressBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *EmailAddress*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *EmailAddress*
+        title: Etag
+      address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The address of the *EmailAddress*
+        title: Address
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A descriptive name for the *EmailAddress. Common values include
+          `Home`, `Work`, and `Other`, as these are the only selectable options within
+          Clio Manage, but other values may be returned for this field.
+        title: Name
+      primary:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether it is the default for this contact
+        title: Primary
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *EmailAddress* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *EmailAddress* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: EmailAddressBase
+    type: object
+  PhoneNumberBase:
+    description: PhoneNumberBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *PhoneNumber*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *PhoneNumber*
+        title: Etag
+      number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Contact's Phone Number
+        title: Number
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of *PhoneNumber* it is
+        title: Name
+      primary:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether it is default for this contact
+        title: Primary
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PhoneNumber* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *PhoneNumber* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: PhoneNumberBase
+    type: object
+  WebSiteBase:
+    description: WebSiteBase
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *WebSite*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *WebSite*
+        title: Etag
+      address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The address of the *WebSite*
+        title: Address
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of *WebSite* it is
+        title: Name
+      default_web_site:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether it is the default for this contact
+        title: Default Web Site
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *WebSite* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *WebSite* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: WebSiteBase
+    type: object
+description: ClientShow
+properties:
+  data:
+    $ref: '#/$defs/Client'
+required:
+- data
+title: ClientShow
+type: object

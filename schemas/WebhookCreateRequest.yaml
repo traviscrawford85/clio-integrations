@@ -1,0 +1,50 @@
+$defs:
+  WebhookCreateRequestData:
+    description: WebhookCreateRequestData
+    properties:
+      events:
+        anyOf:
+        - items:
+            type: string
+          type: array
+        - type: 'null'
+        default: null
+        description: The events your webhook is subscribed to.
+        title: Events
+      expires_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The date and time when the Webhook will expire. (Expects an ISO-8601
+          timestamp).
+        title: Expires At
+      fields:
+        description: Fields to be included in the Webhook request.
+        title: Fields
+        type: string
+      model:
+        description: What model the Webhook is for. This field accepts either [the
+          string identifier of the model or its ID](#section/Supported-Models)
+        title: Model
+        type: string
+      url:
+        description: The URL of where to POST the Webhook. Note that only URLs using
+          the `https` protocol will be accepted.
+        title: Url
+        type: string
+    required:
+    - fields
+    - model
+    - url
+    title: WebhookCreateRequestData
+    type: object
+description: WebhookCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/WebhookCreateRequestData'
+required:
+- data
+title: WebhookCreateRequest
+type: object

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,10 +17,17 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -29,12 +35,12 @@ class ContactUpdateRequestDataEmailAddressesInner(BaseModel):
     """
     ContactUpdateRequestDataEmailAddressesInner
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="The unique identifier for a single EmailAddress associated with the Contact. The keyword `null` is not valid for this field.")
-    name: Optional[StrictStr] = Field(default='Other', description="Name of the EmailAddress.")
-    address: Optional[StrictStr] = Field(default=None, description="Email address.")
-    default_email: Optional[StrictBool] = Field(default=None, description="Whether or not the Contact should be the default email for the Contact.")
-    destroy: Optional[StrictBool] = Field(default=None, description="The destroy flag. If the flag is set to `true` and the unique identifier of the associated EmailAddress is present, the EmailAddress is deleted from the Contact.", alias="_destroy")
-    __properties: ClassVar[List[str]] = ["id", "name", "address", "default_email", "_destroy"]
+    id: StrictInt | None = Field(default=None, description="The unique identifier for a single EmailAddress associated with the Contact. The keyword `null` is not valid for this field.")
+    name: StrictStr | None = Field(default='Other', description="Name of the EmailAddress.")
+    address: StrictStr | None = Field(default=None, description="Email address.")
+    default_email: StrictBool | None = Field(default=None, description="Whether or not the Contact should be the default email for the Contact.")
+    destroy: StrictBool | None = Field(default=None, description="The destroy flag. If the flag is set to `true` and the unique identifier of the associated EmailAddress is present, the EmailAddress is deleted from the Contact.", alias="_destroy")
+    __properties: ClassVar[list[str]] = ["id", "name", "address", "default_email", "_destroy"]
 
     @field_validator('name')
     def name_validate_enum(cls, value):
@@ -63,11 +69,11 @@ class ContactUpdateRequestDataEmailAddressesInner(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ContactUpdateRequestDataEmailAddressesInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -77,7 +83,7 @@ class ContactUpdateRequestDataEmailAddressesInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -88,7 +94,7 @@ class ContactUpdateRequestDataEmailAddressesInner(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ContactUpdateRequestDataEmailAddressesInner from a dict"""
         if obj is None:
             return None

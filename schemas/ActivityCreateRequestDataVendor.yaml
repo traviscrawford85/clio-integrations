@@ -1,0 +1,12 @@
+description: ActivityCreateRequestDataVendor
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: 'The unique identifier for a single Contact associated with a HardCostEntry.
+      Use the keyword `null` to specify no association. '
+    title: Id
+title: ActivityCreateRequestDataVendor
+type: object

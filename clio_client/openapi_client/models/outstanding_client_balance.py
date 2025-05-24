@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.bill_base import BillBase
@@ -34,21 +40,21 @@ class OutstandingClientBalance(BaseModel):
     """
     OutstandingClientBalance
     """ # noqa: E501
-    associated_matter_ids: Optional[List[StrictInt]] = Field(default=None, description="An array of Matter IDs associated with bills in the unpaid state")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *OutstandingClientBalance*")
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *OutstandingClientBalance*")
-    last_payment_date: Optional[date] = Field(default=None, description="The date the most recent payment from the contact was received")
-    last_shared_date: Optional[date] = Field(default=None, description="The date of the most recently shared bills through the outstanding balance table")
-    newest_issued_bill_due_date: Optional[date] = Field(default=None, description="The due date of the contact's newest bill")
-    pending_payments_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The sum of all online payments in a pending state on the outstanding bills")
-    reminders_enabled: Optional[StrictBool] = Field(default=None, description="The status of automated reminders for this client")
-    total_outstanding_balance: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The sum of all bills in the unpaid state")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *OutstandingClientBalance* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *OutstandingClientBalance* was last updated (as a ISO-8601 timestamp)")
-    outstanding_bills: Optional[List[BillBase]] = Field(default=None, description="Bill")
-    contact: Optional[ContactBase] = None
-    currency: Optional[CurrencyBase] = None
-    __properties: ClassVar[List[str]] = ["associated_matter_ids", "etag", "id", "last_payment_date", "last_shared_date", "newest_issued_bill_due_date", "pending_payments_total", "reminders_enabled", "total_outstanding_balance", "created_at", "updated_at", "outstanding_bills", "contact", "currency"]
+    associated_matter_ids: list[StrictInt] | None = Field(default=None, description="An array of Matter IDs associated with bills in the unpaid state")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *OutstandingClientBalance*")
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *OutstandingClientBalance*")
+    last_payment_date: date | None = Field(default=None, description="The date the most recent payment from the contact was received")
+    last_shared_date: date | None = Field(default=None, description="The date of the most recently shared bills through the outstanding balance table")
+    newest_issued_bill_due_date: date | None = Field(default=None, description="The due date of the contact's newest bill")
+    pending_payments_total: StrictFloat | StrictInt | None = Field(default=None, description="The sum of all online payments in a pending state on the outstanding bills")
+    reminders_enabled: StrictBool | None = Field(default=None, description="The status of automated reminders for this client")
+    total_outstanding_balance: StrictFloat | StrictInt | None = Field(default=None, description="The sum of all bills in the unpaid state")
+    created_at: datetime | None = Field(default=None, description="The time the *OutstandingClientBalance* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *OutstandingClientBalance* was last updated (as a ISO-8601 timestamp)")
+    outstanding_bills: list[BillBase] | None = Field(default=None, description="Bill")
+    contact: ContactBase | None = None
+    currency: CurrencyBase | None = None
+    __properties: ClassVar[list[str]] = ["associated_matter_ids", "etag", "id", "last_payment_date", "last_shared_date", "newest_issued_bill_due_date", "pending_payments_total", "reminders_enabled", "total_outstanding_balance", "created_at", "updated_at", "outstanding_bills", "contact", "currency"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -67,11 +73,11 @@ class OutstandingClientBalance(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of OutstandingClientBalance from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -81,7 +87,7 @@ class OutstandingClientBalance(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -105,7 +111,7 @@ class OutstandingClientBalance(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of OutstandingClientBalance from a dict"""
         if obj is None:
             return None

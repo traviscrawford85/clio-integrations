@@ -1,0 +1,11 @@
+description: GroupCreateRequestData
+properties:
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Name of the Group.
+    title: Name
+title: GroupCreateRequestData
+type: object

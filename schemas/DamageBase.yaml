@@ -1,0 +1,56 @@
+description: DamageBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Damage*
+    title: Id
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Amount for Damage
+    title: Amount
+  damage_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Damage type of the record
+    title: Damage Type
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Description for Damage
+    title: Description
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Damage*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Damage* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Damage* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: DamageBase
+type: object

@@ -1,0 +1,44 @@
+$defs:
+  TrustRequest:
+    description: TrustRequest
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *TrustRequest*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *TrustRequest*
+        title: Etag
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TrustRequest* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *TrustRequest* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: TrustRequest
+    type: object
+description: TrustRequestShow
+properties:
+  data:
+    $ref: '#/$defs/TrustRequest'
+required:
+- data
+title: TrustRequestShow
+type: object

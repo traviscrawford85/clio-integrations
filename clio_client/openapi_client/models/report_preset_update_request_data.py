@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,7 +17,7 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing_extensions import Self
@@ -28,11 +27,11 @@ class ReportPresetUpdateRequestData(BaseModel):
     """
     ReportPresetUpdateRequestData
     """ # noqa: E501
-    format: Optional[StrictStr] = Field(default=None, description="What format the report will be generated in.")
-    kind: Optional[StrictStr] = Field(default=None, description="What kind of report will be generated.")
-    name: Optional[StrictStr] = Field(default=None, description="Name of the ReportPreset.")
-    options: Optional[StrictStr] = Field(default=None, description="What the report generation parameters are. See [Creating a Report Preset](#section/Creating-a-Report-Preset) for a sample request.")
-    __properties: ClassVar[List[str]] = ["format", "kind", "name", "options"]
+    format: StrictStr | None = Field(default=None, description="What format the report will be generated in.")
+    kind: StrictStr | None = Field(default=None, description="What kind of report will be generated.")
+    name: StrictStr | None = Field(default=None, description="Name of the ReportPreset.")
+    options: StrictStr | None = Field(default=None, description="What the report generation parameters are. See [Creating a Report Preset](#section/Creating-a-Report-Preset) for a sample request.")
+    __properties: ClassVar[list[str]] = ["format", "kind", "name", "options"]
 
     @field_validator('format')
     def format_validate_enum(cls, value):
@@ -71,11 +70,11 @@ class ReportPresetUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ReportPresetUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -85,7 +84,7 @@ class ReportPresetUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -96,7 +95,7 @@ class ReportPresetUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ReportPresetUpdateRequestData from a dict"""
         if obj is None:
             return None

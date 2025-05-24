@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictInt, StrictStr,
-                      field_validator)
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing_extensions import Self
 
 
@@ -30,18 +28,18 @@ class WebhookBase(BaseModel):
     """
     WebhookBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Webhook*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Webhook*")
-    url: Optional[StrictStr] = Field(default=None, description="The `https` URL to send the data to when the events are triggered")
-    fields: Optional[StrictStr] = Field(default=None, description="Fields to be included in the webhook request")
-    shared_secret: Optional[StrictStr] = Field(default=None, description="A shared secret used to create a signature for the payload")
-    model: Optional[StrictStr] = Field(default=None, description="What kind of records the webhook is for")
-    status: Optional[StrictStr] = Field(default=None, description="The current status of the webhook.")
-    events: Optional[List[StrictStr]] = Field(default=None, description="The events your webhook is subscribed to.")
-    expires_at: Optional[datetime] = Field(default=None, description="The time webhook will expire (as a ISO-8601 timestamp)")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Webhook* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Webhook* was last updated (as a ISO-8601 timestamp)")
-    __properties: ClassVar[List[str]] = ["id", "etag", "url", "fields", "shared_secret", "model", "status", "events", "expires_at", "created_at", "updated_at"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Webhook*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Webhook*")
+    url: StrictStr | None = Field(default=None, description="The `https` URL to send the data to when the events are triggered")
+    fields: StrictStr | None = Field(default=None, description="Fields to be included in the webhook request")
+    shared_secret: StrictStr | None = Field(default=None, description="A shared secret used to create a signature for the payload")
+    model: StrictStr | None = Field(default=None, description="What kind of records the webhook is for")
+    status: StrictStr | None = Field(default=None, description="The current status of the webhook.")
+    events: list[StrictStr] | None = Field(default=None, description="The events your webhook is subscribed to.")
+    expires_at: datetime | None = Field(default=None, description="The time webhook will expire (as a ISO-8601 timestamp)")
+    created_at: datetime | None = Field(default=None, description="The time the *Webhook* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Webhook* was last updated (as a ISO-8601 timestamp)")
+    __properties: ClassVar[list[str]] = ["id", "etag", "url", "fields", "shared_secret", "model", "status", "events", "expires_at", "created_at", "updated_at"]
 
     @field_validator('model')
     def model_validate_enum(cls, value):
@@ -91,11 +89,11 @@ class WebhookBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of WebhookBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -105,7 +103,7 @@ class WebhookBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -116,7 +114,7 @@ class WebhookBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of WebhookBase from a dict"""
         if obj is None:
             return None

@@ -1,0 +1,35 @@
+description: ContactUpdateRequestDataInstantMessengersInner
+properties:
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: Other
+    description: Name of the InstantMessenger.
+    title: Name
+  address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Address of the InstantMessenger.
+    title: Address
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single InstantMessenger associated with
+      the Contact. The keyword `null` is not valid for this field.
+    title: Id
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The destroy flag. If the flag is set to `true` and the unique identifier
+      of the associated InstantMessenger is present, the InstantMessenger is deleted
+      from the Contact.
+    title: Destroy
+title: ContactUpdateRequestDataInstantMessengersInner
+type: object

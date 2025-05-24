@@ -1,0 +1,37 @@
+$defs:
+  TaskTemplateListCopyRequestDataPracticeArea:
+    description: TaskTemplateListCopyRequestDataPracticeArea
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for the practice area of the TaskTemplateList
+          copy.
+        title: Id
+    title: TaskTemplateListCopyRequestDataPracticeArea
+    type: object
+description: TaskTemplateListCopyRequestData
+properties:
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The description of the TaskTemplateList copy.
+    title: Description
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the TaskTemplateList copy.
+    title: Name
+  practice_area:
+    anyOf:
+    - $ref: '#/$defs/TaskTemplateListCopyRequestDataPracticeArea'
+    - type: 'null'
+    default: null
+title: TaskTemplateListCopyRequestData
+type: object

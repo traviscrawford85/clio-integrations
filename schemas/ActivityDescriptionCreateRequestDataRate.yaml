@@ -1,0 +1,28 @@
+description: ActivityDescriptionCreateRequestDataRate
+properties:
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: 0
+    description: The rate of the ActivityDescription. This is ignored for 'User' rates.
+    title: Amount
+  non_billable_amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: 0
+    description: The non billable rate of the ActivityDescription. This is ignored
+      for 'User' rates.
+    title: Non Billable Amount
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: What kind of rate it will be.
+    title: Type
+title: ActivityDescriptionCreateRequestDataRate
+type: object

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictFloat, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing_extensions import Self
 
 
@@ -30,27 +28,27 @@ class LaukCriminalControlledRateBase(BaseModel):
     """
     LaukCriminalControlledRateBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *LaukCriminalControlledRate*")
-    activity: Optional[StrictStr] = Field(default=None, description="Activity of the *LaukCriminalControlledRate*")
-    activity_type: Optional[StrictStr] = Field(default=None, description="Activity type")
-    category_of_law: Optional[StrictStr] = Field(default=None, description="Category of law")
-    counsel: Optional[StrictStr] = Field(default=None, description="Associated counsel")
-    court: Optional[StrictStr] = Field(default=None, description="Court associated")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *LaukCriminalControlledRate* was created (as a ISO-8601 timestamp)")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *LaukCriminalControlledRate*")
-    exceptional: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Fee applied for high activity count")
-    fee: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Fee amount")
-    fee_scheme: Optional[StrictStr] = Field(default=None, description="Fee scheme")
-    post_nov_24_exceptional: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Post-Nov 24 exceptional fee")
-    post_nov_24_fee: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Post-Nov 24 fee amount")
-    post_sept_22_exceptional: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Post-Sept 22 exceptional fee")
-    post_sept_22_fee: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Post-Sept 22 fee amount")
-    key: Optional[StrictStr] = Field(default=None, description="Unique key")
-    rate_type: Optional[StrictStr] = Field(default=None, description="Rate type")
-    region: Optional[StrictStr] = Field(default=None, description="Region")
-    solicitor_type: Optional[StrictStr] = Field(default=None, description="Solicitor type")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *LaukCriminalControlledRate* was last updated (as a ISO-8601 timestamp)")
-    __properties: ClassVar[List[str]] = ["id", "activity", "activity_type", "category_of_law", "counsel", "court", "created_at", "etag", "exceptional", "fee", "fee_scheme", "post_nov_24_exceptional", "post_nov_24_fee", "post_sept_22_exceptional", "post_sept_22_fee", "key", "rate_type", "region", "solicitor_type", "updated_at"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *LaukCriminalControlledRate*")
+    activity: StrictStr | None = Field(default=None, description="Activity of the *LaukCriminalControlledRate*")
+    activity_type: StrictStr | None = Field(default=None, description="Activity type")
+    category_of_law: StrictStr | None = Field(default=None, description="Category of law")
+    counsel: StrictStr | None = Field(default=None, description="Associated counsel")
+    court: StrictStr | None = Field(default=None, description="Court associated")
+    created_at: datetime | None = Field(default=None, description="The time the *LaukCriminalControlledRate* was created (as a ISO-8601 timestamp)")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *LaukCriminalControlledRate*")
+    exceptional: StrictFloat | StrictInt | None = Field(default=None, description="Fee applied for high activity count")
+    fee: StrictFloat | StrictInt | None = Field(default=None, description="Fee amount")
+    fee_scheme: StrictStr | None = Field(default=None, description="Fee scheme")
+    post_nov_24_exceptional: StrictFloat | StrictInt | None = Field(default=None, description="Post-Nov 24 exceptional fee")
+    post_nov_24_fee: StrictFloat | StrictInt | None = Field(default=None, description="Post-Nov 24 fee amount")
+    post_sept_22_exceptional: StrictFloat | StrictInt | None = Field(default=None, description="Post-Sept 22 exceptional fee")
+    post_sept_22_fee: StrictFloat | StrictInt | None = Field(default=None, description="Post-Sept 22 fee amount")
+    key: StrictStr | None = Field(default=None, description="Unique key")
+    rate_type: StrictStr | None = Field(default=None, description="Rate type")
+    region: StrictStr | None = Field(default=None, description="Region")
+    solicitor_type: StrictStr | None = Field(default=None, description="Solicitor type")
+    updated_at: datetime | None = Field(default=None, description="The time the *LaukCriminalControlledRate* was last updated (as a ISO-8601 timestamp)")
+    __properties: ClassVar[list[str]] = ["id", "activity", "activity_type", "category_of_law", "counsel", "court", "created_at", "etag", "exceptional", "fee", "fee_scheme", "post_nov_24_exceptional", "post_nov_24_fee", "post_sept_22_exceptional", "post_sept_22_fee", "key", "rate_type", "region", "solicitor_type", "updated_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,11 +67,11 @@ class LaukCriminalControlledRateBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of LaukCriminalControlledRateBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -83,7 +81,7 @@ class LaukCriminalControlledRateBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -94,7 +92,7 @@ class LaukCriminalControlledRateBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of LaukCriminalControlledRateBase from a dict"""
         if obj is None:
             return None

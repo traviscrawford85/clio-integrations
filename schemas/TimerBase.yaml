@@ -1,0 +1,50 @@
+description: TimerBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Timer*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Timer*
+    title: Etag
+  start_time:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Timer* was started (as ISO-8601 timestamp)
+    title: Start Time
+  elapsed_time:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: How much time has elapsed, in hours, since the timer was started
+    title: Elapsed Time
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Timer* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Timer* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: TimerBase
+type: object

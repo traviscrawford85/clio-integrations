@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -14,8 +13,8 @@
 
 
 
+
 from clio_client.openapi_client.api_client import ApiClient
-from datetime import date
 
 
 class ActivitiesApi:

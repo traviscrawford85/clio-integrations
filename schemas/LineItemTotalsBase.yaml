@@ -1,0 +1,44 @@
+description: LineItemTotalsBase
+properties:
+  quantity:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Sum of quantity for included line items.
+    title: Quantity
+  price:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Sum of price for included line items.
+    title: Price
+  discount_percent:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Sum of discount as percentage for included line items.
+    title: Discount Percent
+  total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Sum of total for included line items.
+    title: Total
+  sub_total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Sum of total before discount and tax is applied.
+    title: Sub Total
+title: LineItemTotalsBase
+type: object

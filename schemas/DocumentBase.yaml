@@ -1,0 +1,93 @@
+description: DocumentBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Document*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Document*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Document* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Document* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  deleted_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Document* was deleted (as a ISO-8601 timestamp)
+    title: Deleted At
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *Document*
+    title: Type
+  locked:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the Document is locked. Locked Document cannot be
+      modified
+    title: Locked
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the Document
+    title: Name
+  received_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the last document version was received (as an ISO-8601 timestamp)
+    title: Received At
+  filename:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The uploaded file name of the latest document version.
+    title: Filename
+  size:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The file size
+    title: Size
+  content_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The uploaded file content type
+    title: Content Type
+title: DocumentBase
+type: object

@@ -1,0 +1,12 @@
+description: CalendarEntryCreateRequestDataCalendarEntryEventType
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single CalendarEntryEventType associated
+      with the CalendarEntry. Use the keyword `null` to specify no association.
+    title: Id
+title: CalendarEntryCreateRequestDataCalendarEntryEventType
+type: object

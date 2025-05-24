@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,16 +18,24 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.bank_account_base import BankAccountBase
 from clio_client.openapi_client.models.bill_base import BillBase
-from clio_client.openapi_client.models.clio_payments_payment_base import \
-    ClioPaymentsPaymentBase
+from clio_client.openapi_client.models.clio_payments_payment_base import (
+    ClioPaymentsPaymentBase,
+)
 from clio_client.openapi_client.models.contact_base import ContactBase
 
 
@@ -36,25 +43,25 @@ class ClioPaymentsLink(BaseModel):
     """
     ClioPaymentsLink
     """ # noqa: E501
-    active: Optional[StrictBool] = Field(default=None, description="Whether or not the payment link is active.")
-    amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The defined amount of the payment link, if set.")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *ClioPaymentsLink* was created (as a ISO-8601 timestamp)")
-    currency: Optional[StrictStr] = Field(default=None, description="The currency the payment link will collect.")
-    description: Optional[StrictStr] = Field(default=None, description="The defined description of the payment link, if set.")
-    email_address: Optional[StrictStr] = Field(default=None, description="The email address to pre-fill the field on the the payment link, if set.")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *ClioPaymentsLink*")
-    expires_at: Optional[datetime] = Field(default=None, description="The ISO 8601 date and time the payment link will expire.")
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *ClioPaymentsLink*")
-    is_allocated_as_revenue: Optional[StrictBool] = Field(default=None, description="Whether the payment link is allocated as revenue.")
-    redirect_url: Optional[StrictStr] = Field(default=None, description="The URL to redirect the client to after the payment has been made.")
-    url: Optional[StrictStr] = Field(default=None, description="The URL of the payment link.")
-    bank_account: Optional[BankAccountBase] = None
-    bill: Optional[BillBase] = None
-    clio_payments_payment: Optional[ClioPaymentsPaymentBase] = None
-    contact: Optional[ContactBase] = None
-    destination_account: Optional[BankAccountBase] = None
-    destination_contact: Optional[ContactBase] = None
-    __properties: ClassVar[List[str]] = ["active", "amount", "created_at", "currency", "description", "email_address", "etag", "expires_at", "id", "is_allocated_as_revenue", "redirect_url", "url", "bank_account", "bill", "clio_payments_payment", "contact", "destination_account", "destination_contact"]
+    active: StrictBool | None = Field(default=None, description="Whether or not the payment link is active.")
+    amount: StrictFloat | StrictInt | None = Field(default=None, description="The defined amount of the payment link, if set.")
+    created_at: datetime | None = Field(default=None, description="The time the *ClioPaymentsLink* was created (as a ISO-8601 timestamp)")
+    currency: StrictStr | None = Field(default=None, description="The currency the payment link will collect.")
+    description: StrictStr | None = Field(default=None, description="The defined description of the payment link, if set.")
+    email_address: StrictStr | None = Field(default=None, description="The email address to pre-fill the field on the the payment link, if set.")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *ClioPaymentsLink*")
+    expires_at: datetime | None = Field(default=None, description="The ISO 8601 date and time the payment link will expire.")
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *ClioPaymentsLink*")
+    is_allocated_as_revenue: StrictBool | None = Field(default=None, description="Whether the payment link is allocated as revenue.")
+    redirect_url: StrictStr | None = Field(default=None, description="The URL to redirect the client to after the payment has been made.")
+    url: StrictStr | None = Field(default=None, description="The URL of the payment link.")
+    bank_account: BankAccountBase | None = None
+    bill: BillBase | None = None
+    clio_payments_payment: ClioPaymentsPaymentBase | None = None
+    contact: ContactBase | None = None
+    destination_account: BankAccountBase | None = None
+    destination_contact: ContactBase | None = None
+    __properties: ClassVar[list[str]] = ["active", "amount", "created_at", "currency", "description", "email_address", "etag", "expires_at", "id", "is_allocated_as_revenue", "redirect_url", "url", "bank_account", "bill", "clio_payments_payment", "contact", "destination_account", "destination_contact"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,11 +80,11 @@ class ClioPaymentsLink(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ClioPaymentsLink from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -87,7 +94,7 @@ class ClioPaymentsLink(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -116,7 +123,7 @@ class ClioPaymentsLink(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ClioPaymentsLink from a dict"""
         if obj is None:
             return None

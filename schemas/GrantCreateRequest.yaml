@@ -1,0 +1,21 @@
+$defs:
+  GrantCreateRequestData:
+    description: GrantCreateRequestData
+    properties:
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Name of the Grant.
+        title: Name
+    title: GrantCreateRequestData
+    type: object
+description: GrantCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/GrantCreateRequestData'
+required:
+- data
+title: GrantCreateRequest
+type: object

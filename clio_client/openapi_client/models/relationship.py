@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,7 +18,7 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing_extensions import Self
@@ -32,14 +31,14 @@ class Relationship(BaseModel):
     """
     Relationship
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Relationship*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Relationship*")
-    description: Optional[StrictStr] = Field(default=None, description="A detailed description of the *Relationship*")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Relationship* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Relationship* was last updated (as a ISO-8601 timestamp)")
-    matter: Optional[MatterBase] = None
-    contact: Optional[ContactBase] = None
-    __properties: ClassVar[List[str]] = ["id", "etag", "description", "created_at", "updated_at", "matter", "contact"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Relationship*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Relationship*")
+    description: StrictStr | None = Field(default=None, description="A detailed description of the *Relationship*")
+    created_at: datetime | None = Field(default=None, description="The time the *Relationship* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Relationship* was last updated (as a ISO-8601 timestamp)")
+    matter: MatterBase | None = None
+    contact: ContactBase | None = None
+    __properties: ClassVar[list[str]] = ["id", "etag", "description", "created_at", "updated_at", "matter", "contact"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -58,11 +57,11 @@ class Relationship(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of Relationship from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -72,7 +71,7 @@ class Relationship(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -89,7 +88,7 @@ class Relationship(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of Relationship from a dict"""
         if obj is None:
             return None

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,10 +17,9 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing_extensions import Self
 
 
@@ -29,16 +27,16 @@ class LegalAidUkContactBase(BaseModel):
     """
     LegalAidUkContactBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *LegalAidUkContact*")
-    disability: Optional[StrictInt] = Field(default=None, description="The disability of the LegalAidUkContact")
-    disability_code: Optional[StrictStr] = Field(default=None, description="The disability code of the LegalAidUkContact")
-    ethnicity: Optional[StrictInt] = Field(default=None, description="The ethnicity of the LegalAidUkContact")
-    ethnicity_title: Optional[StrictStr] = Field(default=None, description="The ethnicity title of the LegalAidUkContact")
-    financially_eligible: Optional[StrictBool] = Field(default=None, description="The financial eligibility of the LegalAidUkContact")
-    gender: Optional[StrictInt] = Field(default=None, description="The gender of the LegalAidUkContact")
-    gender_title: Optional[StrictStr] = Field(default=None, description="The gender title of the LegalAidUkContact")
-    national_insurance_number: Optional[StrictStr] = Field(default=None, description="National Insurance Number")
-    __properties: ClassVar[List[str]] = ["id", "disability", "disability_code", "ethnicity", "ethnicity_title", "financially_eligible", "gender", "gender_title", "national_insurance_number"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *LegalAidUkContact*")
+    disability: StrictInt | None = Field(default=None, description="The disability of the LegalAidUkContact")
+    disability_code: StrictStr | None = Field(default=None, description="The disability code of the LegalAidUkContact")
+    ethnicity: StrictInt | None = Field(default=None, description="The ethnicity of the LegalAidUkContact")
+    ethnicity_title: StrictStr | None = Field(default=None, description="The ethnicity title of the LegalAidUkContact")
+    financially_eligible: StrictBool | None = Field(default=None, description="The financial eligibility of the LegalAidUkContact")
+    gender: StrictInt | None = Field(default=None, description="The gender of the LegalAidUkContact")
+    gender_title: StrictStr | None = Field(default=None, description="The gender title of the LegalAidUkContact")
+    national_insurance_number: StrictStr | None = Field(default=None, description="National Insurance Number")
+    __properties: ClassVar[list[str]] = ["id", "disability", "disability_code", "ethnicity", "ethnicity_title", "financially_eligible", "gender", "gender_title", "national_insurance_number"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -57,11 +55,11 @@ class LegalAidUkContactBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of LegalAidUkContactBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -71,7 +69,7 @@ class LegalAidUkContactBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -82,7 +80,7 @@ class LegalAidUkContactBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of LegalAidUkContactBase from a dict"""
         if obj is None:
             return None

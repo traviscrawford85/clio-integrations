@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing_extensions import Self
 
 
@@ -30,26 +36,26 @@ class BankTransactionBase(BaseModel):
     """
     BankTransactionBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *BankTransaction*")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *BankTransaction*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *BankTransaction*")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *BankTransaction* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *BankTransaction* was last updated (as a ISO-8601 timestamp)")
-    bank_account_id: Optional[StrictInt] = Field(default=None, description="The associated bank account.")
-    source: Optional[StrictStr] = Field(default=None, description="Where the transaction came from.")
-    confirmation: Optional[StrictStr] = Field(default=None, description="The reference code for the transaction.")
-    var_date: Optional[date] = Field(default=None, description="The date of the transaction.", alias="date")
-    amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of the transaction.")
-    currency: Optional[StrictStr] = Field(default=None, description="The currency of the transaction.")
-    description: Optional[StrictStr] = Field(default=None, description="The description of the transaction.")
-    exchange_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The exchange rate of the transaction.")
-    transaction_type: Optional[StrictStr] = Field(default=None, description="What kind of transaction.")
-    funds_in: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of funds received in this transaction.")
-    funds_out: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount of funds withdrawn in this transaction.")
-    clio_payments_transaction: Optional[StrictBool] = Field(default=None, description="Whether the transaction was created through online payments.")
-    current_account_balance: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The current account balance.")
-    read_only_confirmation: Optional[StrictBool] = Field(default=None, description="Whether the transaction's reference code is read-only.")
-    __properties: ClassVar[List[str]] = ["id", "type", "etag", "created_at", "updated_at", "bank_account_id", "source", "confirmation", "date", "amount", "currency", "description", "exchange_rate", "transaction_type", "funds_in", "funds_out", "clio_payments_transaction", "current_account_balance", "read_only_confirmation"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *BankTransaction*")
+    type: StrictStr | None = Field(default=None, description="The type of the *BankTransaction*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *BankTransaction*")
+    created_at: datetime | None = Field(default=None, description="The time the *BankTransaction* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *BankTransaction* was last updated (as a ISO-8601 timestamp)")
+    bank_account_id: StrictInt | None = Field(default=None, description="The associated bank account.")
+    source: StrictStr | None = Field(default=None, description="Where the transaction came from.")
+    confirmation: StrictStr | None = Field(default=None, description="The reference code for the transaction.")
+    var_date: date | None = Field(default=None, description="The date of the transaction.", alias="date")
+    amount: StrictFloat | StrictInt | None = Field(default=None, description="The amount of the transaction.")
+    currency: StrictStr | None = Field(default=None, description="The currency of the transaction.")
+    description: StrictStr | None = Field(default=None, description="The description of the transaction.")
+    exchange_rate: StrictFloat | StrictInt | None = Field(default=None, description="The exchange rate of the transaction.")
+    transaction_type: StrictStr | None = Field(default=None, description="What kind of transaction.")
+    funds_in: StrictFloat | StrictInt | None = Field(default=None, description="The amount of funds received in this transaction.")
+    funds_out: StrictFloat | StrictInt | None = Field(default=None, description="The amount of funds withdrawn in this transaction.")
+    clio_payments_transaction: StrictBool | None = Field(default=None, description="Whether the transaction was created through online payments.")
+    current_account_balance: StrictFloat | StrictInt | None = Field(default=None, description="The current account balance.")
+    read_only_confirmation: StrictBool | None = Field(default=None, description="Whether the transaction's reference code is read-only.")
+    __properties: ClassVar[list[str]] = ["id", "type", "etag", "created_at", "updated_at", "bank_account_id", "source", "confirmation", "date", "amount", "currency", "description", "exchange_rate", "transaction_type", "funds_in", "funds_out", "clio_payments_transaction", "current_account_balance", "read_only_confirmation"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,11 +74,11 @@ class BankTransactionBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of BankTransactionBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -82,7 +88,7 @@ class BankTransactionBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -93,7 +99,7 @@ class BankTransactionBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of BankTransactionBase from a dict"""
         if obj is None:
             return None

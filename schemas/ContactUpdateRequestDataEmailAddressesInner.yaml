@@ -1,0 +1,42 @@
+description: ContactUpdateRequestDataEmailAddressesInner
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single EmailAddress associated with the
+      Contact. The keyword `null` is not valid for this field.
+    title: Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: Other
+    description: Name of the EmailAddress.
+    title: Name
+  address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Email address.
+    title: Address
+  default_email:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the Contact should be the default email for the Contact.
+    title: Default Email
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The destroy flag. If the flag is set to `true` and the unique identifier
+      of the associated EmailAddress is present, the EmailAddress is deleted from
+      the Contact.
+    title: Destroy
+title: ContactUpdateRequestDataEmailAddressesInner
+type: object

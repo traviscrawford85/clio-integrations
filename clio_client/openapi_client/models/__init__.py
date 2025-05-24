@@ -15,3 +15,4 @@
 
 
 # import models into model package
+from .error import Error

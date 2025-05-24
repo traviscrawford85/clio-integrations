@@ -1,0 +1,25 @@
+description: PolymorphicCustomRateGroupBase
+properties:
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Group*
+    title: Etag
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Group*
+    title: Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *Group*
+    title: Name
+title: PolymorphicCustomRateGroupBase
+type: object

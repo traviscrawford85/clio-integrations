@@ -1,0 +1,51 @@
+$defs:
+  EventMetrics:
+    description: EventMetrics
+    properties:
+      unread_mobile_events:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of unread mobile event notifications for the current
+          user
+        title: Unread Mobile Events
+      unread_web_events:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of unread web event notifications for the current
+          user
+        title: Unread Web Events
+      unread_secure_messages:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of unread secure messages for the current user
+        title: Unread Secure Messages
+      unread_client_portal_messages:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of unread client portal messages for the current user
+        title: Unread Client Portal Messages
+      unread_text_messages:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The number of unread text messages for the current user
+        title: Unread Text Messages
+    title: EventMetrics
+    type: object
+description: EventMetricsShow
+properties:
+  data:
+    $ref: '#/$defs/EventMetrics'
+required:
+- data
+title: EventMetricsShow
+type: object

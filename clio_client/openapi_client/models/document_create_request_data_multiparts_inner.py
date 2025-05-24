@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,7 +17,7 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing_extensions import Self
@@ -30,8 +29,8 @@ class DocumentCreateRequestDataMultipartsInner(BaseModel):
     """ # noqa: E501
     part_number: StrictInt = Field(description="The part number of multipart upload. It must be an integer between 1 to 10,000, inclusive.  Multipart upload supports upload a single file as a set of parts. Each part is a contiguous portion of the data. A `part_number` uniquely identifies a part and also defines its position within the document being uploaded. Each part must be at least 5 MB in size, except the last part. There is no minimum size limit on the last part.  The URLs of multipart upload are returned in the field, `put_url`, with the corresponding `multipart`  The API handles maximum 50 `multiparts` in one request. If the upload is split to more than 50 parts, make a PUT request with `fully_uploaded` equal to `false`, and another set of part numbers. ")
     content_length: StrictStr = Field(description="The size of the part of the upload file in bytes.")
-    content_md5: Optional[StrictStr] = Field(default=None, description="The base64-encoded 128-bit MD5 digest of the part data. This header can be used as a message integrity check to verify that the part data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check.")
-    __properties: ClassVar[List[str]] = ["part_number", "content_length", "content_md5"]
+    content_md5: StrictStr | None = Field(default=None, description="The base64-encoded 128-bit MD5 digest of the part data. This header can be used as a message integrity check to verify that the part data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check.")
+    __properties: ClassVar[list[str]] = ["part_number", "content_length", "content_md5"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,11 +49,11 @@ class DocumentCreateRequestDataMultipartsInner(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of DocumentCreateRequestDataMultipartsInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -64,7 +63,7 @@ class DocumentCreateRequestDataMultipartsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -75,7 +74,7 @@ class DocumentCreateRequestDataMultipartsInner(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of DocumentCreateRequestDataMultipartsInner from a dict"""
         if obj is None:
             return None

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,15 +18,15 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictInt, StrictStr,
-                      field_validator)
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.document_base import DocumentBase
-from clio_client.openapi_client.models.document_template_base import \
-    DocumentTemplateBase
+from clio_client.openapi_client.models.document_template_base import (
+    DocumentTemplateBase,
+)
 from clio_client.openapi_client.models.matter_base import MatterBase
 
 
@@ -35,17 +34,17 @@ class DocumentAutomation(BaseModel):
     """
     DocumentAutomation
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *DocumentAutomation*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *DocumentAutomation*")
-    state: Optional[StrictStr] = Field(default=None, description="A text description of what the automation is currently doing")
-    export_formats: Optional[StrictStr] = Field(default=None, description="An array of what formats were requested")
-    filename: Optional[StrictStr] = Field(default=None, description="The name of the file being generated.")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *DocumentAutomation* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *DocumentAutomation* was last updated (as a ISO-8601 timestamp)")
-    matter: Optional[MatterBase] = None
-    document_template: Optional[DocumentTemplateBase] = None
-    documents: Optional[List[DocumentBase]] = Field(default=None, description="Document")
-    __properties: ClassVar[List[str]] = ["id", "etag", "state", "export_formats", "filename", "created_at", "updated_at", "matter", "document_template", "documents"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *DocumentAutomation*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *DocumentAutomation*")
+    state: StrictStr | None = Field(default=None, description="A text description of what the automation is currently doing")
+    export_formats: StrictStr | None = Field(default=None, description="An array of what formats were requested")
+    filename: StrictStr | None = Field(default=None, description="The name of the file being generated.")
+    created_at: datetime | None = Field(default=None, description="The time the *DocumentAutomation* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *DocumentAutomation* was last updated (as a ISO-8601 timestamp)")
+    matter: MatterBase | None = None
+    document_template: DocumentTemplateBase | None = None
+    documents: list[DocumentBase] | None = Field(default=None, description="Document")
+    __properties: ClassVar[list[str]] = ["id", "etag", "state", "export_formats", "filename", "created_at", "updated_at", "matter", "document_template", "documents"]
 
     @field_validator('state')
     def state_validate_enum(cls, value):
@@ -84,11 +83,11 @@ class DocumentAutomation(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of DocumentAutomation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -98,7 +97,7 @@ class DocumentAutomation(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -122,7 +121,7 @@ class DocumentAutomation(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of DocumentAutomation from a dict"""
         if obj is None:
             return None

@@ -1,0 +1,27 @@
+description: TrustLineItemUpdateRequestData
+properties:
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: Date for the TrustLineItem. (Expects an ISO-8601 date).
+    title: Date
+  note:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Note for the TrustLineItem.
+    title: Note
+  total:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Total amount the TrustLineItem is for.
+    title: Total
+title: TrustLineItemUpdateRequestData
+type: object

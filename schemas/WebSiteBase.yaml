@@ -1,0 +1,55 @@
+description: WebSiteBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *WebSite*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *WebSite*
+    title: Etag
+  address:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The address of the *WebSite*
+    title: Address
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of *WebSite* it is
+    title: Name
+  default_web_site:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether it is the default for this contact
+    title: Default Web Site
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *WebSite* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *WebSite* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: WebSiteBase
+type: object

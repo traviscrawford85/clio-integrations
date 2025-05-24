@@ -1,0 +1,20 @@
+description: TaskTemplateCreateRequestDataReminderTemplatesInner
+properties:
+  duration_value:
+    description: Time measured in `duration_unit` to remind user before the subject.
+    title: Duration Value
+    type: integer
+  duration_unit:
+    description: Unit to measure the duration value in.
+    title: Duration Unit
+    type: string
+  notification_type:
+    description: Notification method.
+    title: Notification Type
+    type: string
+required:
+- duration_value
+- duration_unit
+- notification_type
+title: TaskTemplateCreateRequestDataReminderTemplatesInner
+type: object

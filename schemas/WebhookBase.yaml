@@ -1,0 +1,86 @@
+description: WebhookBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Webhook*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Webhook*
+    title: Etag
+  url:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The `https` URL to send the data to when the events are triggered
+    title: Url
+  fields:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Fields to be included in the webhook request
+    title: Fields
+  shared_secret:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A shared secret used to create a signature for the payload
+    title: Shared Secret
+  model:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: What kind of records the webhook is for
+    title: Model
+  status:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The current status of the webhook.
+    title: Status
+  events:
+    anyOf:
+    - items:
+        type: string
+      type: array
+    - type: 'null'
+    default: null
+    description: The events your webhook is subscribed to.
+    title: Events
+  expires_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time webhook will expire (as a ISO-8601 timestamp)
+    title: Expires At
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Webhook* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Webhook* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: WebhookBase
+type: object

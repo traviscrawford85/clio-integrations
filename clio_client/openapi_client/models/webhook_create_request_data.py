@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,7 +18,7 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing_extensions import Self
@@ -29,12 +28,12 @@ class WebhookCreateRequestData(BaseModel):
     """
     WebhookCreateRequestData
     """ # noqa: E501
-    events: Optional[List[StrictStr]] = Field(default=None, description="The events your webhook is subscribed to.")
-    expires_at: Optional[datetime] = Field(default=None, description="The date and time when the Webhook will expire. (Expects an ISO-8601 timestamp).")
+    events: list[StrictStr] | None = Field(default=None, description="The events your webhook is subscribed to.")
+    expires_at: datetime | None = Field(default=None, description="The date and time when the Webhook will expire. (Expects an ISO-8601 timestamp).")
     fields: StrictStr = Field(description="Fields to be included in the Webhook request.")
     model: StrictStr = Field(description="What model the Webhook is for. This field accepts either [the string identifier of the model or its ID](#section/Supported-Models)")
     url: StrictStr = Field(description="The URL of where to POST the Webhook. Note that only URLs using the `https` protocol will be accepted.")
-    __properties: ClassVar[List[str]] = ["events", "expires_at", "fields", "model", "url"]
+    __properties: ClassVar[list[str]] = ["events", "expires_at", "fields", "model", "url"]
 
     @field_validator('events')
     def events_validate_enum(cls, value):
@@ -71,11 +70,11 @@ class WebhookCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of WebhookCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -85,7 +84,7 @@ class WebhookCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -96,7 +95,7 @@ class WebhookCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of WebhookCreateRequestData from a dict"""
         if obj is None:
             return None

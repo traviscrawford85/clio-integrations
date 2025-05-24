@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,17 +18,16 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.calendar_entry_base import \
-    CalendarEntryBase
-from clio_client.openapi_client.models.jurisdiction_base import \
-    JurisdictionBase
-from clio_client.openapi_client.models.jurisdictions_to_trigger_base import \
-    JurisdictionsToTriggerBase
+from clio_client.openapi_client.models.calendar_entry_base import CalendarEntryBase
+from clio_client.openapi_client.models.jurisdiction_base import JurisdictionBase
+from clio_client.openapi_client.models.jurisdictions_to_trigger_base import (
+    JurisdictionsToTriggerBase,
+)
 from clio_client.openapi_client.models.matter_base import MatterBase
 from clio_client.openapi_client.models.service_type_base import ServiceTypeBase
 
@@ -38,21 +36,21 @@ class MatterDocket(BaseModel):
     """
     MatterDocket
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *MatterDocket*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *MatterDocket*")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the *MatterDocket*")
-    start_date: Optional[date] = Field(default=None, description="The date the *MatterDocket* will start (as a ISO-8601 date)")
-    start_time: Optional[datetime] = Field(default=None, description="The time the *MatterDocket* will start, required for specific triggers (as a ISO-8601 timestamp)")
-    status: Optional[StrictStr] = Field(default=None, description="The status of the *MatterDocket* creation")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *MatterDocket* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *MatterDocket* was last updated (as a ISO-8601 timestamp)")
-    deleted_at: Optional[datetime] = Field(default=None, description="The time the *MatterDocket* was deleted (as a ISO-8601 timestamp)")
-    matter: Optional[MatterBase] = None
-    jurisdiction: Optional[JurisdictionBase] = None
-    trigger: Optional[JurisdictionsToTriggerBase] = None
-    service_type: Optional[ServiceTypeBase] = None
-    calendar_entries: Optional[List[CalendarEntryBase]] = Field(default=None, description="CalendarEntry")
-    __properties: ClassVar[List[str]] = ["id", "etag", "name", "start_date", "start_time", "status", "created_at", "updated_at", "deleted_at", "matter", "jurisdiction", "trigger", "service_type", "calendar_entries"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *MatterDocket*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *MatterDocket*")
+    name: StrictStr | None = Field(default=None, description="The name of the *MatterDocket*")
+    start_date: date | None = Field(default=None, description="The date the *MatterDocket* will start (as a ISO-8601 date)")
+    start_time: datetime | None = Field(default=None, description="The time the *MatterDocket* will start, required for specific triggers (as a ISO-8601 timestamp)")
+    status: StrictStr | None = Field(default=None, description="The status of the *MatterDocket* creation")
+    created_at: datetime | None = Field(default=None, description="The time the *MatterDocket* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *MatterDocket* was last updated (as a ISO-8601 timestamp)")
+    deleted_at: datetime | None = Field(default=None, description="The time the *MatterDocket* was deleted (as a ISO-8601 timestamp)")
+    matter: MatterBase | None = None
+    jurisdiction: JurisdictionBase | None = None
+    trigger: JurisdictionsToTriggerBase | None = None
+    service_type: ServiceTypeBase | None = None
+    calendar_entries: list[CalendarEntryBase] | None = Field(default=None, description="CalendarEntry")
+    __properties: ClassVar[list[str]] = ["id", "etag", "name", "start_date", "start_time", "status", "created_at", "updated_at", "deleted_at", "matter", "jurisdiction", "trigger", "service_type", "calendar_entries"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,11 +69,11 @@ class MatterDocket(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MatterDocket from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -85,7 +83,7 @@ class MatterDocket(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -115,7 +113,7 @@ class MatterDocket(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MatterDocket from a dict"""
         if obj is None:
             return None

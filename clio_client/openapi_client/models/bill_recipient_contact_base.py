@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,10 +17,9 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictInt, StrictStr,
-                      field_validator)
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing_extensions import Self
 
 
@@ -29,14 +27,14 @@ class BillRecipientContactBase(BaseModel):
     """
     BillRecipientContactBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Contact*")
-    name: Optional[StrictStr] = Field(default=None, description="The full name of the *Contact*")
-    first_name: Optional[StrictStr] = Field(default=None, description="First name of the Person")
-    middle_name: Optional[StrictStr] = Field(default=None, description="Middle name of the Person")
-    last_name: Optional[StrictStr] = Field(default=None, description="Last name of the Person")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *Contact*")
-    primary_email_address: Optional[StrictStr] = Field(default=None, description="The primary email address associated with this *Contact*.")
-    __properties: ClassVar[List[str]] = ["id", "name", "first_name", "middle_name", "last_name", "type", "primary_email_address"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Contact*")
+    name: StrictStr | None = Field(default=None, description="The full name of the *Contact*")
+    first_name: StrictStr | None = Field(default=None, description="First name of the Person")
+    middle_name: StrictStr | None = Field(default=None, description="Middle name of the Person")
+    last_name: StrictStr | None = Field(default=None, description="Last name of the Person")
+    type: StrictStr | None = Field(default=None, description="The type of the *Contact*")
+    primary_email_address: StrictStr | None = Field(default=None, description="The primary email address associated with this *Contact*.")
+    __properties: ClassVar[list[str]] = ["id", "name", "first_name", "middle_name", "last_name", "type", "primary_email_address"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -65,11 +63,11 @@ class BillRecipientContactBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of BillRecipientContactBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -79,7 +77,7 @@ class BillRecipientContactBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -90,7 +88,7 @@ class BillRecipientContactBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of BillRecipientContactBase from a dict"""
         if obj is None:
             return None

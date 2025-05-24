@@ -1,0 +1,167 @@
+$defs:
+  LineItemUpdateRequestData:
+    description: LineItemUpdateRequestData
+    properties:
+      activity:
+        anyOf:
+        - $ref: '#/$defs/LineItemUpdateRequestDataActivity'
+        - type: 'null'
+        default: null
+      bill:
+        anyOf:
+        - $ref: '#/$defs/LineItemUpdateRequestDataBill'
+        - type: 'null'
+        default: null
+      date:
+        anyOf:
+        - format: date
+          type: string
+        - type: 'null'
+        default: null
+        description: The LineItem date.
+        title: Date
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Description of the LineItem.
+        title: Description
+      discount:
+        anyOf:
+        - $ref: '#/$defs/LineItemUpdateRequestDataDiscount'
+        - type: 'null'
+        default: null
+      group_ordering:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The LineItem group ordering.
+        title: Group Ordering
+      kind:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The specific type of activity which is associated with the LineItem.
+        title: Kind
+      matter:
+        anyOf:
+        - $ref: '#/$defs/LineItemUpdateRequestDataMatter'
+        - type: 'null'
+        default: null
+      note:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The note attached to the LineItem.
+        title: Note
+      price:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The price of the LineItem.
+        title: Price
+      quantity:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Quantity of the LineItem.
+        title: Quantity
+      secondary_taxable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the LineItem is secondary taxable.
+        title: Secondary Taxable
+      taxable:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the LineItem taxable.
+        title: Taxable
+      update_original_record:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether the associated activity will be updated.
+        title: Update Original Record
+    title: LineItemUpdateRequestData
+    type: object
+  LineItemUpdateRequestDataActivity:
+    description: LineItemUpdateRequestDataActivity
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Activity associated with the
+          LineItem. The keyword `null` is not valid for this field.
+        title: Id
+    title: LineItemUpdateRequestDataActivity
+    type: object
+  LineItemUpdateRequestDataBill:
+    description: LineItemUpdateRequestDataBill
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Bill associated with the LineItem.
+          The keyword `null` is not valid for this field.
+        title: Id
+    title: LineItemUpdateRequestDataBill
+    type: object
+  LineItemUpdateRequestDataDiscount:
+    description: LineItemUpdateRequestDataDiscount
+    properties:
+      rate:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Discount rate for the LineItem.
+        title: Rate
+      type:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: 'Discount type. This should be set to one of: ''percentage''
+          or ''money''.'
+        title: Type
+    title: LineItemUpdateRequestDataDiscount
+    type: object
+  LineItemUpdateRequestDataMatter:
+    description: LineItemUpdateRequestDataMatter
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Matter associated with the
+          LineItem. The keyword `null` is not valid for this field.
+        title: Id
+    title: LineItemUpdateRequestDataMatter
+    type: object
+description: LineItemUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/LineItemUpdateRequestData'
+required:
+- data
+title: LineItemUpdateRequest
+type: object

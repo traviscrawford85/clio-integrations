@@ -1,0 +1,103 @@
+$defs:
+  BankAccountCreateRequestData:
+    description: BankAccountCreateRequestData
+    properties:
+      account_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Account number for the BankAccount.
+        title: Account Number
+      balance:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: null
+        description: BankAccount balance.
+        title: Balance
+      controlled_account:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether is a controlled account.
+        title: Controlled Account
+      currency:
+        description: Currency the BankAccount is in.
+        title: Currency
+        type: string
+      default_account:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not the BankAccount should be the default account.
+        title: Default Account
+      domicile_branch:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Branch where the BankAccount was opened.
+        title: Domicile Branch
+      general_ledger_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: General ledger number used for the Law Society of Alberta.
+        title: General Ledger Number
+      holder:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: BankAccount holder.
+        title: Holder
+      institution:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Financial institution.
+        title: Institution
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: BankAccount name.
+        title: Name
+      swift:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Identification code for the financial institution.
+        title: Swift
+      transit_number:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Transit number for the BankAccount branch.
+        title: Transit Number
+      type:
+        description: Type of BankAccount.
+        title: Type
+        type: string
+    required:
+    - currency
+    - type
+    title: BankAccountCreateRequestData
+    type: object
+description: BankAccountCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/BankAccountCreateRequestData'
+required:
+- data
+title: BankAccountCreateRequest
+type: object

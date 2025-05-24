@@ -3,7 +3,7 @@ import json
 
 def check_json_load(path):
     try:
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(path, encoding='utf-8') as f:
             spec = json.load(f)
         print("✅ JSON loaded successfully.")
         print("Top-level keys:")

@@ -1,0 +1,35 @@
+$defs:
+  CommentCreateRequestData:
+    description: CommentCreateRequestData
+    properties:
+      item:
+        $ref: '#/$defs/CommentCreateRequestDataItem'
+      message:
+        description: The content of the Comment.
+        title: Message
+        type: string
+    required:
+    - item
+    - message
+    title: CommentCreateRequestData
+    type: object
+  CommentCreateRequestDataItem:
+    description: CommentCreateRequestDataItem
+    properties:
+      id:
+        description: The unique identifier of the Document or Folder to which the
+          Comment is associated.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: CommentCreateRequestDataItem
+    type: object
+description: CommentCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/CommentCreateRequestData'
+required:
+- data
+title: CommentCreateRequest
+type: object

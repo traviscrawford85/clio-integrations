@@ -1,9 +1,8 @@
 # app/api/v1/auth_routes.py
 
+from .jwt_auth import create_access_token
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel
-
-from app.auth.jwt_auth import create_access_token
 
 router = APIRouter()
 

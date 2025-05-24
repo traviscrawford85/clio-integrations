@@ -1,0 +1,145 @@
+description: BankTransactionBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *BankTransaction*
+    title: Id
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *BankTransaction*
+    title: Type
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *BankTransaction*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BankTransaction* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *BankTransaction* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  bank_account_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The associated bank account.
+    title: Bank Account Id
+  source:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Where the transaction came from.
+    title: Source
+  confirmation:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The reference code for the transaction.
+    title: Confirmation
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date of the transaction.
+    title: Date
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount of the transaction.
+    title: Amount
+  currency:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The currency of the transaction.
+    title: Currency
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The description of the transaction.
+    title: Description
+  exchange_rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The exchange rate of the transaction.
+    title: Exchange Rate
+  transaction_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: What kind of transaction.
+    title: Transaction Type
+  funds_in:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount of funds received in this transaction.
+    title: Funds In
+  funds_out:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The amount of funds withdrawn in this transaction.
+    title: Funds Out
+  clio_payments_transaction:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the transaction was created through online payments.
+    title: Clio Payments Transaction
+  current_account_balance:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The current account balance.
+    title: Current Account Balance
+  read_only_confirmation:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether the transaction's reference code is read-only.
+    title: Read Only Confirmation
+title: BankTransactionBase
+type: object

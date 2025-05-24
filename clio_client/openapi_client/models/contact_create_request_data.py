@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,60 +18,70 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.contact_create_request_data_addresses_inner import \
-    ContactCreateRequestDataAddressesInner
-from clio_client.openapi_client.models.contact_create_request_data_avatar import \
-    ContactCreateRequestDataAvatar
-from clio_client.openapi_client.models.contact_create_request_data_co_counsel_rate import \
-    ContactCreateRequestDataCoCounselRate
-from clio_client.openapi_client.models.contact_create_request_data_company import \
-    ContactCreateRequestDataCompany
-from clio_client.openapi_client.models.contact_create_request_data_custom_field_set_associations_inner import \
-    ContactCreateRequestDataCustomFieldSetAssociationsInner
-from clio_client.openapi_client.models.contact_create_request_data_custom_field_values_inner import \
-    ContactCreateRequestDataCustomFieldValuesInner
-from clio_client.openapi_client.models.contact_create_request_data_email_addresses_inner import \
-    ContactCreateRequestDataEmailAddressesInner
-from clio_client.openapi_client.models.contact_create_request_data_instant_messengers_inner import \
-    ContactCreateRequestDataInstantMessengersInner
-from clio_client.openapi_client.models.contact_create_request_data_phone_numbers_inner import \
-    ContactCreateRequestDataPhoneNumbersInner
-from clio_client.openapi_client.models.contact_create_request_data_web_sites_inner import \
-    ContactCreateRequestDataWebSitesInner
+from clio_client.openapi_client.models.contact_create_request_data_addresses_inner import (
+    ContactCreateRequestDataAddressesInner,
+)
+from clio_client.openapi_client.models.contact_create_request_data_avatar import (
+    ContactCreateRequestDataAvatar,
+)
+from clio_client.openapi_client.models.contact_create_request_data_co_counsel_rate import (
+    ContactCreateRequestDataCoCounselRate,
+)
+from clio_client.openapi_client.models.contact_create_request_data_company import (
+    ContactCreateRequestDataCompany,
+)
+from clio_client.openapi_client.models.contact_create_request_data_custom_field_set_associations_inner import (
+    ContactCreateRequestDataCustomFieldSetAssociationsInner,
+)
+from clio_client.openapi_client.models.contact_create_request_data_custom_field_values_inner import (
+    ContactCreateRequestDataCustomFieldValuesInner,
+)
+from clio_client.openapi_client.models.contact_create_request_data_email_addresses_inner import (
+    ContactCreateRequestDataEmailAddressesInner,
+)
+from clio_client.openapi_client.models.contact_create_request_data_instant_messengers_inner import (
+    ContactCreateRequestDataInstantMessengersInner,
+)
+from clio_client.openapi_client.models.contact_create_request_data_phone_numbers_inner import (
+    ContactCreateRequestDataPhoneNumbersInner,
+)
+from clio_client.openapi_client.models.contact_create_request_data_web_sites_inner import (
+    ContactCreateRequestDataWebSitesInner,
+)
 
 
 class ContactCreateRequestData(BaseModel):
     """
     ContactCreateRequestData
     """ # noqa: E501
-    addresses: Optional[List[ContactCreateRequestDataAddressesInner]] = None
-    avatar: Optional[ContactCreateRequestDataAvatar] = None
-    clio_connect_email: Optional[StrictStr] = Field(default=None, description="Notifications will be sent to this email when a resource is shared.")
-    co_counsel_rate: Optional[ContactCreateRequestDataCoCounselRate] = None
-    company: Optional[ContactCreateRequestDataCompany] = None
-    currency: Optional[Dict[str, Any]] = Field(default=None, description="The Currency the contact is associated with.")
-    custom_field_set_associations: Optional[List[ContactCreateRequestDataCustomFieldSetAssociationsInner]] = None
-    custom_field_values: Optional[List[ContactCreateRequestDataCustomFieldValuesInner]] = None
-    date_of_birth: Optional[date] = Field(default=None, description="Date of birth of the Contact.")
-    email_addresses: Optional[List[ContactCreateRequestDataEmailAddressesInner]] = None
-    first_name: Optional[StrictStr] = Field(default=None, description="First name of the Contact.")
-    instant_messengers: Optional[List[ContactCreateRequestDataInstantMessengersInner]] = None
-    last_name: Optional[StrictStr] = Field(default=None, description="Last name of the Contact.")
-    ledes_client_id: Optional[StrictStr] = Field(default=None, description="LEDES client id of the Contact.")
-    middle_name: Optional[StrictStr] = Field(default=None, description="Middle name of the Contact.")
+    addresses: list[ContactCreateRequestDataAddressesInner] | None = None
+    avatar: ContactCreateRequestDataAvatar | None = None
+    clio_connect_email: StrictStr | None = Field(default=None, description="Notifications will be sent to this email when a resource is shared.")
+    co_counsel_rate: ContactCreateRequestDataCoCounselRate | None = None
+    company: ContactCreateRequestDataCompany | None = None
+    currency: dict[str, Any] | None = Field(default=None, description="The Currency the contact is associated with.")
+    custom_field_set_associations: list[ContactCreateRequestDataCustomFieldSetAssociationsInner] | None = None
+    custom_field_values: list[ContactCreateRequestDataCustomFieldValuesInner] | None = None
+    date_of_birth: date | None = Field(default=None, description="Date of birth of the Contact.")
+    email_addresses: list[ContactCreateRequestDataEmailAddressesInner] | None = None
+    first_name: StrictStr | None = Field(default=None, description="First name of the Contact.")
+    instant_messengers: list[ContactCreateRequestDataInstantMessengersInner] | None = None
+    last_name: StrictStr | None = Field(default=None, description="Last name of the Contact.")
+    ledes_client_id: StrictStr | None = Field(default=None, description="LEDES client id of the Contact.")
+    middle_name: StrictStr | None = Field(default=None, description="Middle name of the Contact.")
     name: StrictStr = Field(description="Full name of the Contact. For requirements, see [Contact Name](https://docs.developers.clio.com/api-reference/#section/Contact-Name).")
-    phone_numbers: Optional[List[ContactCreateRequestDataPhoneNumbersInner]] = None
-    prefix: Optional[StrictStr] = Field(default=None, description="Personal title of the Contact.")
-    sales_tax_number: Optional[StrictStr] = Field(default=None, description="A contact's sales tax number will appear on invoices generated for the Contact.")
-    title: Optional[StrictStr] = Field(default=None, description="Professional title of the Contact.")
+    phone_numbers: list[ContactCreateRequestDataPhoneNumbersInner] | None = None
+    prefix: StrictStr | None = Field(default=None, description="Personal title of the Contact.")
+    sales_tax_number: StrictStr | None = Field(default=None, description="A contact's sales tax number will appear on invoices generated for the Contact.")
+    title: StrictStr | None = Field(default=None, description="Professional title of the Contact.")
     type: StrictStr = Field(description="Type of the Contact.")
-    web_sites: Optional[List[ContactCreateRequestDataWebSitesInner]] = None
-    __properties: ClassVar[List[str]] = ["addresses", "avatar", "clio_connect_email", "co_counsel_rate", "company", "currency", "custom_field_set_associations", "custom_field_values", "date_of_birth", "email_addresses", "first_name", "instant_messengers", "last_name", "ledes_client_id", "middle_name", "name", "phone_numbers", "prefix", "sales_tax_number", "title", "type", "web_sites"]
+    web_sites: list[ContactCreateRequestDataWebSitesInner] | None = None
+    __properties: ClassVar[list[str]] = ["addresses", "avatar", "clio_connect_email", "co_counsel_rate", "company", "currency", "custom_field_set_associations", "custom_field_values", "date_of_birth", "email_addresses", "first_name", "instant_messengers", "last_name", "ledes_client_id", "middle_name", "name", "phone_numbers", "prefix", "sales_tax_number", "title", "type", "web_sites"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -98,11 +107,11 @@ class ContactCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ContactCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -112,7 +121,7 @@ class ContactCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -181,7 +190,7 @@ class ContactCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ContactCreateRequestData from a dict"""
         if obj is None:
             return None

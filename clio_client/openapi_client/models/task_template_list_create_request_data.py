@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,13 +17,14 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.task_template_list_create_request_data_practice_area import \
-    TaskTemplateListCreateRequestDataPracticeArea
+from clio_client.openapi_client.models.task_template_list_create_request_data_practice_area import (
+    TaskTemplateListCreateRequestDataPracticeArea,
+)
 
 
 class TaskTemplateListCreateRequestData(BaseModel):
@@ -33,8 +33,8 @@ class TaskTemplateListCreateRequestData(BaseModel):
     """ # noqa: E501
     description: StrictStr = Field(description="Description of the TaskTemplateList.")
     name: StrictStr = Field(description="Name of the TaskTemplateList.")
-    practice_area: Optional[TaskTemplateListCreateRequestDataPracticeArea] = None
-    __properties: ClassVar[List[str]] = ["description", "name", "practice_area"]
+    practice_area: TaskTemplateListCreateRequestDataPracticeArea | None = None
+    __properties: ClassVar[list[str]] = ["description", "name", "practice_area"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,11 +53,11 @@ class TaskTemplateListCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of TaskTemplateListCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -67,7 +67,7 @@ class TaskTemplateListCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -81,7 +81,7 @@ class TaskTemplateListCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of TaskTemplateListCreateRequestData from a dict"""
         if obj is None:
             return None

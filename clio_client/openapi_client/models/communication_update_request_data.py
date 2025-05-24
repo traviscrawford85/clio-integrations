@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,38 +17,43 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.communication_create_request_data_matter import \
-    CommunicationCreateRequestDataMatter
-from clio_client.openapi_client.models.communication_create_request_data_receivers_inner import \
-    CommunicationCreateRequestDataReceiversInner
-from clio_client.openapi_client.models.communication_create_request_data_senders_inner import \
-    CommunicationCreateRequestDataSendersInner
-from clio_client.openapi_client.models.communication_update_request_data_external_properties_inner import \
-    CommunicationUpdateRequestDataExternalPropertiesInner
-from clio_client.openapi_client.models.communication_update_request_data_notification_event_subscribers_inner import \
-    CommunicationUpdateRequestDataNotificationEventSubscribersInner
+from clio_client.openapi_client.models.communication_create_request_data_matter import (
+    CommunicationCreateRequestDataMatter,
+)
+from clio_client.openapi_client.models.communication_create_request_data_receivers_inner import (
+    CommunicationCreateRequestDataReceiversInner,
+)
+from clio_client.openapi_client.models.communication_create_request_data_senders_inner import (
+    CommunicationCreateRequestDataSendersInner,
+)
+from clio_client.openapi_client.models.communication_update_request_data_external_properties_inner import (
+    CommunicationUpdateRequestDataExternalPropertiesInner,
+)
+from clio_client.openapi_client.models.communication_update_request_data_notification_event_subscribers_inner import (
+    CommunicationUpdateRequestDataNotificationEventSubscribersInner,
+)
 
 
 class CommunicationUpdateRequestData(BaseModel):
     """
     CommunicationUpdateRequestData
     """ # noqa: E501
-    body: Optional[StrictStr] = Field(default=None, description="The body value.")
-    var_date: Optional[StrictStr] = Field(default=None, description="The date for the Communication. (Expects an ISO-8601 date.)", alias="date")
-    external_properties: Optional[List[CommunicationUpdateRequestDataExternalPropertiesInner]] = None
-    matter: Optional[CommunicationCreateRequestDataMatter] = None
-    notification_event_subscribers: Optional[List[CommunicationUpdateRequestDataNotificationEventSubscribersInner]] = None
-    received_at: Optional[StrictStr] = Field(default=None, description="The date-time for the Communication. (Expects an ISO-8601 date-time.)")
-    receivers: Optional[List[CommunicationCreateRequestDataReceiversInner]] = None
-    senders: Optional[List[CommunicationCreateRequestDataSendersInner]] = None
-    subject: Optional[StrictStr] = Field(default=None, description="The subject value.")
-    type: Optional[StrictStr] = Field(default=None, description="Type of the Communication.")
-    __properties: ClassVar[List[str]] = ["body", "date", "external_properties", "matter", "notification_event_subscribers", "received_at", "receivers", "senders", "subject", "type"]
+    body: StrictStr | None = Field(default=None, description="The body value.")
+    var_date: StrictStr | None = Field(default=None, description="The date for the Communication. (Expects an ISO-8601 date.)", alias="date")
+    external_properties: list[CommunicationUpdateRequestDataExternalPropertiesInner] | None = None
+    matter: CommunicationCreateRequestDataMatter | None = None
+    notification_event_subscribers: list[CommunicationUpdateRequestDataNotificationEventSubscribersInner] | None = None
+    received_at: StrictStr | None = Field(default=None, description="The date-time for the Communication. (Expects an ISO-8601 date-time.)")
+    receivers: list[CommunicationCreateRequestDataReceiversInner] | None = None
+    senders: list[CommunicationCreateRequestDataSendersInner] | None = None
+    subject: StrictStr | None = Field(default=None, description="The subject value.")
+    type: StrictStr | None = Field(default=None, description="Type of the Communication.")
+    __properties: ClassVar[list[str]] = ["body", "date", "external_properties", "matter", "notification_event_subscribers", "received_at", "receivers", "senders", "subject", "type"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -78,11 +82,11 @@ class CommunicationUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of CommunicationUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -92,7 +96,7 @@ class CommunicationUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -134,7 +138,7 @@ class CommunicationUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of CommunicationUpdateRequestData from a dict"""
         if obj is None:
             return None

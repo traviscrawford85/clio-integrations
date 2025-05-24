@@ -1,0 +1,98 @@
+$defs:
+  ActivityDescriptionCreateRequestData:
+    description: ActivityDescriptionCreateRequestData
+    properties:
+      currency:
+        anyOf:
+        - additionalProperties: true
+          type: object
+        - type: 'null'
+        default: null
+        description: Currency of the ActivityDescription.
+        title: Currency
+      default:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not this should be the API User's default ActivityDescription.
+        title: Default
+      groups:
+        anyOf:
+        - items:
+            $ref: '#/$defs/ActivityDescriptionCreateRequestDataGroupsInner'
+          type: array
+        - type: 'null'
+        default: null
+        title: Groups
+      name:
+        description: A detailed description of the ActivityDescription.
+        title: Name
+        type: string
+      rate:
+        anyOf:
+        - $ref: '#/$defs/ActivityDescriptionCreateRequestDataRate'
+        - type: 'null'
+        default: null
+      visible_to_co_counsel:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether or not co counsels on the account can see this ActivityDescription.
+        title: Visible To Co Counsel
+    required:
+    - name
+    title: ActivityDescriptionCreateRequestData
+    type: object
+  ActivityDescriptionCreateRequestDataGroupsInner:
+    description: ActivityDescriptionCreateRequestDataGroupsInner
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Group associated with the
+          ActivityDescription. The keyword `null` is not valid for this field.
+        title: Id
+    title: ActivityDescriptionCreateRequestDataGroupsInner
+    type: object
+  ActivityDescriptionCreateRequestDataRate:
+    description: ActivityDescriptionCreateRequestDataRate
+    properties:
+      amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: 0
+        description: The rate of the ActivityDescription. This is ignored for 'User'
+          rates.
+        title: Amount
+      non_billable_amount:
+        anyOf:
+        - type: number
+        - type: integer
+        - type: 'null'
+        default: 0
+        description: The non billable rate of the ActivityDescription. This is ignored
+          for 'User' rates.
+        title: Non Billable Amount
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: What kind of rate it will be.
+        title: Type
+    title: ActivityDescriptionCreateRequestDataRate
+    type: object
+description: ActivityDescriptionCreateRequest
+properties:
+  data:
+    $ref: '#/$defs/ActivityDescriptionCreateRequestData'
+required:
+- data
+title: ActivityDescriptionCreateRequest
+type: object

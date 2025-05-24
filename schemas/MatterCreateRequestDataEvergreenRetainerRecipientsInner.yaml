@@ -1,0 +1,19 @@
+description: MatterCreateRequestDataEvergreenRetainerRecipientsInner
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: the `id` of a User who will receive the trust balance notification.
+    title: Id
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Used to remove an existing User as a recipient of the trust balance
+      notification.
+    title: Destroy
+title: MatterCreateRequestDataEvergreenRetainerRecipientsInner
+type: object

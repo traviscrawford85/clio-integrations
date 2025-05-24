@@ -1,0 +1,47 @@
+$defs:
+  MatterUpdateRequestDataRelationshipsInnerContact:
+    description: MatterUpdateRequestDataRelationshipsInnerContact
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: The unique identifier for a single Contact associated with the
+          Relationship. The keyword `null` is not valid for this field.
+        title: Id
+    title: MatterUpdateRequestDataRelationshipsInnerContact
+    type: object
+description: MatterUpdateRequestDataRelationshipsInner
+properties:
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Describe the relationship between a Contact and a Matter.
+    title: Description
+  contact:
+    anyOf:
+    - $ref: '#/$defs/MatterUpdateRequestDataRelationshipsInnerContact'
+    - type: 'null'
+    default: null
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single Relationship associated with the
+      Matter. The keyword `null` is not valid for this field.
+    title: Id
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: The destroy flag. If the flag is set to `true` and the unique identifier
+      of the associated Relationship is present, the Relationship is deleted from
+      the Matter.
+    title: Destroy
+title: MatterUpdateRequestDataRelationshipsInner
+type: object

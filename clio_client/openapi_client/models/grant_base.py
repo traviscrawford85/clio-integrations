@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,7 +18,7 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing_extensions import Self
@@ -29,18 +28,18 @@ class GrantBase(BaseModel):
     """
     GrantBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Grant*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Grant*")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the *Grant*")
-    funding_code: Optional[StrictStr] = Field(default=None, description="Funding code of the grant")
-    funding_code_and_name: Optional[StrictStr] = Field(default=None, description="Funding code and name of the grant")
-    funding_source_name: Optional[StrictStr] = Field(default=None, description="Name of the funding source of the grant")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Grant* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Grant* was last updated (as a ISO-8601 timestamp)")
-    balance: Optional[StrictStr] = Field(default=None, description="Balance of the grant")
-    start_date: Optional[date] = Field(default=None, description="Start date of the grant")
-    end_date: Optional[date] = Field(default=None, description="End date of the grant")
-    __properties: ClassVar[List[str]] = ["id", "etag", "name", "funding_code", "funding_code_and_name", "funding_source_name", "created_at", "updated_at", "balance", "start_date", "end_date"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Grant*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Grant*")
+    name: StrictStr | None = Field(default=None, description="The name of the *Grant*")
+    funding_code: StrictStr | None = Field(default=None, description="Funding code of the grant")
+    funding_code_and_name: StrictStr | None = Field(default=None, description="Funding code and name of the grant")
+    funding_source_name: StrictStr | None = Field(default=None, description="Name of the funding source of the grant")
+    created_at: datetime | None = Field(default=None, description="The time the *Grant* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Grant* was last updated (as a ISO-8601 timestamp)")
+    balance: StrictStr | None = Field(default=None, description="Balance of the grant")
+    start_date: date | None = Field(default=None, description="Start date of the grant")
+    end_date: date | None = Field(default=None, description="End date of the grant")
+    __properties: ClassVar[list[str]] = ["id", "etag", "name", "funding_code", "funding_code_and_name", "funding_source_name", "created_at", "updated_at", "balance", "start_date", "end_date"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,11 +58,11 @@ class GrantBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of GrantBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -73,7 +72,7 @@ class GrantBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -84,7 +83,7 @@ class GrantBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of GrantBase from a dict"""
         if obj is None:
             return None

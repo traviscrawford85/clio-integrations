@@ -14,24 +14,19 @@
 from datetime import date, datetime
 from typing import Any, Dict, List, Optional, Tuple, Union
 
-from pydantic import (Field, StrictBool, StrictFloat, StrictInt, StrictStr,
-                      validate_call)
+from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, validate_call
 from typing_extensions import Annotated
 
 from clio_client.openapi_client.api_client import ApiClient
-from clio_client.openapi_client.models.contact_create_request import \
-    ContactCreateRequest
+from clio_client.openapi_client.models.contact_create_request import (
+    ContactCreateRequest,
+)
 from clio_client.openapi_client.models.contact_list import ContactList
 from clio_client.openapi_client.models.contact_show import ContactShow
-from clio_client.openapi_client.models.contact_update_request import \
-from clio_client.openapi_client.api_response import ApiResponse
-from typing import List
-from typing import Dict
-from typing import Optional
-from typing import Union
-from datetime import datetime
-from datetime import date
-    ContactUpdateRequest
+from clio_client.openapi_client.models.error import Error
+from openapi_client.api_response import ApiResponse
+from openapi_client.rest import RESTResponse, RESTClientObject
+
 
 
 class ContactsApi:

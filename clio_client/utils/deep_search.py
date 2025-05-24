@@ -20,7 +20,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     json_file = sys.argv[1]
-    with open(json_file, 'r') as f:
+    with open(json_file) as f:
         data = json.load(f)
 
     find_refs(data)

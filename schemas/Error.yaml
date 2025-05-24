@@ -1,0 +1,25 @@
+$defs:
+  ErrorDetail:
+    description: ErrorDetail
+    properties:
+      type:
+        description: Unique name for this error
+        title: Type
+        type: string
+      message:
+        description: Detailed message about the error
+        title: Message
+        type: string
+    required:
+    - type
+    - message
+    title: ErrorDetail
+    type: object
+description: Error
+properties:
+  error:
+    $ref: '#/$defs/ErrorDetail'
+required:
+- error
+title: Error
+type: object

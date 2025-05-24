@@ -1,0 +1,12 @@
+description: ContactCreateRequestDataCompany
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for a single Company associated with the Contact.
+      The keyword `null` is not valid for this field.
+    title: Id
+title: ContactCreateRequestDataCompany
+type: object

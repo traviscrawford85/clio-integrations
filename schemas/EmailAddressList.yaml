@@ -1,0 +1,71 @@
+$defs:
+  EmailAddress:
+    description: EmailAddress
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *EmailAddress*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *EmailAddress*
+        title: Etag
+      address:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The address of the *EmailAddress*
+        title: Address
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: A descriptive name for the *EmailAddress. Common values include
+          `Home`, `Work`, and `Other`, as these are the only selectable options within
+          Clio Manage, but other values may be returned for this field.
+        title: Name
+      primary:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Whether it is the default for this contact
+        title: Primary
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *EmailAddress* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *EmailAddress* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: EmailAddress
+    type: object
+description: EmailAddressList
+properties:
+  data:
+    description: EmailAddress List Response
+    items:
+      $ref: '#/$defs/EmailAddress'
+    title: Data
+    type: array
+required:
+- data
+title: EmailAddressList
+type: object

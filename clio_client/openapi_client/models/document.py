@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,24 +18,31 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.clio_creator_base import ClioCreatorBase
 from clio_client.openapi_client.models.contact_base import ContactBase
-from clio_client.openapi_client.models.document_category_base import \
-    DocumentCategoryBase
+from clio_client.openapi_client.models.document_category_base import (
+    DocumentCategoryBase,
+)
 from clio_client.openapi_client.models.document_version import DocumentVersion
-from clio_client.openapi_client.models.document_version_base import \
-    DocumentVersionBase
-from clio_client.openapi_client.models.external_property_base import \
-    ExternalPropertyBase
+from clio_client.openapi_client.models.document_version_base import DocumentVersionBase
+from clio_client.openapi_client.models.external_property_base import (
+    ExternalPropertyBase,
+)
 from clio_client.openapi_client.models.group_base import GroupBase
-from clio_client.openapi_client.models.linked_folder_base import \
-    LinkedFolderBase
+from clio_client.openapi_client.models.linked_folder_base import LinkedFolderBase
 from clio_client.openapi_client.models.matter_base import MatterBase
 
 
@@ -44,28 +50,28 @@ class Document(BaseModel):
     """
     Document
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Document*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Document*")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Document* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Document* was last updated (as a ISO-8601 timestamp)")
-    deleted_at: Optional[datetime] = Field(default=None, description="The time the *Document* was deleted (as a ISO-8601 timestamp)")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *Document*")
-    locked: Optional[StrictBool] = Field(default=None, description="Whether or not the Document is locked. Locked Document cannot be modified")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the Document")
-    received_at: Optional[datetime] = Field(default=None, description="The time the last document version was received (as an ISO-8601 timestamp)")
-    filename: Optional[StrictStr] = Field(default=None, description="The uploaded file name of the latest document version.")
-    size: Optional[StrictInt] = Field(default=None, description="The file size")
-    content_type: Optional[StrictStr] = Field(default=None, description="The uploaded file content type")
-    parent: Optional[LinkedFolderBase] = None
-    matter: Optional[MatterBase] = None
-    contact: Optional[ContactBase] = None
-    document_category: Optional[DocumentCategoryBase] = None
-    creator: Optional[ClioCreatorBase] = None
-    latest_document_version: Optional[DocumentVersion] = None
-    group: Optional[GroupBase] = None
-    external_properties: Optional[List[ExternalPropertyBase]] = Field(default=None, description="ExternalProperty")
-    document_versions: Optional[List[DocumentVersionBase]] = Field(default=None, description="DocumentVersion")
-    __properties: ClassVar[List[str]] = ["id", "etag", "created_at", "updated_at", "deleted_at", "type", "locked", "name", "received_at", "filename", "size", "content_type", "parent", "matter", "contact", "document_category", "creator", "latest_document_version", "group", "external_properties", "document_versions"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Document*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Document*")
+    created_at: datetime | None = Field(default=None, description="The time the *Document* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Document* was last updated (as a ISO-8601 timestamp)")
+    deleted_at: datetime | None = Field(default=None, description="The time the *Document* was deleted (as a ISO-8601 timestamp)")
+    type: StrictStr | None = Field(default=None, description="The type of the *Document*")
+    locked: StrictBool | None = Field(default=None, description="Whether or not the Document is locked. Locked Document cannot be modified")
+    name: StrictStr | None = Field(default=None, description="The name of the Document")
+    received_at: datetime | None = Field(default=None, description="The time the last document version was received (as an ISO-8601 timestamp)")
+    filename: StrictStr | None = Field(default=None, description="The uploaded file name of the latest document version.")
+    size: StrictInt | None = Field(default=None, description="The file size")
+    content_type: StrictStr | None = Field(default=None, description="The uploaded file content type")
+    parent: LinkedFolderBase | None = None
+    matter: MatterBase | None = None
+    contact: ContactBase | None = None
+    document_category: DocumentCategoryBase | None = None
+    creator: ClioCreatorBase | None = None
+    latest_document_version: DocumentVersion | None = None
+    group: GroupBase | None = None
+    external_properties: list[ExternalPropertyBase] | None = Field(default=None, description="ExternalProperty")
+    document_versions: list[DocumentVersionBase] | None = Field(default=None, description="DocumentVersion")
+    __properties: ClassVar[list[str]] = ["id", "etag", "created_at", "updated_at", "deleted_at", "type", "locked", "name", "received_at", "filename", "size", "content_type", "parent", "matter", "contact", "document_category", "creator", "latest_document_version", "group", "external_properties", "document_versions"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -94,11 +100,11 @@ class Document(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of Document from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -108,7 +114,7 @@ class Document(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -154,7 +160,7 @@ class Document(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of Document from a dict"""
         if obj is None:
             return None

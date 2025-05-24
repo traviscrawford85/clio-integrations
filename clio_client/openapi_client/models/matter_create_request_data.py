@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,73 +18,93 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictStr,
-                      field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.contact_create_request_data_custom_field_values_inner import \
-    ContactCreateRequestDataCustomFieldValuesInner
-from clio_client.openapi_client.models.matter_create_request_data_client import \
-    MatterCreateRequestDataClient
-from clio_client.openapi_client.models.matter_create_request_data_custom_field_set_associations_inner import \
-    MatterCreateRequestDataCustomFieldSetAssociationsInner
-from clio_client.openapi_client.models.matter_create_request_data_custom_rate import \
-    MatterCreateRequestDataCustomRate
-from clio_client.openapi_client.models.matter_create_request_data_evergreen_retainer import \
-    MatterCreateRequestDataEvergreenRetainer
-from clio_client.openapi_client.models.matter_create_request_data_group import \
-    MatterCreateRequestDataGroup
-from clio_client.openapi_client.models.matter_create_request_data_matter_budget import \
-    MatterCreateRequestDataMatterBudget
-from clio_client.openapi_client.models.matter_create_request_data_matter_stage import \
-    MatterCreateRequestDataMatterStage
-from clio_client.openapi_client.models.matter_create_request_data_originating_attorney import \
-    MatterCreateRequestDataOriginatingAttorney
-from clio_client.openapi_client.models.matter_create_request_data_practice_area import \
-    MatterCreateRequestDataPracticeArea
-from clio_client.openapi_client.models.matter_create_request_data_relationships_inner import \
-    MatterCreateRequestDataRelationshipsInner
-from clio_client.openapi_client.models.matter_create_request_data_split_invoice_payers_inner import \
-    MatterCreateRequestDataSplitInvoicePayersInner
-from clio_client.openapi_client.models.matter_create_request_data_statute_of_limitations import \
-    MatterCreateRequestDataStatuteOfLimitations
-from clio_client.openapi_client.models.matter_create_request_data_task_template_list_instances_inner import \
-    MatterCreateRequestDataTaskTemplateListInstancesInner
+from clio_client.openapi_client.models.contact_create_request_data_custom_field_values_inner import (
+    ContactCreateRequestDataCustomFieldValuesInner,
+)
+from clio_client.openapi_client.models.matter_create_request_data_client import (
+    MatterCreateRequestDataClient,
+)
+from clio_client.openapi_client.models.matter_create_request_data_custom_field_set_associations_inner import (
+    MatterCreateRequestDataCustomFieldSetAssociationsInner,
+)
+from clio_client.openapi_client.models.matter_create_request_data_custom_rate import (
+    MatterCreateRequestDataCustomRate,
+)
+from clio_client.openapi_client.models.matter_create_request_data_evergreen_retainer import (
+    MatterCreateRequestDataEvergreenRetainer,
+)
+from clio_client.openapi_client.models.matter_create_request_data_group import (
+    MatterCreateRequestDataGroup,
+)
+from clio_client.openapi_client.models.matter_create_request_data_matter_budget import (
+    MatterCreateRequestDataMatterBudget,
+)
+from clio_client.openapi_client.models.matter_create_request_data_matter_stage import (
+    MatterCreateRequestDataMatterStage,
+)
+from clio_client.openapi_client.models.matter_create_request_data_originating_attorney import (
+    MatterCreateRequestDataOriginatingAttorney,
+)
+from clio_client.openapi_client.models.matter_create_request_data_practice_area import (
+    MatterCreateRequestDataPracticeArea,
+)
+from clio_client.openapi_client.models.matter_create_request_data_relationships_inner import (
+    MatterCreateRequestDataRelationshipsInner,
+)
+from clio_client.openapi_client.models.matter_create_request_data_split_invoice_payers_inner import (
+    MatterCreateRequestDataSplitInvoicePayersInner,
+)
+from clio_client.openapi_client.models.matter_create_request_data_statute_of_limitations import (
+    MatterCreateRequestDataStatuteOfLimitations,
+)
+from clio_client.openapi_client.models.matter_create_request_data_task_template_list_instances_inner import (
+    MatterCreateRequestDataTaskTemplateListInstancesInner,
+)
 
 
 class MatterCreateRequestData(BaseModel):
     """
     MatterCreateRequestData
     """ # noqa: E501
-    billable: Optional[StrictBool] = Field(default=True, description="Whether or not the matter is billable.")
+    billable: StrictBool | None = Field(default=True, description="Whether or not the matter is billable.")
     client: MatterCreateRequestDataClient
-    client_reference: Optional[StrictStr] = Field(default=None, description="Client Reference string for external uses.")
-    close_date: Optional[date] = Field(default=None, description="Date the Matter was set to closed. (Expects an ISO-8601 date).")
-    currency: Optional[Dict[str, Any]] = Field(default=None, description="Currency of the matter")
-    custom_field_set_associations: Optional[List[MatterCreateRequestDataCustomFieldSetAssociationsInner]] = None
-    custom_field_values: Optional[List[ContactCreateRequestDataCustomFieldValuesInner]] = None
-    custom_rate: Optional[MatterCreateRequestDataCustomRate] = None
+    client_reference: StrictStr | None = Field(default=None, description="Client Reference string for external uses.")
+    close_date: date | None = Field(default=None, description="Date the Matter was set to closed. (Expects an ISO-8601 date).")
+    currency: dict[str, Any] | None = Field(default=None, description="Currency of the matter")
+    custom_field_set_associations: list[MatterCreateRequestDataCustomFieldSetAssociationsInner] | None = None
+    custom_field_values: list[ContactCreateRequestDataCustomFieldValuesInner] | None = None
+    custom_rate: MatterCreateRequestDataCustomRate | None = None
     description: StrictStr = Field(description="Detailed description of the Matter.")
-    display_number: Optional[StrictStr] = Field(default=None, description="Matter reference and label. Depending on the account's manual_matter_numbering setting, this is either read only (generated), or customizable.")
-    evergreen_retainer: Optional[MatterCreateRequestDataEvergreenRetainer] = None
-    group: Optional[MatterCreateRequestDataGroup] = None
-    location: Optional[StrictStr] = Field(default=None, description="Location of the Matter.")
-    matter_budget: Optional[MatterCreateRequestDataMatterBudget] = None
-    matter_stage: Optional[MatterCreateRequestDataMatterStage] = None
-    open_date: Optional[date] = Field(default=None, description="Date the Matter was set to open. (Expects an ISO-8601 date).")
-    originating_attorney: Optional[MatterCreateRequestDataOriginatingAttorney] = None
-    pending_date: Optional[date] = Field(default=None, description="Date the Matter was set to pending. (Expects an ISO-8601 date).")
-    practice_area: Optional[MatterCreateRequestDataPracticeArea] = None
-    relationships: Optional[List[MatterCreateRequestDataRelationshipsInner]] = None
-    reset_matter_number: Optional[StrictBool] = Field(default=False, description="Defaults to false. Resets the matter's number based on the account's matter numbering scheme.")
-    responsible_attorney: Optional[MatterCreateRequestDataOriginatingAttorney] = None
-    split_invoice_payers: Optional[List[MatterCreateRequestDataSplitInvoicePayersInner]] = None
-    status: Optional[StrictStr] = Field(default=None, description="Matter status.")
-    statute_of_limitations: Optional[MatterCreateRequestDataStatuteOfLimitations] = None
-    task_template_list_instances: Optional[List[MatterCreateRequestDataTaskTemplateListInstancesInner]] = None
-    __properties: ClassVar[List[str]] = ["billable", "client", "client_reference", "close_date", "currency", "custom_field_set_associations", "custom_field_values", "custom_rate", "description", "display_number", "evergreen_retainer", "group", "location", "matter_budget", "matter_stage", "open_date", "originating_attorney", "pending_date", "practice_area", "relationships", "reset_matter_number", "responsible_attorney", "split_invoice_payers", "status", "statute_of_limitations", "task_template_list_instances"]
+    display_number: StrictStr | None = Field(default=None, description="Matter reference and label. Depending on the account's manual_matter_numbering setting, this is either read only (generated), or customizable.")
+    evergreen_retainer: MatterCreateRequestDataEvergreenRetainer | None = None
+    group: MatterCreateRequestDataGroup | None = None
+    location: StrictStr | None = Field(default=None, description="Location of the Matter.")
+    matter_budget: MatterCreateRequestDataMatterBudget | None = None
+    matter_stage: MatterCreateRequestDataMatterStage | None = None
+    open_date: date | None = Field(default=None, description="Date the Matter was set to open. (Expects an ISO-8601 date).")
+    originating_attorney: MatterCreateRequestDataOriginatingAttorney | None = None
+    pending_date: date | None = Field(default=None, description="Date the Matter was set to pending. (Expects an ISO-8601 date).")
+    practice_area: MatterCreateRequestDataPracticeArea | None = None
+    relationships: list[MatterCreateRequestDataRelationshipsInner] | None = None
+    reset_matter_number: StrictBool | None = Field(default=False, description="Defaults to false. Resets the matter's number based on the account's matter numbering scheme.")
+    responsible_attorney: MatterCreateRequestDataOriginatingAttorney | None = None
+    split_invoice_payers: list[MatterCreateRequestDataSplitInvoicePayersInner] | None = None
+    status: StrictStr | None = Field(default=None, description="Matter status.")
+    statute_of_limitations: MatterCreateRequestDataStatuteOfLimitations | None = None
+    task_template_list_instances: list[MatterCreateRequestDataTaskTemplateListInstancesInner] | None = None
+    __properties: ClassVar[list[str]] = ["billable", "client", "client_reference", "close_date", "currency", "custom_field_set_associations", "custom_field_values", "custom_rate", "description", "display_number", "evergreen_retainer", "group", "location", "matter_budget", "matter_stage", "open_date", "originating_attorney", "pending_date", "practice_area", "relationships", "reset_matter_number", "responsible_attorney", "split_invoice_payers", "status", "statute_of_limitations", "task_template_list_instances"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -114,11 +133,11 @@ class MatterCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MatterCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -128,7 +147,7 @@ class MatterCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -204,7 +223,7 @@ class MatterCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MatterCreateRequestData from a dict"""
         if obj is None:
             return None

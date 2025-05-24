@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictFloat, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing_extensions import Self
 
 
@@ -30,14 +28,14 @@ class TrustLineItemBase(BaseModel):
     """
     TrustLineItemBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *TrustLineItem*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *TrustLineItem*")
-    var_date: Optional[date] = Field(default=None, description="The date of the *TrustLineItem* (as a ISO-8601 date)", alias="date")
-    total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total amount for the *TrustLineItem*")
-    note: Optional[StrictStr] = Field(default=None, description="Note for the *TrustLineItem*")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *TrustLineItem* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *TrustLineItem* was last updated (as a ISO-8601 timestamp)")
-    __properties: ClassVar[List[str]] = ["id", "etag", "date", "total", "note", "created_at", "updated_at"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *TrustLineItem*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *TrustLineItem*")
+    var_date: date | None = Field(default=None, description="The date of the *TrustLineItem* (as a ISO-8601 date)", alias="date")
+    total: StrictFloat | StrictInt | None = Field(default=None, description="The total amount for the *TrustLineItem*")
+    note: StrictStr | None = Field(default=None, description="Note for the *TrustLineItem*")
+    created_at: datetime | None = Field(default=None, description="The time the *TrustLineItem* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *TrustLineItem* was last updated (as a ISO-8601 timestamp)")
+    __properties: ClassVar[list[str]] = ["id", "etag", "date", "total", "note", "created_at", "updated_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -56,11 +54,11 @@ class TrustLineItemBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of TrustLineItemBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -70,7 +68,7 @@ class TrustLineItemBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -81,7 +79,7 @@ class TrustLineItemBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of TrustLineItemBase from a dict"""
         if obj is None:
             return None

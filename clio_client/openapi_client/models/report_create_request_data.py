@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,37 +18,41 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.report_create_request_data_client import \
-    ReportCreateRequestDataClient
-from clio_client.openapi_client.models.report_create_request_data_matter import \
-    ReportCreateRequestDataMatter
-from clio_client.openapi_client.models.report_create_request_data_originating_attorney import \
-    ReportCreateRequestDataOriginatingAttorney
-from clio_client.openapi_client.models.report_create_request_data_practice_area import \
-    ReportCreateRequestDataPracticeArea
+from clio_client.openapi_client.models.report_create_request_data_client import (
+    ReportCreateRequestDataClient,
+)
+from clio_client.openapi_client.models.report_create_request_data_matter import (
+    ReportCreateRequestDataMatter,
+)
+from clio_client.openapi_client.models.report_create_request_data_originating_attorney import (
+    ReportCreateRequestDataOriginatingAttorney,
+)
+from clio_client.openapi_client.models.report_create_request_data_practice_area import (
+    ReportCreateRequestDataPracticeArea,
+)
 
 
 class ReportCreateRequestData(BaseModel):
     """
     ReportCreateRequestData
     """ # noqa: E501
-    client: Optional[ReportCreateRequestDataClient] = None
-    end_date: Optional[date] = Field(default=None, description="Filters Report data by date. (Expects an ISO-8601 date).")
+    client: ReportCreateRequestDataClient | None = None
+    end_date: date | None = Field(default=None, description="Filters Report data by date. (Expects an ISO-8601 date).")
     format: StrictStr = Field(description="What format the Report will be generated in.")
     kind: StrictStr = Field(description="What kind of Report will be generated.")
-    matter: Optional[ReportCreateRequestDataMatter] = None
-    originating_attorney: Optional[ReportCreateRequestDataOriginatingAttorney] = None
-    practice_area: Optional[ReportCreateRequestDataPracticeArea] = None
-    responsible_attorney: Optional[ReportCreateRequestDataOriginatingAttorney] = None
-    start_date: Optional[date] = Field(default=None, description="Filters Report data by date. (Expects an ISO-8601 date).")
-    user: Optional[ReportCreateRequestDataOriginatingAttorney] = None
-    year: Optional[StrictStr] = Field(default=None, description="Filters Report data by year. Sets start_date and end_date. (Expects a year).")
-    __properties: ClassVar[List[str]] = ["client", "end_date", "format", "kind", "matter", "originating_attorney", "practice_area", "responsible_attorney", "start_date", "user", "year"]
+    matter: ReportCreateRequestDataMatter | None = None
+    originating_attorney: ReportCreateRequestDataOriginatingAttorney | None = None
+    practice_area: ReportCreateRequestDataPracticeArea | None = None
+    responsible_attorney: ReportCreateRequestDataOriginatingAttorney | None = None
+    start_date: date | None = Field(default=None, description="Filters Report data by date. (Expects an ISO-8601 date).")
+    user: ReportCreateRequestDataOriginatingAttorney | None = None
+    year: StrictStr | None = Field(default=None, description="Filters Report data by year. Sets start_date and end_date. (Expects a year).")
+    __properties: ClassVar[list[str]] = ["client", "end_date", "format", "kind", "matter", "originating_attorney", "practice_area", "responsible_attorney", "start_date", "user", "year"]
 
     @field_validator('format')
     def format_validate_enum(cls, value):
@@ -82,11 +85,11 @@ class ReportCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ReportCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -96,7 +99,7 @@ class ReportCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -125,7 +128,7 @@ class ReportCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ReportCreateRequestData from a dict"""
         if obj is None:
             return None

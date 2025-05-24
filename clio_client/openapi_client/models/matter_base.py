@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -30,30 +36,30 @@ class MatterBase(BaseModel):
     """
     MatterBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Matter*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Matter*")
-    number: Optional[StrictInt] = Field(default=None, description="The number given to the *Matter* within an account")
-    display_number: Optional[StrictStr] = Field(default=None, description="The reference and label of the *Matter*. Depending on the account's manual_matter_numbering setting, this is either read only (generated) or customizable.")
-    custom_number: Optional[StrictStr] = Field(default=None, description="User defined custom number of the *Matter*")
-    currency: Optional[Dict[str, Any]] = Field(default=None, description="Currency of the matter")
-    description: Optional[StrictStr] = Field(default=None, description="The detailed description of the *Matter*")
-    status: Optional[StrictStr] = Field(default=None, description="The current status of the *Matter*")
-    location: Optional[StrictStr] = Field(default=None, description="The location of the *Matter*")
-    client_reference: Optional[StrictStr] = Field(default=None, description="Client Reference string for external uses")
-    client_id: Optional[StrictInt] = Field(default=None, description="Client ID")
-    billable: Optional[StrictBool] = Field(default=None, description="Whether this matter is billable")
-    maildrop_address: Optional[StrictStr] = Field(default=None, description="A unique Maildrop email address for the matter")
-    billing_method: Optional[StrictStr] = Field(default=None, description="Billing method of this matter")
-    open_date: Optional[date] = Field(default=None, description="The date the matter was set to open (as a ISO-8601 date)")
-    close_date: Optional[date] = Field(default=None, description="The date the matter was set to closed (as a ISO-8601 date)")
-    pending_date: Optional[date] = Field(default=None, description="The date the matter was set to pending (as a ISO-8601 date)")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Matter* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Matter* was last updated (as a ISO-8601 timestamp)")
-    shared: Optional[StrictBool] = Field(default=None, description="Whether the matter is currently shared with Clio Connect")
-    has_tasks: Optional[StrictBool] = Field(default=None, description="Whether or not the matter has any tasks.")
-    last_activity_date: Optional[date] = Field(default=None, description="The greatest date out of all of the activities on the matter (as a ISO-8601 date)")
-    matter_stage_updated_at: Optional[datetime] = Field(default=None, description="The date the matter stage was last updated (as a ISO-8601 date)")
-    __properties: ClassVar[List[str]] = ["id", "etag", "number", "display_number", "custom_number", "currency", "description", "status", "location", "client_reference", "client_id", "billable", "maildrop_address", "billing_method", "open_date", "close_date", "pending_date", "created_at", "updated_at", "shared", "has_tasks", "last_activity_date", "matter_stage_updated_at"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Matter*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Matter*")
+    number: StrictInt | None = Field(default=None, description="The number given to the *Matter* within an account")
+    display_number: StrictStr | None = Field(default=None, description="The reference and label of the *Matter*. Depending on the account's manual_matter_numbering setting, this is either read only (generated) or customizable.")
+    custom_number: StrictStr | None = Field(default=None, description="User defined custom number of the *Matter*")
+    currency: dict[str, Any] | None = Field(default=None, description="Currency of the matter")
+    description: StrictStr | None = Field(default=None, description="The detailed description of the *Matter*")
+    status: StrictStr | None = Field(default=None, description="The current status of the *Matter*")
+    location: StrictStr | None = Field(default=None, description="The location of the *Matter*")
+    client_reference: StrictStr | None = Field(default=None, description="Client Reference string for external uses")
+    client_id: StrictInt | None = Field(default=None, description="Client ID")
+    billable: StrictBool | None = Field(default=None, description="Whether this matter is billable")
+    maildrop_address: StrictStr | None = Field(default=None, description="A unique Maildrop email address for the matter")
+    billing_method: StrictStr | None = Field(default=None, description="Billing method of this matter")
+    open_date: date | None = Field(default=None, description="The date the matter was set to open (as a ISO-8601 date)")
+    close_date: date | None = Field(default=None, description="The date the matter was set to closed (as a ISO-8601 date)")
+    pending_date: date | None = Field(default=None, description="The date the matter was set to pending (as a ISO-8601 date)")
+    created_at: datetime | None = Field(default=None, description="The time the *Matter* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Matter* was last updated (as a ISO-8601 timestamp)")
+    shared: StrictBool | None = Field(default=None, description="Whether the matter is currently shared with Clio Connect")
+    has_tasks: StrictBool | None = Field(default=None, description="Whether or not the matter has any tasks.")
+    last_activity_date: date | None = Field(default=None, description="The greatest date out of all of the activities on the matter (as a ISO-8601 date)")
+    matter_stage_updated_at: datetime | None = Field(default=None, description="The date the matter stage was last updated (as a ISO-8601 date)")
+    __properties: ClassVar[list[str]] = ["id", "etag", "number", "display_number", "custom_number", "currency", "description", "status", "location", "client_reference", "client_id", "billable", "maildrop_address", "billing_method", "open_date", "close_date", "pending_date", "created_at", "updated_at", "shared", "has_tasks", "last_activity_date", "matter_stage_updated_at"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -92,11 +98,11 @@ class MatterBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MatterBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -106,7 +112,7 @@ class MatterBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -117,7 +123,7 @@ class MatterBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MatterBase from a dict"""
         if obj is None:
             return None

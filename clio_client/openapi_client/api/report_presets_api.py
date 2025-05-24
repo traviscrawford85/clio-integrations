@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -12,29 +11,21 @@
     Do not edit the class manually.
 """  # noqa: E501
 from datetime import date, datetime
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Annotated, Any
 
-from pydantic import (Field, StrictBool, StrictFloat, StrictInt, StrictStr,
-                      validate_call)
-from typing_extensions import Annotated
+from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, validate_call
 
 from clio_client.openapi_client.api_client import ApiClient
-from clio_client.openapi_client.models.report_preset_create_request import \
-    ReportPresetCreateRequest
-from clio_client.openapi_client.models.report_preset_list import \
-    ReportPresetList
-from clio_client.openapi_client.models.report_preset_show import \
-    ReportPresetShow
-from clio_client.openapi_client.models.report_preset_update_request import \
-    ReportPresetUpdateRequest
-from clio_client.openapi_client.models.report_show import ReportShow
 from clio_client.openapi_client.api_response import ApiResponse
-from typing import List
-from typing import Dict
-from typing import Optional
-from typing import Union
-from datetime import datetime
-from datetime import date
+from clio_client.openapi_client.models.report_preset_create_request import (
+    ReportPresetCreateRequest,
+)
+from clio_client.openapi_client.models.report_preset_list import ReportPresetList
+from clio_client.openapi_client.models.report_preset_show import ReportPresetShow
+from clio_client.openapi_client.models.report_preset_update_request import (
+    ReportPresetUpdateRequest,
+)
+from clio_client.openapi_client.models.report_show import ReportShow
 
 
 class ReportPresetsApi:
@@ -53,20 +44,13 @@ class ReportPresetsApi:
     @validate_call
     def report_preset_create(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        report_preset_create_request: Annotated[Optional[ReportPresetCreateRequest], Field(description="Request Body for Report Presets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        report_preset_create_request: Annotated[ReportPresetCreateRequest | None, Field(description="Request Body for Report Presets")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ReportPresetShow:
         """Create a new ReportPreset
@@ -111,7 +95,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '201': "ReportPresetShow",
             '400': "Error",
             '403': "Error",
@@ -134,20 +118,13 @@ class ReportPresetsApi:
     @validate_call
     def report_preset_create_with_http_info(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        report_preset_create_request: Annotated[Optional[ReportPresetCreateRequest], Field(description="Request Body for Report Presets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        report_preset_create_request: Annotated[ReportPresetCreateRequest | None, Field(description="Request Body for Report Presets")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ReportPresetShow]:
         """Create a new ReportPreset
@@ -192,7 +169,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '201': "ReportPresetShow",
             '400': "Error",
             '403': "Error",
@@ -215,20 +192,13 @@ class ReportPresetsApi:
     @validate_call
     def report_preset_create_without_preload_content(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        report_preset_create_request: Annotated[Optional[ReportPresetCreateRequest], Field(description="Request Body for Report Presets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        report_preset_create_request: Annotated[ReportPresetCreateRequest | None, Field(description="Request Body for Report Presets")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Create a new ReportPreset
@@ -273,7 +243,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '201': "ReportPresetShow",
             '400': "Error",
             '403': "Error",
@@ -302,17 +272,17 @@ class ReportPresetsApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         # process the query parameters
@@ -354,7 +324,7 @@ class ReportPresetsApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -379,18 +349,11 @@ class ReportPresetsApi:
     def report_preset_destroy(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Delete a single ReportPreset
@@ -432,7 +395,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '204': None,
             '403': "Error",
         }
@@ -451,18 +414,11 @@ class ReportPresetsApi:
     def report_preset_destroy_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Delete a single ReportPreset
@@ -504,7 +460,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '204': None,
             '403': "Error",
         }
@@ -523,18 +479,11 @@ class ReportPresetsApi:
     def report_preset_destroy_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Delete a single ReportPreset
@@ -576,7 +525,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '204': None,
             '403': "Error",
         }
@@ -599,17 +548,17 @@ class ReportPresetsApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         if id is not None:
@@ -632,7 +581,7 @@ class ReportPresetsApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -657,17 +606,10 @@ class ReportPresetsApi:
     def report_preset_generate_report(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ReportShow:
         """Generate a new report for a given preset
@@ -706,7 +648,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '201': "ReportShow",
             '400': "Error",
             '404': "Error",
@@ -729,17 +671,10 @@ class ReportPresetsApi:
     def report_preset_generate_report_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ReportShow]:
         """Generate a new report for a given preset
@@ -778,7 +713,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '201': "ReportShow",
             '400': "Error",
             '404': "Error",
@@ -801,17 +736,10 @@ class ReportPresetsApi:
     def report_preset_generate_report_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Generate a new report for a given preset
@@ -850,7 +778,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '201': "ReportShow",
             '400': "Error",
             '404': "Error",
@@ -876,17 +804,17 @@ class ReportPresetsApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         if id is not None:
@@ -907,7 +835,7 @@ class ReportPresetsApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -931,30 +859,23 @@ class ReportPresetsApi:
     @validate_call
     def report_preset_index(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        category: Annotated[Optional[StrictStr], Field(description="Filters ReportPreset data by category.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter ReportPreset records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        has_schedule: Annotated[Optional[StrictBool], Field(description="Filters ReportPreset records to those that have or do not have a Report Schedule.")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter ReportPreset records to those having the specified unique identifiers.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of ReportPreset records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the ReportPreset records by the given field. Default: `id(asc)`.")] = None,
-        output_format: Annotated[Optional[StrictStr], Field(description="Filters ReportPreset data by format.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Wildcard search for ReportPreset name.")] = None,
-        schedule_frequency: Annotated[Optional[StrictStr], Field(description="Filters ReportPreset records to those that have a Report Schedule of the specified frequency.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter ReportPreset records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        category: Annotated[StrictStr | None, Field(description="Filters ReportPreset data by category.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter ReportPreset records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        has_schedule: Annotated[StrictBool | None, Field(description="Filters ReportPreset records to those that have or do not have a Report Schedule.")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter ReportPreset records to those having the specified unique identifiers.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of ReportPreset records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the ReportPreset records by the given field. Default: `id(asc)`.")] = None,
+        output_format: Annotated[StrictStr | None, Field(description="Filters ReportPreset data by format.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        query: Annotated[StrictStr | None, Field(description="Wildcard search for ReportPreset name.")] = None,
+        schedule_frequency: Annotated[StrictStr | None, Field(description="Filters ReportPreset records to those that have a Report Schedule of the specified frequency.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter ReportPreset records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ReportPresetList:
         """Return the data for all ReportPresets
@@ -1029,7 +950,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ReportPresetList",
             '400': "Error",
             '401': "Error",
@@ -1050,30 +971,23 @@ class ReportPresetsApi:
     @validate_call
     def report_preset_index_with_http_info(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        category: Annotated[Optional[StrictStr], Field(description="Filters ReportPreset data by category.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter ReportPreset records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        has_schedule: Annotated[Optional[StrictBool], Field(description="Filters ReportPreset records to those that have or do not have a Report Schedule.")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter ReportPreset records to those having the specified unique identifiers.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of ReportPreset records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the ReportPreset records by the given field. Default: `id(asc)`.")] = None,
-        output_format: Annotated[Optional[StrictStr], Field(description="Filters ReportPreset data by format.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Wildcard search for ReportPreset name.")] = None,
-        schedule_frequency: Annotated[Optional[StrictStr], Field(description="Filters ReportPreset records to those that have a Report Schedule of the specified frequency.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter ReportPreset records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        category: Annotated[StrictStr | None, Field(description="Filters ReportPreset data by category.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter ReportPreset records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        has_schedule: Annotated[StrictBool | None, Field(description="Filters ReportPreset records to those that have or do not have a Report Schedule.")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter ReportPreset records to those having the specified unique identifiers.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of ReportPreset records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the ReportPreset records by the given field. Default: `id(asc)`.")] = None,
+        output_format: Annotated[StrictStr | None, Field(description="Filters ReportPreset data by format.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        query: Annotated[StrictStr | None, Field(description="Wildcard search for ReportPreset name.")] = None,
+        schedule_frequency: Annotated[StrictStr | None, Field(description="Filters ReportPreset records to those that have a Report Schedule of the specified frequency.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter ReportPreset records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ReportPresetList]:
         """Return the data for all ReportPresets
@@ -1148,7 +1062,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ReportPresetList",
             '400': "Error",
             '401': "Error",
@@ -1169,30 +1083,23 @@ class ReportPresetsApi:
     @validate_call
     def report_preset_index_without_preload_content(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        category: Annotated[Optional[StrictStr], Field(description="Filters ReportPreset data by category.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter ReportPreset records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        has_schedule: Annotated[Optional[StrictBool], Field(description="Filters ReportPreset records to those that have or do not have a Report Schedule.")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter ReportPreset records to those having the specified unique identifiers.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of ReportPreset records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the ReportPreset records by the given field. Default: `id(asc)`.")] = None,
-        output_format: Annotated[Optional[StrictStr], Field(description="Filters ReportPreset data by format.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="Wildcard search for ReportPreset name.")] = None,
-        schedule_frequency: Annotated[Optional[StrictStr], Field(description="Filters ReportPreset records to those that have a Report Schedule of the specified frequency.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter ReportPreset records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        category: Annotated[StrictStr | None, Field(description="Filters ReportPreset data by category.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter ReportPreset records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        has_schedule: Annotated[StrictBool | None, Field(description="Filters ReportPreset records to those that have or do not have a Report Schedule.")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter ReportPreset records to those having the specified unique identifiers.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of ReportPreset records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the ReportPreset records by the given field. Default: `id(asc)`.")] = None,
+        output_format: Annotated[StrictStr | None, Field(description="Filters ReportPreset data by format.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        query: Annotated[StrictStr | None, Field(description="Wildcard search for ReportPreset name.")] = None,
+        schedule_frequency: Annotated[StrictStr | None, Field(description="Filters ReportPreset records to those that have a Report Schedule of the specified frequency.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter ReportPreset records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Return the data for all ReportPresets
@@ -1267,7 +1174,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ReportPresetList",
             '400': "Error",
             '401': "Error",
@@ -1304,17 +1211,17 @@ class ReportPresetsApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         # process the query parameters
@@ -1401,7 +1308,7 @@ class ReportPresetsApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -1426,21 +1333,14 @@ class ReportPresetsApi:
     def report_preset_show(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ReportPresetShow:
         """Return the data for a single ReportPreset
@@ -1491,7 +1391,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ReportPresetShow",
             '400': "Error",
             '403': "Error",
@@ -1515,21 +1415,14 @@ class ReportPresetsApi:
     def report_preset_show_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ReportPresetShow]:
         """Return the data for a single ReportPreset
@@ -1580,7 +1473,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ReportPresetShow",
             '400': "Error",
             '403': "Error",
@@ -1604,21 +1497,14 @@ class ReportPresetsApi:
     def report_preset_show_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        if_modified_since: Annotated[Optional[date], Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
-        if_none_match: Annotated[Optional[StrictStr], Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_modified_since: Annotated[date | None, Field(description="The server will send the requested resource with a 200 status, but only if it has been modified after the given date. (Expects an RFC 2822 timestamp).")] = None,
+        if_none_match: Annotated[StrictStr | None, Field(description="The server will send the requested resource with a 200 status, but only if the existing resource's [ETag](#section/ETags) doesn't match any of the values listed.")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Return the data for a single ReportPreset
@@ -1669,7 +1555,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ReportPresetShow",
             '400': "Error",
             '403': "Error",
@@ -1700,17 +1586,17 @@ class ReportPresetsApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         if id is not None:
@@ -1741,7 +1627,7 @@ class ReportPresetsApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(
@@ -1766,21 +1652,14 @@ class ReportPresetsApi:
     def report_preset_update(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        if_match: Annotated[Optional[StrictStr], Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        report_preset_update_request: Annotated[Optional[ReportPresetUpdateRequest], Field(description="Request Body for Report Presets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_match: Annotated[StrictStr | None, Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        report_preset_update_request: Annotated[ReportPresetUpdateRequest | None, Field(description="Request Body for Report Presets")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ReportPresetShow:
         """Update a single ReportPreset
@@ -1831,7 +1710,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ReportPresetShow",
             '400': "Error",
             '403': "Error",
@@ -1856,21 +1735,14 @@ class ReportPresetsApi:
     def report_preset_update_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        if_match: Annotated[Optional[StrictStr], Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        report_preset_update_request: Annotated[Optional[ReportPresetUpdateRequest], Field(description="Request Body for Report Presets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_match: Annotated[StrictStr | None, Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        report_preset_update_request: Annotated[ReportPresetUpdateRequest | None, Field(description="Request Body for Report Presets")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ReportPresetShow]:
         """Update a single ReportPreset
@@ -1921,7 +1793,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ReportPresetShow",
             '400': "Error",
             '403': "Error",
@@ -1946,21 +1818,14 @@ class ReportPresetsApi:
     def report_preset_update_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The unique identifier for the ReportPreset.")],
-        if_match: Annotated[Optional[StrictStr], Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        report_preset_update_request: Annotated[Optional[ReportPresetUpdateRequest], Field(description="Request Body for Report Presets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        if_match: Annotated[StrictStr | None, Field(description="The server will update the requested resource and send back a 200 status, but only if value in the header matches the existing resource's [ETag](#section/ETags).")] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        report_preset_update_request: Annotated[ReportPresetUpdateRequest | None, Field(description="Request Body for Report Presets")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Update a single ReportPreset
@@ -2011,7 +1876,7 @@ class ReportPresetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "ReportPresetShow",
             '400': "Error",
             '403': "Error",
@@ -2043,17 +1908,17 @@ class ReportPresetsApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         if id is not None:
@@ -2099,7 +1964,7 @@ class ReportPresetsApi:
                 _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(

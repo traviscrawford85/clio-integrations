@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.user_base import UserBase
@@ -32,14 +38,14 @@ class Group(BaseModel):
     """
     Group
     """ # noqa: E501
-    client_connect_user: Optional[StrictBool] = Field(default=None, description="Whether or not the Group is a UserGroup for a Clio Connect User")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Group*")
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Group*")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the *Group*")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *Group*")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Group* was last updated (as a ISO-8601 timestamp)")
-    users: Optional[List[UserBase]] = Field(default=None, description="User")
-    __properties: ClassVar[List[str]] = ["client_connect_user", "etag", "id", "name", "type", "updated_at", "users"]
+    client_connect_user: StrictBool | None = Field(default=None, description="Whether or not the Group is a UserGroup for a Clio Connect User")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Group*")
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Group*")
+    name: StrictStr | None = Field(default=None, description="The name of the *Group*")
+    type: StrictStr | None = Field(default=None, description="The type of the *Group*")
+    updated_at: datetime | None = Field(default=None, description="The time the *Group* was last updated (as a ISO-8601 timestamp)")
+    users: list[UserBase] | None = Field(default=None, description="User")
+    __properties: ClassVar[list[str]] = ["client_connect_user", "etag", "id", "name", "type", "updated_at", "users"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -68,11 +74,11 @@ class Group(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of Group from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -82,7 +88,7 @@ class Group(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -100,7 +106,7 @@ class Group(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of Group from a dict"""
         if obj is None:
             return None

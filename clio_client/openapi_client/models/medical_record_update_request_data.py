@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,7 +18,7 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing_extensions import Self
@@ -29,9 +28,9 @@ class MedicalRecordUpdateRequestData(BaseModel):
     """
     MedicalRecordUpdateRequestData
     """ # noqa: E501
-    end_date: Optional[datetime] = Field(default=None, description="End date for Medical Record.")
-    start_date: Optional[datetime] = Field(default=None, description="Start date for Medical Record.")
-    __properties: ClassVar[List[str]] = ["end_date", "start_date"]
+    end_date: datetime | None = Field(default=None, description="End date for Medical Record.")
+    start_date: datetime | None = Field(default=None, description="Start date for Medical Record.")
+    __properties: ClassVar[list[str]] = ["end_date", "start_date"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,11 +49,11 @@ class MedicalRecordUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MedicalRecordUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -64,7 +63,7 @@ class MedicalRecordUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -75,7 +74,7 @@ class MedicalRecordUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MedicalRecordUpdateRequestData from a dict"""
         if obj is None:
             return None

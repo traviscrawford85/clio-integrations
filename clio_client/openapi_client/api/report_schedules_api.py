@@ -18,20 +18,18 @@ from pydantic import Field, StrictFloat, StrictInt, StrictStr, validate_call
 from typing_extensions import Annotated
 
 from clio_client.openapi_client.api_client import ApiClient
-from clio_client.openapi_client.models.report_schedule_create_request import \
-    ReportScheduleCreateRequest
-from clio_client.openapi_client.models.report_schedule_list import \
-    ReportScheduleList
-from clio_client.openapi_client.models.report_schedule_show import \
-    ReportScheduleShow
-from clio_client.openapi_client.models.report_schedule_update_request import \
-from clio_client.openapi_client.api_response import ApiResponse
-from typing import List
-from typing import Dict
-from typing import Optional
-from typing import Union
-from datetime import datetime
-from datetime import date
+from clio_client.openapi_client.models.report_schedule_create_request import (
+    ReportScheduleCreateRequest,
+)
+from clio_client.openapi_client.models.report_schedule_list import ReportScheduleList
+from clio_client.openapi_client.models.report_schedule_show import ReportScheduleShow
+from clio_client.openapi_client.models.report_schedule_update_request import (
+    ApiResponse,
+    clio_client.openapi_client.api_response,
+    from,
+    import,
+)
+
     ReportScheduleUpdateRequest
 
 

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,14 +18,14 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.activity_description_rate_base import \
-    ActivityDescriptionRateBase
+from clio_client.openapi_client.models.activity_description_rate_base import (
+    ActivityDescriptionRateBase,
+)
 from clio_client.openapi_client.models.group_base import GroupBase
 from clio_client.openapi_client.models.utbms_code_base import UtbmsCodeBase
 
@@ -35,26 +34,26 @@ class ActivityDescription(BaseModel):
     """
     ActivityDescription
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *ActivityDescription*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *ActivityDescription*")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the *ActivityDescription*")
-    visible_to_co_counsel: Optional[StrictBool] = Field(default=None, description="A toggle that determines if a co-counsel user of the firm can have access to this activity description")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *ActivityDescription* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *ActivityDescription* was last updated (as a ISO-8601 timestamp)")
-    default: Optional[StrictBool] = Field(default=None, description="Whether it is the user's default activity description")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *ActivityDescription*")
-    utbms_activity_id: Optional[StrictInt] = Field(default=None, description="The UTBMS activity id if the *ActivityDescription* is a UTBMS activity description")
-    utbms_task_name: Optional[StrictStr] = Field(default=None, description="The UTBMS activity task name if attached to a UTBMS activity description")
-    utbms_task_id: Optional[StrictInt] = Field(default=None, description="The UTBMS activity task id if attached to a UTBMS activity description")
-    xero_service_code: Optional[StrictStr] = Field(default=None, description="Custom Xero service code for this activity description")
-    accessible_to_user: Optional[StrictBool] = Field(default=None, description="Determines if activity description is accessible to user")
-    category_type: Optional[StrictStr] = Field(default=None, description="Activity category rate type. Either hourly or flat fee")
-    currency: Optional[Dict[str, Any]] = Field(default=None, description="The currency of the activity description")
-    groups: Optional[List[GroupBase]] = Field(default=None, description="Group")
-    rate: Optional[ActivityDescriptionRateBase] = None
-    utbms_task: Optional[UtbmsCodeBase] = None
-    utbms_activity: Optional[UtbmsCodeBase] = None
-    __properties: ClassVar[List[str]] = ["id", "etag", "name", "visible_to_co_counsel", "created_at", "updated_at", "default", "type", "utbms_activity_id", "utbms_task_name", "utbms_task_id", "xero_service_code", "accessible_to_user", "category_type", "currency", "groups", "rate", "utbms_task", "utbms_activity"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *ActivityDescription*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *ActivityDescription*")
+    name: StrictStr | None = Field(default=None, description="The name of the *ActivityDescription*")
+    visible_to_co_counsel: StrictBool | None = Field(default=None, description="A toggle that determines if a co-counsel user of the firm can have access to this activity description")
+    created_at: datetime | None = Field(default=None, description="The time the *ActivityDescription* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *ActivityDescription* was last updated (as a ISO-8601 timestamp)")
+    default: StrictBool | None = Field(default=None, description="Whether it is the user's default activity description")
+    type: StrictStr | None = Field(default=None, description="The type of the *ActivityDescription*")
+    utbms_activity_id: StrictInt | None = Field(default=None, description="The UTBMS activity id if the *ActivityDescription* is a UTBMS activity description")
+    utbms_task_name: StrictStr | None = Field(default=None, description="The UTBMS activity task name if attached to a UTBMS activity description")
+    utbms_task_id: StrictInt | None = Field(default=None, description="The UTBMS activity task id if attached to a UTBMS activity description")
+    xero_service_code: StrictStr | None = Field(default=None, description="Custom Xero service code for this activity description")
+    accessible_to_user: StrictBool | None = Field(default=None, description="Determines if activity description is accessible to user")
+    category_type: StrictStr | None = Field(default=None, description="Activity category rate type. Either hourly or flat fee")
+    currency: dict[str, Any] | None = Field(default=None, description="The currency of the activity description")
+    groups: list[GroupBase] | None = Field(default=None, description="Group")
+    rate: ActivityDescriptionRateBase | None = None
+    utbms_task: UtbmsCodeBase | None = None
+    utbms_activity: UtbmsCodeBase | None = None
+    __properties: ClassVar[list[str]] = ["id", "etag", "name", "visible_to_co_counsel", "created_at", "updated_at", "default", "type", "utbms_activity_id", "utbms_task_name", "utbms_task_id", "xero_service_code", "accessible_to_user", "category_type", "currency", "groups", "rate", "utbms_task", "utbms_activity"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,11 +72,11 @@ class ActivityDescription(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ActivityDescription from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -87,7 +86,7 @@ class ActivityDescription(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -114,7 +113,7 @@ class ActivityDescription(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ActivityDescription from a dict"""
         if obj is None:
             return None

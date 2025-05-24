@@ -1,0 +1,83 @@
+$defs:
+  UtbmsCode:
+    description: UtbmsCode
+    properties:
+      id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Unique identifier for the *UtbmsCode*
+        title: Id
+      etag:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: ETag for the *UtbmsCode*
+        title: Etag
+      name:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The name of the *UtbmsCode*
+        title: Name
+      code:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The UTBMS code for the *UtbmsCode*
+        title: Code
+      description:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The UTBMS description for the *UtbmsCode*
+        title: Description
+      type:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: The type of the *UtbmsCode*
+        title: Type
+      utbms_set_id:
+        anyOf:
+        - type: integer
+        - type: 'null'
+        default: null
+        description: Set id for the *UtbmsCode*
+        title: Utbms Set Id
+      created_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *UtbmsCode* was created (as a ISO-8601 timestamp)
+        title: Created At
+      updated_at:
+        anyOf:
+        - format: date-time
+          type: string
+        - type: 'null'
+        default: null
+        description: The time the *UtbmsCode* was last updated (as a ISO-8601 timestamp)
+        title: Updated At
+    title: UtbmsCode
+    type: object
+description: UtbmsCodeList
+properties:
+  data:
+    description: UtbmsCode List Response
+    items:
+      $ref: '#/$defs/UtbmsCode'
+    title: Data
+    type: array
+required:
+- data
+title: UtbmsCodeList
+type: object

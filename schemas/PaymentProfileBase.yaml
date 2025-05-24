@@ -1,0 +1,93 @@
+description: PaymentProfileBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *PaymentProfile*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *PaymentProfile*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *PaymentProfile* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *PaymentProfile* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  billing_setting_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The unique identifier for the *PaymentProfile
+    title: Billing Setting Id
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The name of the *PaymentProfile
+    title: Name
+  terms:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The total grace period for the *PaymentProfile
+    title: Terms
+  discount_rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The early payment discount rate for the *PaymentProfile
+    title: Discount Rate
+  discount_period:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The early payment discount period for the *PaymentProfile
+    title: Discount Period
+  interest_rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The interest rate for the *PaymentProfile
+    title: Interest Rate
+  interest_period:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The interest period interval for the *PaymentProfile
+    title: Interest Period
+  interest_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of interest to be calculated for the *PaymentProfile (Simple
+      or Compound)
+    title: Interest Type
+title: PaymentProfileBase
+type: object

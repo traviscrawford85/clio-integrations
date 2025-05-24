@@ -1,0 +1,18 @@
+description: ConversationMessageCreateRequestDataAttachment
+properties:
+  document_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The document id of the attached document.
+    title: Document Id
+  document_version_id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The document version id of the attached document.
+    title: Document Version Id
+title: ConversationMessageCreateRequestDataAttachment
+type: object

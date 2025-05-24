@@ -1,0 +1,24 @@
+description: CustomFieldSetCreateRequestData
+properties:
+  displayed:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether or not the CustomFieldSet should be displayed by default.
+    title: Displayed
+  name:
+    description: CustomFieldSet name.
+    title: Name
+    type: string
+  parent_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: Type of object the CustomFieldSet is for.
+    title: Parent Type
+required:
+- name
+title: CustomFieldSetCreateRequestData
+type: object

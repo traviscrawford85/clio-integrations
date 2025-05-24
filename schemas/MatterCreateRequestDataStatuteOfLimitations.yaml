@@ -1,0 +1,60 @@
+$defs:
+  MatterCreateRequestDataStatuteOfLimitationsRemindersInner:
+    description: MatterCreateRequestDataStatuteOfLimitationsRemindersInner
+    properties:
+      duration_value:
+        description: Time measured in `duration_unit` to remind user before the subject.
+        title: Duration Value
+        type: integer
+      duration_unit:
+        description: Unit to measure the duration value in.
+        title: Duration Unit
+        type: string
+      notification_method:
+        $ref: '#/$defs/MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod'
+    required:
+    - duration_value
+    - duration_unit
+    - notification_method
+    title: MatterCreateRequestDataStatuteOfLimitationsRemindersInner
+    type: object
+  MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod:
+    description: MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+    properties:
+      id:
+        description: The unique identifier for a single NotificationMethod associated
+          with the Reminder. The keyword `null` is not valid for this field.
+        title: Id
+        type: integer
+    required:
+    - id
+    title: MatterCreateRequestDataStatuteOfLimitationsRemindersInnerNotificationMethod
+    type: object
+description: MatterCreateRequestDataStatuteOfLimitations
+properties:
+  status:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The task status of Statue of Limitations. Users without advanced
+      tasks are allowed to select `Complete' or `Pending` only.
+    title: Status
+  due_at:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The due date of Statute of Limitations. (Expects an ISO-8601 date).
+    title: Due At
+  reminders:
+    anyOf:
+    - items:
+        $ref: '#/$defs/MatterCreateRequestDataStatuteOfLimitationsRemindersInner'
+      type: array
+    - type: 'null'
+    default: null
+    title: Reminders
+title: MatterCreateRequestDataStatuteOfLimitations
+type: object

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -12,19 +11,13 @@
     Do not edit the class manually.
 """  # noqa: E501
 from datetime import datetime
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Annotated, Any
 
 from pydantic import Field, StrictFloat, StrictInt, StrictStr, validate_call
-from typing_extensions import Annotated
 
 from clio_client.openapi_client.api_client import ApiClient
-from clio_client.openapi_client.models.utbms_set_list import UtbmsSetList
 from clio_client.openapi_client.api_response import ApiResponse
-from typing import List
-from typing import Dict
-from typing import Optional
-from typing import Union
-from datetime import date
+from clio_client.openapi_client.models.utbms_set_list import UtbmsSetList
 
 
 class UtbmsSetsApi:
@@ -43,25 +36,18 @@ class UtbmsSetsApi:
     @validate_call
     def utbms_set_index(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter UtbmsSet records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter UtbmsSet records to those having the specified unique identifiers.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of UtbmsSet records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the UtbmsSet records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter UtbmsSet records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter UtbmsSet records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter UtbmsSet records to those having the specified unique identifiers.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of UtbmsSet records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the UtbmsSet records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter UtbmsSet records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> UtbmsSetList:
         """Return the data for all the utbms sets
@@ -121,7 +107,7 @@ class UtbmsSetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UtbmsSetList",
             '400': "Error",
             '401': "Error",
@@ -142,25 +128,18 @@ class UtbmsSetsApi:
     @validate_call
     def utbms_set_index_with_http_info(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter UtbmsSet records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter UtbmsSet records to those having the specified unique identifiers.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of UtbmsSet records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the UtbmsSet records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter UtbmsSet records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter UtbmsSet records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter UtbmsSet records to those having the specified unique identifiers.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of UtbmsSet records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the UtbmsSet records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter UtbmsSet records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[UtbmsSetList]:
         """Return the data for all the utbms sets
@@ -220,7 +199,7 @@ class UtbmsSetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UtbmsSetList",
             '400': "Error",
             '401': "Error",
@@ -241,25 +220,18 @@ class UtbmsSetsApi:
     @validate_call
     def utbms_set_index_without_preload_content(
         self,
-        x_api_version: Annotated[Optional[StrictStr], Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
-        created_since: Annotated[Optional[datetime], Field(description="Filter UtbmsSet records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        fields: Annotated[Optional[StrictStr], Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
-        ids: Annotated[Optional[StrictInt], Field(description="Filter UtbmsSet records to those having the specified unique identifiers.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="A limit on the number of UtbmsSet records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="Orders the UtbmsSet records by the given field. Default: `id(asc)`.")] = None,
-        page_token: Annotated[Optional[StrictStr], Field(description="A token specifying which page to return.")] = None,
-        updated_since: Annotated[Optional[datetime], Field(description="Filter UtbmsSet records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
+        x_api_version: Annotated[StrictStr | None, Field(description="The [API minor version](#section/Minor-Versions). Default: latest version.")] = None,
+        created_since: Annotated[datetime | None, Field(description="Filter UtbmsSet records to those having the `created_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        fields: Annotated[StrictStr | None, Field(description="The fields to be returned. See response samples for what fields are available. For more information see the [fields section](#section/Fields).")] = None,
+        ids: Annotated[StrictInt | None, Field(description="Filter UtbmsSet records to those having the specified unique identifiers.")] = None,
+        limit: Annotated[StrictInt | None, Field(description="A limit on the number of UtbmsSet records to be returned. Limit can range between 1 and 200. Default: `200`.")] = None,
+        order: Annotated[StrictStr | None, Field(description="Orders the UtbmsSet records by the given field. Default: `id(asc)`.")] = None,
+        page_token: Annotated[StrictStr | None, Field(description="A token specifying which page to return.")] = None,
+        updated_since: Annotated[datetime | None, Field(description="Filter UtbmsSet records to those having the `updated_at` field after a specific time. (Expects an ISO-8601 timestamp).")] = None,
+        _request_timeout: None | Annotated[StrictFloat, Field(gt=0)] | tuple[Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]] = None,
+        _request_auth: dict[StrictStr, Any] | None = None,
+        _content_type: StrictStr | None = None,
+        _headers: dict[StrictStr, Any] | None = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Return the data for all the utbms sets
@@ -319,7 +291,7 @@ class UtbmsSetsApi:
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: dict[str, str | None] = {
             '200': "UtbmsSetList",
             '400': "Error",
             '401': "Error",
@@ -351,17 +323,17 @@ class UtbmsSetsApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
+        _collection_formats: dict[str, str] = {
         }
 
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        _path_params: dict[str, str] = {}
+        _query_params: list[tuple[str, str]] = []
+        _header_params: dict[str, str | None] = _headers or {}
+        _form_params: list[tuple[str, str]] = []
+        _files: dict[
+            str, str | bytes | list[str] | list[bytes] | list[tuple[str, bytes]]
         ] = {}
-        _body_params: Optional[bytes] = None
+        _body_params: bytes | None = None
 
         # process the path parameters
         # process the query parameters
@@ -428,7 +400,7 @@ class UtbmsSetsApi:
 
 
         # authentication setting
-        _auth_settings: List[str] = [
+        _auth_settings: list[str] = [
         ]
 
         return self.api_client.param_serialize(

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,34 +17,44 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.clio_payments_link_create_request_data_destination_account import \
-    ClioPaymentsLinkCreateRequestDataDestinationAccount
-from clio_client.openapi_client.models.clio_payments_link_create_request_data_destination_contact import \
-    ClioPaymentsLinkCreateRequestDataDestinationContact
-from clio_client.openapi_client.models.clio_payments_link_create_request_data_subject import \
-    ClioPaymentsLinkCreateRequestDataSubject
+from clio_client.openapi_client.models.clio_payments_link_create_request_data_destination_account import (
+    ClioPaymentsLinkCreateRequestDataDestinationAccount,
+)
+from clio_client.openapi_client.models.clio_payments_link_create_request_data_destination_contact import (
+    ClioPaymentsLinkCreateRequestDataDestinationContact,
+)
+from clio_client.openapi_client.models.clio_payments_link_create_request_data_subject import (
+    ClioPaymentsLinkCreateRequestDataSubject,
+)
 
 
 class ClioPaymentsLinkCreateRequestData(BaseModel):
     """
     ClioPaymentsLinkCreateRequestData
     """ # noqa: E501
-    amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The amount to be paid. If not provided, the client will be able to specify an amount.")
+    amount: StrictFloat | StrictInt | None = Field(default=None, description="The amount to be paid. If not provided, the client will be able to specify an amount.")
     currency: StrictStr = Field(description="The currency the payment will be processed in. The supported currency depends on the account's location ('USD' for a US account). The currency must be a valid ISO 4217 currency code.")
     description: StrictStr = Field(description="Only applicable for a direct payment. A short description of the purpose of the payment. Max 255 characters.")
     destination_account: ClioPaymentsLinkCreateRequestDataDestinationAccount
-    destination_contact: Optional[ClioPaymentsLinkCreateRequestDataDestinationContact] = None
+    destination_contact: ClioPaymentsLinkCreateRequestDataDestinationContact | None = None
     duration: StrictInt = Field(description="The amount of time, in seconds, that the payment link will be active for. The maximum allowed value is '7776000' (90 days in seconds).")
-    email_address: Optional[StrictStr] = Field(default=None, description="Pre-fills the relevant field for the client when filling out their details in the payment link.")
-    is_allocated_as_revenue: Optional[StrictBool] = Field(default=None, description="Only applicable for a direct payment. If true, the payment will be allocated as revenue. If false, the payment will be collected as an unallocated balance. Payments into trust can not be allocated as revenue. Defaults to false.")
+    email_address: StrictStr | None = Field(default=None, description="Pre-fills the relevant field for the client when filling out their details in the payment link.")
+    is_allocated_as_revenue: StrictBool | None = Field(default=None, description="Only applicable for a direct payment. If true, the payment will be allocated as revenue. If false, the payment will be collected as an unallocated balance. Payments into trust can not be allocated as revenue. Defaults to false.")
     subject: ClioPaymentsLinkCreateRequestDataSubject
-    __properties: ClassVar[List[str]] = ["amount", "currency", "description", "destination_account", "destination_contact", "duration", "email_address", "is_allocated_as_revenue", "subject"]
+    __properties: ClassVar[list[str]] = ["amount", "currency", "description", "destination_account", "destination_contact", "duration", "email_address", "is_allocated_as_revenue", "subject"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -64,11 +73,11 @@ class ClioPaymentsLinkCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ClioPaymentsLinkCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -78,7 +87,7 @@ class ClioPaymentsLinkCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -98,7 +107,7 @@ class ClioPaymentsLinkCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ClioPaymentsLinkCreateRequestData from a dict"""
         if obj is None:
             return None

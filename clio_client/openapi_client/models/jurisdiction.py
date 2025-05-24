@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.service_type_base import ServiceTypeBase
@@ -32,18 +30,18 @@ class Jurisdiction(BaseModel):
     """
     Jurisdiction
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Jurisdiction*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Jurisdiction*")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Jurisdiction* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Jurisdiction* was last updated (as a ISO-8601 timestamp)")
-    system_id: Optional[StrictInt] = Field(default=None, description="Server ID")
-    description: Optional[StrictStr] = Field(default=None, description="Description")
-    default: Optional[StrictBool] = Field(default=None, description="Whether the *Jurisdiction* is default for the current user")
-    display_timezone: Optional[StrictStr] = Field(default=None, description="Formatted IANA timezone with UTC offset")
-    valid_subscription: Optional[StrictBool] = Field(default=None, description="Boolean value for whether the user has the jurisdictions")
-    is_local_timezone: Optional[StrictBool] = Field(default=None, description="Boolean value for when the timezone is in the local users timezone")
-    service_types: Optional[List[ServiceTypeBase]] = Field(default=None, description="ServiceType")
-    __properties: ClassVar[List[str]] = ["id", "etag", "created_at", "updated_at", "system_id", "description", "default", "display_timezone", "valid_subscription", "is_local_timezone", "service_types"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Jurisdiction*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Jurisdiction*")
+    created_at: datetime | None = Field(default=None, description="The time the *Jurisdiction* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Jurisdiction* was last updated (as a ISO-8601 timestamp)")
+    system_id: StrictInt | None = Field(default=None, description="Server ID")
+    description: StrictStr | None = Field(default=None, description="Description")
+    default: StrictBool | None = Field(default=None, description="Whether the *Jurisdiction* is default for the current user")
+    display_timezone: StrictStr | None = Field(default=None, description="Formatted IANA timezone with UTC offset")
+    valid_subscription: StrictBool | None = Field(default=None, description="Boolean value for whether the user has the jurisdictions")
+    is_local_timezone: StrictBool | None = Field(default=None, description="Boolean value for when the timezone is in the local users timezone")
+    service_types: list[ServiceTypeBase] | None = Field(default=None, description="ServiceType")
+    __properties: ClassVar[list[str]] = ["id", "etag", "created_at", "updated_at", "system_id", "description", "default", "display_timezone", "valid_subscription", "is_local_timezone", "service_types"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -62,11 +60,11 @@ class Jurisdiction(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of Jurisdiction from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -76,7 +74,7 @@ class Jurisdiction(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -94,7 +92,7 @@ class Jurisdiction(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of Jurisdiction from a dict"""
         if obj is None:
             return None

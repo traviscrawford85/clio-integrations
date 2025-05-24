@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictInt, StrictStr,
-                      field_validator)
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing_extensions import Self
 
 
@@ -30,15 +28,15 @@ class ReportScheduleCreateRequestData(BaseModel):
     """
     ReportScheduleCreateRequestData
     """ # noqa: E501
-    day_of_month: Optional[StrictInt] = Field(default=None, description="If the frequency is monthly, which day of the month the Report Schedule should run. 32 is used to represent the last day of the month.")
-    days_of_week: Optional[List[StrictInt]] = Field(default=None, description="If the frequency is weekly, which days of the week the Report Schedule should run. Values are 0 to 6, representing Sunday to Saturday.")
-    effective_from: Optional[date] = Field(default=None, description="Date the Report Schedule should be enabled. (Expects an ISO-8601 date).")
-    every_no_of_months: Optional[StrictInt] = Field(default=None, description="If the frequency is monthly, how many months between each run of the Report Schedule.")
+    day_of_month: StrictInt | None = Field(default=None, description="If the frequency is monthly, which day of the month the Report Schedule should run. 32 is used to represent the last day of the month.")
+    days_of_week: list[StrictInt] | None = Field(default=None, description="If the frequency is weekly, which days of the week the Report Schedule should run. Values are 0 to 6, representing Sunday to Saturday.")
+    effective_from: date | None = Field(default=None, description="Date the Report Schedule should be enabled. (Expects an ISO-8601 date).")
+    every_no_of_months: StrictInt | None = Field(default=None, description="If the frequency is monthly, how many months between each run of the Report Schedule.")
     frequency: StrictStr = Field(description="How often to run the Report Schedule.")
     report_preset_id: StrictInt = Field(description="What Report Preset the Report Schedule should use to generate a report.")
     time_of_day: datetime = Field(description="What time the Report Schedule should run. Although the entire datetime is sent, only the time information is used.")
     time_zone: StrictStr = Field(description="Used in conjunction with `time_of_day` to determine when the Report Schedule should be run.")
-    __properties: ClassVar[List[str]] = ["day_of_month", "days_of_week", "effective_from", "every_no_of_months", "frequency", "report_preset_id", "time_of_day", "time_zone"]
+    __properties: ClassVar[list[str]] = ["day_of_month", "days_of_week", "effective_from", "every_no_of_months", "frequency", "report_preset_id", "time_of_day", "time_zone"]
 
     @field_validator('frequency')
     def frequency_validate_enum(cls, value):
@@ -71,11 +69,11 @@ class ReportScheduleCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ReportScheduleCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -85,7 +83,7 @@ class ReportScheduleCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -96,7 +94,7 @@ class ReportScheduleCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ReportScheduleCreateRequestData from a dict"""
         if obj is None:
             return None

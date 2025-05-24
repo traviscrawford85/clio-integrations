@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,9 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictFloat, StrictInt,
-                      StrictStr)
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing_extensions import Self
 
 
@@ -30,10 +28,10 @@ class TrustLineItemUpdateRequestData(BaseModel):
     """
     TrustLineItemUpdateRequestData
     """ # noqa: E501
-    var_date: Optional[date] = Field(default=None, description="Date for the TrustLineItem. (Expects an ISO-8601 date).", alias="date")
-    note: Optional[StrictStr] = Field(default=None, description="Note for the TrustLineItem.")
-    total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Total amount the TrustLineItem is for.")
-    __properties: ClassVar[List[str]] = ["date", "note", "total"]
+    var_date: date | None = Field(default=None, description="Date for the TrustLineItem. (Expects an ISO-8601 date).", alias="date")
+    note: StrictStr | None = Field(default=None, description="Note for the TrustLineItem.")
+    total: StrictFloat | StrictInt | None = Field(default=None, description="Total amount the TrustLineItem is for.")
+    __properties: ClassVar[list[str]] = ["date", "note", "total"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,11 +50,11 @@ class TrustLineItemUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of TrustLineItemUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -66,7 +64,7 @@ class TrustLineItemUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -77,7 +75,7 @@ class TrustLineItemUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of TrustLineItemUpdateRequestData from a dict"""
         if obj is None:
             return None

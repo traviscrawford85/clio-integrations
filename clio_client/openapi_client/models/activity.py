@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,37 +18,45 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.activity_calendar_entry_base import \
-    ActivityCalendarEntryBase
-from clio_client.openapi_client.models.activity_description_base import \
-    ActivityDescriptionBase
-from clio_client.openapi_client.models.activity_task_base import \
-    ActivityTaskBase
-from clio_client.openapi_client.models.activity_text_message_conversation_base import \
-    ActivityTextMessageConversationBase
+from clio_client.openapi_client.models.activity_calendar_entry_base import (
+    ActivityCalendarEntryBase,
+)
+from clio_client.openapi_client.models.activity_description_base import (
+    ActivityDescriptionBase,
+)
+from clio_client.openapi_client.models.activity_task_base import ActivityTaskBase
+from clio_client.openapi_client.models.activity_text_message_conversation_base import (
+    ActivityTextMessageConversationBase,
+)
 from clio_client.openapi_client.models.bill_base import BillBase
-from clio_client.openapi_client.models.client_portal_base import \
-    ClientPortalBase
-from clio_client.openapi_client.models.communication_base import \
-    CommunicationBase
+from clio_client.openapi_client.models.client_portal_base import ClientPortalBase
+from clio_client.openapi_client.models.communication_base import CommunicationBase
 from clio_client.openapi_client.models.contact_base import ContactBase
 from clio_client.openapi_client.models.currency_base import CurrencyBase
-from clio_client.openapi_client.models.document_version_base import \
-    DocumentVersionBase
-from clio_client.openapi_client.models.expense_category_base import \
-    ExpenseCategoryBase
-from clio_client.openapi_client.models.legal_aid_uk_activity_base import \
-    LegalAidUkActivityBase
+from clio_client.openapi_client.models.document_version_base import DocumentVersionBase
+from clio_client.openapi_client.models.expense_category_base import ExpenseCategoryBase
+from clio_client.openapi_client.models.legal_aid_uk_activity_base import (
+    LegalAidUkActivityBase,
+)
 from clio_client.openapi_client.models.matter_base import MatterBase
 from clio_client.openapi_client.models.note_base import NoteBase
-from clio_client.openapi_client.models.polymorphic_object_base import \
-    PolymorphicObjectBase
+from clio_client.openapi_client.models.polymorphic_object_base import (
+    PolymorphicObjectBase,
+)
 from clio_client.openapi_client.models.timer_base import TimerBase
 from clio_client.openapi_client.models.user_base import UserBase
 from clio_client.openapi_client.models.utbms_code_base import UtbmsCodeBase
@@ -59,49 +66,49 @@ class Activity(BaseModel):
     """
     Activity
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Activity*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Activity*")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *Activity*")
-    var_date: Optional[date] = Field(default=None, description="The date the *Activity* was performed (as a ISO-8601 date)", alias="date")
-    quantity_in_hours: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The number of hours the TimeEntry took.")
-    rounded_quantity_in_hours: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The number of hours rounded accordingly to the billing settings. The rounded value is used to calculate the total. ")
-    quantity: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The field is applicable to TimeEntry, ExpenseEntry, and SoftCostEntry.  **Version <= 4.0.3:** The number of hours the TimeEntry took.  **Latest version:** The number of seconds the TimeEntry took. ")
-    rounded_quantity: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The field is applicable to time entries only.  **Version <= 4.0.3:** The number of hours rounded accordingly to the billing settings. The rounded value is used to calculate the total.  **Latest version:** The number of seconds rounded accordingly to the billing settings. The rounded value is used to calculate the total. ")
-    quantity_redacted: Optional[StrictBool] = Field(default=None, description="Is `true` if any of the following fields are redacted: `quantity`, `rounded_quantity`, `rounded_quantity_in_hours`, `quantity_in_hours`, `total`, `non_billable_total` ")
-    price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The hourly or flat rate of the *Activity*")
-    note: Optional[StrictStr] = Field(default=None, description="The details about the *Activity*")
-    flat_rate: Optional[StrictBool] = Field(default=None, description="Whether the *Activity* is a flat rate")
-    billed: Optional[StrictBool] = Field(default=None, description="Whether the *Activity* has been added to an active bill that is in the state of `awaiting_payment` or `paid`")
-    on_bill: Optional[StrictBool] = Field(default=None, description="Whether the *Activity* has been added to an active bill that is in the state of `draft`, `awaiting_approval`, `awaiting_payment` or `paid`")
-    total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total cost of draft, billable and billed items in the *Activity*")
-    contingency_fee: Optional[StrictBool] = Field(default=None, description="Whether or not the *Activity* is a contingency fee")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Activity* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Activity* was last updated (as a ISO-8601 timestamp)")
-    reference: Optional[StrictStr] = Field(default=None, description="A check reference for a HardCostEntry.")
-    non_billable: Optional[StrictBool] = Field(default=None, description="Whether the *Activity* is non-billable")
-    non_billable_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The total cost of non-billable items in the *Activity*")
-    no_charge: Optional[StrictBool] = Field(default=None, description="Whether the non-billable *Activity* is shown on the bill.")
-    tax_setting: Optional[StrictStr] = Field(default=None, description="The option denoting whether primary tax, secondary tax, or both is applied to an expense entry.")
-    currency: Optional[CurrencyBase] = None
-    activity_description: Optional[ActivityDescriptionBase] = None
-    expense_category: Optional[ExpenseCategoryBase] = None
-    bill: Optional[BillBase] = None
-    communication: Optional[CommunicationBase] = None
-    client_portal: Optional[ClientPortalBase] = None
-    matter: Optional[MatterBase] = None
-    matter_note: Optional[NoteBase] = None
-    contact_note: Optional[NoteBase] = None
-    subject: Optional[PolymorphicObjectBase] = None
-    timer: Optional[TimerBase] = None
-    user: Optional[UserBase] = None
-    utbms_expense: Optional[UtbmsCodeBase] = None
-    vendor: Optional[ContactBase] = None
-    calendar_entry: Optional[ActivityCalendarEntryBase] = None
-    task: Optional[ActivityTaskBase] = None
-    text_message_conversation: Optional[ActivityTextMessageConversationBase] = None
-    document_version: Optional[DocumentVersionBase] = None
-    legal_aid_uk_activity: Optional[LegalAidUkActivityBase] = None
-    __properties: ClassVar[List[str]] = ["id", "etag", "type", "date", "quantity_in_hours", "rounded_quantity_in_hours", "quantity", "rounded_quantity", "quantity_redacted", "price", "note", "flat_rate", "billed", "on_bill", "total", "contingency_fee", "created_at", "updated_at", "reference", "non_billable", "non_billable_total", "no_charge", "tax_setting", "currency", "activity_description", "expense_category", "bill", "communication", "client_portal", "matter", "matter_note", "contact_note", "subject", "timer", "user", "utbms_expense", "vendor", "calendar_entry", "task", "text_message_conversation", "document_version", "legal_aid_uk_activity"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Activity*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Activity*")
+    type: StrictStr | None = Field(default=None, description="The type of the *Activity*")
+    var_date: date | None = Field(default=None, description="The date the *Activity* was performed (as a ISO-8601 date)", alias="date")
+    quantity_in_hours: StrictFloat | StrictInt | None = Field(default=None, description="The number of hours the TimeEntry took.")
+    rounded_quantity_in_hours: StrictFloat | StrictInt | None = Field(default=None, description="The number of hours rounded accordingly to the billing settings. The rounded value is used to calculate the total. ")
+    quantity: StrictFloat | StrictInt | None = Field(default=None, description="The field is applicable to TimeEntry, ExpenseEntry, and SoftCostEntry.  **Version <= 4.0.3:** The number of hours the TimeEntry took.  **Latest version:** The number of seconds the TimeEntry took. ")
+    rounded_quantity: StrictFloat | StrictInt | None = Field(default=None, description="The field is applicable to time entries only.  **Version <= 4.0.3:** The number of hours rounded accordingly to the billing settings. The rounded value is used to calculate the total.  **Latest version:** The number of seconds rounded accordingly to the billing settings. The rounded value is used to calculate the total. ")
+    quantity_redacted: StrictBool | None = Field(default=None, description="Is `true` if any of the following fields are redacted: `quantity`, `rounded_quantity`, `rounded_quantity_in_hours`, `quantity_in_hours`, `total`, `non_billable_total` ")
+    price: StrictFloat | StrictInt | None = Field(default=None, description="The hourly or flat rate of the *Activity*")
+    note: StrictStr | None = Field(default=None, description="The details about the *Activity*")
+    flat_rate: StrictBool | None = Field(default=None, description="Whether the *Activity* is a flat rate")
+    billed: StrictBool | None = Field(default=None, description="Whether the *Activity* has been added to an active bill that is in the state of `awaiting_payment` or `paid`")
+    on_bill: StrictBool | None = Field(default=None, description="Whether the *Activity* has been added to an active bill that is in the state of `draft`, `awaiting_approval`, `awaiting_payment` or `paid`")
+    total: StrictFloat | StrictInt | None = Field(default=None, description="The total cost of draft, billable and billed items in the *Activity*")
+    contingency_fee: StrictBool | None = Field(default=None, description="Whether or not the *Activity* is a contingency fee")
+    created_at: datetime | None = Field(default=None, description="The time the *Activity* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Activity* was last updated (as a ISO-8601 timestamp)")
+    reference: StrictStr | None = Field(default=None, description="A check reference for a HardCostEntry.")
+    non_billable: StrictBool | None = Field(default=None, description="Whether the *Activity* is non-billable")
+    non_billable_total: StrictFloat | StrictInt | None = Field(default=None, description="The total cost of non-billable items in the *Activity*")
+    no_charge: StrictBool | None = Field(default=None, description="Whether the non-billable *Activity* is shown on the bill.")
+    tax_setting: StrictStr | None = Field(default=None, description="The option denoting whether primary tax, secondary tax, or both is applied to an expense entry.")
+    currency: CurrencyBase | None = None
+    activity_description: ActivityDescriptionBase | None = None
+    expense_category: ExpenseCategoryBase | None = None
+    bill: BillBase | None = None
+    communication: CommunicationBase | None = None
+    client_portal: ClientPortalBase | None = None
+    matter: MatterBase | None = None
+    matter_note: NoteBase | None = None
+    contact_note: NoteBase | None = None
+    subject: PolymorphicObjectBase | None = None
+    timer: TimerBase | None = None
+    user: UserBase | None = None
+    utbms_expense: UtbmsCodeBase | None = None
+    vendor: ContactBase | None = None
+    calendar_entry: ActivityCalendarEntryBase | None = None
+    task: ActivityTaskBase | None = None
+    text_message_conversation: ActivityTextMessageConversationBase | None = None
+    document_version: DocumentVersionBase | None = None
+    legal_aid_uk_activity: LegalAidUkActivityBase | None = None
+    __properties: ClassVar[list[str]] = ["id", "etag", "type", "date", "quantity_in_hours", "rounded_quantity_in_hours", "quantity", "rounded_quantity", "quantity_redacted", "price", "note", "flat_rate", "billed", "on_bill", "total", "contingency_fee", "created_at", "updated_at", "reference", "non_billable", "non_billable_total", "no_charge", "tax_setting", "currency", "activity_description", "expense_category", "bill", "communication", "client_portal", "matter", "matter_note", "contact_note", "subject", "timer", "user", "utbms_expense", "vendor", "calendar_entry", "task", "text_message_conversation", "document_version", "legal_aid_uk_activity"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -140,11 +147,11 @@ class Activity(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of Activity from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -154,7 +161,7 @@ class Activity(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -222,7 +229,7 @@ class Activity(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of Activity from a dict"""
         if obj is None:
             return None

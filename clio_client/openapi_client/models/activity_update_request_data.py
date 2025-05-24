@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,66 +18,86 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.activity_create_request_data_activity_description import \
-    ActivityCreateRequestDataActivityDescription
-from clio_client.openapi_client.models.activity_create_request_data_calendar_entry import \
-    ActivityCreateRequestDataCalendarEntry
-from clio_client.openapi_client.models.activity_create_request_data_client_portal import \
-    ActivityCreateRequestDataClientPortal
-from clio_client.openapi_client.models.activity_create_request_data_communication import \
-    ActivityCreateRequestDataCommunication
-from clio_client.openapi_client.models.activity_create_request_data_contact_note import \
-    ActivityCreateRequestDataContactNote
-from clio_client.openapi_client.models.activity_create_request_data_expense_category import \
-    ActivityCreateRequestDataExpenseCategory
-from clio_client.openapi_client.models.activity_create_request_data_matter import \
-    ActivityCreateRequestDataMatter
-from clio_client.openapi_client.models.activity_create_request_data_task import \
-    ActivityCreateRequestDataTask
-from clio_client.openapi_client.models.activity_create_request_data_text_message_conversation import \
-    ActivityCreateRequestDataTextMessageConversation
-from clio_client.openapi_client.models.activity_create_request_data_user import \
-    ActivityCreateRequestDataUser
-from clio_client.openapi_client.models.activity_create_request_data_utbms_expense import \
-    ActivityCreateRequestDataUtbmsExpense
-from clio_client.openapi_client.models.activity_create_request_data_vendor import \
-    ActivityCreateRequestDataVendor
+from clio_client.openapi_client.models.activity_create_request_data_activity_description import (
+    ActivityCreateRequestDataActivityDescription,
+)
+from clio_client.openapi_client.models.activity_create_request_data_calendar_entry import (
+    ActivityCreateRequestDataCalendarEntry,
+)
+from clio_client.openapi_client.models.activity_create_request_data_client_portal import (
+    ActivityCreateRequestDataClientPortal,
+)
+from clio_client.openapi_client.models.activity_create_request_data_communication import (
+    ActivityCreateRequestDataCommunication,
+)
+from clio_client.openapi_client.models.activity_create_request_data_contact_note import (
+    ActivityCreateRequestDataContactNote,
+)
+from clio_client.openapi_client.models.activity_create_request_data_expense_category import (
+    ActivityCreateRequestDataExpenseCategory,
+)
+from clio_client.openapi_client.models.activity_create_request_data_matter import (
+    ActivityCreateRequestDataMatter,
+)
+from clio_client.openapi_client.models.activity_create_request_data_task import (
+    ActivityCreateRequestDataTask,
+)
+from clio_client.openapi_client.models.activity_create_request_data_text_message_conversation import (
+    ActivityCreateRequestDataTextMessageConversation,
+)
+from clio_client.openapi_client.models.activity_create_request_data_user import (
+    ActivityCreateRequestDataUser,
+)
+from clio_client.openapi_client.models.activity_create_request_data_utbms_expense import (
+    ActivityCreateRequestDataUtbmsExpense,
+)
+from clio_client.openapi_client.models.activity_create_request_data_vendor import (
+    ActivityCreateRequestDataVendor,
+)
 
 
 class ActivityUpdateRequestData(BaseModel):
     """
     ActivityUpdateRequestData
     """ # noqa: E501
-    activity_description: Optional[ActivityCreateRequestDataActivityDescription] = None
-    calendar_entry: Optional[ActivityCreateRequestDataCalendarEntry] = None
-    client_portal: Optional[ActivityCreateRequestDataClientPortal] = None
-    communication: Optional[ActivityCreateRequestDataCommunication] = None
-    contact_note: Optional[ActivityCreateRequestDataContactNote] = None
-    var_date: Optional[date] = Field(default=None, description="The date the Activity was performed. (Expects an ISO-8601 date).", alias="date")
-    expense_category: Optional[ActivityCreateRequestDataExpenseCategory] = None
-    matter: Optional[ActivityCreateRequestDataMatter] = None
-    matter_note: Optional[ActivityCreateRequestDataContactNote] = None
-    no_charge: Optional[StrictBool] = Field(default=None, description="Whether the non-billable *Activity* will be shown on the bill.")
-    non_billable: Optional[StrictBool] = Field(default=None, description="Whether or not this Activity is prevented from appearing as a line item in a bill. Only valid for non-billed TimeEntries, and with the exception of the Activity having no_charge set to true. ")
-    note: Optional[StrictStr] = Field(default=None, description="A custom note to describe what the Activity is for.")
-    price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="For an ExpenseEntry, HardCostEntry, and SoftCostEntry, it is the expense amount.  [Support Link for ExpenseEntry](https://help.clio.com/hc/en-us/articles/9289745356571-Expenses)  [Support Link for HardCostEntry and SoftCostEntry](https://help.clio.com/hc/en-us/articles/9289745356571-Expenses#enable-hard-and-soft-cost-expenses-0-0)  For a TimeEntry, it is the hourly or flat amount. When updating a TimeEntry, if the price is not given or the user does not have the permission to view the rate, and its activity description, matter and/or user is changed, the price is reset according to the rate defined for the activity description, matter, client or user.  [Support Link for Rates Hierarchy](https://help.clio.com/hc/en-us/articles/9289801180187-Rates-and-Rate-Hierarchies-)  [Support Link for Billing Rate Visibility](https://help.clio.com/hc/en-us/articles/9285360193819-Permissions-and-Billing-Rates#billing-rate-visibility-0-3) ")
-    quantity: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The field is applicable to TimeEntry, ExpenseEntry, and SoftCostEntry.  **Version <= 4.0.3:** The number of hours the TimeEntry took.  **Latest version:** The number of seconds the TimeEntry took. ")
-    reference: Optional[StrictStr] = Field(default=None, description="A check reference for a HardCostEntry.")
-    start_timer: Optional[StrictBool] = Field(default=None, description="Whether or not a timer should be started for this Activity. Only valid for non-FlatRate, non-billed TimeEntries.")
-    task: Optional[ActivityCreateRequestDataTask] = None
-    tax_setting: Optional[StrictStr] = Field(default=None, description="The option denoting whether primary tax, secondary tax, or both is applied to an expense entry.")
-    text_message_conversation: Optional[ActivityCreateRequestDataTextMessageConversation] = None
-    type: Optional[StrictStr] = Field(default=None, description="The type of the Activity.")
-    user: Optional[ActivityCreateRequestDataUser] = None
-    utbms_expense: Optional[ActivityCreateRequestDataUtbmsExpense] = None
-    vendor: Optional[ActivityCreateRequestDataVendor] = None
-    __properties: ClassVar[List[str]] = ["activity_description", "calendar_entry", "client_portal", "communication", "contact_note", "date", "expense_category", "matter", "matter_note", "no_charge", "non_billable", "note", "price", "quantity", "reference", "start_timer", "task", "tax_setting", "text_message_conversation", "type", "user", "utbms_expense", "vendor"]
+    activity_description: ActivityCreateRequestDataActivityDescription | None = None
+    calendar_entry: ActivityCreateRequestDataCalendarEntry | None = None
+    client_portal: ActivityCreateRequestDataClientPortal | None = None
+    communication: ActivityCreateRequestDataCommunication | None = None
+    contact_note: ActivityCreateRequestDataContactNote | None = None
+    var_date: date | None = Field(default=None, description="The date the Activity was performed. (Expects an ISO-8601 date).", alias="date")
+    expense_category: ActivityCreateRequestDataExpenseCategory | None = None
+    matter: ActivityCreateRequestDataMatter | None = None
+    matter_note: ActivityCreateRequestDataContactNote | None = None
+    no_charge: StrictBool | None = Field(default=None, description="Whether the non-billable *Activity* will be shown on the bill.")
+    non_billable: StrictBool | None = Field(default=None, description="Whether or not this Activity is prevented from appearing as a line item in a bill. Only valid for non-billed TimeEntries, and with the exception of the Activity having no_charge set to true. ")
+    note: StrictStr | None = Field(default=None, description="A custom note to describe what the Activity is for.")
+    price: StrictFloat | StrictInt | None = Field(default=None, description="For an ExpenseEntry, HardCostEntry, and SoftCostEntry, it is the expense amount.  [Support Link for ExpenseEntry](https://help.clio.com/hc/en-us/articles/9289745356571-Expenses)  [Support Link for HardCostEntry and SoftCostEntry](https://help.clio.com/hc/en-us/articles/9289745356571-Expenses#enable-hard-and-soft-cost-expenses-0-0)  For a TimeEntry, it is the hourly or flat amount. When updating a TimeEntry, if the price is not given or the user does not have the permission to view the rate, and its activity description, matter and/or user is changed, the price is reset according to the rate defined for the activity description, matter, client or user.  [Support Link for Rates Hierarchy](https://help.clio.com/hc/en-us/articles/9289801180187-Rates-and-Rate-Hierarchies-)  [Support Link for Billing Rate Visibility](https://help.clio.com/hc/en-us/articles/9285360193819-Permissions-and-Billing-Rates#billing-rate-visibility-0-3) ")
+    quantity: StrictFloat | StrictInt | None = Field(default=None, description="The field is applicable to TimeEntry, ExpenseEntry, and SoftCostEntry.  **Version <= 4.0.3:** The number of hours the TimeEntry took.  **Latest version:** The number of seconds the TimeEntry took. ")
+    reference: StrictStr | None = Field(default=None, description="A check reference for a HardCostEntry.")
+    start_timer: StrictBool | None = Field(default=None, description="Whether or not a timer should be started for this Activity. Only valid for non-FlatRate, non-billed TimeEntries.")
+    task: ActivityCreateRequestDataTask | None = None
+    tax_setting: StrictStr | None = Field(default=None, description="The option denoting whether primary tax, secondary tax, or both is applied to an expense entry.")
+    text_message_conversation: ActivityCreateRequestDataTextMessageConversation | None = None
+    type: StrictStr | None = Field(default=None, description="The type of the Activity.")
+    user: ActivityCreateRequestDataUser | None = None
+    utbms_expense: ActivityCreateRequestDataUtbmsExpense | None = None
+    vendor: ActivityCreateRequestDataVendor | None = None
+    __properties: ClassVar[list[str]] = ["activity_description", "calendar_entry", "client_portal", "communication", "contact_note", "date", "expense_category", "matter", "matter_note", "no_charge", "non_billable", "note", "price", "quantity", "reference", "start_timer", "task", "tax_setting", "text_message_conversation", "type", "user", "utbms_expense", "vendor"]
 
     @field_validator('tax_setting')
     def tax_setting_validate_enum(cls, value):
@@ -117,11 +136,11 @@ class ActivityUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ActivityUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -131,7 +150,7 @@ class ActivityUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -181,7 +200,7 @@ class ActivityUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ActivityUpdateRequestData from a dict"""
         if obj is None:
             return None

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,7 +17,7 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing_extensions import Self
@@ -28,9 +27,9 @@ class ContactCreateRequestDataAvatar(BaseModel):
     """
     ContactCreateRequestDataAvatar
     """ # noqa: E501
-    image: Optional[StrictStr] = Field(default=None, description="The avatar image for the *Contact*, base64-encoded. Must be a valid GIF, JPG, or PNG image of less than 2 megabytes in size.")
-    destroy: Optional[StrictBool] = Field(default=None, description="The destroy flag. If the flag is set to `true` and the unique identifier of the associated Avatar is present, the Avatar is deleted from the Contact.", alias="_destroy")
-    __properties: ClassVar[List[str]] = ["image", "_destroy"]
+    image: StrictStr | None = Field(default=None, description="The avatar image for the *Contact*, base64-encoded. Must be a valid GIF, JPG, or PNG image of less than 2 megabytes in size.")
+    destroy: StrictBool | None = Field(default=None, description="The destroy flag. If the flag is set to `true` and the unique identifier of the associated Avatar is present, the Avatar is deleted from the Contact.", alias="_destroy")
+    __properties: ClassVar[list[str]] = ["image", "_destroy"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,11 +48,11 @@ class ContactCreateRequestDataAvatar(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ContactCreateRequestDataAvatar from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -63,7 +62,7 @@ class ContactCreateRequestDataAvatar(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -74,7 +73,7 @@ class ContactCreateRequestDataAvatar(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ContactCreateRequestDataAvatar from a dict"""
         if obj is None:
             return None

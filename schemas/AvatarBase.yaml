@@ -1,0 +1,48 @@
+description: AvatarBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Avatar*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Avatar*
+    title: Etag
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Avatar* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Avatar* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  url:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The URL for the *Avatar*
+    title: Url
+  _destroy:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: Whether to destroy the *Avatar*
+    title: Destroy
+title: AvatarBase
+type: object

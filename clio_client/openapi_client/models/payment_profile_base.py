@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictFloat, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -30,19 +36,19 @@ class PaymentProfileBase(BaseModel):
     """
     PaymentProfileBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *PaymentProfile*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *PaymentProfile*")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *PaymentProfile* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *PaymentProfile* was last updated (as a ISO-8601 timestamp)")
-    billing_setting_id: Optional[StrictInt] = Field(default=None, description="The unique identifier for the *PaymentProfile")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the *PaymentProfile")
-    terms: Optional[StrictInt] = Field(default=None, description="The total grace period for the *PaymentProfile")
-    discount_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The early payment discount rate for the *PaymentProfile")
-    discount_period: Optional[StrictInt] = Field(default=None, description="The early payment discount period for the *PaymentProfile")
-    interest_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The interest rate for the *PaymentProfile")
-    interest_period: Optional[StrictInt] = Field(default=None, description="The interest period interval for the *PaymentProfile")
-    interest_type: Optional[StrictStr] = Field(default=None, description="The type of interest to be calculated for the *PaymentProfile (Simple or Compound)")
-    __properties: ClassVar[List[str]] = ["id", "etag", "created_at", "updated_at", "billing_setting_id", "name", "terms", "discount_rate", "discount_period", "interest_rate", "interest_period", "interest_type"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *PaymentProfile*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *PaymentProfile*")
+    created_at: datetime | None = Field(default=None, description="The time the *PaymentProfile* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *PaymentProfile* was last updated (as a ISO-8601 timestamp)")
+    billing_setting_id: StrictInt | None = Field(default=None, description="The unique identifier for the *PaymentProfile")
+    name: StrictStr | None = Field(default=None, description="The name of the *PaymentProfile")
+    terms: StrictInt | None = Field(default=None, description="The total grace period for the *PaymentProfile")
+    discount_rate: StrictFloat | StrictInt | None = Field(default=None, description="The early payment discount rate for the *PaymentProfile")
+    discount_period: StrictInt | None = Field(default=None, description="The early payment discount period for the *PaymentProfile")
+    interest_rate: StrictFloat | StrictInt | None = Field(default=None, description="The interest rate for the *PaymentProfile")
+    interest_period: StrictInt | None = Field(default=None, description="The interest period interval for the *PaymentProfile")
+    interest_type: StrictStr | None = Field(default=None, description="The type of interest to be calculated for the *PaymentProfile (Simple or Compound)")
+    __properties: ClassVar[list[str]] = ["id", "etag", "created_at", "updated_at", "billing_setting_id", "name", "terms", "discount_rate", "discount_period", "interest_rate", "interest_period", "interest_type"]
 
     @field_validator('interest_type')
     def interest_type_validate_enum(cls, value):
@@ -71,11 +77,11 @@ class PaymentProfileBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of PaymentProfileBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -85,7 +91,7 @@ class PaymentProfileBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -96,7 +102,7 @@ class PaymentProfileBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of PaymentProfileBase from a dict"""
         if obj is None:
             return None

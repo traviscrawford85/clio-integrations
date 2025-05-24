@@ -4,8 +4,9 @@
 # database/db.py
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import os
 
-DATABASE_URL = "sqlite:///clio_tokens.db"
+DATABASE_URL = os.getenv("CLIO_DATABASE_URL", "sqlite:///clio_tokens.db")
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,35 +18,39 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.document_copy_request_data_document_category import \
-    DocumentCopyRequestDataDocumentCategory
-from clio_client.openapi_client.models.document_copy_request_data_parent import \
-    DocumentCopyRequestDataParent
-from clio_client.openapi_client.models.document_create_request_data_external_properties_inner import \
-    DocumentCreateRequestDataExternalPropertiesInner
-from clio_client.openapi_client.models.document_create_request_data_multiparts_inner import \
-    DocumentCreateRequestDataMultipartsInner
+from clio_client.openapi_client.models.document_copy_request_data_document_category import (
+    DocumentCopyRequestDataDocumentCategory,
+)
+from clio_client.openapi_client.models.document_copy_request_data_parent import (
+    DocumentCopyRequestDataParent,
+)
+from clio_client.openapi_client.models.document_create_request_data_external_properties_inner import (
+    DocumentCreateRequestDataExternalPropertiesInner,
+)
+from clio_client.openapi_client.models.document_create_request_data_multiparts_inner import (
+    DocumentCreateRequestDataMultipartsInner,
+)
 
 
 class DocumentCreateRequestData(BaseModel):
     """
     DocumentCreateRequestData
     """ # noqa: E501
-    communication_id: Optional[StrictInt] = Field(default=None, description="Related communication record.")
-    content_type: Optional[StrictStr] = Field(default=None, description="A standard MIME type describing the format of the object data. If the field is not specified, it is determined by the file extension.")
-    document_category: Optional[DocumentCopyRequestDataDocumentCategory] = None
-    external_properties: Optional[List[DocumentCreateRequestDataExternalPropertiesInner]] = None
-    filename: Optional[StrictStr] = Field(default='name', description="Name of the original file.")
-    multiparts: Optional[List[DocumentCreateRequestDataMultipartsInner]] = None
+    communication_id: StrictInt | None = Field(default=None, description="Related communication record.")
+    content_type: StrictStr | None = Field(default=None, description="A standard MIME type describing the format of the object data. If the field is not specified, it is determined by the file extension.")
+    document_category: DocumentCopyRequestDataDocumentCategory | None = None
+    external_properties: list[DocumentCreateRequestDataExternalPropertiesInner] | None = None
+    filename: StrictStr | None = Field(default='name', description="Name of the original file.")
+    multiparts: list[DocumentCreateRequestDataMultipartsInner] | None = None
     name: StrictStr = Field(description="Document name.")
     parent: DocumentCopyRequestDataParent
-    received_at: Optional[datetime] = Field(default=None, description="Date and time the document was received (Expects an ISO-8601 timestamp).")
-    __properties: ClassVar[List[str]] = ["communication_id", "content_type", "document_category", "external_properties", "filename", "multiparts", "name", "parent", "received_at"]
+    received_at: datetime | None = Field(default=None, description="Date and time the document was received (Expects an ISO-8601 timestamp).")
+    __properties: ClassVar[list[str]] = ["communication_id", "content_type", "document_category", "external_properties", "filename", "multiparts", "name", "parent", "received_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -66,11 +69,11 @@ class DocumentCreateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of DocumentCreateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -80,7 +83,7 @@ class DocumentCreateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -111,7 +114,7 @@ class DocumentCreateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of DocumentCreateRequestData from a dict"""
         if obj is None:
             return None

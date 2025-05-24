@@ -1,0 +1,10 @@
+description: DocumentCategoryCreateRequestData
+properties:
+  name:
+    description: What the DocumentCategory should be called.
+    title: Name
+    type: string
+required:
+- name
+title: DocumentCategoryCreateRequestData
+type: object

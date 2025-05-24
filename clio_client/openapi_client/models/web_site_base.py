@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -30,14 +36,14 @@ class WebSiteBase(BaseModel):
     """
     WebSiteBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *WebSite*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *WebSite*")
-    address: Optional[StrictStr] = Field(default=None, description="The address of the *WebSite*")
-    name: Optional[StrictStr] = Field(default=None, description="The type of *WebSite* it is")
-    default_web_site: Optional[StrictBool] = Field(default=None, description="Whether it is the default for this contact")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *WebSite* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *WebSite* was last updated (as a ISO-8601 timestamp)")
-    __properties: ClassVar[List[str]] = ["id", "etag", "address", "name", "default_web_site", "created_at", "updated_at"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *WebSite*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *WebSite*")
+    address: StrictStr | None = Field(default=None, description="The address of the *WebSite*")
+    name: StrictStr | None = Field(default=None, description="The type of *WebSite* it is")
+    default_web_site: StrictBool | None = Field(default=None, description="Whether it is the default for this contact")
+    created_at: datetime | None = Field(default=None, description="The time the *WebSite* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *WebSite* was last updated (as a ISO-8601 timestamp)")
+    __properties: ClassVar[list[str]] = ["id", "etag", "address", "name", "default_web_site", "created_at", "updated_at"]
 
     @field_validator('name')
     def name_validate_enum(cls, value):
@@ -66,11 +72,11 @@ class WebSiteBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of WebSiteBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -80,7 +86,7 @@ class WebSiteBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -91,7 +97,7 @@ class WebSiteBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of WebSiteBase from a dict"""
         if obj is None:
             return None

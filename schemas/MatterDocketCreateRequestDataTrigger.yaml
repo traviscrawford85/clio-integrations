@@ -1,0 +1,11 @@
+description: MatterDocketCreateRequestDataTrigger
+properties:
+  id:
+    description: The unique identifier for a single Trigger associated with the MatterDocket.
+      The keyword `null` is not valid for this field.
+    title: Id
+    type: integer
+required:
+- id
+title: MatterDocketCreateRequestDataTrigger
+type: object

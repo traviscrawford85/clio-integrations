@@ -1,0 +1,11 @@
+description: MatterDocketCreateRequestDataJurisdiction
+properties:
+  id:
+    description: The unique identifier for a single Jurisdiction associated with the
+      MatterDocket. The keyword `null` is not valid for this field.
+    title: Id
+    type: integer
+required:
+- id
+title: MatterDocketCreateRequestDataJurisdiction
+type: object

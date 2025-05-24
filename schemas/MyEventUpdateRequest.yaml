@@ -1,0 +1,22 @@
+$defs:
+  MyEventUpdateRequestData:
+    description: MyEventUpdateRequestData
+    properties:
+      marked_as_read:
+        anyOf:
+        - type: boolean
+        - type: 'null'
+        default: null
+        description: Indicates whether the event notification should be marked as
+          read by the current user. If `false` the event status is reset to unread.
+        title: Marked As Read
+    title: MyEventUpdateRequestData
+    type: object
+description: MyEventUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/MyEventUpdateRequestData'
+required:
+- data
+title: MyEventUpdateRequest
+type: object

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,22 +18,28 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 from clio_client.openapi_client.models.address_base import AddressBase
 from clio_client.openapi_client.models.avatar_base import AvatarBase
 from clio_client.openapi_client.models.contact_base import ContactBase
-from clio_client.openapi_client.models.custom_field_value_base import \
-    CustomFieldValueBase
-from clio_client.openapi_client.models.email_address_base import \
-    EmailAddressBase
+from clio_client.openapi_client.models.custom_field_value_base import (
+    CustomFieldValueBase,
+)
+from clio_client.openapi_client.models.email_address_base import EmailAddressBase
 from clio_client.openapi_client.models.phone_number_base import PhoneNumberBase
-from clio_client.openapi_client.models.relationship_base import \
-    RelationshipBase
+from clio_client.openapi_client.models.relationship_base import RelationshipBase
 from clio_client.openapi_client.models.web_site_base import WebSiteBase
 
 
@@ -42,43 +47,43 @@ class MatterContacts(BaseModel):
     """
     MatterContacts
     """ # noqa: E501
-    contact_created_at: Optional[datetime] = Field(default=None, description="Timestamp of the time the contact was created")
-    contact_updated_at: Optional[datetime] = Field(default=None, description="Timestamp of the time the contact was created")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *MatterContacts* was created (as a ISO-8601 timestamp)")
-    description: Optional[StrictStr] = Field(default=None, description="Description of the matter")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *MatterContacts*")
-    first_name: Optional[StrictStr] = Field(default=None, description="First name of the Person")
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *MatterContacts*")
-    initials: Optional[StrictStr] = Field(default=None, description="The initials of the *MatterContacts*")
-    is_client: Optional[StrictBool] = Field(default=None, description="Whether or not the MatterContacts is a client")
-    last_name: Optional[StrictStr] = Field(default=None, description="Last name of the Person")
-    matter_id: Optional[StrictInt] = Field(default=None, description="ID of the matter")
-    matter_number: Optional[StrictStr] = Field(default=None, description="Number of the matter")
-    middle_name: Optional[StrictStr] = Field(default=None, description="Middle name of the Person")
-    name: Optional[StrictStr] = Field(default=None, description="The full name of the *MatterContacts*")
-    prefix: Optional[StrictStr] = Field(default=None, description="The prefix of the *MatterContacts* (Mr, Mrs, etc)")
-    primary_email_address: Optional[StrictStr] = Field(default=None, description="The primary email address associated with this *MatterContacts*.")
-    primary_phone_number: Optional[StrictStr] = Field(default=None, description="The primary phone number associated with this *MatterContacts*.")
-    relationship_name: Optional[StrictStr] = Field(default=None, description="The description of the relation between the contact and the matter, or \"Client\" if the user is the client.")
-    secondary_email_address: Optional[StrictStr] = Field(default=None, description="The secondary email address of the contact")
-    secondary_phone_number: Optional[StrictStr] = Field(default=None, description="The secondary phone number of the contact")
-    title: Optional[StrictStr] = Field(default=None, description="The designated title of the *MatterContacts*")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *MatterContacts*")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *MatterContacts* was last updated (as a ISO-8601 timestamp)")
-    client_connect_user_id: Optional[StrictInt] = Field(default=None, description="The client connect ID of the contacts associated user")
-    avatar: Optional[AvatarBase] = None
-    company: Optional[ContactBase] = None
-    primary_address: Optional[AddressBase] = None
-    primary_web_site: Optional[WebSiteBase] = None
-    secondary_address: Optional[AddressBase] = None
-    secondary_web_site: Optional[WebSiteBase] = None
-    addresses: Optional[List[AddressBase]] = Field(default=None, description="Address")
-    custom_field_values: Optional[List[CustomFieldValueBase]] = Field(default=None, description="CustomFieldValue")
-    email_addresses: Optional[List[EmailAddressBase]] = Field(default=None, description="EmailAddress")
-    phone_numbers: Optional[List[PhoneNumberBase]] = Field(default=None, description="PhoneNumber")
-    web_sites: Optional[List[WebSiteBase]] = Field(default=None, description="WebSite")
-    relationship: Optional[RelationshipBase] = None
-    __properties: ClassVar[List[str]] = ["contact_created_at", "contact_updated_at", "created_at", "description", "etag", "first_name", "id", "initials", "is_client", "last_name", "matter_id", "matter_number", "middle_name", "name", "prefix", "primary_email_address", "primary_phone_number", "relationship_name", "secondary_email_address", "secondary_phone_number", "title", "type", "updated_at", "client_connect_user_id", "avatar", "company", "primary_address", "primary_web_site", "secondary_address", "secondary_web_site", "addresses", "custom_field_values", "email_addresses", "phone_numbers", "web_sites", "relationship"]
+    contact_created_at: datetime | None = Field(default=None, description="Timestamp of the time the contact was created")
+    contact_updated_at: datetime | None = Field(default=None, description="Timestamp of the time the contact was created")
+    created_at: datetime | None = Field(default=None, description="The time the *MatterContacts* was created (as a ISO-8601 timestamp)")
+    description: StrictStr | None = Field(default=None, description="Description of the matter")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *MatterContacts*")
+    first_name: StrictStr | None = Field(default=None, description="First name of the Person")
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *MatterContacts*")
+    initials: StrictStr | None = Field(default=None, description="The initials of the *MatterContacts*")
+    is_client: StrictBool | None = Field(default=None, description="Whether or not the MatterContacts is a client")
+    last_name: StrictStr | None = Field(default=None, description="Last name of the Person")
+    matter_id: StrictInt | None = Field(default=None, description="ID of the matter")
+    matter_number: StrictStr | None = Field(default=None, description="Number of the matter")
+    middle_name: StrictStr | None = Field(default=None, description="Middle name of the Person")
+    name: StrictStr | None = Field(default=None, description="The full name of the *MatterContacts*")
+    prefix: StrictStr | None = Field(default=None, description="The prefix of the *MatterContacts* (Mr, Mrs, etc)")
+    primary_email_address: StrictStr | None = Field(default=None, description="The primary email address associated with this *MatterContacts*.")
+    primary_phone_number: StrictStr | None = Field(default=None, description="The primary phone number associated with this *MatterContacts*.")
+    relationship_name: StrictStr | None = Field(default=None, description="The description of the relation between the contact and the matter, or \"Client\" if the user is the client.")
+    secondary_email_address: StrictStr | None = Field(default=None, description="The secondary email address of the contact")
+    secondary_phone_number: StrictStr | None = Field(default=None, description="The secondary phone number of the contact")
+    title: StrictStr | None = Field(default=None, description="The designated title of the *MatterContacts*")
+    type: StrictStr | None = Field(default=None, description="The type of the *MatterContacts*")
+    updated_at: datetime | None = Field(default=None, description="The time the *MatterContacts* was last updated (as a ISO-8601 timestamp)")
+    client_connect_user_id: StrictInt | None = Field(default=None, description="The client connect ID of the contacts associated user")
+    avatar: AvatarBase | None = None
+    company: ContactBase | None = None
+    primary_address: AddressBase | None = None
+    primary_web_site: WebSiteBase | None = None
+    secondary_address: AddressBase | None = None
+    secondary_web_site: WebSiteBase | None = None
+    addresses: list[AddressBase] | None = Field(default=None, description="Address")
+    custom_field_values: list[CustomFieldValueBase] | None = Field(default=None, description="CustomFieldValue")
+    email_addresses: list[EmailAddressBase] | None = Field(default=None, description="EmailAddress")
+    phone_numbers: list[PhoneNumberBase] | None = Field(default=None, description="PhoneNumber")
+    web_sites: list[WebSiteBase] | None = Field(default=None, description="WebSite")
+    relationship: RelationshipBase | None = None
+    __properties: ClassVar[list[str]] = ["contact_created_at", "contact_updated_at", "created_at", "description", "etag", "first_name", "id", "initials", "is_client", "last_name", "matter_id", "matter_number", "middle_name", "name", "prefix", "primary_email_address", "primary_phone_number", "relationship_name", "secondary_email_address", "secondary_phone_number", "title", "type", "updated_at", "client_connect_user_id", "avatar", "company", "primary_address", "primary_web_site", "secondary_address", "secondary_web_site", "addresses", "custom_field_values", "email_addresses", "phone_numbers", "web_sites", "relationship"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -107,11 +112,11 @@ class MatterContacts(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MatterContacts from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -121,7 +126,7 @@ class MatterContacts(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -188,7 +193,7 @@ class MatterContacts(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MatterContacts from a dict"""
         if obj is None:
             return None

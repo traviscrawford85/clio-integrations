@@ -1,0 +1,70 @@
+description: NoteBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Note*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Note*
+    title: Etag
+  type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The type of the *Note*
+    title: Type
+  subject:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The subject of the *Note*
+    title: Subject
+  detail:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The body of the *Note*
+    title: Detail
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date the *Note* is for (as a ISO-8601 date)
+    title: Date
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Note* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Note* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  time_entries_count:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The number of time_entries associated with the *Note*
+    title: Time Entries Count
+title: NoteBase
+type: object

@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -18,10 +17,9 @@ from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt)
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt
 from typing_extensions import Self
 
 
@@ -29,10 +27,10 @@ class MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner(BaseMod
     """
     MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner
     """ # noqa: E501
-    amount: Union[StrictFloat, StrictInt] = Field(description="Lien amount.")
+    amount: StrictFloat | StrictInt = Field(description="Lien amount.")
     holder_id: StrictInt = Field(description="The unique identifier for a single Damage associated with the MedicalRecordsRequest. The keyword `null` is not valid for this field.")
     mark_as_lien: StrictBool = Field(description="Mark record as Lien.")
-    __properties: ClassVar[List[str]] = ["amount", "holder_id", "mark_as_lien"]
+    __properties: ClassVar[list[str]] = ["amount", "holder_id", "mark_as_lien"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,11 +49,11 @@ class MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner(BaseMod
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -65,7 +63,7 @@ class MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner(BaseMod
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -76,7 +74,7 @@ class MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner(BaseMod
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MedicalRecordsRequestCreateRequestDataMedicalBillsInnerPayersInner from a dict"""
         if obj is None:
             return None

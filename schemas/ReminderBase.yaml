@@ -1,0 +1,56 @@
+description: ReminderBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Reminder*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Reminder*
+    title: Etag
+  duration:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Time in minutes to remind user before the subject
+    title: Duration
+  next_delivery_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Reminder* will be delivered (as a ISO-8601 timestamp)
+    title: Next Delivery At
+  state:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The current state of the *Reminder*
+    title: State
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Reminder* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Reminder* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: ReminderBase
+type: object

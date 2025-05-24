@@ -1,0 +1,29 @@
+$defs:
+  CalendarVisibilityUpdateRequestData:
+    description: CalendarVisibilityUpdateRequestData
+    properties:
+      color:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Calendar color as seen in the Clio Web UI.
+        title: Color
+      visible:
+        anyOf:
+        - type: string
+        - type: 'null'
+        default: null
+        description: Whether or not the CalendarVisibility should be visible by default
+          in the Clio Web UI.
+        title: Visible
+    title: CalendarVisibilityUpdateRequestData
+    type: object
+description: CalendarVisibilityUpdateRequest
+properties:
+  data:
+    $ref: '#/$defs/CalendarVisibilityUpdateRequestData'
+required:
+- data
+title: CalendarVisibilityUpdateRequest
+type: object

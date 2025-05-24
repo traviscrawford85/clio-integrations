@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,10 +18,17 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date, datetime
-from typing import Any, ClassVar, Dict, List, Optional, Set
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictInt,
-                      StrictStr, field_validator)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing_extensions import Self
 
 
@@ -30,35 +36,35 @@ class ContactBase(BaseModel):
     """
     ContactBase
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the *Contact*")
-    etag: Optional[StrictStr] = Field(default=None, description="ETag for the *Contact*")
-    name: Optional[StrictStr] = Field(default=None, description="The full name of the *Contact*")
-    first_name: Optional[StrictStr] = Field(default=None, description="First name of the Person")
-    middle_name: Optional[StrictStr] = Field(default=None, description="Middle name of the Person")
-    last_name: Optional[StrictStr] = Field(default=None, description="Last name of the Person")
-    date_of_birth: Optional[date] = Field(default=None, description="Date of birth")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the *Contact*")
-    created_at: Optional[datetime] = Field(default=None, description="The time the *Contact* was created (as a ISO-8601 timestamp)")
-    updated_at: Optional[datetime] = Field(default=None, description="The time the *Contact* was last updated (as a ISO-8601 timestamp)")
-    prefix: Optional[StrictStr] = Field(default=None, description="The prefix of the *Contact* (Mr, Mrs, etc)")
-    title: Optional[StrictStr] = Field(default=None, description="The designated title of the *Contact*")
-    initials: Optional[StrictStr] = Field(default=None, description="The initials of the *Contact*")
-    clio_connect_email: Optional[StrictStr] = Field(default=None, description="Clio Connect email if the *Contact* is a ClioConnect User")
-    locked_clio_connect_email: Optional[StrictBool] = Field(default=None, description="A boolean indicating if the ability to modify this *Contacts Clio connect email is locked.")
-    client_connect_user_id: Optional[StrictInt] = Field(default=None, description="The ID for the Clio Connect user associated with this *Contact*")
-    primary_email_address: Optional[StrictStr] = Field(default=None, description="The primary email address associated with this *Contact*.")
-    secondary_email_address: Optional[StrictStr] = Field(default=None, description="The secondary email address associated with this *Contact*.")
-    primary_phone_number: Optional[StrictStr] = Field(default=None, description="The primary phone number associated with this *Contact*.")
-    secondary_phone_number: Optional[StrictStr] = Field(default=None, description="The secondary phone number of the *Contact*.")
-    ledes_client_id: Optional[StrictStr] = Field(default=None, description="LEDES client id of the Contact")
-    has_clio_for_clients_permission: Optional[StrictBool] = Field(default=None, description="True if at least one resource has been shared with the contact using Clio for Clients.")
-    is_client: Optional[StrictBool] = Field(default=None, description="Whether or not the Contact is a client")
-    is_clio_for_client_user: Optional[StrictBool] = Field(default=None, description="Whether or not this contact has client_login and client_user (can be created due to addition to client portal or client_share_permissions)")
-    is_co_counsel: Optional[StrictBool] = Field(default=None, description="Whether or not the Contact has matters shared as co-counsel")
-    is_bill_recipient: Optional[StrictBool] = Field(default=None, description="Whether the Contact is a bill recipient on at least one matter.")
-    sales_tax_number: Optional[StrictStr] = Field(default=None, description="The sales tax number of the *Contact*")
-    currency: Optional[Dict[str, Any]] = Field(default=None, description="Currency of the *Contact*")
-    __properties: ClassVar[List[str]] = ["id", "etag", "name", "first_name", "middle_name", "last_name", "date_of_birth", "type", "created_at", "updated_at", "prefix", "title", "initials", "clio_connect_email", "locked_clio_connect_email", "client_connect_user_id", "primary_email_address", "secondary_email_address", "primary_phone_number", "secondary_phone_number", "ledes_client_id", "has_clio_for_clients_permission", "is_client", "is_clio_for_client_user", "is_co_counsel", "is_bill_recipient", "sales_tax_number", "currency"]
+    id: StrictInt | None = Field(default=None, description="Unique identifier for the *Contact*")
+    etag: StrictStr | None = Field(default=None, description="ETag for the *Contact*")
+    name: StrictStr | None = Field(default=None, description="The full name of the *Contact*")
+    first_name: StrictStr | None = Field(default=None, description="First name of the Person")
+    middle_name: StrictStr | None = Field(default=None, description="Middle name of the Person")
+    last_name: StrictStr | None = Field(default=None, description="Last name of the Person")
+    date_of_birth: date | None = Field(default=None, description="Date of birth")
+    type: StrictStr | None = Field(default=None, description="The type of the *Contact*")
+    created_at: datetime | None = Field(default=None, description="The time the *Contact* was created (as a ISO-8601 timestamp)")
+    updated_at: datetime | None = Field(default=None, description="The time the *Contact* was last updated (as a ISO-8601 timestamp)")
+    prefix: StrictStr | None = Field(default=None, description="The prefix of the *Contact* (Mr, Mrs, etc)")
+    title: StrictStr | None = Field(default=None, description="The designated title of the *Contact*")
+    initials: StrictStr | None = Field(default=None, description="The initials of the *Contact*")
+    clio_connect_email: StrictStr | None = Field(default=None, description="Clio Connect email if the *Contact* is a ClioConnect User")
+    locked_clio_connect_email: StrictBool | None = Field(default=None, description="A boolean indicating if the ability to modify this *Contacts Clio connect email is locked.")
+    client_connect_user_id: StrictInt | None = Field(default=None, description="The ID for the Clio Connect user associated with this *Contact*")
+    primary_email_address: StrictStr | None = Field(default=None, description="The primary email address associated with this *Contact*.")
+    secondary_email_address: StrictStr | None = Field(default=None, description="The secondary email address associated with this *Contact*.")
+    primary_phone_number: StrictStr | None = Field(default=None, description="The primary phone number associated with this *Contact*.")
+    secondary_phone_number: StrictStr | None = Field(default=None, description="The secondary phone number of the *Contact*.")
+    ledes_client_id: StrictStr | None = Field(default=None, description="LEDES client id of the Contact")
+    has_clio_for_clients_permission: StrictBool | None = Field(default=None, description="True if at least one resource has been shared with the contact using Clio for Clients.")
+    is_client: StrictBool | None = Field(default=None, description="Whether or not the Contact is a client")
+    is_clio_for_client_user: StrictBool | None = Field(default=None, description="Whether or not this contact has client_login and client_user (can be created due to addition to client portal or client_share_permissions)")
+    is_co_counsel: StrictBool | None = Field(default=None, description="Whether or not the Contact has matters shared as co-counsel")
+    is_bill_recipient: StrictBool | None = Field(default=None, description="Whether the Contact is a bill recipient on at least one matter.")
+    sales_tax_number: StrictStr | None = Field(default=None, description="The sales tax number of the *Contact*")
+    currency: dict[str, Any] | None = Field(default=None, description="Currency of the *Contact*")
+    __properties: ClassVar[list[str]] = ["id", "etag", "name", "first_name", "middle_name", "last_name", "date_of_birth", "type", "created_at", "updated_at", "prefix", "title", "initials", "clio_connect_email", "locked_clio_connect_email", "client_connect_user_id", "primary_email_address", "secondary_email_address", "primary_phone_number", "secondary_phone_number", "ledes_client_id", "has_clio_for_clients_permission", "is_client", "is_clio_for_client_user", "is_co_counsel", "is_bill_recipient", "sales_tax_number", "currency"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -87,11 +93,11 @@ class ContactBase(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of ContactBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -101,7 +107,7 @@ class ContactBase(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -112,7 +118,7 @@ class ContactBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of ContactBase from a dict"""
         if obj is None:
             return None

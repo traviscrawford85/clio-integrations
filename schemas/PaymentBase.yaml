@@ -1,0 +1,79 @@
+description: PaymentBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Payment*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Payment*
+    title: Etag
+  description:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A detailed description of the *Payment*
+    title: Description
+  reference:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A reference for the payment
+    title: Reference
+  amount:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Total amount paid. The default is 0.00.
+    title: Amount
+  date:
+    anyOf:
+    - format: date
+      type: string
+    - type: 'null'
+    default: null
+    description: The date the *Payment* was recorded (as a ISO-8601 date)
+    title: Date
+  source_fund_type:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The fund type for *Payment* source
+    title: Source Fund Type
+  voided_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: Time the *Payment* was voided (as a ISO-8601 timestamp)
+    title: Voided At
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Payment* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Payment* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+title: PaymentBase
+type: object

@@ -1,0 +1,83 @@
+description: ReportBase
+properties:
+  id:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Unique identifier for the *Report*
+    title: Id
+  etag:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: ETag for the *Report*
+    title: Etag
+  name:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: A specified name for the report
+    title: Name
+  state:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The current state of the report
+    title: State
+  kind:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The kind of report to generate
+    title: Kind
+  format:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The requested format of the report
+    title: Format
+  progress:
+    anyOf:
+    - type: integer
+    - type: 'null'
+    default: null
+    description: The integer percentage of how complete the report is.
+    title: Progress
+  created_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Report* was created (as a ISO-8601 timestamp)
+    title: Created At
+  updated_at:
+    anyOf:
+    - format: date-time
+      type: string
+    - type: 'null'
+    default: null
+    description: The time the *Report* was last updated (as a ISO-8601 timestamp)
+    title: Updated At
+  category:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The category of the report
+    title: Category
+  source:
+    anyOf:
+    - type: string
+    - type: 'null'
+    default: null
+    description: The source of the report
+    title: Source
+title: ReportBase
+type: object

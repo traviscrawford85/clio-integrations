@@ -1,0 +1,19 @@
+description: LineItemUpdateRequestDataDiscount
+properties:
+  rate:
+    anyOf:
+    - type: number
+    - type: integer
+    - type: 'null'
+    default: null
+    description: Discount rate for the LineItem.
+    title: Rate
+  type:
+    anyOf:
+    - type: boolean
+    - type: 'null'
+    default: null
+    description: 'Discount type. This should be set to one of: ''percentage'' or ''money''.'
+    title: Type
+title: LineItemUpdateRequestDataDiscount
+type: object

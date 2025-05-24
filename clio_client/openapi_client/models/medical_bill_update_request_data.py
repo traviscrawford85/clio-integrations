@@ -1,4 +1,3 @@
-# coding: utf-8
 
 """
     Clio API Documentation
@@ -19,29 +18,37 @@ import json
 import pprint
 import re  # noqa: F401
 from datetime import date
-from typing import Any, ClassVar, Dict, List, Optional, Set, Union
+from typing import Any, ClassVar
 
-from pydantic import (BaseModel, ConfigDict, Field, StrictBool, StrictFloat,
-                      StrictInt, StrictStr)
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictFloat,
+    StrictInt,
+    StrictStr,
+)
 from typing_extensions import Self
 
-from clio_client.openapi_client.models.medical_bill_update_request_data_payers_inner import \
-    MedicalBillUpdateRequestDataPayersInner
+from clio_client.openapi_client.models.medical_bill_update_request_data_payers_inner import (
+    MedicalBillUpdateRequestDataPayersInner,
+)
 
 
 class MedicalBillUpdateRequestData(BaseModel):
     """
     MedicalBillUpdateRequestData
     """ # noqa: E501
-    adjustment: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Adjustment")
-    amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Amount")
-    balance: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Balance")
-    bill_date: Optional[date] = Field(default=None, description="Bill Date (Expects an ISO-8601 date).")
-    bill_received_date: Optional[date] = Field(default=None, description="Bill Received Date (Expects an ISO-8601 date).")
-    mark_balance_as_lien: Optional[StrictBool] = Field(default=None, description="Mark balance as lien")
-    name: Optional[StrictStr] = Field(default=None, description="Name")
-    payers: Optional[List[MedicalBillUpdateRequestDataPayersInner]] = None
-    __properties: ClassVar[List[str]] = ["adjustment", "amount", "balance", "bill_date", "bill_received_date", "mark_balance_as_lien", "name", "payers"]
+    adjustment: StrictFloat | StrictInt | None = Field(default=None, description="Adjustment")
+    amount: StrictFloat | StrictInt | None = Field(default=None, description="Amount")
+    balance: StrictFloat | StrictInt | None = Field(default=None, description="Balance")
+    bill_date: date | None = Field(default=None, description="Bill Date (Expects an ISO-8601 date).")
+    bill_received_date: date | None = Field(default=None, description="Bill Received Date (Expects an ISO-8601 date).")
+    mark_balance_as_lien: StrictBool | None = Field(default=None, description="Mark balance as lien")
+    name: StrictStr | None = Field(default=None, description="Name")
+    payers: list[MedicalBillUpdateRequestDataPayersInner] | None = None
+    __properties: ClassVar[list[str]] = ["adjustment", "amount", "balance", "bill_date", "bill_received_date", "mark_balance_as_lien", "name", "payers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -60,11 +67,11 @@ class MedicalBillUpdateRequestData(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Self]:
+    def from_json(cls, json_str: str) -> Self | None:
         """Create an instance of MedicalBillUpdateRequestData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -74,7 +81,7 @@ class MedicalBillUpdateRequestData(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
+        excluded_fields: set[str] = set([
         ])
 
         _dict = self.model_dump(
@@ -92,7 +99,7 @@ class MedicalBillUpdateRequestData(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: dict[str, Any] | None) -> Self | None:
         """Create an instance of MedicalBillUpdateRequestData from a dict"""
         if obj is None:
             return None
